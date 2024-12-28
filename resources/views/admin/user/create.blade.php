@@ -36,7 +36,7 @@
            </div> 
            <br/> 
            <div class="field"> 
-              <label class="label_field">Role</label> 
+              <label class="label_field">Akses</label> 
               <select name="role" class="form-control"> 
                <option value="admin">admin</option> 
                <option value="pegawai">pegawai</option> 

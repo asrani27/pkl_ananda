@@ -44,6 +44,15 @@
                {{-- <input type="text" class="form-control" name="role" value="{{$data->roles->first()->name}}" readonly> --}}
             </div>
             <br />
+            <div class="field">
+               <label class="label_field">Pegawai</label>
+               <select name="pegawai_id" class="form-control">
+                 @foreach($pegawai as $peg)
+                    <option value="{{$peg->id}}">{{$peg->nama}}</option>
+                 @endforeach
+               </select>
+           </div>
+            <br />
             <div class="field margin_0">
 
                <button class="main_bt"><i class="fa fa-save"></i> Update</button>

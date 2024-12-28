@@ -40,7 +40,7 @@
    <body class="dashboard dashboard_1">
       <div class="full_container">
          <div class="inner_container">
-            <!-- Sidebar  -->
+            <!-- Sidebar  --> 
             <nav id="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
@@ -60,14 +60,31 @@
                   </div>
                </div>
                <div class="sidebar_blog_2">
-                  <h4>Administrator</h4>
-                  <ul class="list-unstyled components">
-                     <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
-                     <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
-                     <li><a href="/admin/data/pegawai"><i class="fa fa-users white_color"></i> <span>Data Pegawai</span></a></li>
-                     <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
-                     
+                 
+                  @if(Auth::user()->roles == 'admin')
+                     <h4>Administrator</h4>
+                  @else
+                     <h4>Pegawai</h4>
+                  @endif
+
+                  @if(Auth::user()->roles == 'admin')
+
+                  <ul class="list-unstyled components"> 
+                     <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
+                     <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li> 
+                     <li><a href="/admin/data/pegawai"><i class="fa fa-users white_color"></i> <span>Data Pegawai</span></a></li> 
+                     <li><a href="/admin/data/jabatan"><i class="fa fa-users white_color"></i> <span>Data Jabatan</span></a></li> 
+                     <li><a href="/admin/data/pendidikan"><i class="fa fa-users white_color"></i> <span>Data Pendidikan</span></a></li> 
+                     <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
                   </ul>
+               @else
+                  <ul class="list-unstyled components"> 
+                     <li><a href="/pegawai"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
+                     <li><a href="/pegawai/data/upload"><i class="fa fa-users white_color"></i> <span>Update Data</span></a></li> 
+                     <li><a href="/pegawai/data/upload"><i class="fa fa-users white_color"></i> <span>Upload Berkas</span></a></li> 
+                     <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
+                  </ul>
+               @endif
                </div>
             </nav>
             <!-- end sidebar -->
