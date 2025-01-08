@@ -15,6 +15,17 @@
         <form method="post" action="/admin/data/pegawai/create"> 
             @csrf 
         <fieldset> 
+         <div class="field"> 
+            <label class="label_field">Username</label> 
+            <input type="text" class="form-control" name="username"> 
+         </div> 
+            <br/> 
+            <div class="field"> 
+               <label class="label_field">Password</label> 
+               <input type="text" class="form-control" name="password"> 
+            </div> 
+         <br/> 
+         <hr style="border: 2px solid black">
             <div class="field"> 
                <label class="label_field">NIK</label> 
                <input type="text" class="form-control" name="nik"> 

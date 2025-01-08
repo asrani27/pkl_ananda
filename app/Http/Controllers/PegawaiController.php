@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
 use App\Models\Pendidikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class PegawaiController extends Controller
@@ -24,17 +26,20 @@ class PegawaiController extends Controller
     }
     public function simpan(Request $req)
     {
-        $check = Pegawai::where('nik', $req->nik)->first();
-        if ($check != null) {
-            Session::flash('warning', 'nik Sudah ada');
-            $req->flash();
-            return back();
-        } else {
+        if($req->nik == '-'){
             DB::beginTransaction();
 
             try {
 
-                Pegawai::create($req->all());
+                $peg = Pegawai::create($req->all());
+
+                $new = new User;
+                $new->name = $req->nama;
+                $new->username = $req->username;
+                $new->roles = 'pegawai';
+                $new->password = Hash::make($req->password);
+                $new->pegawai_id = $peg->id;
+                $new->save();
 
                 DB::commit();
 
@@ -46,20 +51,74 @@ class PegawaiController extends Controller
                 Session::flash('error', 'Gagal sistem');
                 return back();
             }
+        }else{
+            $check = Pegawai::where('nik', $req->nik)->first();
+            if ($check != null) {
+                Session::flash('warning', 'nik Sudah ada');
+                $req->flash();
+                return back();
+            } else {
+                DB::beginTransaction();
+    
+                try {
+    
+                    $peg = Pegawai::create($req->all());
+    
+                    $new = new User;
+                    $new->name =$req->nama;
+                    $new->username =$req->username;
+                    $new->password = Hash::make($req->password);
+                    $new->pegawai_id = $peg->id;
+                    $new->save();
+    
+                    DB::commit();
+    
+                    Session::flash('success', 'berhasil di simpan');
+                    return redirect('/admin/data/pegawai');
+                } catch (\Exception $e) {
+    
+                    DB::rollback();
+                    Session::flash('error', 'Gagal sistem');
+                    return back();
+                }
+            }
         }
+       
     }
     public function edit($id)
     {
         $data = Pegawai::find($id);
-        return view('admin.pegawai.edit', compact('data'));
+        $jabatan = Jabatan::get();
+        $pendidikan = Pendidikan::get();
+        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan'));
     }
     public function update(Request $req, $id)
     {
         $data = Pegawai::find($id)->update($req->all());
+
+        $update = $data->user;
+        $update->password = $req->password;
+        $update->save();
+        return redirect('/admin/data/pegawai');
+
     }
     public function hapus($id)
     {
         $data = Pegawai::find($id)->delete();
         return back();
+    }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = Pegawai::where('nama', 'LIKE', '%' . $cari . '%')->get();
+        return view('admin.pegawai.index', compact('data'));
+    }
+
+    public function detail($id)
+    {
+        $data = Pegawai::find($id);
+
+        return view('admin.pegawai.detail', compact('data'));
     }
 }

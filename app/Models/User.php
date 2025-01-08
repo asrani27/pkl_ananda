@@ -39,4 +39,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function upload()
+    {
+        return $this->hasOne(Upload::class, 'user_id');
+    }
+
 }

@@ -19,11 +19,14 @@ class JabatanController extends Controller
     }
     public function simpan(Request $req)
     {
-                Jabatan::create($req->all());
-
-                Session::flash('success', 'berhasil di simpan');
-                return redirect('/admin/data/jabatan');
-        
+        if(Jabatan::where('nama_jabatan', $req->nama_jabatan)->first() != null) 
+        { 
+        Session::flash('error', 'Nama Jabatan Sudah Ada'); 
+        return back();
+        }
+        Jabatan::create($req->all());
+        Session::flash('success', 'berhasil di simpan');
+        return redirect('/admin/data/jabatan');
     }
     public function edit($id)
     {
@@ -41,5 +44,12 @@ class JabatanController extends Controller
     {
         $data = Jabatan::find($id)->delete();
         return back();
+    }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = Jabatan::where('nama_jabatan', 'LIKE', '%' . $cari . '%')->get();
+        return view('admin.jabatan.index', compact('data'));
     }
 }

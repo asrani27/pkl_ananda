@@ -8,7 +8,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Administrator</title>
+      @if(Auth::user()->roles == 'admin')
+                     <title>ADMINISTRATOR</title>
+                  @else
+                     <title>PEGAWAI</title>
+                  @endif
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -74,14 +78,17 @@
                      <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li> 
                      <li><a href="/admin/data/pegawai"><i class="fa fa-users white_color"></i> <span>Data Pegawai</span></a></li> 
                      <li><a href="/admin/data/jabatan"><i class="fa fa-users white_color"></i> <span>Data Jabatan</span></a></li> 
-                     <li><a href="/admin/data/pendidikan"><i class="fa fa-users white_color"></i> <span>Data Pendidikan</span></a></li> 
+                     <li><a href="/admin/data/pendidikan"><i class="fa fa-mortar-board"></i> <span>Data Pendidikan</span></a></li> 
+                     <li><a href="/admin/data/suratmasuk"><i class="fa fa-mortar-board"></i> <span>Surat Masuk</span></a></li>
+                     <li><a href="/admin/data/suratkeluar"><i class="fa fa-mortar-board"></i> <span>Surat Keluar</span></a></li>
+                     <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
                      <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
                   </ul>
                @else
                   <ul class="list-unstyled components"> 
                      <li><a href="/pegawai"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
-                     <li><a href="/pegawai/data/upload"><i class="fa fa-users white_color"></i> <span>Update Data</span></a></li> 
-                     <li><a href="/pegawai/data/upload"><i class="fa fa-users white_color"></i> <span>Upload Berkas</span></a></li> 
+                     <li><a href="/pegawai/data/biodata"><i class="fa fa-edit"></i> <span>Update Biodata</span></a></li> 
+                     <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Upload Berkas</span></a></li> 
                      <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
                   </ul>
                @endif

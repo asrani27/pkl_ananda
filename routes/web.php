@@ -5,9 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PendidikanController;
+use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +61,36 @@ Route::post('admin/data/pendidikan/create', [PendidikanController::class, 'simpa
 Route::get('admin/data/pendidikan/edit/{id}', [PendidikanController::class, 'edit']);
 Route::post('admin/data/pendidikan/edit/{id}', [PendidikanController::class, 'update']);
 Route::get('admin/data/pendidikan/delete/{id}', [PendidikanController::class, 'hapus']);
+
+Route::get('admin/data/suratmasuk', [SuratMasukController::class, 'index']);
+Route::get('admin/data/suratmasuk/create', [SuratMasukController::class, 'tambah']);
+Route::post('admin/data/suratmasuk/create', [SuratMasukController::class, 'simpan']);
+Route::get('admin/data/suratmasuk/edit/{id}', [SuratMasukController::class, 'edit']);
+Route::post('admin/data/suratmasuk/edit/{id}', [SuratMasukController::class, 'update']);
+Route::get('admin/data/suratmasuk/delete/{id}', [SuratMasukController::class, 'hapus']);
+
+Route::get('admin/data/suratkeluar', [SuratKeluarController::class, 'index']);
+Route::get('admin/data/suratkeluar/create', [SuratKeluarController::class, 'tambah']);
+Route::post('admin/data/suratkeluar/create', [SuratKeluarController::class, 'simpan']);
+Route::get('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, 'edit']);
+Route::post('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, 'update']);
+Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 'hapus']);
+
+Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
+Route::get('admin/data/laporan/pegawai', [LaporanController::class, 'laporan_pegawai']);
+
+Route::get('pegawai/data/upload', [UploadController::class, 'upload']);
+Route::post('pegawai/upload/lamarankerja', [UploadController::class, 'uploadlamarankerja']);
+Route::post('pegawai/upload/ktp', [UploadController::class, 'uploadktp']);
+Route::post('pegawai/upload/kk', [UploadController::class, 'uploadkk']);
+Route::post('pegawai/upload/ijazah', [UploadController::class, 'uploadijazah']);
+Route::post('pegawai/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
+Route::post('pegawai/upload/spk', [UploadController::class, 'uploadspk']);
+Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
+
+Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
+Route::get('admin/data/user/cari', [UserController::class, 'cari']);
+Route::get('admin/data/pegawai/cari', [PegawaiController::class, 'cari']);
+Route::get('admin/data/jabatan/cari', [JabatanController::class, 'cari']);
+Route::get('admin/data/pendidikan/cari', [PendidikanController::class, 'cari']);
+Route::get('admin/data/pegawai/detail/{id}', [PegawaiController::class, 'detail']);

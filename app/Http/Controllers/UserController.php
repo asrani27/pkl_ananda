@@ -99,4 +99,11 @@ class UserController extends Controller
         $data = User::find($id)->delete();
         return back();
     }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = User::where('nama', 'LIKE', '%' . $cari . '%')->get();
+        return view('admin.user.index', compact('data'));
+    }
 }

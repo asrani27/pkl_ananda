@@ -42,4 +42,11 @@ class PendidikanController extends Controller
         $data = Pendidikan::find($id)->delete();
         return back();
     }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = Pendidikan::where('nama_pendidikan', 'LIKE', '%' . $cari . '%')->get();
+        return view('admin.pendidikan.index', compact('data'));
+    }
 }
