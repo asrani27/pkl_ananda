@@ -69,6 +69,7 @@ class PegawaiController extends Controller
                     $new->username =$req->username;
                     $new->password = Hash::make($req->password);
                     $new->pegawai_id = $peg->id;
+                    $new->roles = 'pegawai';
                     $new->save();
     
                     DB::commit();
@@ -96,9 +97,13 @@ class PegawaiController extends Controller
     {
         $data = Pegawai::find($id)->update($req->all());
 
-        $update = $data->user;
-        $update->password = $req->password;
-        $update->save();
+        $user = Pegawai::find($id)->user;
+        if($user != null){
+            $update = $user;
+            $update->password = $req->password;
+            $update->save();
+        }
+        Session::flash('success', 'Berhasil Di Update');
         return redirect('/admin/data/pegawai');
 
     }

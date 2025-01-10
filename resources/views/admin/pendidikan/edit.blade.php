@@ -16,7 +16,7 @@
             @csrf 
         <fieldset> 
             <div class="field"> 
-               <label class="label_field">Nama Jabatan</label> 
+               <label class="label_field">Nama Pendidikan</label> 
                <input type="text" class="form-control" name="nama_pendidikan" value="{{$data->nama_pendidikan}}"> 
             </div> 
             <br/> 

@@ -45,13 +45,18 @@
             </div>  
         <br/> 
             <div class="field"> 
+              <label class="label_field">TTL</label> 
+              <input type="text" class="form-control" name="ttl"> 
+            </div> 
+        <br/> 
+            <div class="field"> 
               <label class="label_field">Alamat</label> 
               <input type="text" class="form-control" name="alamat"> 
             </div> 
         <br/> 
             <div class="field"> 
               <label class="label_field">Telpon</label> 
-              <input type="text" class="form-control" name="telp"> 
+              <input type="text" class="form-control" name="telpon"> 
             </div> 
         <br/> 
             <div class="field"> 
@@ -74,16 +79,29 @@
                 @endforeach
               </select> 
            </div> 
+         <br/> 
+            <div class="field"> 
+              <label class="label_field">Tugas Pokok</label> 
+              <input type="text" class="form-control" name="tugas_pokok"> 
+            </div> 
         <br/> 
            <div class="field"> 
-              <label class="label_field">Pendidikan</label> 
-              <select name="pendidikan_id" class="form-control"> 
-               @foreach($pendidikan as $pen)
-              <option value="{{$pen->id}}" >{{$pen->nama_pendidikan}}</option>
-                @endforeach
+            <label class="label_field">Pendidikan</label> 
+            <select name="pendidikan_id" class="form-control"> 
+             @foreach($pendidikan as $pen)
+             <option value="{{$pen->nama_pendidikan}}" >{{$pen->nama_pendidikan}}</option>
+              @endforeach
               </select> 
            </div> 
         <br/>
+         <div class="field"> 
+            <label class="label_field">Status Pegawai</label> 
+            <select name="status" class="form-control"> 
+               <option value="PNS">PNS</option>
+               <option value="TEKON">TEKON</option>
+            </select> 
+         </div> 
+      <br/>
            <div class="field"> 
               <label class="label_field">Prodi</label> 
               <input type="text" class="form-control" name="prodi"> 

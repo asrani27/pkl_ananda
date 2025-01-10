@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SptController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -69,6 +70,16 @@ Route::get('admin/data/suratmasuk/edit/{id}', [SuratMasukController::class, 'edi
 Route::post('admin/data/suratmasuk/edit/{id}', [SuratMasukController::class, 'update']);
 Route::get('admin/data/suratmasuk/delete/{id}', [SuratMasukController::class, 'hapus']);
 
+Route::get('admin/data/spt', [SptController::class, 'index']);
+Route::get('admin/data/sptpetugas/delete/{id}', [SptController::class, 'deletePetugas']);
+Route::post('admin/data/spt/simpanpegawai/{id}', [SptController::class, 'simpanPetugas']);
+Route::get('admin/data/spt/create', [SptController::class, 'tambah']);
+Route::post('admin/data/spt/create', [SptController::class, 'simpan']);
+Route::get('admin/data/spt/edit/{id}', [SptController::class, 'edit']);
+Route::post('admin/data/spt/edit/{id}', [SptController::class, 'update']);
+Route::get('admin/data/spt/delete/{id}', [SptController::class, 'hapus']);
+Route::get('admin/data/spt/cetak/{id}', [SptController::class, 'cetak']);
+
 Route::get('admin/data/suratkeluar', [SuratKeluarController::class, 'index']);
 Route::get('admin/data/suratkeluar/create', [SuratKeluarController::class, 'tambah']);
 Route::post('admin/data/suratkeluar/create', [SuratKeluarController::class, 'simpan']);
@@ -78,6 +89,11 @@ Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 
 
 Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
 Route::get('admin/data/laporan/pegawai', [LaporanController::class, 'laporan_pegawai']);
+Route::get('admin/data/laporan/belumupload', [LaporanController::class, 'laporan_belumupload']);
+
+Route::get('admin/data/laporan/suratmasuk', [LaporanController::class, 'laporan_suratmasuk']);
+Route::get('admin/data/laporan/suratkeluar', [LaporanController::class, 'laporan_suratkeluar']);
+Route::get('admin/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
 
 Route::get('pegawai/data/upload', [UploadController::class, 'upload']);
 Route::post('pegawai/upload/lamarankerja', [UploadController::class, 'uploadlamarankerja']);
@@ -89,6 +105,7 @@ Route::post('pegawai/upload/spk', [UploadController::class, 'uploadspk']);
 Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
 
 Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
+Route::post('pegawai/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 Route::get('admin/data/user/cari', [UserController::class, 'cari']);
 Route::get('admin/data/pegawai/cari', [PegawaiController::class, 'cari']);
 Route::get('admin/data/jabatan/cari', [JabatanController::class, 'cari']);

@@ -35,8 +35,8 @@
            <thead> 
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
                 <th>No</th> 
-                <th>Pendidikan</th> 
-                <th>Aksi</th> 
+                <th style="text-align: center">Pendidikan</th> 
+                <th style="text-align: center">Aksi</th> 
               </tr> 
            </thead> 
            <tbody> 

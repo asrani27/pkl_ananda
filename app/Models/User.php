@@ -44,5 +44,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Upload::class, 'user_id');
     }
+    public function pegawai()
+    {
+        return $this->belongsTo(Pegawai::class, 'pegawai_id');
+    }
 
 }

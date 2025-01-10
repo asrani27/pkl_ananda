@@ -32,13 +32,13 @@
         <table class="table table-bordered"> 
            <thead> 
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
-                <th>No</th> 
-                <th>Nomor Surat</th>
+                <th >No</th> 
+                <th style="text-align: center">Nomor Surat</th>
                 <th>Tanggal Surat</th>
-                <th>Sifat</th>
+                <th style="text-align: center">Sifat</th>
                 <th>Lampiran</th>
-                <th>Perihal</th>
-                <th>Tujuan</th>
+                <th style="text-align: center">Perihal</th>
+                <th style="text-align: center">Tujuan</th>
                 <th>Aksi</th> 
               </tr> 
            </thead> 
@@ -53,8 +53,8 @@
               <td>{{$item->lampiran}}</td>
               <td>{{$item->perihal}}</td>
               <td>{{$item->tujuan}}</td>
-              <td> 
-               <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-eye"></i> </a><br/>
+              <td style="display: flex">
+               <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-file-pdf-o"></i> </a><br/>
                 <a href="/admin/data/suratkeluar/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> </a> 
                 <a href="/admin/data/suratkeluar/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> 
               </td> 

@@ -15,11 +15,22 @@
   <div class="full graph_head">
      <div class="heading1 margin_0">
       <a href="/admin/data/laporan/pegawai" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Pegawai</a>
+      <a href="/admin/data/laporan/belumupload" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Belum Upload</a>
      </div>
   </div>
-  
 </div>
 
+
+ <div class="white_shd full margin_bottom_30">
+   <div class="full graph_head">
+      <div class="heading1 margin_0">
+         <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Surat Masuk</a>
+       <a href="/admin/data/laporan/suratkeluar" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Surat Keluar</a>
+       <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
+      </div>
+   </div>
+ </div>
+  
 @endsection
 @push('js')
 

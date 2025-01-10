@@ -43,13 +43,14 @@
                                 <div class="contact_inner">
                                     <h3>{{$data->jabatan->nama_jabatan}}</h3>
                                     <p><strong>NIK : </strong>{{$data->nik}}</p>
-                                    <p><strong>Alamat : </strong>{{$data->alamat}}</p>
+                                    <p><strong>TTL : </strong>{{$data->ttl}}</p>
                                     <p><strong>Jenis Kelamin : </strong>{{$data->jkel}}</p>
                                     <p><strong>Alamat : </strong>{{$data->alamat}}</p>
                                     <p><strong>Telpon : </strong>{{$data->telpon}}</p>
                                     <p><strong>Agama : </strong>{{$data->agama}}</p>
-                                    <p><strong>Pendidikan : </strong>{{$data->pendidikan_id}}</p>
+                                    <p><strong>Pendidikan : </strong>{{$data->pendidikan == null ? '-': $data->pendidikan->nama_pendidikan}}</p>
                                     <p><strong>Prodi : </strong>{{$data->prodi}}</p>
+                                    <p><strong>Tugas Pokok : </strong>{{$data->tugas_pokok}}</p>
                                 </div>
                             </div>
                         </div>

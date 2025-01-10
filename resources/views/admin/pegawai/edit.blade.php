@@ -43,6 +43,11 @@
               <option value="LAKI LAKI" {{$data->jkel === "LAKI LAKI" ? 'selected':''}}>Laki - Laki</option>  
               </select>  
             </div>   
+         <br/>
+            <div class="field"> 
+             <label class="label_field">TTL</label> 
+            <input type="text" class="form-control" name="ttl" value="{{$data->ttl}}"> 
+          </div> 
         <br/>  
             <div class="field">  
               <label class="label_field">Alamat</label>  
@@ -73,17 +78,30 @@
                <option value="{{$jab->id}}"  {{$data->jabatan_id == $jab->id ? 'selected':''}}>{{$jab->nama_jabatan}}</option> 
                 @endforeach 
               </select>  
-           </div>  
+           </div> 
+         <br/>  
+           <div class="field">  
+             <label class="label_field">Tugas Pokok</label>  
+             <input type="text" class="form-control" name="tugas_pokok" value="{{$data->tugas_pokok}}">  
+           </div>    
         <br/>  
            <div class="field">  
               <label class="label_field">Pendidikan</label>  
               <select name="pendidikan_id" class="form-control">  
                @foreach($pendidikan as $pen) 
-              <option value="{{$pen->id}}"   {{$data->pendidikan_id == $pen->id ? 'selected':''}}>{{$pen->nama_pendidikan}}</option> 
+              <option value="{{$pen->id}}" {{$data->pendidikan_id == $pen->id ? 'selected':''}}>{{$pen->nama_pendidikan}}</option> 
                 @endforeach 
               </select>  
            </div>  
         <br/> 
+        <div class="field"> 
+           <label class="label_field">Status Pegawai</label> 
+           <select name="status" class="form-control"> 
+              <option value="PNS" {{$data->status == 'PNS' ? 'selected':''}}>PNS</option>
+              <option value="TEKON" {{$data->status == 'TEKON' ? 'selected':''}}>TEKON</option>
+           </select> 
+        </div> 
+     <br/>
            <div class="field">  
               <label class="label_field">Prodi</label>  
               <input type="text" class="form-control" name="prodi" value="{{$data->prodi}}">  

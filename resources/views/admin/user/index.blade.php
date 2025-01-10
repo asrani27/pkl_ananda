@@ -35,10 +35,10 @@
            <thead> 
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
                 <th>No</th> 
-                <th>Nama</th> 
-                <th>Username</th> 
-                <th>Hak Akses</th> 
-                <th>Aksi</th> 
+                <th style="text-align: center">Nama</th> 
+                <th style="text-align: center">Username</th> 
+                <th style="text-align: center">Hak Akses</th> 
+                <th style="text-align: center">Aksi</th> 
               </tr> 
            </thead> 
            <tbody> 

@@ -34,11 +34,11 @@
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
                 <th>No</th> 
                 <th>Tanggal Masuk</th>
-                <th>Pengirim</th>
+                <th style="text-align: center">Pengirim</th>
                 <th>Tanggal Surat</th>
-                <th>Nomor Surat</th>
+                <th style="text-align: center">Nomor Surat</th>
                 <th>Lampiran</th>
-                <th>Perihal</th>
+                <th style="text-align: center">Perihal</th>
                 <th>Aksi</th> 
               </tr> 
            </thead> 
@@ -53,8 +53,8 @@
               <td>{{$item->no_surat}}</td>
               <td>{{$item->lampiran}}</td>
               <td>{{$item->perihal}}</td>
-              <td> 
-               <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-eye"></i> </a><br/>
+              <td style="display: flex"> 
+                <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-file-pdf-o"></i> </a><br/>
                 <a href="/admin/data/suratmasuk/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> </a> <br/>
                 <a href="/admin/data/suratmasuk/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br/>
               </td> 
