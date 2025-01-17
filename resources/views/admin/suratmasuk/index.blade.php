@@ -34,9 +34,9 @@
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
                 <th>No</th> 
                 <th>Tanggal Masuk</th>
+                <th style="text-align: center">Nomor Surat</th>
                 <th style="text-align: center">Pengirim</th>
                 <th>Tanggal Surat</th>
-                <th style="text-align: center">Nomor Surat</th>
                 <th>Lampiran</th>
                 <th style="text-align: center">Perihal</th>
                 <th>Aksi</th> 
@@ -47,10 +47,10 @@
             @foreach ($data as $key => $item) 
             <tr> 
               <td>{{1 + $key}}</td> 
-              <td>{{$item->tgl_masuk}}</td>
-              <td>{{$item->pengirim}}</td>
-              <td>{{$item->tgl_surat}}</td> 
+              <td>{{\Carbon\Carbon::parse($item->tgl_masuk)->format('d-m-Y')}}</td>
               <td>{{$item->no_surat}}</td>
+              <td>{{$item->pengirim}}</td>
+              <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
               <td>{{$item->lampiran}}</td>
               <td>{{$item->perihal}}</td>
               <td style="display: flex"> 

@@ -89,7 +89,7 @@ class UserController extends Controller
                 $data->roles = $req->roles; 
                 $data->pegawai_id = $req->pegawai_id;
                 $data->save();
-                Session::flash('success', 'Berhasil Diupdate, password : ' . $req->password1);
+                Session::flash('success', 'Be\rhasil Diupdate, password : ' . $req->password1);
                 return redirect('/admin/data/user');
             }
         }
@@ -103,7 +103,7 @@ class UserController extends Controller
     public function cari()
     {
         $cari = request()->get('cari');
-        $data = User::where('nama', 'LIKE', '%' . $cari . '%')->get();
+        $data = User::where('username', 'LIKE', '%' . $cari . '%')->orWhere('roles', 'LIKE', '%' . $cari . '%')->get();
         return view('admin.user.index', compact('data'));
     }
 }

@@ -7,18 +7,17 @@
 <div class="row column_title"> 
   <div class="col-md-12"> 
      <div class="page_title"> 
-        <h2>Data SPT</h2> 
+        <h2>Data Surat Perintah Tugas</h2> 
      </div> 
   </div> 
 </div> 
-<div class="white_shd full margin_bottom_30"> 
-  <div class="full graph_head"> 
-     <div class="heading1 margin_0"> 
-        
+   <div class="white_shd full margin_bottom_30"> 
+      <div class="full graph_head"> 
+      <div class="heading1 margin_0">  
       <a href="/admin/data/spt/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a> 
-     </div> 
-  </div> 
-  <div class="table_section padding_infor_info"> 
+   </div> 
+</div> 
+   <div class="table_section padding_infor_info"> 
      <div class="table-responsive-sm">
       <form method="get" action="/admin/data/spt/cari">
          @csrf
@@ -56,7 +55,12 @@
                @else
                <ul>
                   @foreach ($item->petugas as $key2 => $item2)
-                      <li>{{$key2+1}}. {{$item2->pegawai->nama}} <a href="/admin/data/sptpetugas/delete/{{$item2->id}}" class="text-danger"><i class="fa fa-times"></i></a> </li>
+                  @if ($item2->pegawai == null)
+                      
+                  @else
+                      
+                  <li>{{$key2+1}}. {{$item2->pegawai->nama}} <a href="/admin/data/sptpetugas/delete/{{$item2->id}}" class="text-danger"><i class="fa fa-times"></i></a> </li>
+                  @endif
                   @endforeach
                </ul>
                @endif
@@ -76,7 +80,6 @@
               <td style="display: flex"> 
                 <a href="/admin/data/spt/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> </a> <br/>
                 <a href="/admin/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br/>
-                
                 <a href="/admin/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-print"></i> </a> <br/>
               </td> 
             </tr> 

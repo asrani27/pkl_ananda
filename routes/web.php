@@ -88,6 +88,8 @@ Route::post('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, '
 Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 'hapus']);
 
 Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
+Route::get('admin/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
+Route::get('admin/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
 Route::get('admin/data/laporan/pegawai', [LaporanController::class, 'laporan_pegawai']);
 Route::get('admin/data/laporan/belumupload', [LaporanController::class, 'laporan_belumupload']);
 

@@ -24,14 +24,14 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN PEGAWAI <br>
+    <h3 style="text-align: center">LAPORAN PEGAWAI PNS <br>
       
     </h3> 
     <br/>
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Nik</th>
+            <th>NIP</th>
             <th>Nama</th>
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
@@ -55,8 +55,8 @@
           <td>{{$item->alamat}}</td>
           <td>{{$item->telpon}}</td>
           <td>{{$item->agama}}</td>
-          <td>{{$item->jabatan_id}}</td>
-          <td>{{$item->pendidikan_id}}</td>
+          <td>{{$item->jabatan->nama_jabatan}}</td>
+          <td>{{$item->pendidikan->nama_pendidikan}}</td>
           <td>{{$item->prodi}}</td>
         </tr>
         @endforeach

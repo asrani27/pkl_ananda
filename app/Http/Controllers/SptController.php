@@ -75,7 +75,7 @@ class SptController extends Controller
     public function cari()
     {
         $cari = request()->get('cari');
-        $data = Spt::where('perihal', 'LIKE', '%' . $cari . '%')->get();
+        $data = Spt::where('keperluan', 'LIKE', '%' . $cari . '%')->get();
         return view('admin.spt.index', compact('data'));
     }
     public function detail($id)

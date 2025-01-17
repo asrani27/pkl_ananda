@@ -80,8 +80,8 @@
                      <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li> 
                      <li><a href="/admin/data/pendidikan"><i class="fa fa-mortar-board"></i> <span>Data Pendidikan</span></a></li> 
                      <li><a href="/admin/data/suratmasuk"><i class="	fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                     <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
-                     <li><a href="/admin/data/spt"><i class="	fa fa-envelope"></i> <span>SPT</span></a></li>
+                     <li><a href="/admin/data/suratkeluar"><i class="fa fa-envelope"></i> <span>Surat Keluar</span></a></li>
+                     <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
                      <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
                      <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
                   </ul>

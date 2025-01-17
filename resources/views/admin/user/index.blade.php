@@ -21,7 +21,7 @@
   <div class="table_section padding_infor_info"> 
      <div class="table-responsive-sm"> 
 
-      <form method="get" action="/admin/data/jabatan/cari">
+      <form method="get" action="/admin/data/user/cari">
          @csrf
          <div style="display: flex; margin-left: auto; gap: 8px; align-items: center;">
             <input type="text" class="form-control" name="cari" placeholder="Cari Data" style="max-width: 300px;">

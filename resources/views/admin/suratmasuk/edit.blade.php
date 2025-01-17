@@ -19,6 +19,11 @@
                <label class="label_field">Tanggal Masuk</label>   
                <input type="date" class="form-control" name="tgl_masuk" value="{{$data->tgl_masuk}}">   
             </div> 
+
+            <div class="field">   
+               <label class="label_field">Nomor Surat</label>   
+               <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}">   
+            </div> 
  
             <div class="field">   
                 <label class="label_field">Pengirim</label>   
@@ -29,11 +34,6 @@
                 <label class="label_field">Tanggal Surat</label>   
                 <input type="date" class="form-control" name="tgl_surat" value="{{$data->tgl_surat}}">   
              </div>  
- 
-             <div class="field">   
-                <label class="label_field">Nomor Surat</label>   
-                <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}">   
-             </div> 
  
              <div class="field">   
                 <label class="label_field">Lampiran</label>   

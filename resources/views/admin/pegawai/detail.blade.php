@@ -42,6 +42,8 @@
                             <div class="profile_contant">
                                 <div class="contact_inner">
                                     <h3>{{$data->jabatan->nama_jabatan}}</h3>
+                                    <h3><strong>Golongan {{$data->golongan}}</h3>
+                                    <p><strong>NIP : </strong>{{$data->nip}}</p>
                                     <p><strong>NIK : </strong>{{$data->nik}}</p>
                                     <p><strong>TTL : </strong>{{$data->ttl}}</p>
                                     <p><strong>Jenis Kelamin : </strong>{{$data->jkel}}</p>

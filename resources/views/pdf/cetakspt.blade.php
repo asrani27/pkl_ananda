@@ -63,8 +63,16 @@
         @foreach ($data->petugas as $key2=> $item2)
             <tr>
                 <td>{{$key2 + 1}}</td>
-                <td>{{$item2->pegawai->nama}}</td>
-                <td>{{$item2->pegawai->jabatan->nama_jabatan}}</td>
+                <td>{{$item2->pegawai->nama}}
+                    @if ($item2->pegawai->status == 'PNS')
+                    <br/>NIP. {{$item2->pegawai->nip}}
+                    @endif
+                </td>
+                <td>{{$item2->pegawai->jabatan->nama_jabatan}}
+                    @if ($item2->pegawai->status == 'PNS')
+                        <br/>Gol. {{$item2->pegawai->golongan}}
+                    @endif
+                </td>
             </tr>
         @endforeach
     </table>

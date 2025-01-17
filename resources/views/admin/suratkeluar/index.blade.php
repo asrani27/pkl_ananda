@@ -33,30 +33,30 @@
            <thead> 
               <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue"> 
                 <th >No</th> 
-                <th style="text-align: center">Nomor Surat</th>
                 <th>Tanggal Surat</th>
-                <th style="text-align: center">Sifat</th>
-                <th>Lampiran</th>
-                <th style="text-align: center">Perihal</th>
+                <th style="text-align: center">Nomor Surat</th>
                 <th style="text-align: center">Tujuan</th>
+                <th style="text-align: center">Sifat</th>
+                <th style="text-align: center">Perihal</th>
+                <th>Lampiran</th>
                 <th>Aksi</th> 
               </tr> 
            </thead> 
+           
            <tbody> 
-             
             @foreach ($data as $key => $item) 
             <tr> 
               <td>{{1 + $key}}</td> 
+              <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
               <td>{{$item->no_surat}}</td>
-              <td>{{$item->tgl_surat}}</td>
-              <td>{{$item->sifat}}</td>
-              <td>{{$item->lampiran}}</td>
-              <td>{{$item->perihal}}</td>
               <td>{{$item->tujuan}}</td>
+              <td>{{$item->sifat}}</td>
+              <td>{{$item->perihal}}</td>
+              <td>{{$item->lampiran}}</td>
               <td style="display: flex">
                <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-file-pdf-o"></i> </a><br/>
-                <a href="/admin/data/suratkeluar/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> </a> 
-                <a href="/admin/data/suratkeluar/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> 
+               <a href="/admin/data/suratkeluar/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> </a> 
+               <a href="/admin/data/suratkeluar/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger" onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> 
               </td> 
             </tr> 
             @endforeach 

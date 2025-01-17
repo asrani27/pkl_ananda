@@ -46,7 +46,7 @@ class SuratKeluarController extends Controller
         }
         $param = $req->all();
         $param['file'] = $filename;
-        $data = SuratKeluar::find($id)->update($param); //coding apdate
+        $data = SuratKeluar::find($id)->update($param); //coding update
         Session::flash('success', 'Berhasil Diupdate'); //memunculkan notif
         return redirect('/admin/data/suratkeluar'); //untuk kembali ke menu
     }

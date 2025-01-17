@@ -21,8 +21,8 @@ class JabatanController extends Controller
     {
         if(Jabatan::where('nama_jabatan', $req->nama_jabatan)->first() != null) 
         { 
-        Session::flash('error', 'Nama Jabatan Sudah Ada'); 
-        return back();
+            Session::flash('error', 'Nama Jabatan Sudah Ada'); 
+            return back();
         }
         Jabatan::create($req->all());
         Session::flash('success', 'berhasil di simpan');
@@ -36,8 +36,7 @@ class JabatanController extends Controller
     public function update(Request $req, $id)
     {
         $data = Jabatan::find($id)->update($req->all());
-         Session::flash('success', 'berhasil di update');
-
+        Session::flash('success', 'berhasil di update');
         return redirect('/admin/data/jabatan');
     }
     public function hapus($id)

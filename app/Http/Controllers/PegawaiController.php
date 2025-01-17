@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
 use App\Models\Pendidikan;
+use App\Models\SptPetugas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -109,6 +110,7 @@ class PegawaiController extends Controller
     }
     public function hapus($id)
     {
+        SptPetugas::where('pegawai_id', $id)->delete();
         $data = Pegawai::find($id)->delete();
         return back();
     }
@@ -116,7 +118,9 @@ class PegawaiController extends Controller
     public function cari()
     {
         $cari = request()->get('cari');
-        $data = Pegawai::where('nama', 'LIKE', '%' . $cari . '%')->get();
+        $data = Pegawai::where('status', 'LIKE', '%' . $cari . '%')->orWhereHas('jabatan', function ($query) use ($cari) {
+            $query->where('nama_jabatan', 'LIKE', '%' . $cari . '%');
+        })->get();
         return view('admin.pegawai.index', compact('data'));
     }
 

@@ -14,7 +14,8 @@
 <div class="white_shd full margin_bottom_30">
   <div class="full graph_head">
      <div class="heading1 margin_0">
-      <a href="/admin/data/laporan/pegawai" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Pegawai</a>
+      <a href="/admin/data/laporan/pegawaipns" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Pegawai PNS</a>
+      <a href="/admin/data/laporan/pegawaitekon" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Pegawai TEKON</a>
       <a href="/admin/data/laporan/belumupload" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i> Laporan Belum Upload</a>
      </div>
   </div>

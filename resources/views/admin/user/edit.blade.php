@@ -37,7 +37,7 @@
             <br />
             <div class="field">
                <label class="label_field">Role</label>
-               <select name="role" class="form-control">
+               <select name="roles" class="form-control">
                   <option value="admin" {{$data->roles == 'admin' ? 'selected': ''}}> admin</option>
                   <option value="pegawai" {{$data->roles == 'pegawai' ? 'selected': ''}}> pegawai</option>
                </select>
@@ -48,7 +48,7 @@
                <label class="label_field">Pegawai</label>
                <select name="pegawai_id" class="form-control">
                  @foreach($pegawai as $peg)
-                    <option value="{{$peg->id}}">{{$peg->nama}}</option>
+                    <option value="{{$peg->id}}" {{$data->pegawai_id == $peg->id ? "selected":''}}>{{$peg->nama}}</option>
                  @endforeach
                </select>
            </div>
