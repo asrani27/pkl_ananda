@@ -88,8 +88,8 @@
                @else
                   <ul class="list-unstyled components"> 
                      <li><a href="/pegawai"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
-                     <li><a href="/pegawai/data/biodata"><i class="fa fa-edit"></i> <span>Update Biodata</span></a></li> 
-                     <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Upload Berkas</span></a></li> 
+                     <li><a href="/pegawai/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li> 
+                     <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li> 
                      <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li> 
                   </ul>
                @endif

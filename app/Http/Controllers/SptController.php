@@ -76,7 +76,8 @@ class SptController extends Controller
     {
         $cari = request()->get('cari');
         $data = Spt::where('keperluan', 'LIKE', '%' . $cari . '%')->get();
-        return view('admin.spt.index', compact('data'));
+        $pegawai = Pegawai::get();
+        return view('admin.spt.index', compact('data','pegawai'));
     }
     public function detail($id)
     {

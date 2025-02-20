@@ -27,7 +27,7 @@
            <div class="row">
               <div class="col-md-12">
                 
-                <h1 style="color: aliceblue;padding:20px 20px; text-align:center"><img src="/background/logo.png" width="10%"> <br/><br/>APLIKASI PEMBERKASAN DATA PEGAWAI TENAGA KONTRAK<br/> UPPD BANJARMASIN I</h1>
+                <h1 style="color: aliceblue;padding:20px 20px; text-align:center"><img src="/background/logo.png" width="10%"> <br/><br/>APLIKASI PEMBERKASAN DATA PEGAWAI DAN PENGARSIPAN SURAT MENYURAT<br/> UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</h1>
               </div>
            </div>
         </div>

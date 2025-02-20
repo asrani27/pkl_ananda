@@ -22,7 +22,7 @@ class LaporanController extends Controller
         $data = Pegawai::where('status','PNS')->get();
         $pdf = Pdf::loadView('pdf.pegawaipns', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_pegawaitekon()
@@ -31,7 +31,7 @@ class LaporanController extends Controller
         $data = Pegawai::where('status','TEKON')->get();
         $pdf = Pdf::loadView('pdf.pegawaitekon', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_pegawai()
@@ -40,7 +40,7 @@ class LaporanController extends Controller
         $data = Pegawai::get();
         $pdf = Pdf::loadView('pdf.pegawai', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_belumupload()
@@ -49,7 +49,7 @@ class LaporanController extends Controller
         $data = Pegawai::get();
         $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_suratmasuk()
@@ -58,7 +58,7 @@ class LaporanController extends Controller
         $data = SuratMasuk::get();
         $pdf = Pdf::loadView('pdf.suratmasuk', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_suratkeluar()
@@ -67,7 +67,7 @@ class LaporanController extends Controller
         $data = SuratKeluar::get();
         $pdf = Pdf::loadView('pdf.suratkeluar', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
     public function laporan_spt()
@@ -76,7 +76,7 @@ class LaporanController extends Controller
         $data = Spt::get();
         $pdf = Pdf::loadView('pdf.spt', compact('data'))->setOption([
             'enable_remote' => true,
-        ])->setPaper('a4', 'landscape');
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
         return $pdf->stream($filename);
     }
 }

@@ -34,10 +34,10 @@
                 <th>No</th> 
                 <th>Tanggal</th>
                 <th style="text-align: center">Nomor Surat</th>
-                <th>Tujuan</th>
+                <th style="text-align: center">Tujuan</th>
                 <th style="text-align: center">Keperluan</th>
                 <th>Yang Ditugaskan</th>
-                <th>Aksi</th> 
+                <th style="text-align: center">Aksi</th> 
               </tr> 
            </thead> 
            <tbody> 

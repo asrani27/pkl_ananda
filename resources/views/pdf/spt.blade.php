@@ -55,7 +55,7 @@
                @else
                <ul>
                   @foreach ($item->petugas as $key2 => $item2)
-                      <li>{{$key2+1}}. {{$item2->pegawai->nama}}</li>
+                      <li>{{$key2+1}}. {{$item2->pegawai == null ? '':$item2->pegawai->nama}}</li>
                   @endforeach
                </ul>
                @endif

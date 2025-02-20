@@ -71,7 +71,7 @@
                @if ($data->upload == null)
                    
                @else
-                   @if ($data->upload->file_lamaran_kerja == null)
+                   @if ($data->upload->file_kk == null)
                        
                    @else
                    <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_kk}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
@@ -93,10 +93,10 @@
                @if ($data->upload == null)
                    
                @else
-                   @if ($data->upload->file_lamaran_kerja == null)
+                   @if ($data->upload->file_ijazah == null)
                        
                    @else
-                   <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_ijazah}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
+                    <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_ijazah}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
                    @endif
                @endif
             </td>
@@ -115,7 +115,7 @@
                @if ($data->upload == null)
                    
                @else
-                   @if ($data->upload->file_lamaran_kerja == null)
+                   @if ($data->upload->file_sertifikat == null)
                        
                    @else
                    <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_sertifikat}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
@@ -137,7 +137,7 @@
                @if ($data->upload == null)
                    
                @else
-                   @if ($data->upload->file_lamaran_kerja == null)
+                   @if ($data->upload->file_perjanjian_kerja == null)
                        
                    @else
                    <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_perjanjian_kerja}}" class="btn btn-sm btn-success" target="_blank">lihat</a>

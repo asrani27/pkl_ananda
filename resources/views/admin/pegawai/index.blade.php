@@ -39,7 +39,6 @@
                 <th style="text-align: center">NIK</th> 
                 <th style="text-align: center">Nama</th>  
                 <th style="text-align: center">Jabatan</th> 
-                <th style="text-align: center">Telpon</th>
                 <th style="text-align: center">Status</th>
                 <th style="text-align: center">Aksi</th> 
               </tr> 
@@ -53,7 +52,6 @@
               <td>{{$item->nik}}</td> 
               <td>{{$item->nama}}</td> 
               <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td> 
-              <td>{{$item->telpon}}</td> 
               <td>{{$item->status}}</td> 
               <td style="display: flex"> 
                 <a href="/admin/data/pegawai/detail/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"><i class="fa fa-eye"></i></a> 
