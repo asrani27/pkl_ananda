@@ -46,7 +46,11 @@ class User extends Authenticatable
     }
     public function pegawai()
     {
-        return $this->belongsTo(Pegawai::class, 'pegawai_id');
+        return $this->belongsTo(Pegawai::class, 'pegawai_id'); // Relasi dengan Pegawai
+    }
+    public function pengajuanCuti()
+    {
+        return $this->hasMany(PengajuanCuti::class); // Relasi dengan Pengajuan Cuti
     }
 
 }

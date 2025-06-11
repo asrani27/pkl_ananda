@@ -11,9 +11,11 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\JenisCutiController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\PengajuanCutiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,7 @@ Route::get('admin/data/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
 Route::post('admin/data/pegawai/edit/{id}', [PegawaiController::class, 'update']);
 Route::get('admin/data/pegawai/delete/{id}', [PegawaiController::class, 'hapus']);
 Route::get('admin/data/pegawai/cari', [PegawaiController::class, 'cari']);
+Route::get('admin/data/pegawai/detail/{id}', [PegawaiController::class, 'detail']);
 
 Route::get('admin/data/jabatan', [JabatanController::class, 'index']);
 Route::get('admin/data/jabatan/create', [JabatanController::class, 'tambah']);
@@ -94,6 +97,28 @@ Route::post('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, '
 Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 'hapus']);
 Route::get('admin/data/suratkeluar/cari', [SuratKeluarController::class, 'cari']);
 
+Route::get('admin/data/jeniscuti', [JenisCutiController::class, 'index']);
+Route::get('admin/data/jeniscuti/create', [JenisCutiController::class, 'tambah']);
+Route::post('admin/data/jeniscuti/create', [JenisCutiController::class, 'simpan']);
+Route::get('admin/data/jeniscuti/edit/{id}', [JenisCutiController::class, 'edit']);
+Route::post('admin/data/jeniscuti/edit/{id}', [JenisCutiController::class, 'update']);
+Route::get('admin/data/jeniscuti/delete/{id}', [JenisCutiController::class, 'hapus']);
+Route::get('admin/data/jeniscuti/cari', [JenisCutiController::class, 'cari']);
+
+//Route::middleware(['auth'])->group(function () {
+//Route::resource('pengajuan_cuti', PengajuanCutiController::class);
+//Route::get('approve/{id}', [PengajuanCutiController::class, 'approve'])->name('pengajuan_cuti.approve');
+//Route::get('reject/{id}', [PengajuanCutiController::class, 'reject'])->name('pengajuan_cuti.reject');
+//});
+
+Route::get('pegawai/data/pengajuancuti', [PengajuanCutiController::class, 'index']);
+Route::get('pegawai/data/pengajuancuti/create', [PengajuanCutiController::class, 'tambah']);
+Route::post('pegawai/data/pengajuancuti/create', [PengajuanCutiController::class, 'simpan']);
+Route::get('pegawai/data/pengajuancuti/edit/{id}', [PengajuanCutiController::class, 'edit']);
+Route::post('pegawai/data/pengajuancuti/edit/{id}', [PengajuanCutiController::class, 'update']);
+Route::get('pegawai/data/pengajuancuti/delete/{id}', [PengajuanCutiController::class, 'hapus']);
+Route::get('pegawai/data/pengajuancuti/cari', [PengajuanCutiController::class, 'cari']);
+
 Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
 Route::get('admin/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
 Route::get('admin/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
@@ -114,4 +139,3 @@ Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
 
 Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
 Route::post('pegawai/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
-Route::get('admin/data/pegawai/detail/{id}', [PegawaiController::class, 'detail']);

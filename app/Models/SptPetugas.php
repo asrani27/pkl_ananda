@@ -11,7 +11,6 @@ class SptPetugas extends Model
 
     protected $table = "spt_petugas";
     protected $guarded = ['id'];
-
     public $timestamps = false;
     public function pegawai()
     {

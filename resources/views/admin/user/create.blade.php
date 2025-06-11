@@ -40,6 +40,8 @@
               <select name="role" class="form-control"> 
                <option value="admin">admin</option> 
                <option value="pegawai">pegawai</option> 
+               <option value="kepalaTU">kepala TU</option> 
+               <option value="pimpinan">pimpinan</option>
               </select> 
               {{-- <input type="text" class="form-control" name="role" value="superadmin" readonly> --}} 
            </div> 

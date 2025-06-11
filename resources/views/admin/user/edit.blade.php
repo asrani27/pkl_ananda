@@ -40,6 +40,8 @@
                <select name="roles" class="form-control">
                   <option value="admin" {{$data->roles == 'admin' ? 'selected': ''}}> admin</option>
                   <option value="pegawai" {{$data->roles == 'pegawai' ? 'selected': ''}}> pegawai</option>
+                  <option value="kepalaTU" {{$data->roles == 'kepalaTU' ? 'selected': ''}}> kepalaTU</option>
+                  <option value="pimpinan" {{$data->roles == 'pimpinan' ? 'selected': ''}}> pimpinan</option>
                </select>
                {{-- <input type="text" class="form-control" name="role" value="{{$data->roles->first()->name}}" readonly> --}}
             </div>

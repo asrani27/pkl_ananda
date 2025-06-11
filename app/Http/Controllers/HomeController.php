@@ -14,4 +14,12 @@ class HomeController extends Controller
     {
         return view('pegawai.home');
     }
+    public function kepalatu()
+    {
+        return view('kepalatu.home');
+    }
+     public function pimpinan()
+    {
+        return view('pimpinan.home');
+    }
 }
