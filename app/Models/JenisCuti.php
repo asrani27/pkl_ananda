@@ -11,10 +11,11 @@ class JenisCuti extends Model
     protected $table = 'jenis_cuti';
      protected $guarded = ['id'];
     public $timestamps = false;
-    public function pengajuanCuti()
-    {
-        return $this->belongsTo(PengajuanCuti::class, 'id'); // Relasi dengan Jenis Cuti
-    }
+    
+    //public function pengajuanCuti()
+    //{
+        //return $this->belongsTo(PengajuanCuti::class, 'id'); // Relasi dengan Jenis Cuti
+    //}//
     
 }
 

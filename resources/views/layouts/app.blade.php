@@ -72,8 +72,7 @@
                   @endif
 
                   @if(Auth::user()->roles == 'admin')
-
-                  <ul class="list-unstyled components"> 
+                  <ul class="list-unstyled components">
                      <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
                      <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li> 
                      <li><a href="/admin/data/pegawai"><i class="	fa fa-user"></i> <span>Data Pegawai</span></a></li> 

@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>UPPD BANJARMASIN I</title>
+      <title>SIPANDU UPPDBJM1</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -44,7 +44,7 @@
                <div class="login_section" style="min-height: 100px;">
                   <div class="logo_login">
                      <div class="center">
-                      <h1 style="color:aliceblue; font-size:26px; text-align:center"><img src="/background/logo.png" width="15%"><br/> <br/> SISTEM INFORMASI PEMBERKASAN DATA PEGAWAI</h1>
+                      <h1 style="color:aliceblue; font-size:26px; text-align:center"><img src="/background/logo.png" width="15%"><br/> <br/> SIPANDU UPPD BJM 1</h1>
                      </div>
                   </div>
                   <div class="login_form">

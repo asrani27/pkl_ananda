@@ -20,10 +20,14 @@
                <input type="text" class="form-control" name="nama_cuti" value="{{$data->nama_cuti}}"> 
             </div> 
             <br/> 
-           <div class="field margin_0"> 
-             
-              <button class="main_bt"><i class="fa fa-save"></i> Update</button> 
-           </div> 
+            <div class="field"> 
+               <label class="label_field">Kuota</label> 
+               <input type="text" class="form-control" name="kuota" value="{{$data->kuota}}"> 
+            </div> 
+            <br/>
+            <div class="field margin_0"> 
+               <button class="main_bt"><i class="fa fa-save"></i> Update</button> 
+            </div> 
         </fieldset> 
         </form> 
     </div> 
