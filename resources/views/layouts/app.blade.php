@@ -76,6 +76,7 @@
                      <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li> 
                      <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li> 
                      <li><a href="/admin/data/pegawai"><i class="	fa fa-user"></i> <span>Data Pegawai</span></a></li> 
+                     <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a></li> 
                      <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li> 
                      <li><a href="/admin/data/pendidikan"><i class="fa fa-mortar-board"></i> <span>Data Pendidikan</span></a></li> 
                      <li><a href="/admin/data/suratmasuk"><i class="	fa fa-envelope"></i> <span>Surat Masuk</span></a></li>

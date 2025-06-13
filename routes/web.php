@@ -5,6 +5,7 @@ use App\Http\Controllers\SptController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\BagianController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\BiodataController;
@@ -53,6 +54,14 @@ Route::post('admin/data/pegawai/edit/{id}', [PegawaiController::class, 'update']
 Route::get('admin/data/pegawai/delete/{id}', [PegawaiController::class, 'hapus']);
 Route::get('admin/data/pegawai/detail/{id}', [PegawaiController::class, 'detail']);
 Route::get('admin/data/pegawai/cari', [PegawaiController::class, 'cari']);
+
+Route::get('admin/data/bagian', [BagianController::class, 'index']);
+Route::get('admin/data/bagian/create', [BagianController::class, 'tambah']);
+Route::post('admin/data/bagian/create', [BagianController::class, 'simpan']);
+Route::get('admin/data/bagian/edit/{id}', [BagianController::class, 'edit']);
+Route::post('admin/data/bagian/edit/{id}', [BagianController::class, 'update']);
+Route::get('admin/data/bagian/delete/{id}', [BagianController::class, 'hapus']);
+Route::get('admin/data/bagian/cari', [BagianController::class, 'cari']); 
 
 Route::get('admin/data/jabatan', [JabatanController::class, 'index']);
 Route::get('admin/data/jabatan/create', [JabatanController::class, 'tambah']);

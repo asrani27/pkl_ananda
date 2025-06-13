@@ -75,6 +75,15 @@
               </select> 
            </div> 
          <br/> 
+          <div class="field"> 
+              <label class="label_field">Bagian</label> 
+              <select name="bagian_id" class="form-control"> 
+               @foreach($bagian as $bag)
+               <option value="{{$bag->id}}" >{{$jab->nama_bagian}}</option>
+                @endforeach
+              </select> 
+            </div> 
+         <br/> 
             <div class="field"> 
               <label class="label_field">Jabatan</label> 
               <select name="jabatan_id" class="form-control"> 
@@ -85,7 +94,7 @@
             </div> 
          <br/> 
             <div class="field"> 
-              <label class="label_field">Golongan</label> 
+              <label class="label_field">Golongan *isi apabila PNS</label> 
               <input type="text" class="form-control" name="golongan"> 
             </div> 
          <br/> 

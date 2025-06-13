@@ -19,6 +19,15 @@ class Pegawai extends Model
     {
         return $this->jabatan->nama_jabatan;
     }
+
+    public function bagian()
+    {
+        return $this->belongsTo(Jabatan::class, 'bagian_id');
+    }
+    public function getNamaBagianAttribute()
+    {
+        return $this->jabatan->nama_bagian;
+    }
     public function user()
     {
         return $this->hasOne(User::class, 'pegawai_id');

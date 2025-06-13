@@ -102,7 +102,7 @@ class PegawaiController extends Controller
         if($user != null){
             $update = $user;
             $update->password = $req->password;
-            $update->save();
+            //$update->save();
         }
         Session::flash('success', 'Berhasil Di Update');
         return redirect('/admin/data/pegawai');

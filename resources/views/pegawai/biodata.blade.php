@@ -57,8 +57,13 @@
               <option value="BUDDHA" {{$data->agama === "BUDDHA" ? 'selected':''}}>BUDDHA</option> 
               <option value="KHATOLIK" {{$data->agama === "KHATOLIK" ? 'selected':''}}>KHATOLIK</option> 
               </select>  
-           </div>  
+            </div>  
         <br/>  
+            <div class="field">  
+              <label class="label_field">Bagian</label>  
+              <input type="text" class="form-control" name="bagian" value="{{$data->bagian}}">  
+            </div>  
+        <br/> 
            <div class="field">  
               <label class="label_field">Jabatan</label>  
               <select name="jabatan_id" class="form-control">  
