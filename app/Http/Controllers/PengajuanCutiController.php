@@ -51,18 +51,37 @@ class PengajuanCutiController extends Controller
     }
     public function edit($id)
     {
-        $data = JenisCuti::find($id);
-        return view('admin.jeniscuti.edit', compact('data'));
+        $data = PengajuanCuti::find($id);
+        $jenis = JenisCuti::get();
+        $pegawai = Pegawai::get()->map(function ($item) {
+            $item->roles = $item->user == null ? null : $item->user->roles;
+            return $item;
+        });
+        $pimpinan = $pegawai->where('roles', 'pimpinan');
+        $kasub = $pegawai->where('roles', 'kepalaTU')->merge(
+            $pegawai->where('roles', 'kepalaPelayanan')
+        );
+
+        return view('pegawai.pengajuancuti.edit', compact('data', 'jenis', 'pimpinan', 'kasub'));
     }
     public function update(Request $req, $id)
     {
-        $data = JenisCuti::find($id)->update($req->all());
+
+        if (JenisCuti::where('nama_cuti', $req->nama_cuti)->first() != null) {
+            Session::flash('error', 'Nama Cuti Sudah Ada');
+            return back();
+        }
+        $param = $req->all();
+        $param['user_id'] = Auth::user()->id;
+
+        PengajuanCuti::create($param);
+        PengajuanCuti::find($id)->update($param);
         Session::flash('success', 'berhasil di update');
         return redirect('/admin/data/jeniscuti');
     }
     public function hapus($id)
     {
-        $data = JenisCuti::find($id)->delete();
+        $data = PengajuanCuti::find($id)->delete();
         return back();
     }
 

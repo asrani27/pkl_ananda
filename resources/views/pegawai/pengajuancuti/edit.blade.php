@@ -12,39 +12,37 @@
 </div>
 <div class="white_shd full margin_bottom_30">
    <div class="padding_infor_info">
-      <form method="post" action="/admin/data/pengajuancuti/edit/{{$data->id}}" enctype="multipart/form-data">
+      <form method="post" action="/pegawai/data/pengajuancuti/edit/{{$data->id}}" enctype="multipart/form-data">
          @csrf
          <fieldset>
             <div class="field">
                <label class="label_field">Tanggal Surat</label>
-               <input type="date" class="form-control" name="tanggal"
-                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+               <input type="date" class="form-control" name="tanggal" value="{{$data->tanggal}}">
             </div>
             <br />
             <div class="field">
                <label class="label_field">jenis cuti</label>
                <select name="jenis_cuti_id" class="form-control">
                   @foreach($jenis as $item)
-                  <option value="{{$item->id}}">{{$item->nama_cuti}}</option>
+                  <option value="{{$item->id}}" {{$data->jenis_cuti_id == $item->id ?
+                     'selected':''}}>{{$item->nama_cuti}}</option>
                   @endforeach
                </select>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Tanggal Mulai Cuti</label>
-               <input type="date" class="form-control" name="tgl_mulai"
-                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+               <input type="date" class="form-control" name="tgl_mulai" value="{{$data->tgl_mulai}}">
             </div>
             <br />
             <div class="field">
                <label class="label_field">Tanggal Selesai Cuti</label>
-               <input type="date" class="form-control" name="tgl_selesai"
-                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+               <input type="date" class="form-control" name="tgl_selesai" value="{{$data->tgl_selesai}}">
             </div>
             <br />
             <div class="field">
                <label class="label_field">Alasan Cuti</label>
-               <input type="text" class="form-control" name="alasan">
+               <input type="text" class="form-control" name="alasan" value="{{$data->alasan}}">
             </div>
             <br />
 
