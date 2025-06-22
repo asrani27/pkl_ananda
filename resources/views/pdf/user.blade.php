@@ -58,7 +58,10 @@
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%">
+                Akun Aktif : <br />
+                Akun Non Aktif : <br />
+            </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
                 Admin<br />

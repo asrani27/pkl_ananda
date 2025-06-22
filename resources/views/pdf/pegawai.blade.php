@@ -79,7 +79,13 @@
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%">
+                Jumlah Pegawai PNS : <br />
+                Jumlah Pegawai Tenaga Kontrak : <br />
+                Jumlah Pegawai Laki-Laki : <br />
+                Jumlah Pegawai Perempuan : <br />
+                Jumlah Pegawai Keseluruhan : <br />
+            </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
                 Admin<br />
