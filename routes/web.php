@@ -46,7 +46,7 @@ Route::post('admin/data/user/edit/{id}', [UserController::class, 'update']);
 Route::get('admin/data/user/delete/{id}', [UserController::class, 'hapus']);
 Route::get('admin/data/user/cari', [UserController::class, 'cari']);
 
-Route::get('admin/data/pegawai', [PegawaiController::class, 'index']); 
+Route::get('admin/data/pegawai', [PegawaiController::class, 'index']);
 Route::get('admin/data/pegawai/create', [PegawaiController::class, 'tambah']);
 Route::post('admin/data/pegawai/create', [PegawaiController::class, 'simpan']);
 Route::get('admin/data/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
@@ -61,7 +61,7 @@ Route::post('admin/data/bagian/create', [BagianController::class, 'simpan']);
 Route::get('admin/data/bagian/edit/{id}', [BagianController::class, 'edit']);
 Route::post('admin/data/bagian/edit/{id}', [BagianController::class, 'update']);
 Route::get('admin/data/bagian/delete/{id}', [BagianController::class, 'hapus']);
-Route::get('admin/data/bagian/cari', [BagianController::class, 'cari']); 
+Route::get('admin/data/bagian/cari', [BagianController::class, 'cari']);
 
 Route::get('admin/data/jabatan', [JabatanController::class, 'index']);
 Route::get('admin/data/jabatan/create', [JabatanController::class, 'tambah']);
@@ -97,7 +97,7 @@ Route::post('admin/data/spt/edit/{id}', [SptController::class, 'update']);
 Route::get('admin/data/spt/delete/{id}', [SptController::class, 'hapus']);
 Route::get('admin/data/spt/cetak/{id}', [SptController::class, 'cetak']);
 Route::get('admin/data/spt/cari', [SptController::class, 'cari']);
- 
+
 Route::get('admin/data/suratkeluar', [SuratKeluarController::class, 'index']);
 Route::get('admin/data/suratkeluar/create', [SuratKeluarController::class, 'tambah']);
 Route::post('admin/data/suratkeluar/create', [SuratKeluarController::class, 'simpan']);
@@ -105,6 +105,7 @@ Route::get('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, 'e
 Route::post('admin/data/suratkeluar/edit/{id}', [SuratKeluarController::class, 'update']);
 Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 'hapus']);
 Route::get('admin/data/suratkeluar/cari', [SuratKeluarController::class, 'cari']);
+Route::get('admin/data/suratkeluar/cetak/{id}', [SuratKeluarController::class, 'cetak']);
 
 Route::get('admin/data/jeniscuti', [JenisCutiController::class, 'index']);
 Route::get('admin/data/jeniscuti/create', [JenisCutiController::class, 'tambah']);
@@ -129,6 +130,9 @@ Route::get('pegawai/data/pengajuancuti/delete/{id}', [PengajuanCutiController::c
 Route::get('pegawai/data/pengajuancuti/cari', [PengajuanCutiController::class, 'cari']);
 
 Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
+Route::get('admin/data/laporan/riwayat/surat', [LaporanController::class, 'laporan_riwayat_surat']);
+Route::get('admin/data/laporan/rekapitulasi/surat', [LaporanController::class, 'laporan_rekapitulasi_surat']);
+Route::get('admin/data/laporan/user', [LaporanController::class, 'laporan_user']);
 Route::get('admin/data/laporan/pegawaipns', [LaporanController::class, 'laporan_pegawaipns']);
 Route::get('admin/data/laporan/pegawaitekon', [LaporanController::class, 'laporan_pegawaitekon']);
 Route::get('admin/data/laporan/pegawai', [LaporanController::class, 'laporan_pegawai']);

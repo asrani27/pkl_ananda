@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Pegawai;
 use App\Models\Spt;
-use App\Models\SuratKeluar;
+use App\Models\User;
+use App\Models\Pegawai;
 use App\Models\SuratMasuk;
+use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
@@ -16,10 +17,37 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.index');
     }
+    public function laporan_riwayat_surat()
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
+        $data = Pegawai::get();
+        $pdf = Pdf::loadView('pdf.riwayat_surat', compact('data'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
+        return $pdf->stream($filename);
+    }
+    public function laporan_rekapitulasi_surat()
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
+        $data = Pegawai::get();
+        $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
+        return $pdf->stream($filename);
+    }
+    public function laporan_user()
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
+        $data = User::get();
+        $pdf = Pdf::loadView('pdf.user', compact('data'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
+        return $pdf->stream($filename);
+    }
     public function laporan_pegawaipns()
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
-        $data = Pegawai::where('status','PNS')->get();
+        $data = Pegawai::where('status', 'PNS')->get();
         $pdf = Pdf::loadView('pdf.pegawaipns', compact('data'))->setOption([
             'enable_remote' => true,
         ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -28,7 +56,7 @@ class LaporanController extends Controller
     public function laporan_pegawaitekon()
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
-        $data = Pegawai::where('status','TEKON')->get();
+        $data = Pegawai::where('status', 'TEKON')->get();
         $pdf = Pdf::loadView('pdf.pegawaitekon', compact('data'))->setOption([
             'enable_remote' => true,
         ])->setPaper([0, 0, 800, 1100], 'landscape');

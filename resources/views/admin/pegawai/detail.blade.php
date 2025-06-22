@@ -27,22 +27,27 @@
                     <div class="col-lg-12">
                         <div class="full dis_flex center_text">
                             <div class="profile_img">
-                                
+                                @if ($data->user == null)
+
+                                @else
+
                                 @if ($data->user->upload == null)
-                                <img width="180" class="rounded-circle"
-                                src="/pluto/images/layout_img/user_img.jpg" alt="#">
+                                <img width="180" class="rounded-circle" src="/pluto/images/layout_img/user_img.jpg"
+                                    alt="#">
                                 @else
                                 <img width="180" class="rounded-circle"
-                                src="/storage/uploads/{{$data->user->upload->file_foto}}" alt="#">
-                                
+                                    src="/storage/uploads/{{$data->user->upload->file_foto}}" alt="#">
+
                                 @endif
-                               <br/>
-                               <br/>
-                                    <h4>{{$data->nama}}</h4></div>
+                                @endif
+                                <br />
+                                <br />
+                                <h4>{{$data->nama}}</h4>
+                            </div>
                             <div class="profile_contant">
                                 <div class="contact_inner">
                                     <h3>{{$data->jabatan->nama_jabatan}}</h3>
-                                    <h3>{{$data->bagian->nama_bagian}}</h3>
+                                    <h3>{{$data->bagian == null ? '': $item->bagian->nama_bagian}}</h3>
                                     <h3><strong>Golongan {{$data->golongan}}</h3>
                                     <p><strong>NIP : </strong>{{$data->nip}}</p>
                                     <p><strong>NIK : </strong>{{$data->nik}}</p>
@@ -51,7 +56,8 @@
                                     <p><strong>Alamat : </strong>{{$data->alamat}}</p>
                                     <p><strong>Telpon : </strong>{{$data->telpon}}</p>
                                     <p><strong>Agama : </strong>{{$data->agama}}</p>
-                                    <p><strong>Pendidikan : </strong>{{$data->pendidikan == null ? '-': $data->pendidikan->nama_pendidikan}}</p>
+                                    <p><strong>Pendidikan : </strong>{{$data->pendidikan == null ? '-':
+                                        $data->pendidikan->nama_pendidikan}}</p>
                                     <p><strong>Prodi : </strong>{{$data->prodi}}</p>
                                     <p><strong>Tugas Pokok : </strong>{{$data->tugas_pokok}}</p>
                                 </div>

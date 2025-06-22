@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
 
 class SuratKeluarController extends Controller
@@ -11,11 +13,20 @@ class SuratKeluarController extends Controller
     public function index()
     {
         $data = SuratKeluar::paginate(10);
-        return view('admin.suratkeluar.index',compact('data'));
+        return view('admin.suratkeluar.index', compact('data'));
+    }
+    public function cetak($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = SuratKeluar::find($id);
+        $pdf = Pdf::loadView('pdf.cetaksuratkeluar', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
     }
     public function tambah()
     {
-    return view('admin.suratkeluar.create');
+        return view('admin.suratkeluar.create');
     }
     public function simpan(Request $req)
     {
@@ -34,7 +45,7 @@ class SuratKeluarController extends Controller
     public function edit($id)
     {
         $data = SuratKeluar::find($id);
-        return view('admin.suratkeluar.edit',compact('data'));
+        return view('admin.suratkeluar.edit', compact('data'));
     }
     public function update(Request $req, $id)
     {

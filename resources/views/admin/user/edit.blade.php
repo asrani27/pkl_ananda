@@ -16,8 +16,12 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Nama Lengkap</label>
-               <input type="text" class="form-control" name="name" value="{{$data->name}}" autocomplete="new-password">
+               <label class="label_field">Pegawai</label>
+               <select name="pegawai_id" class="form-control">
+                  @foreach($pegawai as $peg)
+                  <option value="{{$peg->id}}" {{$data->pegawai_id == $peg->id ? "selected":''}}>{{$peg->nama}}</option>
+                  @endforeach
+               </select>
             </div>
             <br />
             <div class="field">
@@ -43,17 +47,10 @@
                   <option value="kepalaTU" {{$data->roles == 'kepalaTU' ? 'selected': ''}}> kepalaTU</option>
                   <option value="pimpinan" {{$data->roles == 'pimpinan' ? 'selected': ''}}> pimpinan</option>
                </select>
-               {{-- <input type="text" class="form-control" name="role" value="{{$data->roles->first()->name}}" readonly> --}}
+               {{-- <input type="text" class="form-control" name="role" value="{{$data->roles->first()->name}}"
+                  readonly> --}}
             </div>
             <br />
-            <div class="field">
-               <label class="label_field">Pegawai</label>
-               <select name="pegawai_id" class="form-control">
-                 @foreach($pegawai as $peg)
-                    <option value="{{$peg->id}}" {{$data->pegawai_id == $peg->id ? "selected":''}}>{{$peg->nama}}</option>
-                 @endforeach
-               </select>
-           </div>
             <br />
             <div class="field margin_0">
 

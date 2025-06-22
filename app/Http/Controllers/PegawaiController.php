@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bagian;
 use App\Models\User;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
@@ -23,11 +24,11 @@ class PegawaiController extends Controller
     {
         $jabatan = Jabatan::get();
         $pendidikan = Pendidikan::get();
-        return view('admin.pegawai.create',compact('jabatan','pendidikan'));
+        return view('admin.pegawai.create', compact('jabatan', 'pendidikan'));
     }
     public function simpan(Request $req)
     {
-        if($req->nik == '-'){
+        if ($req->nik == '-') {
             DB::beginTransaction();
 
             try {
@@ -52,7 +53,7 @@ class PegawaiController extends Controller
                 Session::flash('error', 'Gagal sistem');
                 return back();
             }
-        }else{
+        } else {
             $check = Pegawai::where('nik', $req->nik)->first();
             if ($check != null) {
                 Session::flash('warning', 'nik Sudah ada');
@@ -60,53 +61,52 @@ class PegawaiController extends Controller
                 return back();
             } else {
                 DB::beginTransaction();
-    
+
                 try {
-    
+
                     $peg = Pegawai::create($req->all());
-    
+
                     $new = new User;
-                    $new->name =$req->nama;
-                    $new->username =$req->username;
+                    $new->name = $req->nama;
+                    $new->username = $req->username;
                     $new->password = Hash::make($req->password);
                     $new->pegawai_id = $peg->id;
                     $new->roles = 'pegawai';
                     $new->save();
-    
+
                     DB::commit();
-    
+
                     Session::flash('success', 'berhasil di simpan');
                     return redirect('/admin/data/pegawai');
                 } catch (\Exception $e) {
-    
+
                     DB::rollback();
                     Session::flash('error', 'Gagal sistem');
                     return back();
                 }
             }
         }
-       
     }
     public function edit($id)
     {
         $data = Pegawai::find($id);
         $jabatan = Jabatan::get();
         $pendidikan = Pendidikan::get();
-        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan'));
+        $bagian = Bagian::get();
+        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan', 'bagian'));
     }
     public function update(Request $req, $id)
     {
         $data = Pegawai::find($id)->update($req->all());
 
         $user = Pegawai::find($id)->user;
-        if($user != null){
+        if ($user != null) {
             $update = $user;
             $update->password = $req->password;
             //$update->save();
         }
         Session::flash('success', 'Berhasil Di Update');
         return redirect('/admin/data/pegawai');
-
     }
     public function hapus($id)
     {

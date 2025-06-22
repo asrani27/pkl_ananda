@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
-{ 
+{
     public function index()
     {
         if (Auth::check()) {
@@ -26,7 +27,7 @@ class LoginController extends Controller
         $credential = $req->only('username', 'password');
 
         if (Auth::attempt($credential, true)) {
-
+            Auth::user()->update(['login_at' => Carbon::now()]);
             if (Auth::user()->roles == 'admin') {
                 Session::flash('success', 'Selamat Datang');
                 return redirect('admin');
