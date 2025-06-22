@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PengajuanCuti;
+use App\Models\Pegawai;
+use App\Models\JenisCuti;
 use Illuminate\Http\Request;
+use App\Models\PengajuanCuti;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class PengajuanCutiController extends Controller
@@ -15,16 +18,61 @@ class PengajuanCutiController extends Controller
 
     public function index()
     {
-        if (auth()->user()->isAdmin()) {
-            // Admin mengelola pengajuan cuti
-            $pengajuanCuti = PengajuanCuti::all();
-            return view('pengajuan_cuti.index', compact('pengajuanCuti'));
-        } elseif (auth()->user()->isKepalaSubTu()) {
-            // Kepala Sub Tu hanya bisa melihat pengajuan cuti
-            $pengajuanCuti = PengajuanCuti::all();
-            return view('pengajuan_cuti.index', compact('pengajuanCuti'));
-        }
+        $data = PengajuanCuti::all();
+        return view('pegawai.pengajuancuti.index', compact('data'));
     }
+
+    public function tambah()
+    {
+        $jenis = JenisCuti::get();
+        $pegawai = Pegawai::get()->map(function ($item) {
+            $item->roles = $item->user == null ? null : $item->user->roles;
+            return $item;
+        });
+        $pimpinan = $pegawai->where('roles', 'pimpinan');
+        $kasub = $pegawai->where('roles', 'kepalaTU')->merge(
+            $pegawai->where('roles', 'kepalaPelayanan')
+        );
+
+        return view('pegawai.pengajuancuti.create', compact('jenis', 'pimpinan', 'kasub'));
+    }
+    public function simpan(Request $req)
+    {
+        if (JenisCuti::where('nama_cuti', $req->nama_cuti)->first() != null) {
+            Session::flash('error', 'Nama Cuti Sudah Ada');
+            return back();
+        }
+        $param = $req->all();
+        $param['user_id'] = Auth::user()->id;
+
+        PengajuanCuti::create($param);
+        Session::flash('success', 'berhasil di simpan');
+        return redirect('/pegawai/data/pengajuancuti');
+    }
+    public function edit($id)
+    {
+        $data = JenisCuti::find($id);
+        return view('admin.jeniscuti.edit', compact('data'));
+    }
+    public function update(Request $req, $id)
+    {
+        $data = JenisCuti::find($id)->update($req->all());
+        Session::flash('success', 'berhasil di update');
+        return redirect('/admin/data/jeniscuti');
+    }
+    public function hapus($id)
+    {
+        $data = JenisCuti::find($id)->delete();
+        return back();
+    }
+
+    public function cari()
+    {
+        $cari = request()->get('cari');
+        $data = JenisCuti::where('nama_cuti', 'LIKE', '%' . $cari . '%')->get();
+        return view('admin.jeniscuti.index', compact('data'));
+    }
+
 
     public function create()
     {
@@ -90,4 +138,3 @@ class PengajuanCutiController extends Controller
         return redirect()->route('home');
     }
 }
-

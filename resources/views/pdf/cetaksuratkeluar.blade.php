@@ -10,12 +10,24 @@
         .p {
             margin: 0 !important;
         }
+
+        .konten-summernote table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .konten-summernote table,
+        .konten-summernote th,
+        .konten-summernote td {
+            border: 1px solid black;
+            padding: 8px;
+        }
     </style>
 </head>
 
 <body>
 
-    <table width="100%">
+    <table id="" width="100%">
         <tr>
             <td width="15%">
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}"
@@ -60,8 +72,9 @@
         </tr>
 
     </table>
-
-    {!!$data->isi!!}
+    <div class="konten-summernote">
+        {!!$data->isi!!}
+    </div>
     {{-- <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <td>Nomor</td>

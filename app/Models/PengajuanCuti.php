@@ -9,6 +9,7 @@ class PengajuanCuti extends Model
 {
     use HasFactory;
     protected $table = 'pengajuan_cuti';
+    protected $guarded = ['id'];
 
     public function user()
     {
