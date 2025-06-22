@@ -67,7 +67,12 @@
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%">
+                Total Surat Masuk : <br />
+                Total Surat Keluar : <br />
+                Surat Disetujui : <br />
+                Surat Ditolak : <br />
+            </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
                 Admin<br />
