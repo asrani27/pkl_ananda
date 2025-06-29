@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bagian;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
 use App\Models\Pendidikan;
@@ -16,7 +17,8 @@ class BiodataController extends Controller
     $data = Auth::user()->pegawai;
     $jabatan = Jabatan::get();
     $pendidikan = Pendidikan::get();
-    return view('pegawai.biodata',compact('data','jabatan','pendidikan'));
+    $bagian = Bagian::get();
+    return view('pegawai.biodata', compact('data', 'jabatan', 'pendidikan', 'bagian'));
   }
 
   public function updateBiodata(Request $req, $id)
