@@ -35,8 +35,8 @@
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
                   <th>Tanggal Surat</th>
-                  <th style="text-align: center">tgl Mulai Cuti</th>
-                  <th style="text-align: center">tgl Selesai Cuti</th>
+                  <th style="text-align: center">Tanggal Mulai Cuti</th>
+                  <th style="text-align: center">Tanggal Selesai Cuti</th>
                   <th style="text-align: center">Alasan</th>
                   <th style="text-align: center">Status</th>
                   <th>Aksi</th>

@@ -22,11 +22,11 @@ class Pegawai extends Model
 
     public function bagian()
     {
-        return $this->belongsTo(Jabatan::class, 'bagian_id');
+        return $this->belongsTo(Bagian::class, 'bagian_id');
     }
     public function getNamaBagianAttribute()
     {
-        return $this->jabatan->nama_bagian;
+        return $this->bagian->nama_bagian;
     }
     public function user()
     {
