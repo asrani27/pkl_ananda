@@ -24,7 +24,8 @@ class PegawaiController extends Controller
     {
         $jabatan = Jabatan::get();
         $pendidikan = Pendidikan::get();
-        return view('admin.pegawai.create', compact('jabatan', 'pendidikan'));
+        $bagian = Bagian::get();
+        return view('admin.pegawai.create', compact('jabatan', 'pendidikan', 'bagian'));
     }
     public function simpan(Request $req)
     {
