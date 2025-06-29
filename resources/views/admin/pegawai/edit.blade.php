@@ -109,7 +109,7 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">Golongan</label>
+               <label class="label_field">Golongan / Pangkat *isi apabila PNS</label>
                <input type="text" class="form-control" name="golongan" value="{{$data->golongan}}">
             </div>
             <br />
