@@ -16,6 +16,28 @@
          @csrf
          <fieldset>
             <div class="field">
+               <label class="label_field">username</label>
+               <input type="text" class="form-control" name="username" required>
+            </div>
+            <br />
+            <div class="field">
+               <label class="label_field">password</label>
+               <input type="text" class="form-control" name="password" required>
+            </div>
+            <br />
+            <div class="field">
+               <label class="label_field">Akses</label>
+               <select name="role" class="form-control">
+                  <option value="admin">admin</option>
+                  <option value="pegawai">pegawai</option>
+                  <option value="kepalaTU">kepala TU</option>
+                  <option value="kepalaPelayanan">kepala Pelayanan</option>
+                  <option value="pimpinan">pimpinan</option>
+               </select>
+               {{-- <input type="text" class="form-control" name="role" value="superadmin" readonly> --}}
+            </div>
+            <hr style="height: 2px; background-color: black; border: none;">
+            <div class="field">
                <label class="label_field">NIP</label>
                <input type="text" class="form-control" name="nip">
             </div>

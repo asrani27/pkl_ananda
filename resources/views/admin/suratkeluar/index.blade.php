@@ -47,7 +47,7 @@
             <tbody>
                @foreach ($data as $key => $item)
                <tr>
-                  <td>{{1 + $key}}</td>
+                  <td>{{$data->firstItem() + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
                   <td>{{$item->no_surat}}</td>
                   <td>{{$item->tujuan}}</td>
@@ -69,6 +69,7 @@
             </tbody>
          </table>
       </div>
+      {{$data->links()}}
    </div>
 </div>
 

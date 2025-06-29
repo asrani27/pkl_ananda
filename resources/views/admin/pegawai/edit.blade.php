@@ -16,6 +16,29 @@
          @csrf
          <fieldset>
             <div class="field">
+               <label class="label_field">username</label>
+               <input type="text" class="form-control" name="username" readonly value="{{$data->username}}">
+            </div>
+            <br />
+            <div class="field">
+               <label class="label_field">password</label>
+               <input type="text" class="form-control" name="password" value="{{$data->password}}">
+            </div>
+            <br />
+            <div class="field">
+               <label class="label_field">Akses</label>
+               <select name="role" class="form-control">
+                  <option value="admin" {{$data->roles == 'admin' ? 'selected':''}}>admin</option>
+                  <option value="pegawai" {{$data->roles == 'pegawai' ? 'selected':''}}>pegawai</option>
+                  <option value="kepalaTU" {{$data->roles == 'kepalaTU' ? 'selected':''}}>kepala TU</option>
+                  <option value="kepalaPelayanan" {{$data->roles == 'kepalaPelayanan' ? 'selected':''}}>kepala Pelayanan
+                  </option>
+                  <option value="pimpinan" {{$data->roles == 'pimpinan' ? 'selected':''}}>pimpinan</option>
+               </select>
+               {{-- <input type="text" class="form-control" name="role" value="superadmin" readonly> --}}
+            </div>
+            <hr style="height: 2px; background-color: black; border: none;">
+            <div class="field">
                <label class="label_field">NIP</label>
                <input type="text" class="form-control" name="nip" value="{{$data->nip}}">
             </div>

@@ -39,7 +39,7 @@ class PegawaiController extends Controller
                 $new = new User;
                 $new->name = $req->nama;
                 $new->username = $req->username;
-                $new->roles = 'pegawai';
+                $new->roles = $req->role;
                 $new->password = Hash::make($req->password);
                 $new->pegawai_id = $peg->id;
                 $new->save();
@@ -72,7 +72,7 @@ class PegawaiController extends Controller
                     $new->username = $req->username;
                     $new->password = Hash::make($req->password);
                     $new->pegawai_id = $peg->id;
-                    $new->roles = 'pegawai';
+                    $new->roles = $req->role;
                     $new->save();
 
                     DB::commit();
