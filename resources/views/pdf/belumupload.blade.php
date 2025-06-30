@@ -7,25 +7,24 @@
     <title>Laporan</title>
 </head>
 <body>
-
     <table width="100%">
         <tr>
             <td width="15%">
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}" width="80px"> &nbsp;&nbsp;
             </td>
             <td style="text-align: center;" width="60%">
-               UPPD BANJARMASIN I<BR/>
-                    PROVINSI KALIMANTAN SELATAN<br/>
-                JALAN JEND. A.YANI Km. 6 KODE POS. 70249
+                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                        BANJARMASIN
             </td>
             <td width="15%">
             </td>
-            
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN PEGAWAI BELUM UPLOAD BERKAS <br>
-      
+    <h3 style="text-align: center">LAPORAN STATUS UPLOAD DOKUMEN PEGAWAI<br>
     </h3> 
     <br/>
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
@@ -39,6 +38,11 @@
             <th>Berkas Ijazah</th>
             <th>Berkas KTP</th>
             <th>Berkas KK</th>
+            <th>Belum Upload</th>
+            <th>Sudah Upload</th>
+            <th>Jumlah Dokumen</th>
+            <th>Ketrangan</th>
+
 
         </tr>
         @php
@@ -51,7 +55,6 @@
           <td>{{$item->nik}}</td>
           <td>{{$item->nama}}</td>
           @if ($item->user == null)
-              
           <td style="text-align: center">belum</td>
           <td style="text-align: center">belum</td>
           <td style="text-align: center">belum</td>
@@ -67,7 +70,6 @@
                 <td style="text-align: center">belum</td>
                 <td style="text-align: center">belum</td>
               @else
-                  
                 <td style="text-align: center">{{$item->user->upload->file_lamaran_kerja == null ? 'belum':'sudah'}}</td>
                 <td style="text-align: center">{{$item->user->upload->file_perjanjian_kerja == null ? 'belum':'sudah'}}</td>
                 <td style="text-align: center">{{$item->user->upload->file_sertifikat == null ? 'belum':'sudah'}}</td>

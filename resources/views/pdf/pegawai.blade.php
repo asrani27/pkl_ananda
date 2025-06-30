@@ -16,14 +16,15 @@
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}"
                     width="80px"> &nbsp;&nbsp;
             </td>
-            <td style="text-align: center;" width="60%">
-                UPPD BANJARMASIN I<BR />
-                PROVINSI KALIMANTAN SELATAN<br />
-                JALAN JEND. A.YANI Km. 6 KODE POS. 70249
-            </td>
+           <td style="text-align: center;" width="60%">
+                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                        BANJARMASIN
+           </td>
             <td width="15%">
             </td>
-
         </tr>
     </table>
     <hr>

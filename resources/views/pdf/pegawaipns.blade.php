@@ -17,10 +17,12 @@
                     width="80px"> &nbsp;&nbsp;
             </td>
             <td style="text-align: center;" width="60%">
-                UPPD BANJARMASIN I<BR />
-                PROVINSI KALIMANTAN SELATAN<br />
-                JALAN JEND. A.YANI Km. 6 KODE POS. 70249
-            </td>
+                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                        BANJARMASIN
+           </td>
             <td width="15%">
             </td>
 
@@ -78,10 +80,10 @@
                 PNS Juru Tk I (I/d) : <br />
             </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+            <td width="60%">
+            <td><br/>Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
                 Admin<br />
                 <br /><br /><br /><br />
-
                 <u>Ananda Risna Pebrianti</u><br />
                 NPM 2110010521
             </td>

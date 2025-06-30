@@ -21,12 +21,10 @@
          <a href="/admin/data/laporan/pegawaitekon" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Pegawai TEKON</a>
          <a href="/admin/data/laporan/belumupload" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Belum Upload</a>
+               class="fa fa-print"></i> Status Upload Dokumen Pegawai</a>
       </div>
    </div>
 </div>
-
-
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
@@ -36,11 +34,11 @@
                class="fa fa-print"></i> Laporan Surat Keluar</a>
          <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
+         <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a>
       </div>
    </div>
 </div>
-
-
 
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
@@ -49,12 +47,11 @@
                class="fa fa-print"></i> Laporan Pengguna Sistem</a>
          <a href="/admin/data/laporan/riwayat/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Riwayat Disposisi Surat</a>
-         <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a>
+         
       </div>
    </div>
 </div>
+
 @endsection
 @push('js')
-
 @endpush

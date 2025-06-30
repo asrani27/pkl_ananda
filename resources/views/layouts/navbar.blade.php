@@ -14,7 +14,6 @@
                 <!-- The user image in the menu -->
                 <li class="user-header" style="background-color: #fe4f02">
                     <img src="/logo/icon-user.png" class="img-circle" alt="User Image">
-
                     <p>
                         {{Auth::user()->name}}
                         <small></small>
