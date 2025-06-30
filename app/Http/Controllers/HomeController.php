@@ -6,6 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function kepalatu()
+    {
+        return view('kepalatu.home');
+    }
+    public function kepalapelayanan()
+    {
+        return view('kepalapelayanan.home');
+    }
+    public function pimpinan()
+    {
+        return view('pimpinan.home');
+    }
     public function admin()
     {
         return view('admin.home');
@@ -13,13 +25,5 @@ class HomeController extends Controller
     public function pegawai()
     {
         return view('pegawai.home');
-    }
-    public function kepalatu()
-    {
-        return view('kepalatu.home');
-    }
-     public function pimpinan()
-    {
-        return view('pimpinan.home');
     }
 }
