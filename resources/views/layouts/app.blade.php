@@ -75,10 +75,10 @@
                @if(Auth::user()->roles == 'pegawai')
                <h4>Pegawai</h4>
                @endif
-               @if(Auth::user()->roles == 'kepalatu')
+               @if(Auth::user()->roles == 'kepalaTU')
                <h4>Kepala TU</h4>
                @endif
-               @if(Auth::user()->roles == 'kepalapelayanan')
+               @if(Auth::user()->roles == 'kepalaPelayanan')
                <h4>Kepala pelayanan</h4>
                @endif
                @if(Auth::user()->roles == 'pimpinan')
