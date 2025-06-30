@@ -14,9 +14,7 @@
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-
-         <a href="/admin/data/pegawai/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah
-            Data</a>
+         <a href="/admin/data/pegawai/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
       </div>
    </div>
    <div class="table_section padding_infor_info">
@@ -40,6 +38,7 @@
                   <th style="text-align: center">NIK</th>
                   <th style="text-align: center">Nama</th>
                   <th style="text-align: center">Jabatan</th>
+                  <th style="text-align: center">Golongan/Pangkat</th>
                   <th style="text-align: center">Status</th>
                   <th style="text-align: center">Aksi</th>
                </tr>
@@ -53,6 +52,7 @@
                   <td>{{$item->nik}}</td>
                   <td>{{$item->nama}}</td>
                   <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td>
+                  <td>{{$item->golongan == null ? null : $item->jabatan->nama_golongan}}</td>
                   <td>{{$item->status}}</td>
                   <td style="display: flex">
                      <a href="/admin/data/pegawai/detail/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"><i

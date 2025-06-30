@@ -12,6 +12,7 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\JenisCutiController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SuratMasukController;
@@ -62,6 +63,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin/data/bagian/edit/{id}', [BagianController::class, 'update']);
     Route::get('admin/data/bagian/delete/{id}', [BagianController::class, 'hapus']);
     Route::get('admin/data/bagian/cari', [BagianController::class, 'cari']);
+
+    Route::get('admin/data/golongan', [GolonganController::class, 'index']);
+    Route::get('admin/data/golongan/create', [GolonganController::class, 'tambah']);
+    Route::post('admin/data/golongan/create', [GolonganController::class, 'simpan']);
+    Route::get('admin/data/golongan/edit/{id}', [GolonganController::class, 'edit']);
+    Route::post('admin/data/golongan/edit/{id}', [GolonganController::class, 'update']);
+    Route::get('admin/data/golongan/delete/{id}', [GolonganController::class, 'hapus']);
+    Route::get('admin/data/golongan/cari', [GolonganController::class, 'cari']);
 
     Route::get('admin/data/jabatan', [JabatanController::class, 'index']);
     Route::get('admin/data/jabatan/create', [JabatanController::class, 'tambah']);
