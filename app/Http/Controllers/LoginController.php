@@ -36,6 +36,18 @@ class LoginController extends Controller
                 Session::flash('success', 'Selamat Datang');
                 return redirect('pegawai');
             }
+            if (Auth::user()->roles == 'pimpinan') {
+                Session::flash('success', 'Selamat Datang');
+                return redirect('pimpinan');
+            }
+            if (Auth::user()->roles == 'kepalatu') {
+                Session::flash('success', 'Selamat Datang');
+                return redirect('kepalatu');
+            }
+            if (Auth::user()->roles == 'kepalapelayanan') {
+                Session::flash('success', 'Selamat Datang');
+                return redirect('kepalapelayanan');
+            }
         } else {
             Session::flash('error', 'username/password salah');
             $req->flash();
