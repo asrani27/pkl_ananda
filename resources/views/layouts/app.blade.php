@@ -70,9 +70,19 @@
             <div class="sidebar_blog_2">
 
                @if(Auth::user()->roles == 'admin')
-               <h4>Administrator</h4>
-               @else
+               <h4>Admin</h4>
+               @endif
+               @if(Auth::user()->roles == 'pegawai')
                <h4>Pegawai</h4>
+               @endif
+               @if(Auth::user()->roles == 'kepalatu')
+               <h4>Kepala TU</h4>
+               @endif
+               @if(Auth::user()->roles == 'kepalapelayanan')
+               <h4>Kepala pelayanan</h4>
+               @endif
+               @if(Auth::user()->roles == 'pimpinan')
+               <h4>Pimpinan</h4>
                @endif
 
                @if(Auth::user()->roles == 'admin')
