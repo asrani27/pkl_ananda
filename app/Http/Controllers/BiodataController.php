@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bagian;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
+use App\Models\Golongan;
 use App\Models\Pendidikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,8 @@ class BiodataController extends Controller
     $jabatan = Jabatan::get();
     $pendidikan = Pendidikan::get();
     $bagian = Bagian::get();
-    return view('pegawai.biodata', compact('data', 'jabatan', 'pendidikan', 'bagian'));
+     $golongan = Golongan::get();
+    return view('pegawai.biodata', compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'  ));
   }
 
   public function updateBiodata(Request $req, $id)

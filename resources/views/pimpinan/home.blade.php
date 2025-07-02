@@ -20,16 +20,14 @@
         <div class="dark_bg full margin_bottom_30">
             <div class="full graph_head">
                 <div class="heading1 margin_0">
-                    <h2>Selamat Datang {{Auth::user()->name}}</h2>
+                    <h2>Selamat Datang Di</h2>
                 </div>
             </div>
             <div class="full progress_bar_inner">
                 <div class="row">
                     <div class="col-md-12">
 
-                        <h1 style="color: aliceblue;padding:20px 20px; text-align:center"><img
-                                src="/background/logo.png" width="10%"> <br /><br />APLIKASI PEMBERKASAN DATA DAN
-                            DOKUMEN TERPADU<br /> UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</h1>
+                        <h1 style="color: aliceblue;padding:20px 20px; text-align:center"><img src="/background/logo.png" width="10%"> <br/><br/>APLIKASI PEMBERKASAN DATA DAN DOKUMEN TERPADU<br/> UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</h1>
                     </div>
                 </div>
             </div>

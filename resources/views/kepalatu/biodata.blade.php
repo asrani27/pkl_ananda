@@ -12,7 +12,7 @@
 </div>
 <div class="white_shd full margin_bottom_30">
   <div class="padding_infor_info">
-    <form method="post" action="/pegawai/data/biodata/{{$data->id}}">
+    <form method="post" action="/kepalatu/data/biodata/{{$data->id}}">
       @csrf
       <fieldset>
         <div class="field">

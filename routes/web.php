@@ -136,11 +136,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/laporan/suratkeluar', [LaporanController::class, 'laporan_suratkeluar']);
     Route::get('admin/data/laporan/spt', [LaporanController::class, 'laporan_spt']);
 });
-//Route::middleware(['auth'])->group(function () {
-//Route::resource('pengajuan_cuti', PengajuanCutiController::class);
-//Route::get('approve/{id}', [PengajuanCutiController::class, 'approve'])->name('pengajuan_cuti.approve');
-//Route::get('reject/{id}', [PengajuanCutiController::class, 'reject'])->name('pengajuan_cuti.reject');
-//});
 
 Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::get('pegawai', [HomeController::class, 'pegawai']);
@@ -160,17 +155,23 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::post('pegawai/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
     Route::post('pegawai/upload/spk', [UploadController::class, 'uploadspk']);
     Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
-
+ 
     Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pegawai/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
 
 Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu', [HomeController::class, 'kepalatu']);
+     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
+    Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
-Route::middleware(['auth', 'role:kepalaPelayanan'])->group(function () {
-    Route::get('kepalapelayanan', [HomeController::class, 'kepalapelayanan']);
-});
+
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
+    Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
+    Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
+});
+
+Route::middleware(['auth', 'role:kepalaPelayanan'])->group(function () {
+    Route::get('kepalapelayanan', [HomeController::class, 'kepalapelayanan']);
 });

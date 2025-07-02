@@ -18,8 +18,6 @@ class LoginController extends Controller
                 return redirect('pegawai');
             } elseif (Auth::user()->roles == 'kepalatu') {
                 return redirect('kepalaTU');
-            } elseif (Auth::user()->roles == 'kepalapelayanan') {
-                return redirect('kepalaPelayanan');
             } elseif (Auth::user()->roles == 'pimpinan') {
                 return redirect('pimpinan');
             }
@@ -42,17 +40,13 @@ class LoginController extends Controller
                 Session::flash('success', 'Selamat Datang');
                 return redirect('pegawai');
             }
-            if (Auth::user()->roles == 'pimpinan') {
-                Session::flash('success', 'Selamat Datang');
-                return redirect('pimpinan');
-            }
             if (Auth::user()->roles == 'kepalaTU') {
                 Session::flash('success', 'Selamat Datang');
                 return redirect('kepalatu');
             }
-            if (Auth::user()->roles == 'kepalaPelayanan') {
+            if (Auth::user()->roles == 'pimpinan') {
                 Session::flash('success', 'Selamat Datang');
-                return redirect('kepalapelayanan');
+                return redirect('pimpinan');
             }
         } else {
             Session::flash('error', 'username/password salah');
