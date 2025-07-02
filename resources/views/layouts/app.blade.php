@@ -10,10 +10,16 @@
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
    @if(Auth::user()->roles == 'admin')
-   <title>ADMINISTRATOR</title>
+    <title>ADMINISTRATOR</title>
+   @elseif(Auth::user()->roles == 'pegawai')
+      <title>PEGAWAI</title>
+   @elseif(Auth::user()->roles == 'pimpinan')
+      <title>PIMPINAN</title>
    @else
-   <title>PEGAWAI</title>
+      <title>KEPALA TU</title>
    @endif
+
+
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">

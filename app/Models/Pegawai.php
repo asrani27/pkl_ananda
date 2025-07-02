@@ -20,6 +20,15 @@ class Pegawai extends Model
         return $this->jabatan->nama_jabatan;
     }
 
+    public function golongan()
+    {
+        return $this->belongsTo(Golongan::class, 'golongan_id');
+    }
+    public function getNamaGolonganAttribute()
+    {
+        return $this->golongan->nama_golongan;
+    }
+
     public function bagian()
     {
         return $this->belongsTo(Bagian::class, 'bagian_id');

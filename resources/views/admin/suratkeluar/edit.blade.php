@@ -34,31 +34,32 @@
                <label class="label_field">Tanggal Surat</label>
                <input type="date" class="form-control" name="tgl_surat" value="{{$data->tgl_surat}}">
             </div>
-
+            <br/>
             <div class="field">
                <label class="label_field">Nomor Surat</label>
                <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}">
             </div>
-
+            <br/>
             <div class="field">
                <label class="label_field">Tujuan</label>
                <input type="text" class="form-control" name="tujuan" value="{{$data->tujuan}}">
             </div>
-
+            <br/>
             <div class="field">
                <label class="label_field">Sifat</label>
                <input type="text" class="form-control" name="sifat" value="{{$data->sifat}}">
             </div>
-
+            <br/>
             <div class="field">
                <label class="label_field">Perihal</label>
                <input type="text" class="form-control" name="perihal" value="{{$data->perihal}}">
             </div>
-
+            <br/>
             <div class="field">
                <label class="label_field">Lampiran</label>
                <input type="text" class="form-control" name="lampiran" value="{{$data->lampiran}}">
             </div>
+            <br/>
             <div class="field">
                <label class="label_field">Isi</label>
                <textarea id="summernote" name="isi">

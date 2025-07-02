@@ -52,7 +52,7 @@
                   <td>{{$item->nik}}</td>
                   <td>{{$item->nama}}</td>
                   <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td>
-                  <td>{{$item->golongan == null ? null : $item->jabatan->nama_golongan}}</td>
+                  <td>{{$item->golongan == null ? null : $item->golongan->nama_golongan}}</td>
                   <td>{{$item->status}}</td>
                   <td style="display: flex">
                      <a href="/admin/data/pegawai/detail/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"><i

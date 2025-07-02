@@ -106,7 +106,11 @@
             <br />
             <div class="field">
                <label class="label_field">Golongan / Pangkat *isi apabila PNS</label>
-               <input type="text" class="form-control" name="golongan">
+               <select name="golongan_id" class="form-control">
+                  @foreach($golongan as $gol)
+                  <option value="{{$gol->id}}">{{$gol->nama_golongan}}</option>
+                  @endforeach
+               </select>
             </div>
             <br />
             <div class="field">

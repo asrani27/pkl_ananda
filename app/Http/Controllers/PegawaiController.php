@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bagian;
 use App\Models\User;
+use App\Models\Bagian;
 use App\Models\Jabatan;
 use App\Models\Pegawai;
+use App\Models\Golongan;
 use App\Models\Pendidikan;
 use App\Models\SptPetugas;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class PegawaiController extends Controller
         $jabatan = Jabatan::get();
         $pendidikan = Pendidikan::get();
         $bagian = Bagian::get();
-        return view('admin.pegawai.create', compact('jabatan', 'pendidikan', 'bagian'));
+        $golongan = Golongan::get();
+        return view('admin.pegawai.create', compact('jabatan', 'pendidikan', 'bagian', 'golongan' )); //mengirim
     }
     public function simpan(Request $req)
     {
@@ -94,7 +96,8 @@ class PegawaiController extends Controller
         $jabatan = Jabatan::get();
         $pendidikan = Pendidikan::get();
         $bagian = Bagian::get();
-        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan', 'bagian'));
+        $golongan = Golongan::get();
+        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan' )); //mengirim
     }
     public function update(Request $req, $id)
     {

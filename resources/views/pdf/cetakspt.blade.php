@@ -13,7 +13,7 @@
             <td width="15%">
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}" width="80px"> &nbsp;&nbsp;
             </td>
-            <td style="text-align: center;" width="60%">
+            <td style="text-align: center;" width="70%">
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
@@ -53,6 +53,7 @@
             <td>:</td>
             <td>{{$data->jabatan}}</td>
         </tr>
+        <br/>
         
     </table>
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
@@ -78,6 +79,7 @@
             </tr>
         @endforeach
     </table>
+    <br/>
     Maksud surat perintah tugas :
     <table width="100%" border="0" cellpadding="5" cellspacing="0">
         <tr>
@@ -97,7 +99,7 @@
             <td>: {{$data->transport}}</td>
         </tr>
         <tr>
-            <td>5. pembebanan biaya SPT</td>
+            <td>5. Pembebanan biaya SPT</td>
             <td>: {{$data->pembebanan_biaya}}</td>
         </tr>
         
