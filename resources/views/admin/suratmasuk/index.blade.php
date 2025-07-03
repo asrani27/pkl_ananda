@@ -58,10 +58,9 @@
                   <td>{{$item->perihal}}</td>
                   <td>
 
-                     Pimpinan : {{$item->disposisi_pimpinan}} <br />
                      Kepala TU : {{$item->disposisi_kepalatu}}<br />
-                     Kepala Pelayan : {{$item->disposisi_kepalapelayan}}<br />
-                     Pegawai : {{$item->disposisi_pegawai}}<br />
+                     Pimpinan : {{$item->disposisi_pimpinan}} <br />
+
 
                   </td>
                   <td>

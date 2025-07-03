@@ -14,7 +14,8 @@
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-         <a href="/admin/data/pegawai/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
+         <a href="/admin/data/pegawai/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah
+            Data</a>
       </div>
    </div>
    <div class="table_section padding_infor_info">
