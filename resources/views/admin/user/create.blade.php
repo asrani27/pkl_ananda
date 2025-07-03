@@ -50,7 +50,6 @@
                   <option value="admin">Admin</option>
                   <option value="pegawai">Pegawai</option>
                   <option value="kepalaTU">Kepala TU</option>
-                  <option value="kepalaPelayanan">Kepala Pelayanan</option>
                   <option value="pimpinan">Pimpinan</option>
                </select>
                {{-- <input type="text" class="form-control" name="role" value="superadmin" readonly> --}}
