@@ -26,6 +26,13 @@
             </div>
 
             <div class="field">
+               <label class="label_field">Verifikasi Surat</label>
+               <select class="form-control" name="verifikasi_surat" required>
+                  <option value="diterima">Diterima</option>
+                  <option value="ditolak">Ditolak</option>
+               </select>
+            </div>
+            <div class="field">
                <label class="label_field">Tindak Lanjut</label>
                <input type="text" class="form-control" name="tindak_lanjut" value="{{$data->tindak_lanjut}}" required>
             </div>

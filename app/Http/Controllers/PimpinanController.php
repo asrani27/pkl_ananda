@@ -34,4 +34,13 @@ class PimpinanController extends Controller
         $data = SuratMasuk::find($id);
         return view('pimpinan.suratmasuk.verifikasi', compact('data'));
     }
+    public function update_verifikasi(Request $req, $id)
+    {
+        $data = SuratMasuk::find($id)->update([
+            'verifikasi_surat' => $req->verifikasi_surat,
+            'tindak_lanjut' => $req->tindak_lanjut,
+        ]);
+        Session::flash('success', 'telah verifikasi');
+        return redirect('/pimpinan/data/suratmasuk/verifikasi');
+    }
 }

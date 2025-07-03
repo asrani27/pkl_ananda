@@ -176,6 +176,7 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
     Route::get('pimpinan/data/suratmasuk/lihat/{id}', [PimpinanController::class, 'lihat']);
     Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);
+    Route::post('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi']);
     Route::get('pimpinan/verifikasi/surat-masuk', [PimpinanController::class, 'index']);
     Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
