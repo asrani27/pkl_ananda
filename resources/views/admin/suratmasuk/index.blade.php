@@ -41,6 +41,8 @@
                   <th>Lampiran</th>
                   <th style="text-align: center">Perihal</th>
                   <th>Posisi Surat</th>
+                  <th>Verifikasi</th>
+                  <th>Tindak Lanjut</th>
                   <th>Aksi</th>
 
                </tr>
@@ -70,12 +72,17 @@
                               ==
                               null ? null : $item->pimpinan->name}}</span></li>
                         @endif
+                        @if ($item->verifikasi_surat != null)
+                        <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
+                        @endif
                      </ul>
                      {{-- Kepala TU : {{$item->disposisi_kepalatu}}<br />
                      Pimpinan : {{$item->disposisi_pimpinan}} <br /> --}}
 
 
                   </td>
+                  <td>{{$item->verifikasi_surat}}</td>
+                  <td>{{$item->tindak_lanjut}}</td>
                   <td>
                      <div style="display: flex; text-align:center">
 

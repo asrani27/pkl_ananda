@@ -41,6 +41,6 @@ class PimpinanController extends Controller
             'tindak_lanjut' => $req->tindak_lanjut,
         ]);
         Session::flash('success', 'telah verifikasi');
-        return redirect('/pimpinan/data/suratmasuk/verifikasi');
+        return redirect('pimpinan/verifikasi/surat-masuk');
     }
 }
