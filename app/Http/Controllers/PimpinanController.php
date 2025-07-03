@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SuratKeluar;
 use App\Models\User;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
@@ -42,5 +43,32 @@ class PimpinanController extends Controller
         ]);
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/surat-masuk');
+    }
+
+
+    public function index_suratkeluar()
+    {
+        $data = SuratKeluar::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
+        return view('pimpinan.suratkeluar.index', compact('data'));
+    }
+
+    public function lihat_suratkeluar($id)
+    {
+        $data = SuratKeluar::find($id);
+        return view('pimpinan.suratkeluar.edit', compact('data'));
+    }
+    public function verifikasi_suratkeluar($id)
+    {
+        $data = SuratKeluar::find($id);
+        return view('pimpinan.suratkeluar.verifikasi', compact('data'));
+    }
+    public function update_verifikasi_suratkeluar(Request $req, $id)
+    {
+        $data = SuratKeluar::find($id)->update([
+            'verifikasi_surat' => $req->verifikasi_surat,
+            'tindak_lanjut' => $req->tindak_lanjut,
+        ]);
+        Session::flash('success', 'telah verifikasi');
+        return redirect('pimpinan/verifikasi/surat-keluar');
     }
 }

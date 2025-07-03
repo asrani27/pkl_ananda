@@ -118,6 +118,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/suratkeluar/delete/{id}', [SuratKeluarController::class, 'hapus']);
     Route::get('admin/data/suratkeluar/cari', [SuratKeluarController::class, 'cari']);
     Route::get('admin/data/suratkeluar/cetak/{id}', [SuratKeluarController::class, 'cetak']);
+    Route::get('admin/data/suratkeluar/disposisi/{id}', [SuratKeluarController::class, 'disposisi']);
 
     Route::get('admin/data/jeniscuti', [JenisCutiController::class, 'index']);
     Route::get('admin/data/jeniscuti/create', [JenisCutiController::class, 'tambah']);
@@ -168,6 +169,10 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/data/suratmasuk/lihat/{id}', [KepalatuController::class, 'lihat']);
     Route::get('kepalatu/verifikasi/surat-masuk', [KepalatuController::class, 'index']);
     Route::get('kepalatu/data/suratmasuk/disposisi/{id}', [KepalatuController::class, 'disposisi']);
+
+    Route::get('kepalatu/data/suratkeluar/lihat/{id}', [KepalatuController::class, 'lihat_suratkeluar']);
+    Route::get('kepalatu/verifikasi/surat-keluar', [KepalatuController::class, 'index_suratkeluar']);
+    Route::get('kepalatu/data/suratkeluar/disposisi/{id}', [KepalatuController::class, 'disposisi_suratkeluar']);
     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
@@ -178,6 +183,12 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);
     Route::post('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi']);
     Route::get('pimpinan/verifikasi/surat-masuk', [PimpinanController::class, 'index']);
+
+    Route::get('pimpinan/data/suratkeluar/lihat/{id}', [PimpinanController::class, 'lihat_suratkeluar']);
+    Route::get('pimpinan/data/suratkeluar/verifikasi/{id}', [PimpinanController::class, 'verifikasi_suratkeluar']);
+    Route::post('pimpinan/data/suratkeluar/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi_suratkeluar']);
+    Route::get('pimpinan/verifikasi/surat-keluar', [PimpinanController::class, 'index_suratkeluar']);
+
     Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });

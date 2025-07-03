@@ -10,13 +10,13 @@
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
    @if(Auth::user()->roles == 'admin')
-    <title>ADMINISTRATOR</title>
+   <title>ADMINISTRATOR</title>
    @elseif(Auth::user()->roles == 'pegawai')
-      <title>PEGAWAI</title>
+   <title>PEGAWAI</title>
    @elseif(Auth::user()->roles == 'pimpinan')
-      <title>PIMPINAN</title>
+   <title>PIMPINAN</title>
    @else
-      <title>KEPALA TU</title>
+   <title>KEPALA TU</title>
    @endif
 
 
@@ -99,9 +99,11 @@
                   <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a></li>
                   <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data Golongan</span></a></li>
                   <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li>
-                  <li><a href="/admin/data/pendidikan"><i class="fa fa-mortar-board"></i> <span>Data Pendidikan</span></a></li>
+                  <li><a href="/admin/data/pendidikan"><i class="fa fa-mortar-board"></i> <span>Data
+                           Pendidikan</span></a></li>
                   <li><a href="/admin/data/suratmasuk"><i class="	fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                  <li><a href="/admin/data/suratkeluar"><i class="fa fa-envelope"></i> <span>Surat Keluar</span></a></li>
+                  <li><a href="/admin/data/suratkeluar"><i class="fa fa-envelope"></i> <span>Surat Keluar</span></a>
+                  </li>
                   <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
                   <li><a href="/admin/data/jeniscuti"><i class="fa fa-envelope"></i> <span>Jenis Cuti</span></a></li>
                   <li><a href="/admin/data/statuscuti"><i class="fa fa-envelope"></i> <span>Status Cuti</span></a></li>
@@ -115,7 +117,8 @@
                   <li><a href="/pegawai"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/pegawai/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
                   <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
-                  <li><a href="/pegawai/data/pengajuancuti"><i class="fa fa-cloud-upload"></i> <span>Pengajuan Cuti</span></a></li>
+                  <li><a href="/pegawai/data/pengajuancuti"><i class="fa fa-cloud-upload"></i> <span>Pengajuan
+                           Cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
@@ -124,10 +127,14 @@
                <ul class="list-unstyled components">
                   <li><a href="/pimpinan"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/pimpinan/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat Masuk</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-cloud-upload"></i> <span>Verifikasi Surat Keluar</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi SPT</span></a></li>
-                   <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi cuti</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat
+                           Masuk</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/surat-keluar"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           Surat Keluar</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           SPT</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
@@ -135,18 +142,24 @@
                @if(Auth::user()->roles == 'kepalaTU')
                <ul class="list-unstyled components">
                   <li><a href="/kepalatu"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
-                   <li><a href="/kepalatu/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <li><a href="/kepalatu/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat Masuk</span></a></li>
-                  <li><a href="/kepalatu/verifikasi/surat-keluar"><i class="fa fa-cloud-upload"></i> <span>Verifikasi Surat Keluar</span></a></li>
-                  <li><a href="/kepalatu/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi SPT</span></a></li>
-                  <li><a href="/kepalatu/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi cuti</span></a></li>
+                  <li><a href="/kepalatu/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
+                  <li><a href="/kepalatu/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat
+                           Masuk</span></a></li>
+                  <li><a href="/kepalatu/verifikasi/surat-keluar"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           Surat Keluar</span></a></li>
+                  <li><a href="/kepalatu/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           SPT</span></a></li>
+                  <li><a href="/kepalatu/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
                @if(Auth::user()->roles == 'kepalaPelayanan')
                <ul class="list-unstyled components">
-                  <li><a href="/kepalapelayanan"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
-                  <li><a href="/kepalapelayanan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi cuti</span></a></li>
+                  <li><a href="/kepalapelayanan"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a>
+                  </li>
+                  <li><a href="/kepalapelayanan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif

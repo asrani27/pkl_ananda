@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Masuk</h2>
+         <h2>Data Surat Keluar</h2>
       </div>
    </div>
 </div>
@@ -15,13 +15,11 @@
    <div class="full graph_head">
       <div class="heading1 margin_0">
 
-         <a href="/admin/data/suratmasuk/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
-            Tambah Data</a>
       </div>
    </div>
    <div class="table_section padding_infor_info">
       <div class="table-responsive-sm">
-         <form method="get" action="/admin/data/suratmasuk/cari">
+         <form method="get" action="/pimpinan/data/suratkeluar/cari">
             @csrf
             <div style="display: flex; margin-left: auto; gap: 8px; align-items: center;">
                <input type="text" class="form-control" name="cari" placeholder="Cari Data" style="max-width: 300px;">
@@ -34,31 +32,30 @@
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
-                  <th>Tanggal Masuk</th>
-                  <th style="text-align: center">Nomor Surat</th>
-                  <th style="text-align: center">Pengirim</th>
                   <th>Tanggal Surat</th>
-                  <th>Lampiran</th>
+                  <th style="text-align: center">Nomor Surat</th>
+                  <th style="text-align: center">Tujuan</th>
+                  <th style="text-align: center">Sifat</th>
                   <th style="text-align: center">Perihal</th>
+                  <th>Lampiran</th>
                   <th>Posisi Surat</th>
                   <th>Verifikasi</th>
                   <th>Tindak Lanjut</th>
                   <th>Status</th>
                   <th>Aksi</th>
-
                </tr>
             </thead>
-            <tbody>
 
+            <tbody>
                @foreach ($data as $key => $item)
                <tr>
                   <td>{{$data->firstItem() + $key}}</td>
-                  <td>{{\Carbon\Carbon::parse($item->tgl_masuk)->format('d-m-Y')}}</td>
-                  <td>{{$item->no_surat}}</td>
-                  <td>{{$item->pengirim}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
-                  <td>{{$item->lampiran}}</td>
+                  <td>{{$item->no_surat}}</td>
+                  <td>{{$item->tujuan}}</td>
+                  <td>{{$item->sifat}}</td>
                   <td>{{$item->perihal}}</td>
+                  <td>{{$item->lampiran}}</td>
                   <td>
                      <ul>
                         <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
@@ -93,24 +90,18 @@
                      @endif
                   </td>
                   <td>
-                     <div style="display: flex; text-align:center">
 
+                     <div style="display: flex; text-align:center">
                         <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
                               class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/admin/data/suratmasuk/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
-                              class="fa fa-edit"></i> </a> <br />
-                        <a href="/admin/data/suratmasuk/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                           onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
-
+                        <a href="/pimpinan/data/suratkeluar/lihat/{{$item->id}}"
+                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
                      </div>
                      <br />
-                     @if ($item->disposisi_kepalatu == null)
-                     <a href="/admin/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                     <a href="/pimpinan/data/suratkeluar/verifikasi/{{$item->id}}"
+                        class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> Verifikasi
                      </a>
-                     @endif
                   </td>
-
                </tr>
                @endforeach
             </tbody>

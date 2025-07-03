@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -78,5 +80,15 @@ class SuratKeluarController extends Controller
         $data = SuratKeluar::find($id);
 
         return view('admin.suratkeluar.detail', compact('data'));
+    }
+
+    public function disposisi($id)
+    {
+        $kepalatu = User::where('roles', 'kepalaTU')->first();
+        SuratKeluar::find($id)->update([
+            'disposisi_kepalatu' => $kepalatu->id,
+        ]);
+        Session::flash('success', 'dikirim ke kepala TU');
+        return back();
     }
 }
