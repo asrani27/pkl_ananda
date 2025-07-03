@@ -43,6 +43,7 @@
                   <th>Posisi Surat</th>
                   <th>Verifikasi</th>
                   <th>Tindak Lanjut</th>
+                  <th>Status</th>
                   <th>Aksi</th>
 
                </tr>
@@ -83,6 +84,17 @@
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}</td>
+                  <td>
+                     @if ($item->disposisi_kepalatu == null)
+                     <span class="badge badge-primary">Baru</span>
+                     @endif
+                     @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
+                     <span class="badge badge-primary">Di proses</span>
+                     @endif
+                     @if ($item->verifikasi_surat != null)
+                     <span class="badge badge-primary">Selesai</span>
+                     @endif
+                  </td>
                   <td>
                      <div style="display: flex; text-align:center">
 
