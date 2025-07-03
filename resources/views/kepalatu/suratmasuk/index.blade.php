@@ -15,13 +15,12 @@
    <div class="full graph_head">
       <div class="heading1 margin_0">
 
-         <a href="/admin/data/suratmasuk/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
-            Tambah Data</a>
+
       </div>
    </div>
    <div class="table_section padding_infor_info">
       <div class="table-responsive-sm">
-         <form method="get" action="/admin/data/suratmasuk/cari">
+         <form method="get" action="/kepalatu/data/suratmasuk/cari">
             @csrf
             <div style="display: flex; margin-left: auto; gap: 8px; align-items: center;">
                <input type="text" class="form-control" name="cari" placeholder="Cari Data" style="max-width: 300px;">
@@ -81,16 +80,15 @@
 
                         <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
                               class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/admin/data/suratmasuk/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
-                              class="fa fa-edit"></i> </a> <br />
-                        <a href="/admin/data/suratmasuk/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                           onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
+                        <a href="/kepalatu/data/suratmasuk/lihat/{{$item->id}}"
+                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
 
                      </div>
                      <br />
-                     @if ($item->disposisi_kepalatu == null)
-                     <a href="/admin/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                     @if ($item->disposisi_pimpinan == null)
+                     <a href="/kepalatu/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
+                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke
+                        Pimpinan
                      </a>
                      @endif
                   </td>

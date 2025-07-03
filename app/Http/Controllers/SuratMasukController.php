@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class SuratMasukController extends Controller
 {
+    public function disposisi($id)
+    {
+        $kepalatu = User::where('roles', 'kepalaTU')->first();
+        SuratMasuk::find($id)->update([
+            'disposisi_kepalatu' => $kepalatu->id,
+        ]);
+        Session::flash('success', 'dikirim ke kepala TU');
+        return back();
+    }
     public function index()
     {
         $data = SuratMasuk::paginate(10);

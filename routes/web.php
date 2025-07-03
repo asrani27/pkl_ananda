@@ -14,10 +14,12 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\GolonganController;
 use App\Http\Controllers\JenisCutiController;
+use App\Http\Controllers\KepalatuController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\PengajuanCutiController;
+use App\Http\Controllers\PimpinanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +97,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin/data/suratmasuk/edit/{id}', [SuratMasukController::class, 'update']);
     Route::get('admin/data/suratmasuk/delete/{id}', [SuratMasukController::class, 'hapus']);
     Route::get('admin/data/suratmasuk/cari', [SuratMasukController::class, 'cari']);
+    Route::get('admin/data/suratmasuk/disposisi/{id}', [SuratMasukController::class, 'disposisi']);
 
     Route::get('admin/data/spt', [SptController::class, 'index']);
     Route::get('admin/data/sptpetugas/delete/{id}', [SptController::class, 'deletePetugas']);
@@ -155,19 +158,25 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::post('pegawai/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
     Route::post('pegawai/upload/spk', [UploadController::class, 'uploadspk']);
     Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
- 
+
     Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pegawai/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
 
 Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu', [HomeController::class, 'kepalatu']);
-     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
+    Route::get('kepalatu/data/suratmasuk/lihat/{id}', [KepalatuController::class, 'lihat']);
+    Route::get('kepalatu/verifikasi/surat-masuk', [KepalatuController::class, 'index']);
+    Route::get('kepalatu/data/suratmasuk/disposisi/{id}', [KepalatuController::class, 'disposisi']);
+    Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
 
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
+    Route::get('pimpinan/data/suratmasuk/lihat/{id}', [PimpinanController::class, 'lihat']);
+    Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);
+    Route::get('pimpinan/verifikasi/surat-masuk', [PimpinanController::class, 'index']);
     Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
