@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Session;
 
 class SuratMasukController extends Controller
@@ -77,5 +79,13 @@ class SuratMasukController extends Controller
         $data = SuratMasuk::find($id);
 
         return view('admin.suratmasuk.detail', compact('data'));
+    }
+
+    public function print_disposisi($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_disposisi.pdf';
+        $data = SuratMasuk::find($id);
+        $pdf = Pdf::loadView('pdf.disposisi_surat', compact('data'));
+        return $pdf->stream($filename);
     }
 }

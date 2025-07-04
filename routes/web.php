@@ -90,6 +90,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/pendidikan/delete/{id}', [PendidikanController::class, 'hapus']);
     Route::get('admin/data/pendidikan/cari', [PendidikanController::class, 'cari']);
 
+    Route::get('admin/data/suratmasuk/printdisposisi/{id}', [SuratMasukController::class, 'print_disposisi']);
     Route::get('admin/data/suratmasuk', [SuratMasukController::class, 'index']);
     Route::get('admin/data/suratmasuk/create', [SuratMasukController::class, 'tambah']);
     Route::post('admin/data/suratmasuk/create', [SuratMasukController::class, 'simpan']);

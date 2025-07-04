@@ -80,7 +80,12 @@
 
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
-                  <td>{{$item->tindak_lanjut}}</td>
+                  <td>{{$item->tindak_lanjut}}
+                     @if ($item->tindak_lanjut != null)
+                     <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-danger"><i
+                           class="fa fa-print"></i> print disposisi</a>
+                     @endif
+                  </td>
                   <td>
                      @if ($item->disposisi_kepalatu == null)
                      <span class="badge badge-primary">Baru</span>
