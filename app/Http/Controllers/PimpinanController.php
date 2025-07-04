@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuratKeluar;
+use Carbon\Carbon;
+use App\Models\Spt;
 use App\Models\User;
 use App\Models\SuratMasuk;
+use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -70,5 +73,36 @@ class PimpinanController extends Controller
         ]);
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/surat-keluar');
+    }
+
+
+    public function index_spt()
+    {
+        $data = Spt::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
+        return view('pimpinan.spt.index', compact('data'));
+    }
+
+    public function lihat_spt($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = Spt::find($id);
+        $pdf = Pdf::loadView('pdf.cetakspt', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
+    }
+    public function verifikasi_spt($id)
+    {
+        $data = Spt::find($id);
+        return view('pimpinan.spt.verifikasi', compact('data'));
+    }
+    public function update_verifikasi_spt(Request $req, $id)
+    {
+        $data = Spt::find($id)->update([
+            'verifikasi_surat' => $req->verifikasi_surat,
+            'tindak_lanjut' => $req->tindak_lanjut,
+        ]);
+        Session::flash('success', 'telah verifikasi');
+        return redirect('pimpinan/verifikasi/spt');
     }
 }

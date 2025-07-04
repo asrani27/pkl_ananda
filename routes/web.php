@@ -173,7 +173,7 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/data/spt/lihat/{id}', [KepalatuController::class, 'lihat_spt']);
     Route::get('kepalatu/verifikasi/spt', [KepalatuController::class, 'index_spt']);
     Route::get('kepalatu/data/spt/disposisi/{id}', [KepalatuController::class, 'disposisi_spt']);
-
+    Route::get('kepalatu/data/spt/cetak/{id}', [KepalatuController::class, 'cetak_spt']);
 
     Route::get('kepalatu/data/suratmasuk/lihat/{id}', [KepalatuController::class, 'lihat']);
     Route::get('kepalatu/verifikasi/surat-masuk', [KepalatuController::class, 'index']);
@@ -192,6 +192,12 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);
     Route::post('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi']);
     Route::get('pimpinan/verifikasi/surat-masuk', [PimpinanController::class, 'index']);
+
+
+    Route::get('pimpinan/data/spt/cetak/{id}', [PimpinanController::class, 'lihat_spt']);
+    Route::get('pimpinan/data/spt/verifikasi/{id}', [PimpinanController::class, 'verifikasi_spt']);
+    Route::post('pimpinan/data/spt/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi_spt']);
+    Route::get('pimpinan/verifikasi/spt', [PimpinanController::class, 'index_spt']);
 
     Route::get('pimpinan/data/suratkeluar/lihat/{id}', [PimpinanController::class, 'lihat_suratkeluar']);
     Route::get('pimpinan/data/suratkeluar/verifikasi/{id}', [PimpinanController::class, 'verifikasi_suratkeluar']);

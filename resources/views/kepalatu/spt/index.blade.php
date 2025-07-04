@@ -64,26 +64,13 @@
 
                         @else
 
-                        <li>{{$key2+1}}. {{$item2->pegawai->nama}} <a
-                              href="/admin/data/sptpetugas/delete/{{$item2->id}}" class="text-danger"><i
-                                 class="fa fa-times"></i></a> </li>
+                        <li>{{$key2+1}}. {{$item2->pegawai->nama}} </li>
                         @endif
                         @endforeach
                      </ul>
                      @endif
 
-                     <form method="post" action="/admin/data/spt/simpanpegawai/{{$item->id}}">
-                        @csrf
 
-                        <select class="form-control" name="pegawai_id">
-                           <option value="">-tambah petugas-</option>
-                           @foreach ($pegawai as $peg)
-                           <option value="{{$peg->id}}">{{$peg->nama}}</option>
-                           @endforeach
-                        </select>
-                        <button type="submit" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
-                        </button><br />
-                     </form>
                   </td>
                   <td>
                      <ul>
@@ -107,10 +94,10 @@
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}
-                     {{-- @if ($item->tindak_lanjut != null)
+                     @if ($item->tindak_lanjut != null)
                      <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-danger"><i
                            class="fa fa-print"></i> print disposisi</a>
-                     @endif --}}
+                     @endif
                   </td>
                   <td>
                      @if ($item->disposisi_kepalatu == null)
@@ -125,16 +112,13 @@
                   </td>
                   <td>
                      <div style="display: flex; text-align:center">
-                        <a href="/admin/data/spt/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
-                              class="fa fa-edit"></i> </a> <br />
-                        <a href="/admin/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                           onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
-                        <a href="/admin/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-print"></i> </a> <br />
+
+                        <a href="/kepalatu/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
+                              class="fa fa-print"></i> Lihat </a> <br />
                      </div>
                      <br />
-                     @if ($item->disposisi_kepalatu == null)
-                     <a href="/admin/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
+                     @if ($item->disposisi_pimpinan == null)
+                     <a href="/kepalatu/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
                         onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
                      </a>
                      @endif

@@ -15,4 +15,12 @@ class Spt extends Model
     {
         return $this->hasMany(SptPetugas::class, 'spt_id');
     }
+    public function kepalatu()
+    {
+        return $this->belongsTo(User::class, 'disposisi_kepalatu');
+    }
+    public function pimpinan()
+    {
+        return $this->belongsTo(User::class, 'disposisi_pimpinan');
+    }
 }

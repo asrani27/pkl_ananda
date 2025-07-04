@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Spt;
-use App\Models\SuratKeluar;
 use App\Models\User;
 use App\Models\SuratMasuk;
+use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -76,5 +78,14 @@ class KepalatuController extends Controller
         ]);
         Session::flash('success', 'dikirim ke pimpinan');
         return back();
+    }
+    public function cetak_spt($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = Spt::find($id);
+        $pdf = Pdf::loadView('pdf.cetakspt', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
     }
 }
