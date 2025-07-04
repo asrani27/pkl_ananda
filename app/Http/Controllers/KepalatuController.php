@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Spt;
 use App\Models\SuratKeluar;
 use App\Models\User;
 use App\Models\SuratMasuk;
@@ -43,11 +44,34 @@ class KepalatuController extends Controller
         $data = SuratKeluar::where('disposisi_kepalatu', Auth::user()->id)->paginate(10);
         return view('kepalatu.suratkeluar.index', compact('data'));
     }
-    
+
     public function disposisi_suratkeluar($id)
     {
         $pimpinan = User::where('roles', 'pimpinan')->first();
         SuratKeluar::find($id)->update([
+            'disposisi_pimpinan' => $pimpinan->id,
+        ]);
+        Session::flash('success', 'dikirim ke pimpinan');
+        return back();
+    }
+
+
+    public function lihat_spt($id)
+    {
+        $data = Spt::find($id);
+        return view('kepalatu.spt.edit', compact('data'));
+    }
+
+    public function index_spt()
+    {
+        $data = Spt::where('disposisi_kepalatu', Auth::user()->id)->paginate(10);
+        return view('kepalatu.spt.index', compact('data'));
+    }
+
+    public function disposisi_spt($id)
+    {
+        $pimpinan = User::where('roles', 'pimpinan')->first();
+        Spt::find($id)->update([
             'disposisi_pimpinan' => $pimpinan->id,
         ]);
         Session::flash('success', 'dikirim ke pimpinan');

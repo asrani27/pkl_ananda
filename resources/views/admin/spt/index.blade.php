@@ -38,6 +38,10 @@
                   <th style="text-align: center">Tujuan</th>
                   <th style="text-align: center">Keperluan</th>
                   <th>Yang Ditugaskan</th>
+                  <th>Posisi Surat</th>
+                  <th>Verifikasi</th>
+                  <th>Tindak Lanjut</th>
+                  <th>Status</th>
                   <th style="text-align: center">Aksi</th>
                </tr>
             </thead>
@@ -81,13 +85,59 @@
                         </button><br />
                      </form>
                   </td>
-                  <td style="display: flex">
-                     <a href="/admin/data/spt/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
-                           class="fa fa-edit"></i> </a> <br />
-                     <a href="/admin/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                        onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
-                     <a href="/admin/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                           class="fa fa-print"></i> </a> <br />
+                  <td>
+                     <ul>
+                        <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
+
+                        @if ($item->disposisi_kepalatu != null)
+                        <li><span class="badge badge-success"><i class="fa fa-check"></i> Kepala TU : {{$item->kepalatu
+                              ==
+                              null ? null : $item->kepalatu->name}}</span></li>
+                        @endif
+                        @if ($item->disposisi_pimpinan != null)
+                        <li><span class="badge badge-success"><i class="fa fa-check"></i> Pimpinan : {{$item->pimpinan
+                              ==
+                              null ? null : $item->pimpinan->name}}</span></li>
+                        @endif
+                        @if ($item->verifikasi_surat != null)
+                        <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
+                        @endif
+                     </ul>
+
+                  </td>
+                  <td>{{$item->verifikasi_surat}}</td>
+                  <td>{{$item->tindak_lanjut}}
+                     @if ($item->tindak_lanjut != null)
+                     <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-danger"><i
+                           class="fa fa-print"></i> print disposisi</a>
+                     @endif
+                  </td>
+                  <td>
+                     @if ($item->disposisi_kepalatu == null)
+                     <span class="badge badge-primary">Baru</span>
+                     @endif
+                     @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
+                     <span class="badge badge-primary">Di proses</span>
+                     @endif
+                     @if ($item->verifikasi_surat != null)
+                     <span class="badge badge-primary">Selesai</span>
+                     @endif
+                  </td>
+                  <td>
+                     <div style="display: flex; text-align:center">
+                        <a href="/admin/data/spt/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
+                              class="fa fa-edit"></i> </a> <br />
+                        <a href="/admin/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
+                           onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
+                        <a href="/admin/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
+                              class="fa fa-print"></i> </a> <br />
+                     </div>
+                     <br />
+                     @if ($item->disposisi_kepalatu == null)
+                     <a href="/admin/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
+                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                     </a>
+                     @endif
                   </td>
                </tr>
                @endforeach

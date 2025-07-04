@@ -110,6 +110,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/spt/delete/{id}', [SptController::class, 'hapus']);
     Route::get('admin/data/spt/cetak/{id}', [SptController::class, 'cetak']);
     Route::get('admin/data/spt/cari', [SptController::class, 'cari']);
+    Route::get('admin/data/spt/disposisi/{id}', [SptController::class, 'disposisi']);
 
     Route::get('admin/data/suratkeluar', [SuratKeluarController::class, 'index']);
     Route::get('admin/data/suratkeluar/create', [SuratKeluarController::class, 'tambah']);
@@ -167,6 +168,13 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
 
 Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu', [HomeController::class, 'kepalatu']);
+
+
+    Route::get('kepalatu/data/spt/lihat/{id}', [KepalatuController::class, 'lihat_spt']);
+    Route::get('kepalatu/verifikasi/spt', [KepalatuController::class, 'index_spt']);
+    Route::get('kepalatu/data/spt/disposisi/{id}', [KepalatuController::class, 'disposisi_spt']);
+
+
     Route::get('kepalatu/data/suratmasuk/lihat/{id}', [KepalatuController::class, 'lihat']);
     Route::get('kepalatu/verifikasi/surat-masuk', [KepalatuController::class, 'index']);
     Route::get('kepalatu/data/suratmasuk/disposisi/{id}', [KepalatuController::class, 'disposisi']);

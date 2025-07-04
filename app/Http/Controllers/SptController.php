@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Spt;
+use App\Models\User;
 use App\Models\Pegawai;
 use App\Models\SptPetugas;
 use Illuminate\Http\Request;
@@ -12,18 +13,28 @@ use Illuminate\Support\Facades\Session;
 
 class SptController extends Controller
 {
+    public function disposisi($id)
+    {
+        $kepalatu = User::where('roles', 'kepalaTU')->first();
+        Spt::find($id)->update([
+            'disposisi_kepalatu' => $kepalatu->id,
+        ]);
+        Session::flash('success', 'dikirim ke kepala TU');
+        return back();
+    }
     public function index()
     {
         $data = Spt::paginate(10);
         $pegawai = Pegawai::get();
-        return view('admin.spt.index', compact('data','pegawai'));
+        return view('admin.spt.index', compact('data', 'pegawai'));
     }
     public function tambah()
     {
         return view('admin.spt.create');
     }
 
-    public function simpanPetugas(Request $req, $id){
+    public function simpanPetugas(Request $req, $id)
+    {
         $new = new SptPetugas();
         $new->spt_id = $id;
         $new->pegawai_id = $req->pegawai_id;
@@ -77,7 +88,7 @@ class SptController extends Controller
         $cari = request()->get('cari');
         $data = Spt::where('keperluan', 'LIKE', '%' . $cari . '%')->get();
         $pegawai = Pegawai::get();
-        return view('admin.spt.index', compact('data','pegawai'));
+        return view('admin.spt.index', compact('data', 'pegawai'));
     }
     public function detail($id)
     {
