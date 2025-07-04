@@ -43,12 +43,12 @@
                                 <br />
                                 <br />
                                 <h4>{{$data->nama}}</h4>
+                                <h3>{{$data->bagian == null ? '': $data->bagian->nama_bagian}}</h3>
                             </div>
                             <div class="profile_contant">
                                 <div class="contact_inner">
                                     <h3>{{$data->jabatan->nama_jabatan}}</h3>
-                                    <h3>{{$data->bagian == null ? '': $data->bagian->nama_bagian}}</h3>
-                                    <h3>{{$data->golongan == null ? '': $data->golongan->nama_golongan}}</h3>
+                                    <h3>Golongan : {{$data->golongan == null ? '': $data->golongan->nama_golongan}}</h3>
                                     <p><strong>NIP : </strong>{{$data->nip}}</p>
                                     <p><strong>NIK : </strong>{{$data->nik}}</p>
                                     <p><strong>TTL : </strong>{{$data->ttl}}</p>

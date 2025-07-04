@@ -66,11 +66,12 @@
                   {!!$data->isi!!}
                </textarea>
             </div>
-            <div class="field">
+            <br/>
+            {{-- <div class="field">
                <label class="label_field">File</label>
                <input type="file" class="form-control" name="file">
             </div>
-            <br />
+            <br /> --}}
 
             <div class="field margin_0">
                <button class="main_bt"><i class="fa fa-save"></i> Update</button>

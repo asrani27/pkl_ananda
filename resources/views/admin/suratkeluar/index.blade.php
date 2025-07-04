@@ -94,8 +94,8 @@
                   <td>
 
                      <div style="display: flex; text-align:center">
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-file-pdf-o"></i> </a><br />
+                        {{-- <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
+                              class="fa fa-file-pdf-o"></i> </a><br /> --}}
                         <a href="/admin/data/suratkeluar/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
                               class="fa fa-edit"></i> </a>
                         <a href="/admin/data/suratkeluar/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
