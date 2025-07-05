@@ -101,25 +101,25 @@
                   </td>
                   <td>
                      @if ($item->disposisi_kepalatu == null)
-                     <span class="badge badge-primary">Baru</span>
+                     <span class="badge badge-info">Baru</span>
                      @endif
                      @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
-                     <span class="badge badge-primary">Di proses</span>
+                     <span class="badge badge-info">Di proses</span>
                      @endif
                      @if ($item->verifikasi_surat != null)
-                     <span class="badge badge-primary">Selesai</span>
+                     <span class="badge badge-info">Selesai</span>
                      @endif
                   </td>
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/kepalatu/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-print"></i> Lihat </a> <br />
+                        <a href="/kepalatu/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"><i
+                              class="fa fa-file-pdf-o"></i> Surat </a> <br />
                      </div>
                      <br />
                      @if ($item->disposisi_pimpinan == null)
-                     <a href="/kepalatu/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                     <a href="/kepalatu/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
+                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke Pimpinan
                      </a>
                      @endif
                   </td>

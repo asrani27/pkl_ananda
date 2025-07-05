@@ -40,6 +40,8 @@
                   <th>Lampiran</th>
                   <th style="text-align: center">Perihal</th>
                   <th>Posisi Surat</th>
+                  <th>Verifikasi</th>
+                  <th>Tindak Lanjut</th>
                   <th>Status</th>
                   <th>Aksi</th>
 
@@ -74,14 +76,24 @@
                         <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
                         @endif
                      </ul>
-                     {{-- Kepala TU : {{$item->disposisi_kepalatu}}<br />
-                     Pimpinan : {{$item->disposisi_pimpinan}} <br /> --}}
-
+                  </td>
+                  <td>{{$item->verifikasi_surat}}</td>
+                  <td>{{$item->tindak_lanjut}}</td>
+                  <td>
+                     @if ($item->disposisi_kepalatu == null)
+                     <span class="badge badge-info">Baru</span>
+                     @endif
+                     @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
+                     <span class="badge badge-info">Di proses</span>
+                     @endif
+                     @if ($item->verifikasi_surat != null)
+                     <span class="badge badge-info">Selesai</span>
+                     @endif
                   </td>
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
+                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-danger"><i
                               class="fa fa-file-pdf-o"></i> Surat </a><br />
                      </div>
                      <br />

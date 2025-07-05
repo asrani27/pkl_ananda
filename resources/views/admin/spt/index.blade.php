@@ -38,7 +38,7 @@
                   <th style="text-align: center">Tujuan</th>
                   <th style="text-align: center">Keperluan</th>
                   <th>Yang Ditugaskan</th>
-                  <th>Posisi Surat</th>
+                  <th style="text-align: center">Posisi Surat</th>
                   <th>Verifikasi</th>
                   <th>Tindak Lanjut</th>
                   <th>Status</th>
@@ -114,13 +114,13 @@
                   </td>
                   <td>
                      @if ($item->disposisi_kepalatu == null)
-                     <span class="badge badge-primary">Baru</span>
+                     <span class="badge badge-info">Baru</span>
                      @endif
                      @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
-                     <span class="badge badge-primary">Di proses</span>
+                     <span class="badge badge-info">Di proses</span>
                      @endif
                      @if ($item->verifikasi_surat != null)
-                     <span class="badge badge-primary">Selesai</span>
+                     <span class="badge badge-info">Selesai</span>
                      @endif
                   </td>
                   <td>
@@ -134,7 +134,7 @@
                      </div>
                      <br />
                      @if ($item->disposisi_kepalatu == null)
-                     <a href="/admin/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
+                     <a href="/admin/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
                         onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
                      </a>
                      @endif

@@ -76,10 +76,6 @@
                         <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
                         @endif
                      </ul>
-                     {{-- Kepala TU : {{$item->disposisi_kepalatu}}<br />
-                     Pimpinan : {{$item->disposisi_pimpinan}} <br /> --}}
-
-
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}</td>

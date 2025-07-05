@@ -56,7 +56,7 @@
                   <td>{{$item->sifat}}</td>
                   <td>{{$item->perihal}}</td>
                   <td>{{$item->lampiran}}</td>
-                  <td>
+                   <td>
                      <ul>
                         <li><span class="badge badge-success"><i class="fa fa-check"></i> Admin</span></li>
 
@@ -78,30 +78,29 @@
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}</td>
+                 
                   <td>
                      @if ($item->disposisi_kepalatu == null)
-                     <span class="badge badge-primary">Baru</span>
+                     <span class="badge badge-info">Baru</span>
                      @endif
                      @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
-                     <span class="badge badge-primary">Di proses</span>
+                     <span class="badge badge-info">Di proses</span>
                      @endif
                      @if ($item->verifikasi_surat != null)
-                     <span class="badge badge-primary">Selesai</span>
+                     <span class="badge badge-info">Selesai</span>
                      @endif
                   </td>
                   <td>
 
                      <div style="display: flex; text-align:center">
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-danger"><i
-                              class="fa fa-file-pdf-o"></i> Surat</a><br />
-                        
+                        <a href="/kepalatu/data/suratkeluar/cetak/{{$item->id}}"
+                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-file-pdf-o"></i> Surat</a> <br />
                      </div>
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/suratkeluar/disposisi/{{$item->id}}"
                         class="btn btn-flat btn-sm btn-warning" onclick="return confirm('Yakin ingin di disposisi')"><i
-                           class="fa fa-send"></i> Disposisi ke
-                        Pimpinan
+                           class="fa fa-send"></i> Disposisi ke Pimpinan
                      </a>
                      @endif
                   </td>
