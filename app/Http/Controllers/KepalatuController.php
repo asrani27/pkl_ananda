@@ -34,7 +34,6 @@ class KepalatuController extends Controller
         return view('kepalatu.suratmasuk.edit', compact('data'));
     }
 
-
     public function lihat_suratkeluar($id)
     {
         $data = SuratKeluar::find($id);
@@ -57,7 +56,15 @@ class KepalatuController extends Controller
         return back();
     }
 
-
+    public function cetak_suratkeluar($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = SuratKeluar::find($id);
+        $pdf = Pdf::loadView('pdf.cetaksuratkeluar', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
+    }
     public function lihat_spt($id)
     {
         $data = Spt::find($id);

@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Keluar</h2>
+         <h2>SURAT KELUAR</h2>
       </div>
    </div>
 </div>
@@ -92,14 +92,12 @@
                   <td>
 
                      <div style="display: flex; text-align:center">
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/pimpinan/data/suratkeluar/lihat/{{$item->id}}"
-                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
+                        <a href="/pimpinan/data/suratkeluar/cetak/{{$item->id}}"
+                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-file-pdf-o"></i> Surat</a> <br />
                      </div>
                      <br />
                      <a href="/pimpinan/data/suratkeluar/verifikasi/{{$item->id}}"
-                        class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> Verifikasi
+                        class="btn btn-flat btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi
                      </a>
                   </td>
                </tr>

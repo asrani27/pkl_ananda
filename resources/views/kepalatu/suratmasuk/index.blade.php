@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Masuk</h2>
+         <h2>SURAT MASUK</h2>
       </div>
    </div>
 </div>
@@ -40,6 +40,7 @@
                   <th>Lampiran</th>
                   <th style="text-align: center">Perihal</th>
                   <th>Posisi Surat</th>
+                  <th>Status</th>
                   <th>Aksi</th>
 
                </tr>
@@ -76,20 +77,16 @@
                      {{-- Kepala TU : {{$item->disposisi_kepalatu}}<br />
                      Pimpinan : {{$item->disposisi_pimpinan}} <br /> --}}
 
-
                   </td>
                   <td>
                      <div style="display: flex; text-align:center">
 
                         <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/kepalatu/data/suratmasuk/lihat/{{$item->id}}"
-                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
-
+                              class="fa fa-file-pdf-o"></i> Surat </a><br />
                      </div>
                      <br />
                      @if ($item->disposisi_pimpinan == null)
-                     <a href="/kepalatu/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"
+                     <a href="/kepalatu/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
                         onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke
                         Pimpinan
                      </a>

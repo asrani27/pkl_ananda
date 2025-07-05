@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Masuk</h2>
+         <h2>SURAT MASUK</h2>
       </div>
    </div>
 </div>
@@ -42,6 +42,7 @@
                   <th>Posisi Surat</th>
                   <th>Verifikasi</th>
                   <th>Tindak Lanjut</th>
+                   <th>Status</th>
                   <th>Aksi</th>
 
                </tr>
@@ -83,20 +84,25 @@
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}</td>
                   <td>
+                     @if ($item->disposisi_kepalatu == null)
+                     <span class="badge badge-primary">Baru</span>
+                     @endif
+                     @if ($item->disposisi_kepalatu != null && $item->verifikasi_surat == null)
+                     <span class="badge badge-primary">Di proses</span>
+                     @endif
+                     @if ($item->verifikasi_surat != null)
+                     <span class="badge badge-primary">Selesai</span>
+                     @endif
+                  </td>
+                  <td>
                      <div style="display: flex; text-align:center">
-
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/pimpinan/data/suratmasuk/lihat/{{$item->id}}"
-                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
-
+                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-danger"><i
+                              class="fa fa-file-pdf-o"></i> Surat</a><br />
                      </div>
-                     <br />
-
+                     <br/>
                      <a href="/pimpinan/data/suratmasuk/verifikasi/{{$item->id}}"
-                        class="btn btn-flat btn-sm btn-success"><i class="fa fa-edit"></i> Verifikasi
+                        class="btn btn-flat btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi
                      </a>
-
                   </td>
 
                </tr>

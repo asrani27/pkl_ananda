@@ -47,8 +47,6 @@ class PimpinanController extends Controller
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/surat-masuk');
     }
-
-
     public function index_suratkeluar()
     {
         $data = SuratKeluar::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
@@ -104,5 +102,14 @@ class PimpinanController extends Controller
         ]);
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/spt');
+    }
+      public function cetak_suratkeluar($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = SuratKeluar::find($id);
+        $pdf = Pdf::loadView('pdf.cetaksuratkeluar', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
     }
 }

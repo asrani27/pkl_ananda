@@ -169,7 +169,6 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
 Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu', [HomeController::class, 'kepalatu']);
 
-
     Route::get('kepalatu/data/spt/lihat/{id}', [KepalatuController::class, 'lihat_spt']);
     Route::get('kepalatu/verifikasi/spt', [KepalatuController::class, 'index_spt']);
     Route::get('kepalatu/data/spt/disposisi/{id}', [KepalatuController::class, 'disposisi_spt']);
@@ -179,35 +178,36 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/verifikasi/surat-masuk', [KepalatuController::class, 'index']);
     Route::get('kepalatu/data/suratmasuk/disposisi/{id}', [KepalatuController::class, 'disposisi']);
 
-    Route::get('kepalatu/data/suratkeluar/lihat/{id}', [KepalatuController::class, 'lihat_suratkeluar']);
     Route::get('kepalatu/verifikasi/surat-keluar', [KepalatuController::class, 'index_suratkeluar']);
     Route::get('kepalatu/data/suratkeluar/disposisi/{id}', [KepalatuController::class, 'disposisi_suratkeluar']);
+    Route::get('kepalatu/data/suratkeluar/cetak/{id}', [KepalatuController::class, 'cetak_suratkeluar']);
+    
     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
 
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
+
     Route::get('pimpinan/data/suratmasuk/lihat/{id}', [PimpinanController::class, 'lihat']);
     Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);
     Route::post('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi']);
     Route::get('pimpinan/verifikasi/surat-masuk', [PimpinanController::class, 'index']);
-
 
     Route::get('pimpinan/data/spt/cetak/{id}', [PimpinanController::class, 'lihat_spt']);
     Route::get('pimpinan/data/spt/verifikasi/{id}', [PimpinanController::class, 'verifikasi_spt']);
     Route::post('pimpinan/data/spt/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi_spt']);
     Route::get('pimpinan/verifikasi/spt', [PimpinanController::class, 'index_spt']);
 
-    Route::get('pimpinan/data/suratkeluar/lihat/{id}', [PimpinanController::class, 'lihat_suratkeluar']);
     Route::get('pimpinan/data/suratkeluar/verifikasi/{id}', [PimpinanController::class, 'verifikasi_suratkeluar']);
     Route::post('pimpinan/data/suratkeluar/verifikasi/{id}', [PimpinanController::class, 'update_verifikasi_suratkeluar']);
     Route::get('pimpinan/verifikasi/surat-keluar', [PimpinanController::class, 'index_suratkeluar']);
+    Route::get('pimpinan/data/suratkeluar/cetak/{id}', [PimpinanController::class, 'cetak_suratkeluar']);
 
     Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
 
-Route::middleware(['auth', 'role:kepalaPelayanan'])->group(function () {
-    Route::get('kepalapelayanan', [HomeController::class, 'kepalapelayanan']);
-});
+// Route::middleware(['auth', 'role:kepalaPelayanan'])->group(function () {
+//     Route::get('kepalapelayanan', [HomeController::class, 'kepalapelayanan']);
+// });

@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Perintah Tugas</h2>
+         <h2>SURAT PERINTAH TUGAS</h2>
       </div>
    </div>
 </div>
@@ -109,7 +109,7 @@
                               class="fa fa-print"></i> Lihat </a> <br />
                      </div>
                      <br />
-                     <a href="/pimpinan/data/spt/verifikasi/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
+                     <a href="/pimpinan/data/spt/verifikasi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"><i
                            class="fa fa-edit"></i> Verifikasi
                      </a>
                   </td>

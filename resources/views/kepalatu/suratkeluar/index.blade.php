@@ -92,15 +92,14 @@
                   <td>
 
                      <div style="display: flex; text-align:center">
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-file-pdf-o"></i> </a><br />
-                        <a href="/kepalatu/data/suratkeluar/lihat/{{$item->id}}"
-                           class="btn btn-flat btn-sm btn-danger"><i class="fa fa-eye"></i> Lihat Surat</a> <br />
+                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-danger"><i
+                              class="fa fa-file-pdf-o"></i> Surat</a><br />
+                        
                      </div>
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/suratkeluar/disposisi/{{$item->id}}"
-                        class="btn btn-flat btn-sm btn-success" onclick="return confirm('Yakin ingin di disposisi')"><i
+                        class="btn btn-flat btn-sm btn-warning" onclick="return confirm('Yakin ingin di disposisi')"><i
                            class="fa fa-send"></i> Disposisi ke
                         Pimpinan
                      </a>
