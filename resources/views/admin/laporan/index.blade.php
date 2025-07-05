@@ -78,6 +78,7 @@
                      <option value="7">Laporan Surat Masuk</option>
                      <option value="8">Laporan Surat Keluar</option>
                      <option value="9">Laporan Surat Perintah Tugas</option>
+                     <option value="10">Laporan Rekapitulasi Surat</option>
                   </select>
                   BULAN :
                   <select name="bulan" class="form-control" required>

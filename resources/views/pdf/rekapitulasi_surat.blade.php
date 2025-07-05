@@ -33,6 +33,12 @@
 
     </h3>
     <br />
+    @if ($bulan != null)
+    @php
+    $tanggal = \Carbon\Carbon::parse("{$tahun}-{$bulan}-01");
+    @endphp
+    <strong>Bulan : {{ $tanggal->translatedFormat('F Y') }} </strong>
+    @endif
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>Jumlah Surat Masuk</th>

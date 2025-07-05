@@ -82,6 +82,20 @@ class LaporanController extends Controller
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
         }
+        if ($jenis == '10') {
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
+            $sm = SuratMasuk::whereMonth('tgl_masuk', $bulan)->whereYear('tgl_masuk', $tahun)->count();
+            $sk = SuratKeluar::whereMonth('tgl_surat', $bulan)->whereYear('tgl_surat', $tahun)->count();
+            $spt = Spt::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->count();
+            $data['sm'] = $sm;
+            $data['sk'] = $sk;
+            $data['spt'] = $spt;
+
+            $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data', 'bulan', 'tahun'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper([0, 0, 800, 1100], 'landscape');
+            return $pdf->stream($filename);
+        }
     }
     public function laporan_jenis()
     {
@@ -112,7 +126,33 @@ class LaporanController extends Controller
         }
         if ($jenis == '4') {
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_belumupload.pdf';
-            $data = Pegawai::get();
+            $data = Pegawai::get()->map(function ($item) {
+                if ($item->user == null) {
+                    $item->file_lamaran_kerja = 'belum';
+                    $item->file_perjanjian_kerja = 'belum';
+                    $item->file_sertifikat = 'belum';
+                    $item->file_ijazah = 'belum';
+                    $item->file_ktp = 'belum';
+                    $item->file_kk = 'belum';
+                } else {
+                    if ($item->user->upload == null) {
+                        $item->file_lamaran_kerja = 'belum';
+                        $item->file_perjanjian_kerja = 'belum';
+                        $item->file_sertifikat = 'belum';
+                        $item->file_ijazah = 'belum';
+                        $item->file_ktp = 'belum';
+                        $item->file_kk = 'belum';
+                    } else {
+                        $item->user->upload->file_lamaran_kerja == 'belum' ?: 'sudah';
+                        $item->user->upload->file_perjanjian_kerja == 'belum' ?: 'sudah';
+                        $item->user->upload->file_sertifikat == 'belum' ?: 'sudah';
+                        $item->user->upload->file_ijazah == 'belum' ?: 'sudah';
+                        $item->user->upload->file_ktp == 'belum' ?: 'sudah';
+                        $item->user->upload->file_kk == 'belum' ?: 'sudah';
+                    }
+                }
+            });
+            dd($data);
             $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -186,8 +226,8 @@ class LaporanController extends Controller
             $data['sm'] = $sm;
             $data['sk'] = $sk;
             $data['spt'] = $spt;
-
-            $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data'))->setOption([
+            $bulan = null;
+            $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
