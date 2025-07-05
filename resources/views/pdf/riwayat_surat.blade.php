@@ -41,8 +41,6 @@
             <th>Tanggal Surat</th>
             <th>Tanggal Disposisi</th>
             <th>Perihal</th>
-            <th>Dari</th>
-            <th>Kepada</th>
             <th>Status</th>
             <th>Catatan</th>
         </tr>
@@ -50,29 +48,27 @@
         $no =1;
         @endphp
 
-        {{-- @foreach ($data as $key => $item)
+        @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{$item->nik}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->jkel}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->telpon}}</td>
-            <td>{{$item->agama}}</td>
-            <td>{{$item->jabatan->nama_jabatan}}</td>
-            <td>{{$item->pendidikan->nama_pendidikan}}</td>
-            <td>{{$item->prodi}}</td>
+            <td>{{$item['jenis']}}</td>
+            <td>{{$item['no_surat']}}</td>
+            <td>{{\Carbon\Carbon::parse($item['tanggal'])->format('d M Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item['tgl_disposisi'])->format('d M Y')}}</td>
+            <td>{{$item['perihal']}}</td>
+            <td>{{$item['verifikasi_surat']}}</td>
+            <td>{{$item['tindak_lanjut']}}</td>
         </tr>
-        @endforeach --}}
+        @endforeach
     </table>
 
     <table width="100%">
         <tr>
             <td width="60%">
-                Total Surat Masuk : <br />
-                Total Surat Keluar : <br />
-                Surat Disetujui : <br />
-                Surat Ditolak : <br />
+                Total Surat Masuk : {{$data->where('jenis','surat masuk')->count()}}<br />
+                Total Surat Keluar : {{$data->where('jenis','surat keluar')->count()}}<br />
+                Surat Disetujui : {{$data->where('verifikasi_surat','diterima')->count()}}<br />
+                Surat Ditolak : {{$data->where('verifikasi_surat','ditolak')->count()}}<br />
             </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />

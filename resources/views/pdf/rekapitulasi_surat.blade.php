@@ -20,8 +20,8 @@
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
             </td>
             <td width="15%">
             </td>
@@ -35,31 +35,21 @@
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
-            <th>No</th>
-            <th>Jenis Dokumen</th>
-            <th>Jumlah Masuk</th>
-            <th>Jumlah Keluar</th>
-            <th>Total Keterangan</th>
+            <th>Jumlah Surat Masuk</th>
+            <th>Jumlah Surat Keluar</th>
+            <th>Jumlah SPT</th>
 
         </tr>
         @php
         $no =1;
         @endphp
 
-        {{-- @foreach ($data as $key => $item)
         <tr>
-            <td>{{$key + 1}}</td>
-            <td>{{$item->nik}}</td>
-            <td>{{$item->nama}}</td>
-            <td>{{$item->jkel}}</td>
-            <td>{{$item->alamat}}</td>
-            <td>{{$item->telpon}}</td>
-            <td>{{$item->agama}}</td>
-            <td>{{$item->jabatan->nama_jabatan}}</td>
-            <td>{{$item->pendidikan->nama_pendidikan}}</td>
-            <td>{{$item->prodi}}</td>
+            <td style="text-align: center">{{$data['sm']}}</td>
+            <td style="text-align: center">{{$data['sk']}}</td>
+            <td style="text-align: center">{{$data['spt']}}</td>
         </tr>
-        @endforeach --}}
+
     </table>
 
     <table width="100%">

@@ -128,7 +128,21 @@ class LaporanController extends Controller
         }
         if ($jenis == '6') {
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
-            $data = Pegawai::get();
+            $sm = SuratMasuk::get()->map(function ($item) {
+                $item->jenis = 'surat masuk';
+                $item->tanggal = $item->tgl_masuk;
+                $item->tgl_disposisi = $item->updated_at;
+                return $item->only('no_surat', 'tanggal', 'jenis', 'tgl_disposisi', 'perihal', 'verifikasi_surat', 'tindak_lanjut');
+            });
+            $sk = SuratKeluar::get()->map(function ($item) {
+                $item->jenis = 'surat keluar';
+                $item->tanggal = $item->tgl_surat;
+                $item->tgl_disposisi = $item->updated_at;
+                return $item->only('no_surat', 'tanggal', 'jenis', 'tgl_disposisi', 'perihal', 'verifikasi_surat', 'tindak_lanjut');
+            });
+
+            $data = $sm->merge($sk);
+
             $pdf = Pdf::loadView('pdf.riwayat_surat', compact('data'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -166,7 +180,13 @@ class LaporanController extends Controller
         }
         if ($jenis == '10') {
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pegawai.pdf';
-            $data = Pegawai::get();
+            $sm = SuratMasuk::count();
+            $sk = SuratKeluar::count();
+            $spt = Spt::count();
+            $data['sm'] = $sm;
+            $data['sk'] = $sk;
+            $data['spt'] = $spt;
+
             $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
