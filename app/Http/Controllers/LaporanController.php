@@ -23,25 +23,28 @@ class LaporanController extends Controller
         $mulai = request()->get('mulai');
         $sampai = request()->get('sampai');
         if ($jenis == '7') {
+            $bulan = null;
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_suratmasuk.pdf';
             $data = SuratMasuk::whereBetween('tgl_masuk', [$mulai, $sampai])->get();
-            $pdf = Pdf::loadView('pdf.suratmasuk', compact('data', 'mulai', 'sampai'))->setOption([
+            $pdf = Pdf::loadView('pdf.suratmasuk', compact('data', 'mulai', 'sampai', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
         }
         if ($jenis == '8') {
+            $bulan = null;
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_suratkeluar.pdf';
             $data = SuratKeluar::whereBetween('tgl_surat', [$mulai, $sampai])->get();
-            $pdf = Pdf::loadView('pdf.suratkeluar', compact('data', 'mulai', 'sampai'))->setOption([
+            $pdf = Pdf::loadView('pdf.suratkeluar', compact('data', 'mulai', 'sampai', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
         }
         if ($jenis == '9') {
+            $bulan = null;
             $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_spt.pdf';
             $data = Spt::whereBetween('tanggal', [$mulai, $sampai])->get();
-            $pdf = Pdf::loadView('pdf.spt', compact('data', 'mulai', 'sampai'))->setOption([
+            $pdf = Pdf::loadView('pdf.spt', compact('data', 'mulai', 'sampai', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
