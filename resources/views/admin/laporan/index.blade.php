@@ -14,44 +14,110 @@
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-         <a href="/admin/data/laporan/pegawai" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Semua pegawai</a>
-         <a href="/admin/data/laporan/pegawaipns" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Pegawai PNS</a>
-         <a href="/admin/data/laporan/pegawaitekon" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Pegawai TEKON</a>
-         <a href="/admin/data/laporan/belumupload" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Status Upload Dokumen Pegawai</a>
+         Laporan Semua Data:
+         <form method="get" action="/admin/data/laporan/jenis">
+            @csrf
+            <select name="jenis" class="form-control" required>
+               <option value="">-pilih-</option>
+               <option value="1">Laporan Semua pegawai</option>
+               <option value="2">Laporan pegawai PNS</option>
+               <option value="3">Laporan pegawai TEKON</option>
+               <option value="4">Status Upload Dokumen pegawai</option>
+               <option value="5">Laporan Pengguna Sistem</option>
+               <option value="6">Laporan Riwayat Disposisi Surat</option>
+               <option value="7">Laporan Surat Masuk</option>
+               <option value="8">Laporan Surat Keluar</option>
+               <option value="9">Laporan Surat Perintah Tugas</option>
+               <option value="10">Laporan Rekapitulasi Surat</option>
+            </select><br />
+            <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
+               Print</button>
+         </form>
       </div>
    </div>
 </div>
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-         <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+         Laporan per Periode : <br />
+         <form method="get" action="/admin/data/laporan/periode">
+            @csrf
+            Jenis Laporan
+            <select name="jenis" class="form-control" required>
+               <option value="">-pilih-</option>
+               <option value="7">Laporan Surat Masuk</option>
+               <option value="8">Laporan Surat Keluar</option>
+               <option value="9">Laporan Surat Perintah Tugas</option>
+            </select>
+            MULAI : <input type="date" name="mulai" class="form-control"
+               value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+            SAMPAI : <input type="date" name="sampai" class="form-control"
+               value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+            <br />
+            <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
+               Print</button>
+         </form>
+         {{-- <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Surat Masuk</a>
          <a href="/admin/data/laporan/suratkeluar" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Surat Keluar</a>
          <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
                class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
          <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a>
+               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a> --}}
       </div>
    </div>
 </div>
-
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-         <a href="/admin/data/laporan/user" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Pengguna Sistem</a>
-         <a href="/admin/data/laporan/riwayat/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Riwayat Disposisi Surat</a>
-         
+         Laporan per Bulan Tahun :<br />
+         jenis Laporan
+         <form method="get" action="/admin/data/laporan/bulan">
+            @csrf
+            <select name="jenis" class="form-control" required>
+               <option value="">-pilih-</option>
+               <option value="7">Laporan Surat Masuk</option>
+               <option value="8">Laporan Surat Keluar</option>
+               <option value="9">Laporan Surat Perintah Tugas</option>
+            </select>
+            BULAN :
+            <select name="bulan" class="form-control" required>
+               <option value="">-pilih-</option>
+               <option value="1">Januari</option>
+               <option value="2">Februari</option>
+               <option value="3">Maret</option>
+               <option value="4">April</option>
+               <option value="5">Mei</option>
+               <option value="6">Juni</option>
+               <option value="7">Juli</option>
+               <option value="8">Agustus</option>
+               <option value="9">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+            </select>
+            TAHUN :
+            <select name="tahun" class="form-control" required>
+               <option value="">-pilih-</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+            </select>
+            <br />
+            <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
+               Print</button>
+         </form>
+         {{-- <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+               class="fa fa-print"></i> Laporan Surat Masuk</a>
+         <a href="/admin/data/laporan/suratkeluar" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+               class="fa fa-print"></i> Laporan Surat Keluar</a>
+         <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+               class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
+         <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a> --}}
       </div>
    </div>
 </div>
-
 @endsection
 @push('js')
 @endpush

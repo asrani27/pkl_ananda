@@ -20,8 +20,8 @@
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
             </td>
             <td width="15%">
             </td>
@@ -33,6 +33,16 @@
 
     </h3>
     <br />
+    @if ($mulai != null)
+    <strong>Periode : {{\Carbon\Carbon::parse($mulai)->format('d M Y')}} s/d {{\Carbon\Carbon::parse($sampai)->format('d
+        M Y')}}</strong>
+    @endif
+    @if ($bulan != null)
+    @php
+    $tanggal = \Carbon\Carbon::parse("{$tahun}-{$bulan}-01");
+    @endphp
+    <strong>Bulan : {{ $tanggal->translatedFormat('F Y') }} </strong>
+    @endif
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
@@ -62,7 +72,7 @@
     <table width="100%">
         <tr>
             <td width="60%">
-                Jumlah Surat Penting :
+                Jumlah Surat Penting : {{$data->where('sifat', 'penting')->count()}}
             </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />

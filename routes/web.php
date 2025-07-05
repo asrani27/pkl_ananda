@@ -131,6 +131,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/jeniscuti/cari', [JenisCutiController::class, 'cari']);
 
     Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
+    Route::get('admin/data/laporan/jenis', [LaporanController::class, 'laporan_jenis']);
+    Route::get('admin/data/laporan/periode', [LaporanController::class, 'laporan_periode']);
+    Route::get('admin/data/laporan/bulan', [LaporanController::class, 'laporan_bulan']);
+
     Route::get('admin/data/laporan/riwayat/surat', [LaporanController::class, 'laporan_riwayat_surat']);
     Route::get('admin/data/laporan/rekapitulasi/surat', [LaporanController::class, 'laporan_rekapitulasi_surat']);
     Route::get('admin/data/laporan/user', [LaporanController::class, 'laporan_user']);
@@ -181,7 +185,7 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/verifikasi/surat-keluar', [KepalatuController::class, 'index_suratkeluar']);
     Route::get('kepalatu/data/suratkeluar/disposisi/{id}', [KepalatuController::class, 'disposisi_suratkeluar']);
     Route::get('kepalatu/data/suratkeluar/cetak/{id}', [KepalatuController::class, 'cetak_suratkeluar']);
-    
+
     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 });
