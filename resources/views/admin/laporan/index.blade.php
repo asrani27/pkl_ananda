@@ -36,85 +36,78 @@
       </div>
    </div>
 </div>
-<div class="white_shd full margin_bottom_30">
-   <div class="full graph_head">
-      <div class="heading1 margin_0">
-         Laporan per Periode : <br />
-         <form method="get" action="/admin/data/laporan/periode">
-            @csrf
-            Jenis Laporan
-            <select name="jenis" class="form-control" required>
-               <option value="">-pilih-</option>
-               <option value="7">Laporan Surat Masuk</option>
-               <option value="8">Laporan Surat Keluar</option>
-               <option value="9">Laporan Surat Perintah Tugas</option>
-            </select>
-            MULAI : <input type="date" name="mulai" class="form-control"
-               value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
-            SAMPAI : <input type="date" name="sampai" class="form-control"
-               value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
-            <br />
-            <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
-               Print</button>
-         </form>
-         {{-- <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Masuk</a>
-         <a href="/admin/data/laporan/suratkeluar" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Keluar</a>
-         <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
-         <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a> --}}
+<div class="row">
+   <div class="col-md-6">
+
+      <div class="white_shd full margin_bottom_30">
+         <div class="full graph_head">
+            <div class="heading1 margin_0">
+               Laporan per Periode : <br />
+               <form method="get" action="/admin/data/laporan/periode">
+                  @csrf
+                  Jenis Laporan
+                  <select name="jenis" class="form-control" required>
+                     <option value="">-pilih-</option>
+                     <option value="7">Laporan Surat Masuk</option>
+                     <option value="8">Laporan Surat Keluar</option>
+                     <option value="9">Laporan Surat Perintah Tugas</option>
+                  </select>
+                  MULAI : <input type="date" name="mulai" class="form-control"
+                     value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+                  SAMPAI : <input type="date" name="sampai" class="form-control"
+                     value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+                  <br />
+                  <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+                        class="fa fa-print"></i>
+                     Print</button>
+               </form>
+            </div>
+         </div>
       </div>
    </div>
-</div>
-<div class="white_shd full margin_bottom_30">
-   <div class="full graph_head">
-      <div class="heading1 margin_0">
-         Laporan per Bulan Tahun :<br />
-         jenis Laporan
-         <form method="get" action="/admin/data/laporan/bulan">
-            @csrf
-            <select name="jenis" class="form-control" required>
-               <option value="">-pilih-</option>
-               <option value="7">Laporan Surat Masuk</option>
-               <option value="8">Laporan Surat Keluar</option>
-               <option value="9">Laporan Surat Perintah Tugas</option>
-            </select>
-            BULAN :
-            <select name="bulan" class="form-control" required>
-               <option value="">-pilih-</option>
-               <option value="1">Januari</option>
-               <option value="2">Februari</option>
-               <option value="3">Maret</option>
-               <option value="4">April</option>
-               <option value="5">Mei</option>
-               <option value="6">Juni</option>
-               <option value="7">Juli</option>
-               <option value="8">Agustus</option>
-               <option value="9">September</option>
-               <option value="10">Oktober</option>
-               <option value="11">November</option>
-               <option value="12">Desember</option>
-            </select>
-            TAHUN :
-            <select name="tahun" class="form-control" required>
-               <option value="">-pilih-</option>
-               <option value="2025">2025</option>
-               <option value="2026">2026</option>
-            </select>
-            <br />
-            <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
-               Print</button>
-         </form>
-         {{-- <a href="/admin/data/laporan/suratmasuk" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Masuk</a>
-         <a href="/admin/data/laporan/suratkeluar" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Keluar</a>
-         <a href="/admin/data/laporan/spt" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Surat Perintah Tugas</a>
-         <a href="/admin/data/laporan/rekapitulasi/surat" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
-               class="fa fa-print"></i> Laporan Rekapitulasi Surat</a> --}}
+   <div class="col-md-6">
+      <div class="white_shd full margin_bottom_30">
+         <div class="full graph_head">
+            <div class="heading1 margin_0">
+               Laporan per Bulan Tahun :<br />
+               jenis Laporan
+               <form method="get" action="/admin/data/laporan/bulan">
+                  @csrf
+                  <select name="jenis" class="form-control" required>
+                     <option value="">-pilih-</option>
+                     <option value="7">Laporan Surat Masuk</option>
+                     <option value="8">Laporan Surat Keluar</option>
+                     <option value="9">Laporan Surat Perintah Tugas</option>
+                  </select>
+                  BULAN :
+                  <select name="bulan" class="form-control" required>
+                     <option value="">-pilih-</option>
+                     <option value="1">Januari</option>
+                     <option value="2">Februari</option>
+                     <option value="3">Maret</option>
+                     <option value="4">April</option>
+                     <option value="5">Mei</option>
+                     <option value="6">Juni</option>
+                     <option value="7">Juli</option>
+                     <option value="8">Agustus</option>
+                     <option value="9">September</option>
+                     <option value="10">Oktober</option>
+                     <option value="11">November</option>
+                     <option value="12">Desember</option>
+                  </select>
+                  TAHUN :
+                  <select name="tahun" class="form-control" required>
+                     <option value="">-pilih-</option>
+                     <option value="2025">2025</option>
+                     <option value="2026">2026</option>
+                  </select>
+                  <br />
+                  <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+                        class="fa fa-print"></i>
+                     Print</button>
+               </form>
+            </div>
+         </div>
       </div>
    </div>
 </div>

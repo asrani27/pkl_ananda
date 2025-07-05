@@ -20,8 +20,8 @@
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
             </td>
             <td width="15%">
             </td>
@@ -45,7 +45,6 @@
             <th>Kepada</th>
             <th>Status</th>
             <th>Catatan</th>
-
         </tr>
         @php
         $no =1;
