@@ -136,8 +136,6 @@
                   <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
                   <li><a href="/pegawai/data/pengajuancuti"><i class="fa fa-cloud-upload"></i> <span>Pengajuan
                            Cuti</span></a></li>
-                  <li><a href="/pegawai/data/riwayatcuti"><i class="fa fa-cloud-upload"></i> <span>Riwayat Pengajuan
-                           Cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
