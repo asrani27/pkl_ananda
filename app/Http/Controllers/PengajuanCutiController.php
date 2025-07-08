@@ -92,7 +92,6 @@ class PengajuanCutiController extends Controller
         return view('admin.jeniscuti.index', compact('data'));
     }
 
-
     public function create()
     {
         if (auth()->user()->isPegawai()) {
