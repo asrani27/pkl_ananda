@@ -59,8 +59,8 @@
                   <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
-                  <td>{{$lamaCuti}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
+                  <td>{{$lamaCuti}}</td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-success">Dikirim</span><br />
