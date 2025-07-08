@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PengajuanCuti;
 use Carbon\Carbon;
 use App\Models\Spt;
 use App\Models\User;
@@ -63,6 +64,16 @@ class PimpinanController extends Controller
         $data = SuratKeluar::find($id);
         return view('pimpinan.suratkeluar.verifikasi', compact('data'));
     }
+    public function setujui_cuti($id)
+    {
+        $data = PengajuanCuti::find($id)->update(['verifikasi_pimpinan' => 'disetujui']);
+        return back();
+    }
+    public function tolak_cuti($id)
+    {
+        $data = PengajuanCuti::find($id)->update(['verifikasi_pimpinan' => 'ditolak']);
+        return back();
+    }
     public function update_verifikasi_suratkeluar(Request $req, $id)
     {
         $data = SuratKeluar::find($id)->update([
@@ -79,7 +90,11 @@ class PimpinanController extends Controller
         $data = Spt::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
         return view('pimpinan.spt.index', compact('data'));
     }
-
+    public function lihat_cuti()
+    {
+        $data = PengajuanCuti::paginate(10);
+        return view('pimpinan.cuti.index', compact('data'));
+    }
     public function lihat_spt($id)
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
@@ -103,7 +118,7 @@ class PimpinanController extends Controller
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/spt');
     }
-      public function cetak_suratkeluar($id)
+    public function cetak_suratkeluar($id)
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
         $data = SuratKeluar::find($id);

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Spt;
 use App\Models\User;
 use App\Models\Pegawai;
+use App\Models\PengajuanCuti;
 use App\Models\PerubahanData;
 use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
@@ -283,6 +284,16 @@ class LaporanController extends Controller
             $data = PerubahanData::where('jenis', 'jabatan')->get();
             $bulan = null;
             $pdf = Pdf::loadView('pdf.riwayatjabatan', compact('data', 'bulan'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper([0, 0, 800, 1100], 'landscape');
+            return $pdf->stream($filename);
+        }
+        if ($jenis == '14') {
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
+
+            $data = PengajuanCuti::get();
+            $bulan = null;
+            $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);

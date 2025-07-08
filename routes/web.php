@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SptController;
 use App\Http\Controllers\HomeController;
@@ -49,6 +50,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin/data/user/edit/{id}', [UserController::class, 'update']);
     Route::get('admin/data/user/delete/{id}', [UserController::class, 'hapus']);
     Route::get('admin/data/user/cari', [UserController::class, 'cari']);
+
+    Route::get('admin/data/cuti', [AdminController::class, 'cuti']);
 
     Route::get('admin/data/verifikasi/perubahandata', [PerubahanDataController::class, 'perubahandata']);
     Route::get('admin/data/verifikasi/perubahandata/{id}', [PerubahanDataController::class, 'verifikasi_perubahandata']);
@@ -186,6 +189,8 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
 Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu', [HomeController::class, 'kepalatu']);
 
+    Route::get('kepalatu/verifikasi/cuti', [KepalatuController::class, 'lihat_cuti']);
+    Route::get('kepalatu/verifikasi/cuti/{id}', [KepalatuController::class, 'mengetahui_cuti']);
     Route::get('kepalatu/data/spt/lihat/{id}', [KepalatuController::class, 'lihat_spt']);
     Route::get('kepalatu/verifikasi/spt', [KepalatuController::class, 'index_spt']);
     Route::get('kepalatu/data/spt/disposisi/{id}', [KepalatuController::class, 'disposisi_spt']);
@@ -205,6 +210,10 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
 
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan', [HomeController::class, 'pimpinan']);
+
+    Route::get('pimpinan/verifikasi/cuti', [PimpinanController::class, 'lihat_cuti']);
+    Route::get('pimpinan/verifikasi/cuti/{id}/tolak', [PimpinanController::class, 'tolak_cuti']);
+    Route::get('pimpinan/verifikasi/cuti/{id}/setujui', [PimpinanController::class, 'setujui_cuti']);
 
     Route::get('pimpinan/data/suratmasuk/lihat/{id}', [PimpinanController::class, 'lihat']);
     Route::get('pimpinan/data/suratmasuk/verifikasi/{id}', [PimpinanController::class, 'verifikasi']);

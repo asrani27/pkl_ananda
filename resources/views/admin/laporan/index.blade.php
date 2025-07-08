@@ -32,6 +32,7 @@
                <option value="11">Laporan Pengajuan Perubahan Data</option>
                <option value="12">Laporan Riwayat Pangkat</option>
                <option value="13">Laporan Riwayat Jabatan</option>
+               <option value="14">Laporan Pengajuan Cuti</option>
             </select><br />
             <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
                Print</button>

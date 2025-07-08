@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PengajuanCuti;
 use Carbon\Carbon;
 use App\Models\Spt;
 use App\Models\User;
@@ -69,6 +70,17 @@ class KepalatuController extends Controller
     {
         $data = Spt::find($id);
         return view('kepalatu.spt.edit', compact('data'));
+    }
+    public function lihat_cuti()
+    {
+        $data = PengajuanCuti::paginate(10);
+        return view('kepalatu.cuti.index', compact('data'));
+    }
+    public function mengetahui_cuti($id)
+    {
+        $data = PengajuanCuti::find($id)->update(['verifikasi_kepala' => 1]);
+        Session::flash('success', 'mengetahui pengajuan cuti');
+        return back();
     }
 
     public function index_spt()
