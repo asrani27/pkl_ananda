@@ -91,42 +91,52 @@
                <h4>Pimpinan</h4>
                @endif
 
-            @if(Auth::user()->roles == 'admin')
-            <ul class="list-unstyled components">
-               <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
-               <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
-               <li><a href="/admin/data/pegawai"><i class="fa fa-user"></i> <span>Data Pegawai</span></a></li>
-               <li><a href="/admin/data/verifikasi/data"><i class="fa fa-share-square-o"></i> <span>Verifikasi Perubahan / Pembaruan Data Pegawai</span></a></li>
-               <!-- Master Data Dropdown -->
-               <li>
-                  <a href="#masterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                     <i class="fa fa-folder-open"></i> <span>Master Data</span>
-                  </a>
-                  <ul class="collapse list-unstyled" id="masterSubmenu">
-                     <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a></li>
-                     <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data Golongan</span></a></li>
-                     <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li>
-                     <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data Pendidikan</span></a></li>
-                     <li><a href="/admin/data/jeniscuti"><i class="fa fa-calendar"></i> <span>Jenis Cuti</span></a></li>
-                  </ul>
-               </li> 
-               <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-               <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
-               <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
-               <li><a href="/admin/data/statuscuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti Pegawai</span></a></li>
-               <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
-               <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
-            </ul>
-            @endif
+               @if(Auth::user()->roles == 'admin')
+               <ul class="list-unstyled components">
+                  <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
+                  <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
+                  <li><a href="/admin/data/pegawai"><i class="fa fa-user"></i> <span>Data Pegawai</span></a></li>
+                  <li><a href="/admin/data/verifikasi/data"><i class="fa fa-share-square-o"></i> <span>Verifikasi
+                           Perubahan / Pembaruan Data Pegawai</span></a></li>
+                  <!-- Master Data Dropdown -->
+                  <li>
+                     <a href="#masterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-folder-open"></i> <span>Master Data</span>
+                     </a>
+                     <ul class="collapse list-unstyled" id="masterSubmenu">
+                        <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a>
+                        </li>
+                        <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data
+                                 Golongan</span></a></li>
+                        <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a>
+                        </li>
+                        <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data
+                                 Pendidikan</span></a></li>
+                        <li><a href="/admin/data/jeniscuti"><i class="fa fa-calendar"></i> <span>Jenis Cuti</span></a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
+                  <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
+                  <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
+                  <li><a href="/admin/data/statuscuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti
+                           Pegawai</span></a></li>
+                  <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
+                  <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
+               </ul>
+               @endif
 
-            @if(Auth::user()->roles == 'pegawai')
+               @if(Auth::user()->roles == 'pegawai')
                <ul class="list-unstyled components">
                   <li><a href="/pegawai"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/pegawai/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <a href="/pegawai/data/perubahandata"><i class="fa fa-send"></i> <span>Pengajuan Perubahan / Pembaruan Data</span></a></li>
+                  <li><a href="/pegawai/data/perubahandata"><i class="fa fa-send"></i> <span>Pengajuan Perubahan
+                           Data</span></a></li>
                   <li><a href="/pegawai/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
-                  <li><a href="/pegawai/data/pengajuancuti"><i class="fa fa-cloud-upload"></i> <span>Pengajuan Cuti</span></a></li>
-                  <li><a href="/pegawai/data/riwayatcuti"><i class="fa fa-cloud-upload"></i> <span>Riwayat Pengajuan Cuti</span></a></li>
+                  <li><a href="/pegawai/data/pengajuancuti"><i class="fa fa-cloud-upload"></i> <span>Pengajuan
+                           Cuti</span></a></li>
+                  <li><a href="/pegawai/data/riwayatcuti"><i class="fa fa-cloud-upload"></i> <span>Riwayat Pengajuan
+                           Cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
@@ -135,10 +145,14 @@
                <ul class="list-unstyled components">
                   <li><a href="/pimpinan"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/pimpinan/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat Masuk</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/surat-keluar"><i class="fa fa-cloud-upload"></i> <span>Verifikasi Surat Keluar</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi SPT</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi cuti</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-edit"></i> <span>Verifikasi Surat
+                           Masuk</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/surat-keluar"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           Surat Keluar</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           SPT</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-cloud-upload"></i> <span>Verifikasi
+                           cuti</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif

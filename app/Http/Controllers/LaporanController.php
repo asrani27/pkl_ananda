@@ -143,16 +143,41 @@ class LaporanController extends Controller
                         $item->file_ktp = 'belum';
                         $item->file_kk = 'belum';
                     } else {
-                        $item->user->upload->file_lamaran_kerja == 'belum' ?: 'sudah';
-                        $item->user->upload->file_perjanjian_kerja == 'belum' ?: 'sudah';
-                        $item->user->upload->file_sertifikat == 'belum' ?: 'sudah';
-                        $item->user->upload->file_ijazah == 'belum' ?: 'sudah';
-                        $item->user->upload->file_ktp == 'belum' ?: 'sudah';
-                        $item->user->upload->file_kk == 'belum' ?: 'sudah';
+                        $item->user->upload->file_lamaran_kerja == null ? 'belum' : 'sudah';
+                        $item->user->upload->file_perjanjian_kerja == null ? 'belum' : 'sudah';
+                        $item->user->upload->file_sertifikat == null ? 'belum' : 'sudah';
+                        $item->user->upload->file_ijazah == null ? 'belum' : 'sudah';
+                        $item->user->upload->file_ktp == null ? 'belum' : 'sudah';
+                        $item->user->upload->file_kk == null ? 'belum' : 'sudah';
                     }
                 }
+                return $item;
             });
+            foreach ($data as $item) {
+                $belum = 0;
+                foreach ($item->getAttributes() as $key => $value) {
+                    if ($key == 'belum') {
+                        $belum++;
+                    }
+                }
+            }
             dd($data);
+            dd($data);
+            $files = collect([
+                'file_lamaran_kerja',
+                'file_perjanjian_kerja',
+                'file_sertifikat',
+                'file_ijazah',
+                'file_ktp',
+                'file_kk',
+            ]);
+            [$belum, $sudah] = $files->partition(function ($field) use ($data) {
+                return $data[$field] === 'belum';
+            });
+
+            $total_belum = $belum->count();
+            $total_sudah = $sudah->count();
+            dd($data, $total_belum);
             $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');

@@ -19,6 +19,7 @@ use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\PengajuanCutiController;
+use App\Http\Controllers\PerubahanDataController;
 use App\Http\Controllers\PimpinanController;
 
 /*
@@ -165,6 +166,15 @@ Route::middleware(['auth', 'role:pegawai'])->group(function () {
     Route::post('pegawai/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
     Route::post('pegawai/upload/spk', [UploadController::class, 'uploadspk']);
     Route::post('pegawai/upload/foto', [UploadController::class, 'uploadfoto']);
+
+
+    Route::get('pegawai/data/perubahandata', [PerubahanDataController::class, 'index']);
+    Route::get('pegawai/data/perubahandata/create', [PerubahanDataController::class, 'tambah']);
+    Route::post('pegawai/data/perubahandata/create', [PerubahanDataController::class, 'simpan']);
+    Route::get('pegawai/data/perubahandata/edit/{id}', [PerubahanDataController::class, 'edit']);
+    Route::post('pegawai/data/perubahandata/edit/{id}', [PerubahanDataController::class, 'update']);
+    Route::get('pegawai/data/perubahandata/delete/{id}', [PerubahanDataController::class, 'hapus']);
+    Route::get('pegawai/data/perubahandata/cari', [PerubahanDataController::class, 'cari']);
 
     Route::get('pegawai/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pegawai/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
