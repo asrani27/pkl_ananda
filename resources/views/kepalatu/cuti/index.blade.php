@@ -37,6 +37,7 @@
                   <th>NIP - nama</th>
                   <th style="text-align: center">Tanggal Mulai Cuti</th>
                   <th style="text-align: center">Tanggal Selesai Cuti</th>
+                  <th style="text-align: center">Lama</th>
                   <th style="text-align: center">Alasan</th>
                   <th style="text-align: center">Status</th>
                   <th>Aksi</th>
@@ -45,12 +46,19 @@
 
             <tbody>
                @foreach ($data as $key => $item)
+               @php
+               $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
+               $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
+
+               $lamaCuti = $mulai->diffInDays($selesai) + 1;
+               @endphp
                <tr>
                   <td>{{1 + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
                   <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
+                  <td>{{$lamaCuti}}</td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-success">Dikirim</span><br />
