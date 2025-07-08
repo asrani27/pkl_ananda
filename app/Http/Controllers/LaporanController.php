@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Spt;
 use App\Models\User;
 use App\Models\Pegawai;
+use App\Models\PerubahanData;
 use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
@@ -161,8 +162,7 @@ class LaporanController extends Controller
                     }
                 }
             }
-            dd($data);
-            dd($data);
+
             $files = collect([
                 'file_lamaran_kerja',
                 'file_perjanjian_kerja',
@@ -177,7 +177,7 @@ class LaporanController extends Controller
 
             $total_belum = $belum->count();
             $total_sudah = $sudah->count();
-            dd($data, $total_belum);
+
             $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -253,6 +253,16 @@ class LaporanController extends Controller
             $data['spt'] = $spt;
             $bulan = null;
             $pdf = Pdf::loadView('pdf.rekapitulasi_surat', compact('data', 'bulan'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper([0, 0, 800, 1100], 'landscape');
+            return $pdf->stream($filename);
+        }
+        if ($jenis == '11') {
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_perubahandata.pdf';
+
+            $data = PerubahanData::get();
+            $bulan = null;
+            $pdf = Pdf::loadView('pdf.perubahandata', compact('data', 'bulan'))->setOption([
                 'enable_remote' => true,
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
