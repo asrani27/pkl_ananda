@@ -76,7 +76,7 @@
         <br />
         <div class="field">
           <label class="label_field">Jabatan</label>
-          <select name="jabatan_id" class="form-control">
+          <select name="jabatan_id" class="form-control" disabled>
             @foreach($jabatan as $jab)
             <option value="{{$jab->id}}" {{$data->jabatan_id == $jab->id ? 'selected':''}}>{{$jab->nama_jabatan}}
             </option>
