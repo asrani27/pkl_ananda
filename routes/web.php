@@ -50,6 +50,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/user/delete/{id}', [UserController::class, 'hapus']);
     Route::get('admin/data/user/cari', [UserController::class, 'cari']);
 
+    Route::get('admin/data/verifikasi/perubahandata', [PerubahanDataController::class, 'perubahandata']);
+    Route::get('admin/data/verifikasi/perubahandata/{id}', [PerubahanDataController::class, 'verifikasi_perubahandata']);
+
     Route::get('admin/data/pegawai', [PegawaiController::class, 'index']);
     Route::get('admin/data/pegawai/create', [PegawaiController::class, 'tambah']);
     Route::post('admin/data/pegawai/create', [PegawaiController::class, 'simpan']);

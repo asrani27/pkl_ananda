@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class PerubahanDataController extends Controller
 {
+    public function perubahandata()
+    {
+        $data = PerubahanData::paginate(10);
+        return view('admin.perubahandata.index', compact('data'));
+    }
 
     public function index()
     {
@@ -49,11 +54,22 @@ class PerubahanDataController extends Controller
         $data = PerubahanData::find($id)->delete();
         return back();
     }
-
+    public function verifikasi($id)
+    {
+        $data = PerubahanData::find($id)->delete();
+        return back();
+    }
     public function cari()
     {
         $cari = request()->get('cari');
         $data = PerubahanData::where('nama_perubahandata', 'LIKE', '%' . $cari . '%')->get();
         return view('pegawai.perubahandata.index', compact('data'));
+    }
+
+    public function verifikasi_perubahandata($id)
+    {
+        PerubahanData::find($id)->update(['status' => 1]);
+        Session::flash('success', 'berhasil di verifikasi');
+        return back();
     }
 }

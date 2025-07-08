@@ -12,18 +12,12 @@
    </div>
 </div>
 <div class="white_shd full margin_bottom_30">
-   <div class="full graph_head">
-      <div class="heading1 margin_0">
 
-         <a href="/pegawai/data/perubahandata/create" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
-            Tambah
-            Data</a>
-      </div>
-   </div>
+
    <div class="table_section padding_infor_info">
       <div class="table-responsive-sm">
 
-         <form method="get" action="/pegawai/data/perubahandata/cari">
+         <form method="get" action="/admin/data/perubahandata/cari">
             @csrf
             <div style="display: flex; margin-left: auto; gap: 8px; align-items: center;">
                <input type="text" class="form-control" name="cari" placeholder="Cari Data" style="max-width: 300px;">
@@ -38,6 +32,7 @@
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th style="text-align: center">No</th>
                   <th style="text-align: center">Tanggal</th>
+                  <th style="text-align: center">NIP/Nama</th>
                   <th style="text-align: center">Jenis Perubahan</th>
                   <th style="text-align: center">Dari</th>
                   <th style="text-align: center">Menjadi</th>
@@ -51,6 +46,7 @@
                <tr>
                   <td>{{$data->firstItem() + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                  <td>{{$item->nip}} - {{$item->nama}}</td>
                   <td>{{$item->jenis}}</td>
                   <td>{{$item->dari}}</td>
                   <td>{{$item->menjadi}}</td>
@@ -62,10 +58,9 @@
                      @endif
                   </td>
                   <td>
-                     <a href="/pegawai/data/perubahandata/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
-                           class="fa fa-edit"></i> Edit</a>
-                     <a href="/pegawai/data/perubahandata/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
-                        onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> Delete</a>
+                     <a href="/admin/data/verifikasi/perubahandata/{{$item->id}}"
+                        onclick="return confirm('Yakin ingin diverifikasi?');" class="btn btn-flat btn-sm btn-info"><i
+                           class="fa fa-edit"></i> Verifikasi</a>
                   </td>
                </tr>
                @endforeach

@@ -96,8 +96,9 @@
                   <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
                   <li><a href="/admin/data/pegawai"><i class="fa fa-user"></i> <span>Data Pegawai</span></a></li>
-                  <li><a href="/admin/data/verifikasi/data"><i class="fa fa-share-square-o"></i> <span>Verifikasi
-                           Perubahan / Pembaruan Data Pegawai</span></a></li>
+                  <li><a href="/admin/data/verifikasi/perubahandata"><i class="fa fa-share-square-o"></i>
+                        <span>Verifikasi
+                           Perubahan Data</span></a></li>
                   <!-- Master Data Dropdown -->
                   <li>
                      <a href="#masterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
