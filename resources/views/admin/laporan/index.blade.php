@@ -30,6 +30,8 @@
                <option value="9">Laporan Surat Perintah Tugas</option>
                <option value="10">Laporan Rekapitulasi Surat</option>
                <option value="11">Laporan Pengajuan Perubahan Data</option>
+               <option value="12">Laporan Riwayat Pangkat</option>
+               <option value="13">Laporan Riwayat Jabatan</option>
             </select><br />
             <button type="submit" class="btn btn-flat btn-sm btn-primary" target="_blank"><i class="fa fa-print"></i>
                Print</button>

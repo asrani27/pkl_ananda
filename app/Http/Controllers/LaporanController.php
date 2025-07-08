@@ -267,5 +267,25 @@ class LaporanController extends Controller
             ])->setPaper([0, 0, 800, 1100], 'landscape');
             return $pdf->stream($filename);
         }
+        if ($jenis == '12') {
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_pangkat.pdf';
+
+            $data = PerubahanData::where('jenis', 'pangkat')->get();
+            $bulan = null;
+            $pdf = Pdf::loadView('pdf.riwayatpangkat', compact('data', 'bulan'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper([0, 0, 800, 1100], 'landscape');
+            return $pdf->stream($filename);
+        }
+        if ($jenis == '13') {
+            $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
+
+            $data = PerubahanData::where('jenis', 'jabatan')->get();
+            $bulan = null;
+            $pdf = Pdf::loadView('pdf.riwayatjabatan', compact('data', 'bulan'))->setOption([
+                'enable_remote' => true,
+            ])->setPaper([0, 0, 800, 1100], 'landscape');
+            return $pdf->stream($filename);
+        }
     }
 }
