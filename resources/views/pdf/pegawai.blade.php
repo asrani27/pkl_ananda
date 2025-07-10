@@ -16,13 +16,13 @@
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}"
                     width="80px"> &nbsp;&nbsp;
             </td>
-           <td style="text-align: center;" width="60%">
+            <td style="text-align: center;" width="60%">
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
-           </td>
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
+            </td>
             <td width="15%">
             </td>
         </tr>
@@ -65,17 +65,20 @@
             <td>{{$item->agama}}</td>
             <td>{{$item->pendidikan->nama_pendidikan}}</td>
             <td>{{$item->jabatan->nama_jabatan}}</td>
-            <td>{{$item->golongan->nama_golongan}}</td>
+            <td>{{$item->golongan == null ? null : $item->golongan->nama_golongan}}</td>
             <td>{{$item->status}}</td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="13">TOTAL PEGAWAI : {{$data->count()}}</td>
+        </tr>
     </table>
 
     <table width="100%">
         <tr>
-            <td width="60%">
-                Jumlah Pegawai PNS : <br />
-                Jumlah Pegawai Tenaga Kontrak : <br />
+            <td width="60%" style="vertical-align: top">
+                Jumlah Pegawai PNS : {{$data->where('status','PNS')->count()}}<br />
+                Jumlah Pegawai Tenaga Kontrak : {{$data->where('status','TEKON')->count()}}<br />
             </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
