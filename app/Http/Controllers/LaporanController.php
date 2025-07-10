@@ -159,30 +159,21 @@ class LaporanController extends Controller
                     }
                     return $item;
                 });
-                foreach ($data as $item) {
-                    $belum = 0;
+                $data->map(function ($item) {
+                    $item->belum = 0;
+                    $item->sudah = 0;
                     foreach ($item->getAttributes() as $key => $value) {
-                        if ($key == 'belum') {
-                            $belum++;
+                        if (str_starts_with($key, 'file_')) {
+                            if (strtolower($value) === 'belum') {
+                                $item->belum++;
+                            } else {
+                                $item->sudah++;
+                            }
                         }
                     }
-                }
+                    return $item;
+                });
 
-                $files = collect([
-                    'file_lamaran_kerja',
-                    'file_perjanjian_kerja',
-                    'file_sertifikat',
-                    'file_ijazah',
-                    'file_ktp',
-                    'file_kk',
-                ]);
-                // dd($files);
-                // [$belum, $sudah] = $files->partition(function ($field) use ($data) {
-                //     return $data[$field] === 'belum';
-                // });
-
-                $total_belum = $belum->count();
-                $total_sudah = $sudah->count();
 
                 $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
                     'enable_remote' => true,
