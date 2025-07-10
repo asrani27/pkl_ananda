@@ -33,8 +33,8 @@
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
-                  <th>Tanggal Surat</th>
-                  <th>NIP - Nama</th>
+                  <th style="text-align: center">Tanggal Surat</th>
+                  <th style="text-align: center">NIK - Nama</th>
                   <th style="text-align: center">Tanggal Mulai Cuti</th>
                   <th style="text-align: center">Tanggal Selesai Cuti</th>
                   <th style="text-align: center">Lama</th>
@@ -56,21 +56,20 @@
                @endphp
                <tr>
                   <td>{{$data->firstItem() + $key}}</td>
-
-                  <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
+                  <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
                   <td>{{$lamaCuti}}</td>
                   <td>{{$item->alasan}}</td>
                   <td>
-                     <span class="badge badge-success">Dikirim</span><br />
+                     <span class="badge badge-info">Dikirim</span><br />
                      @if ($item->verifikasi_kepala != null)
-                     <span class="badge badge-success">Kepala TU : mengetahui</span><br />
+                     <span class="badge badge-info">Kepala TU : mengetahui</span><br />
                      @endif
                      @if ($item->verifikasi_pimpinan != null)
                      @if ($item->verifikasi_pimpinan == 'disetujui')
-                     <span class="badge badge-success">Pimpinan :
+                     <span class="badge badge-info">Pimpinan :
                         {{$item->verifikasi_pimpinan}}</span><br />
                      @else
                      <span class="badge badge-danger">Pimpinan :

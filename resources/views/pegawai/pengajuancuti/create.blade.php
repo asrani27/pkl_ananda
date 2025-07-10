@@ -22,7 +22,7 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">jenis cuti</label>
+               <label class="label_field">Jenis Cuti</label>
                <select name="jenis_cuti_id" class="form-control">
                   @foreach($jenis as $item)
                   <option value="{{$item->id}}">{{$item->nama_cuti}}</option>
@@ -65,6 +65,7 @@
                   @endforeach
                </select>
             </div>
+         </br>
             <div class="field margin_0">
                <button class="main_bt"><i class="fa fa-save"></i> Simpan</button>
             </div>

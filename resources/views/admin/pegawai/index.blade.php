@@ -31,7 +31,7 @@
             </div>
          </form> <br />
 
-         <table class="table table-bordered">
+         <table class="table table-bordered" id="example">
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>

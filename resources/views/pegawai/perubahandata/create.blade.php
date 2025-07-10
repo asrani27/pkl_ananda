@@ -25,24 +25,24 @@
                <label class="label_field">Jenis Perubahan</label>
                <select class="form-control" name="jenis" required>
                   <option value="">-</option>
-                  <option value="nama">nama</option>
-                  <option value="jabatan">jabatan</option>
-                  <option value="pangkat">pangkat</option>
+                  <option value="nama">Nama</option>
+                  <option value="jabatan">Jabatan</option>
+                  <option value="pangkat">Golongan / Pangkat </option>
                </select>
             </div>
             <br />
             <div class="field">
-               <label class="label_field">dari</label>
+               <label class="label_field">Dari</label>
                <input type="text" class="form-control" name="dari">
             </div>
             <br />
             <div class="field">
-               <label class="label_field">menjadi</label>
+               <label class="label_field">Menjadi</label>
                <input type="text" class="form-control" name="menjadi">
             </div>
             <br />
             <div class="field">
-               <label class="label_field">keterangan lainnya</label>
+               <label class="label_field">Keterangan Lainnya</label>
                <input type="text" class="form-control" name="keterangan">
             </div>
             <br />

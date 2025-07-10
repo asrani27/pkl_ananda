@@ -74,7 +74,6 @@
                </div>
             </div>
             <div class="sidebar_blog_2">
-
                @if(Auth::user()->roles == 'admin')
                <h4>Admin</h4>
                @endif
@@ -96,30 +95,31 @@
                   <li><a href="/admin"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
                   <li><a href="/admin/data/pegawai"><i class="fa fa-user"></i> <span>Data Pegawai</span></a></li>
-                  <li><a href="/admin/data/verifikasi/perubahandata"><i class="fa fa-share-square-o"></i>
-                        <span>Verifikasi
-                           Perubahan Data</span></a></li>
+                  <li><a href="/admin/data/verifikasi/perubahandata"><i class="fa fa-share-square-o"></i><span>Verifikasi Perubahan Data</span></a></li>
                   <!-- Master Data Dropdown -->
                   <li>
                      <a href="#masterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-folder-open"></i> <span>Master Data</span>
+                        <i class="fa fa-folder"></i> <span>Master Data</span>
                      </a>
                      <ul class="collapse list-unstyled" id="masterSubmenu">
-                        <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a>
-                        </li>
-                        <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data
-                                 Golongan</span></a></li>
-                        <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a>
-                        </li>
-                        <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data
-                                 Pendidikan</span></a></li>
+                        <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a></li>
+                        <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data Golongan</span></a></li>
+                        <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li>
+                        <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data Pendidikan</span></a></li>
                         <li><a href="/admin/data/jeniscuti"><i class="fa fa-calendar"></i> <span>Jenis Cuti</span></a>
                         </li>
                      </ul>
+                  <!-- Dokumen Terpadu Dropdown -->
+                  <li>
+                     <a href="#dokumenSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-folder-open"></i> <span>Dokumen Terpadu</span>
+                     </a>
+                     <ul class="collapse list-unstyled" id="dokumenSubmenu">
+                        <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
+                        <li><a href="/admin/data/suratkeluar"><i class="fa fa-paper-plane"></i> <span>Surat Keluar</span></a></li>
+                        <li><a href="/admin/data/spt"><i class="fa fa-file-text"></i> <span>SPT</span></a></li>
+                     </ul>
                   </li>
-                  <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                  <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
-                  <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
                   <li><a href="/admin/data/cuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti
                            Pegawai</span></a></li>
                   <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
@@ -191,8 +191,6 @@
                   <div class="full">
                      <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i
                            class="fa fa-bars"></i></button>
-
-
                   </div>
                </nav>
             </div>

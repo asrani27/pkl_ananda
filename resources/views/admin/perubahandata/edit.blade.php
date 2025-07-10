@@ -36,17 +36,17 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">dari</label>
+               <label class="label_field">Dari</label>
                <input type="text" class="form-control" name="dari" value="{{$data->dari}}">
             </div>
             <br />
             <div class="field">
-               <label class="label_field">menjadi</label>
+               <label class="label_field">Menjadi</label>
                <input type="text" class="form-control" name="menjadi" value="{{$data->menjadi}}">
             </div>
             <br />
             <div class="field">
-               <label class="label_field">keterangan lainnya</label>
+               <label class="label_field">Keterangan Lainnya</label>
                <input type="text" class="form-control" name="keterangan" value="{{$data->keterangan}}">
             </div>
             <br />

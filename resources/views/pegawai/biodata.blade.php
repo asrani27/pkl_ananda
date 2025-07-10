@@ -76,7 +76,7 @@
         <br />
         <div class="field">
           <label class="label_field">Jabatan</label>
-          <select name="jabatan_id" class="form-control">
+          <select name="jabatan_id" class="form-control" disabled>
             @foreach($jabatan as $jab)
             <option value="{{$jab->id}}" {{$data->jabatan_id == $jab->id ? 'selected':''}}>{{$jab->nama_jabatan}}
             </option>
@@ -86,7 +86,7 @@
         <br />
         <div class="field">
           <label class="label_field">Golongan / Pangkat *isi apabila PNS</label>
-          <select name="golongan_id" class="form-control">
+          <select name="golongan_id" class="form-control" disabled>
             @foreach($golongan as $gol)
             <option value="{{$gol->id}}" {{$data->golongan_id == $gol->id ? 'selected':''}}>{{$gol->nama_golongan}}
             </option>
