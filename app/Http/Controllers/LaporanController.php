@@ -176,9 +176,10 @@ class LaporanController extends Controller
                     'file_ktp',
                     'file_kk',
                 ]);
-                [$belum, $sudah] = $files->partition(function ($field) use ($data) {
-                    return $data[$field] === 'belum';
-                });
+                // dd($files);
+                // [$belum, $sudah] = $files->partition(function ($field) use ($data) {
+                //     return $data[$field] === 'belum';
+                // });
 
                 $total_belum = $belum->count();
                 $total_sudah = $sudah->count();
