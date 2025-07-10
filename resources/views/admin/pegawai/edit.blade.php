@@ -31,8 +31,6 @@
                   <option value="admin" {{$data->user->roles == 'admin' ? 'selected':''}}>admin</option>
                   <option value="pegawai" {{$data->user->roles == 'pegawai' ? 'selected':''}}>pegawai</option>
                   <option value="kepalaTU" {{$data->user->roles == 'kepalaTU' ? 'selected':''}}>kepala TU</option>
-                  <option value="kepalaPelayanan" {{$data->user->roles == 'kepalaPelayanan' ? 'selected':''}}>kepala Pelayanan
-                  </option>
                   <option value="pimpinan" {{$data->user->roles == 'pimpinan' ? 'selected':''}}>pimpinan</option>
                </select>
                {{-- <input type="text" class="form-control" name="role" value="superadmin" readonly> --}}

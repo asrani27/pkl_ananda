@@ -39,13 +39,13 @@
             <th>NIP</th>
             <th>Nama</th>
             <th>Jenis Kelamin</th>
+            <th>TTL</th>
             <th>Alamat</th>
             <th>Telpon</th>
             <th>Agama</th>
-            <th>Jabatan</th>
             <th>Pendidikan</th>
-            <th>Prodi</th>
-
+            <th>Jabatan</th>
+            <th>Golongan/Pangkat</th>
         </tr>
         @php
         $no =1;
@@ -54,15 +54,16 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{$item->nik}}</td>
+            <td>{{$item->nip}}</td>
             <td>{{$item->nama}}</td>
             <td>{{$item->jkel}}</td>
+            <td>{{$item->ttl}}</td>
             <td>{{$item->alamat}}</td>
             <td>{{$item->telpon}}</td>
             <td>{{$item->agama}}</td>
-            <td>{{$item->jabatan->nama_jabatan}}</td>
             <td>{{$item->pendidikan->nama_pendidikan}}</td>
-            <td>{{$item->prodi}}</td>
+            <td>{{$item->jabatan->nama_jabatan}}</td>
+            <td>{{$item->golongan->nama_golongan}}</td>
         </tr>
         @endforeach
     </table>
@@ -81,11 +82,11 @@
             </td>
             <td></td>
             <td width="60%">
-            <td><br/>Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                Admin<br />
+            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                UPPD BANJARMASIN 1<br />
                 <br /><br /><br /><br />
-                <u>Ananda Risna Pebrianti</u><br />
-                NPM 2110010521
+
+                <u>Lilis Sugiati, SE</u><br />
             </td>
         </tr>
     </table>

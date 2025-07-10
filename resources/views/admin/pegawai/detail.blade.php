@@ -59,7 +59,6 @@
                                     <p><strong>Pendidikan : </strong>{{$data->pendidikan == null ? '-':
                                         $data->pendidikan->nama_pendidikan}}</p>
                                     <p><strong>Prodi : </strong>{{$data->prodi}}</p>
-                                    <p><strong>Tugas Pokok : </strong>{{$data->tugas_pokok}}</p>
                                 </div>
                             </div>
                         </div>

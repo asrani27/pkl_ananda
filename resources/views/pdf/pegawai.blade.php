@@ -44,13 +44,9 @@
             <th>Telpon</th>
             <th>Agama</th>
             <th>Pendidikan</th>
-            <th>Prodi</th>
-            <th>Bagian</th>
             <th>Jabatan</th>
-            <th>Tugas Pokok</th>
-            {{-- <th>Status</th>
-            <th>Golongan</th> --}}
-
+            <th>Golongan/Pangkat</th>
+            <th>Status</th>
         </tr>
         @php
         $no =1;
@@ -68,12 +64,9 @@
             <td>{{$item->telpon}}</td>
             <td>{{$item->agama}}</td>
             <td>{{$item->pendidikan->nama_pendidikan}}</td>
-            <td>{{$item->prodi}}</td>
-            <td>{{$item->bagian == null ? '': $item->bagian->nama_bagian}}</td>
             <td>{{$item->jabatan->nama_jabatan}}</td>
-            <td>{{$item->tugas_pokok}}</td>
-            {{-- <td>{{$item->status}}</td>
-            <td>{{$item->golongan}}</td> --}}
+            <td>{{$item->golongan->nama_golongan}}</td>
+            <td>{{$item->status}}</td>
         </tr>
         @endforeach
     </table>
@@ -83,17 +76,13 @@
             <td width="60%">
                 Jumlah Pegawai PNS : <br />
                 Jumlah Pegawai Tenaga Kontrak : <br />
-                Jumlah Pegawai Laki-Laki : <br />
-                Jumlah Pegawai Perempuan : <br />
-                Jumlah Pegawai Keseluruhan : <br />
             </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                Admin<br />
+                UPPD BANJARMASIN 1<br />
                 <br /><br /><br /><br />
 
-                <u>Ananda Risna Pebrianti</u><br />
-                NPM 2110010521
+                <u>Lilis Sugiati, SE</u><br />
             </td>
         </tr>
     </table>
