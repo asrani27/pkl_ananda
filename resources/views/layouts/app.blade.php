@@ -110,26 +110,11 @@
                         </li>
                      </ul>
                   </li>
-<<<<<<< HEAD
                   <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
                   <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
                   <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
                   <li><a href="/admin/data/cuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti
                            Pegawai</span></a></li>
-=======
-                  <!-- Dokumen Terpadu Dropdown -->
-                  <li>
-                     <a href="#dokumenSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-folder-open"></i> <span>Dokumen Terpadu</span>
-                     </a>
-                     <ul class="collapse list-unstyled" id="dokumenSubmenu">
-                        <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                        <li><a href="/admin/data/suratkeluar"><i class="fa fa-paper-plane"></i> <span>Surat Keluar</span></a></li>
-                        <li><a href="/admin/data/spt"><i class="fa fa-file-text"></i> <span>SPT</span></a></li>
-                     </ul>
-                  </li>
-                  <li><a href="/admin/data/statuscuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti Pegawai</span></a></li>
->>>>>>> 50903e6 (f)
                   <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
