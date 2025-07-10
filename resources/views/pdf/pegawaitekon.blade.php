@@ -20,8 +20,8 @@
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
             </td>
             <td width="15%">
             </td>
@@ -70,11 +70,9 @@
     <table width="100%">
         <tr>
             <td width="60%">
-                Tenaga Kontrak Tata Usaha : <br />
-                Tenaga Kontrak PKB : <br />
-                Tenaga Kontrak Lainnya : <br />
-                Jumlah Pegawai Laki-Laki : <br />
-                Jumlah Pegawai Perempuan : <br />
+                @foreach (bagian() as $item)
+                {{$item->nama_bagian}} : {{$data->where('bagian_id', $item->id)->count()}}<br />
+                @endforeach
             </td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
