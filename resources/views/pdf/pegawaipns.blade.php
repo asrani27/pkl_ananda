@@ -20,9 +20,9 @@
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
                 <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
-           </td>
+                JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
+                BANJARMASIN
+            </td>
             <td width="15%">
             </td>
 
@@ -61,9 +61,9 @@
             <td>{{$item->alamat}}</td>
             <td>{{$item->telpon}}</td>
             <td>{{$item->agama}}</td>
-            <td>{{$item->pendidikan->nama_pendidikan}}</td>
-            <td>{{$item->jabatan->nama_jabatan}}</td>
-            <td>{{$item->golongan->nama_golongan}}</td>
+            <td>{{$item->pendidikan == null ? null : $item->pendidikan->nama_pendidikan}}</td>
+            <td>{{$item->jabatan == null ? null : $item->jabatan->nama_jabatan}}</td>
+            <td>{{$item->golongan == null ? null : $item->golongan->nama_golongan}}</td>
         </tr>
         @endforeach
     </table>
@@ -71,14 +71,9 @@
     <table width="100%">
         <tr>
             <td width="60%">
-                PNS Penata Tk I (III/d) : <br />
-                PNS Penata Muda (III/a) : <br />
-                PNS Penata Muda Tk I (III/b) : <br />
-                PNS Penata (III/c) : <br />
-                PNS Penata Tk I (II/d) : <br />
-                PNS Pengatur (II/c) : <br />
-                PNS Pengatur Tk I (II/c) : <br />
-                PNS Juru Tk I (I/d) : <br />
+                @foreach (golongan() as $item)
+                {{$item->nama_golongan}} : {{$data->where('golongan_id', $item->id)->count()}}<br />
+                @endforeach
             </td>
             <td></td>
             <td width="60%">
