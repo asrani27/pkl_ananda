@@ -47,20 +47,24 @@
                   <td>{{$data->firstItem() + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
                   <td>{{$item->nip}} - {{$item->nama}}</td>
-                  <td>{{$item->jenis}}</td>
+                  <td class="text-center">{{$item->jenis}}</td>
                   <td>{{$item->dari}}</td>
                   <td>{{$item->menjadi}}</td>
                   <td>
                      @if ($item->status == null)
-                     <span class="badge badge-warning">DIPROSES</span>
+                     <span class="badge badge-danger">DIPROSES</span>
                      @else
                      <span class="badge badge-success"><i class="fa fa-check"></i> DIVERIFIKASI</span>
                      @endif
                   </td>
                   <td>
+                     @if ($item->status == null)
                      <a href="/admin/data/verifikasi/perubahandata/{{$item->id}}"
-                        onclick="return confirm('Yakin ingin diverifikasi?');" class="btn btn-flat btn-sm btn-info"><i
+                        onclick="return confirm('Yakin ingin diverifikasi?');" class="btn btn-flat btn-sm btn-warning"><i
                            class="fa fa-edit"></i> Verifikasi</a>
+                      @else
+                        <span class="badge badge-warning">Selesai</span>
+                      @endif
                   </td>
                </tr>
                @endforeach

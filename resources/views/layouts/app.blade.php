@@ -109,10 +109,17 @@
                         <li><a href="/admin/data/jeniscuti"><i class="fa fa-calendar"></i> <span>Jenis Cuti</span></a>
                         </li>
                      </ul>
+                  <!-- Dokumen Terpadu Dropdown -->
+                  <li>
+                     <a href="#dokumenSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fa fa-folder-open"></i> <span>Dokumen Terpadu</span>
+                     </a>
+                     <ul class="collapse list-unstyled" id="dokumenSubmenu">
+                        <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
+                        <li><a href="/admin/data/suratkeluar"><i class="fa fa-paper-plane"></i> <span>Surat Keluar</span></a></li>
+                        <li><a href="/admin/data/spt"><i class="fa fa-file-text"></i> <span>SPT</span></a></li>
+                     </ul>
                   </li>
-                  <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                  <li><a href="/admin/data/suratkeluar"><i class="fa fa-send"></i> <span>Surat Keluar</span></a></li>
-                  <li><a href="/admin/data/spt"><i class="fa fa-send"></i> <span>SPT</span></a></li>
                   <li><a href="/admin/data/cuti"><i class="fa fa-tasks"></i> <span>Pengajuan Cuti
                            Pegawai</span></a></li>
                   <li><a href="/admin/data/laporan"><i class="fa fa-file white_color"></i> <span>Laporan</span></a></li>

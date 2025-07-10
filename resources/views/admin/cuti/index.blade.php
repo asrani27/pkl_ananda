@@ -63,13 +63,13 @@
                   <td>{{$lamaCuti}}</td>
                   <td>{{$item->alasan}}</td>
                   <td>
-                     <span class="badge badge-success">Dikirim</span><br />
+                     <span class="badge badge-info">Dikirim</span><br />
                      @if ($item->verifikasi_kepala != null)
-                     <span class="badge badge-success">Kepala TU : mengetahui</span><br />
+                     <span class="badge badge-info">Kepala TU : mengetahui</span><br />
                      @endif
                      @if ($item->verifikasi_pimpinan != null)
                      @if ($item->verifikasi_pimpinan == 'disetujui')
-                     <span class="badge badge-success">Pimpinan :
+                     <span class="badge badge-info">Pimpinan :
                         {{$item->verifikasi_pimpinan}}</span><br />
                      @else
                      <span class="badge badge-danger">Pimpinan :
