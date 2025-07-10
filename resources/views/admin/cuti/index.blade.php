@@ -40,6 +40,7 @@
                   <th style="text-align: center">Lama</th>
                   <th style="text-align: center">Alasan</th>
                   <th style="text-align: center">Status</th>
+                  <th style="text-align: center">Aksi</th>
 
                </tr>
             </thead>
@@ -79,6 +80,10 @@
                      @endif
 
 
+                  </td>
+                  <td>
+                     <a href="/admin/data/cuti/cetak/{{$item->id}}" class="btn btn-sm btn-danger" target="_blank"><i
+                           class="fa fa-file"></i> Cetak Cuti</a>
                   </td>
 
                </tr>
