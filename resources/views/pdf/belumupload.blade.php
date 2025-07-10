@@ -44,8 +44,6 @@
             <th>Belum Upload</th>
             <th>Sudah Upload</th>
             <th>Jumlah Dokumen</th>
-
-
         </tr>
         @php
         $no =1;
@@ -91,6 +89,12 @@
             @endif
         </tr>
         @endforeach
+        <tr>
+            <td colspan="12">
+                SUDAH LENGKAP : {{$data->where('sudah',6)->count()}} <br />
+                BELUM LENGKAP : {{$data->where('belum',6)->count()}}
+            </td>
+        </tr>
     </table>
 
     <table width="100%">
