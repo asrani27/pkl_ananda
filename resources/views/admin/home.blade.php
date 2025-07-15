@@ -69,58 +69,19 @@
             type: "column",
             name: "Surat Masuk",
             showInLegend: true,
-            dataPoints: [
-               { label: "Jan", y: 25 },
-               { label: "Feb", y: 30 },
-               { label: "Mar", y: 28 },
-               { label: "Apr", y: 35 },
-               { label: "Mei", y: 40 },
-               { label: "Jun", y: 38 },
-               { label: "Jul", y: 45 },
-               { label: "Agu", y: 50 },
-               { label: "Sep", y: 47 },
-               { label: "Okt", y: 42 },
-               { label: "Nov", y: 48 },
-               { label: "Des", y: 53 }
-            ]
+            dataPoints: {!! json_encode($chartSuratMasuk) !!}
          },
          {
             type: "column",
             name: "Surat Keluar",
             showInLegend: true,
-            dataPoints: [
-               { label: "Jan", y: 20 },
-               { label: "Feb", y: 22 },
-               { label: "Mar", y: 25 },
-               { label: "Apr", y: 27 },
-               { label: "Mei", y: 30 },
-               { label: "Jun", y: 29 },
-               { label: "Jul", y: 35 },
-               { label: "Agu", y: 37 },
-               { label: "Sep", y: 40 },
-               { label: "Okt", y: 38 },
-               { label: "Nov", y: 42 },
-               { label: "Des", y: 45 }
-            ]
+            dataPoints: {!! json_encode($chartSuratKeluar) !!}
          },
          {
             type: "column",
             name: "SPT",
             showInLegend: true,
-            dataPoints: [
-               { label: "Jan", y: 10 },
-               { label: "Feb", y: 15 },
-               { label: "Mar", y: 12 },
-               { label: "Apr", y: 18 },
-               { label: "Mei", y: 20 },
-               { label: "Jun", y: 17 },
-               { label: "Jul", y: 22 },
-               { label: "Agu", y: 25 },
-               { label: "Sep", y: 23 },
-               { label: "Okt", y: 19 },
-               { label: "Nov", y: 21 },
-               { label: "Des", y: 24 }
-            ]
+            dataPoints: {!! json_encode($chartSPT) !!}
          }
       ]
    });
