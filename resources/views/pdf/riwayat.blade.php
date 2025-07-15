@@ -41,7 +41,7 @@
             <th style="text-align: center">Jenis Perubahan</th>
             <th style="text-align: center">Dari</th>
             <th style="text-align: center">Menjadi</th>
-            <th style="text-align: center">Status</th>
+
         </tr>
         @php
         $no =1;
@@ -55,22 +55,7 @@
             <td class="text-center">{{$item->jenis}}</td>
             <td>{{$item->dari}}</td>
             <td>{{$item->menjadi}}</td>
-            <td>
-                @if ($item->status == null)
-                <span class="badge badge-danger">DIPROSES</span>
-                @else
-                <span class="badge badge-success"><i class="fa fa-check"></i> DIVERIFIKASI</span>
-                @endif
-            </td>
-            <td>
-                @if ($item->status == null)
-                <a href="/admin/data/verifikasi/perubahandata/{{$item->id}}"
-                    onclick="return confirm('Yakin ingin diverifikasi?');" class="btn btn-flat btn-sm btn-warning"><i
-                        class="fa fa-edit"></i> Verifikasi</a>
-                @else
-                <span class="badge badge-warning">Selesai</span>
-                @endif
-            </td>
+
         </tr>
         @endforeach
     </table>
