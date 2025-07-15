@@ -143,49 +143,38 @@ class LaporanController extends Controller
                 return $pdf->stream($filename);
             }
             if ($jenis == '4') {
-                $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_belumupload.pdf';
-                $data = Pegawai::get()->map(function ($item) {
-                    if ($item->user == null) {
-                        $item->file_lamaran_kerja = 'belum';
-                        $item->file_perjanjian_kerja = 'belum';
-                        $item->file_sertifikat = 'belum';
-                        $item->file_ijazah = 'belum';
-                        $item->file_ktp = 'belum';
-                        $item->file_kk = 'belum';
-                    } else {
-                        if ($item->user->upload == null) {
-                            $item->file_lamaran_kerja = 'belum';
-                            $item->file_perjanjian_kerja = 'belum';
-                            $item->file_sertifikat = 'belum';
-                            $item->file_ijazah = 'belum';
-                            $item->file_ktp = 'belum';
-                            $item->file_kk = 'belum';
-                        } else {
-                            $item->user->upload->file_lamaran_kerja == null ? 'belum' : 'sudah';
-                            $item->user->upload->file_perjanjian_kerja == null ? 'belum' : 'sudah';
-                            $item->user->upload->file_sertifikat == null ? 'belum' : 'sudah';
-                            $item->user->upload->file_ijazah == null ? 'belum' : 'sudah';
-                            $item->user->upload->file_ktp == null ? 'belum' : 'sudah';
-                            $item->user->upload->file_kk == null ? 'belum' : 'sudah';
-                        }
-                    }
-                    return $item;
-                });
-                $data->map(function ($item) {
-                    $item->belum = 0;
-                    $item->sudah = 0;
-                    foreach ($item->getAttributes() as $key => $value) {
-                        if (str_starts_with($key, 'file_')) {
-                            if (strtolower($value) === 'belum') {
-                                $item->belum++;
-                            } else {
-                                $item->sudah++;
-                            }
-                        }
-                    }
-                    return $item;
-                });
 
+                $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_belumupload.pdf';
+
+                $data = Pegawai::get()->map(function ($item) {
+                    $files = [
+                        'file_lamaran_kerja',
+                        'file_perjanjian_kerja',
+                        'file_sertifikat',
+                        'file_ijazah',
+                        'file_ktp',
+                        'file_kk',
+                    ];
+
+                    $sudah = 0;
+                    $belum = 0;
+
+                    foreach ($files as $file) {
+                        if ($item->user === null || $item->user->upload === null || $item->user->upload->$file === null) {
+                            $item->$file = 'belum';
+                            $belum++;
+                        } else {
+                            $item->$file = 'sudah';
+                            $sudah++;
+                        }
+                    }
+
+                    // Tambahkan informasi jumlah
+                    $item->total_sudah_upload = $sudah;
+                    $item->total_belum_upload = $belum;
+
+                    return $item;
+                });
 
                 $pdf = Pdf::loadView('pdf.belumupload', compact('data'))->setOption([
                     'enable_remote' => true,

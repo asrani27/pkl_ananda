@@ -41,8 +41,8 @@
             <th>Berkas Ijazah</th>
             <th>Berkas KTP</th>
             <th>Berkas KK</th>
-            <th>Belum Upload</th>
             <th>Sudah Upload</th>
+            <th>Belum Upload</th>
             <th>Jumlah Dokumen</th>
         </tr>
         @php
@@ -61,8 +61,8 @@
             <td style="text-align: center">belum</td>
             <td style="text-align: center">belum</td>
             <td style="text-align: center">belum</td>
-            <td style="text-align: center">{{$item->belum}}</td>
-            <td style="text-align: center">{{$item->sudah}}</td>
+            <td style="text-align: center">{{$item->total_sudah_upload}}</td>
+            <td style="text-align: center">{{$item->total_belum_upload}}</td>
             <td style="text-align: center">6</td>
             @else
             @if ($item->user->upload == null)
@@ -72,8 +72,8 @@
             <td style="text-align: center">belum</td>
             <td style="text-align: center">belum</td>
             <td style="text-align: center">belum</td>
-            <td style="text-align: center">{{$item->belum}}</td>
-            <td style="text-align: center">{{$item->sudah}}</td>
+            <td style="text-align: center">{{$item->total_sudah_upload}}</td>
+            <td style="text-align: center">{{$item->total_belum_upload}}</td>
             <td style="text-align: center">6</td>
             @else
             <td style="text-align: center">{{$item->user->upload->file_lamaran_kerja == null ? 'belum':'sudah'}}</td>
@@ -82,8 +82,8 @@
             <td style="text-align: center">{{$item->user->upload->file_ijazah == null ? 'belum':'sudah'}}</td>
             <td style="text-align: center">{{$item->user->upload->file_ktp == null ? 'belum':'sudah'}}</td>
             <td style="text-align: center">{{$item->user->upload->file_kk == null ? 'belum':'sudah'}}</td>
-            <td style="text-align: center">{{$item->belum}}</td>
-            <td style="text-align: center">{{$item->sudah}}</td>
+            <td style="text-align: center">{{$item->total_sudah_upload}}</td>
+            <td style="text-align: center">{{$item->total_belum_upload}}</td>
             <td style="text-align: center">6</td>
             @endif
             @endif
