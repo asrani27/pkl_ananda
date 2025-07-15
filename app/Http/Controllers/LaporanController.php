@@ -297,6 +297,59 @@ class LaporanController extends Controller
                 ])->setPaper([0, 0, 800, 1100], 'landscape');
                 return $pdf->stream($filename);
             }
+            if ($jenis == '16') {
+                $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
+
+                $sm = SuratMasuk::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_masuk,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_masuk)->year,
+                        'jenis' => 'surat masuk',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $sk = SuratKeluar::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_surat,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_surat)->year,
+                        'jenis' => 'surat keluar',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
+                $data = $data->map(function ($item) {
+                    $tahun = $item['tahun'];
+                    $now = now()->year;
+                    $selisih = $now - $tahun;
+
+                    if ($selisih === 1) {
+                        $item['status_dokumen'] = 'disimpan';
+                    } elseif ($selisih >= 2 && $selisih < 10) {
+                        $item['status_dokumen'] = 'diarsipkan';
+                    } elseif ($selisih >= 10) {
+                        $item['status_dokumen'] = 'dimusnahkan';
+                    } else {
+                        $item['status_dokumen'] = 'disimpan';
+                    }
+
+                    return $item;
+                });
+
+                // Hitung total masing-masing status
+                $total_disimpan = $data->where('status_dokumen', 'disimpan')->count();
+                $total_arsipkan = $data->where('status_dokumen', 'diarsipkan')->count();
+                $total_dimusnahkan = $data->where('status_dokumen', 'dimusnahkan')->count();
+
+                $bulan = null;
+                $pdf = Pdf::loadView('pdf.klasifikasi', compact('data', 'bulan', 'total_disimpan', 'total_arsipkan', 'total_dimusnahkan'))->setOption([
+                    'enable_remote' => true,
+                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                return $pdf->stream($filename);
+            }
         }
         if ($button == 'periode') {
             $mulai = request()->get('mulai');
@@ -635,6 +688,60 @@ class LaporanController extends Controller
                 $data = PengajuanCuti::whereYear('tanggal', $tahun)->get();
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
+                    'enable_remote' => true,
+                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                return $pdf->stream($filename);
+            }
+            if ($jenis == '16') {
+                $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
+
+                $sm = SuratMasuk::whereYear('tgl_masuk', $tahun)->get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_masuk,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_masuk)->year,
+                        'jenis' => 'surat masuk',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $sk = SuratKeluar::whereYear('tgl_surat', $tahun)->get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_surat,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_surat)->year,
+                        'jenis' => 'surat keluar',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
+                $data = $data->map(function ($item) {
+                    $tahun = $item['tahun'];
+                    $now = now()->year;
+                    $selisih = $now - $tahun;
+
+
+                    if ($selisih === 1) {
+                        $item['status_dokumen'] = 'disimpan';
+                    } elseif ($selisih >= 2 && $selisih < 10) {
+                        $item['status_dokumen'] = 'diarsipkan';
+                    } elseif ($selisih >= 10) {
+                        $item['status_dokumen'] = 'dimusnahkan';
+                    } else {
+                        $item['status_dokumen'] = 'disimpan';
+                    }
+
+                    return $item;
+                });
+
+                // Hitung total masing-masing status
+                $total_disimpan = $data->where('status_dokumen', 'disimpan')->count();
+                $total_arsipkan = $data->where('status_dokumen', 'diarsipkan')->count();
+                $total_dimusnahkan = $data->where('status_dokumen', 'dimusnahkan')->count();
+
+                $bulan = null;
+                $pdf = Pdf::loadView('pdf.klasifikasi', compact('data', 'bulan', 'total_disimpan', 'total_arsipkan', 'total_dimusnahkan'))->setOption([
                     'enable_remote' => true,
                 ])->setPaper([0, 0, 800, 1100], 'landscape');
                 return $pdf->stream($filename);

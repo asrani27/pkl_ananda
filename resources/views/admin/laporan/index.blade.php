@@ -36,6 +36,7 @@
                   <option value="13">Laporan Riwayat Jabatan</option>
                   <option value="14">Laporan Pengajuan Cuti</option>
                   <option value="15">Laporan Dokumen Kadaluarsa</option>
+                  <option value="16">Laporan Klasifikasi Dokumen</option>
                   {{-- <option value="16">Laporan Backup Dokumen</option> --}}
                </select>
                <button type="submit" id="print-semua" class="btn btn-flat btn-sm btn-primary" name="button"
@@ -178,18 +179,23 @@
    const buttonPeriode = document.getElementById('print-periode');
    const buttonBulan = document.getElementById('print-bulan');
    const buttonTahun = document.getElementById('print-tahun');
-   const disableOptions = ['1','2', '3', '4', '5','15'];
-   
+   const disableAllOptions = ['1','2', '3', '4', '5','15'];
+   const disablePeriodeBulanOnly = ['16'];
+
    select.addEventListener('change', function () {
-        if (disableOptions.includes(this.value)) {
-            buttonPeriode.disabled = true;
-            buttonBulan.disabled = true;
-            buttonTahun.disabled = true;
-        } else {
-            buttonPeriode.disabled = false;
-            buttonBulan.disabled = false;
-            buttonTahun.disabled = false;
-        }
-    });
+      if (disableAllOptions.includes(this.value)) {
+         buttonPeriode.disabled = true;
+         buttonBulan.disabled = true;
+         buttonTahun.disabled = true;
+      } else if (disablePeriodeBulanOnly.includes(this.value)) {
+         buttonPeriode.disabled = true;
+         buttonBulan.disabled = true;
+         buttonTahun.disabled = false;
+      } else {
+         buttonPeriode.disabled = false;
+         buttonBulan.disabled = false;
+         buttonTahun.disabled = false;
+      }
+   });
 </script>
 @endpush
