@@ -20,6 +20,18 @@ class LaporanController extends Controller
     {
         return view('admin.laporan.index');
     }
+    public function laporan_riwayat()
+    {
+        $jenis = request()->get('jenis');
+        $nip = request()->get('pegawai');
+
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_riwayat.pdf';
+        $data = PerubahanData::where('jenis', $jenis)->where('nip', $nip)->where('status', 1)->get();
+        $pdf = Pdf::loadView('pdf.riwayat', compact('data', 'jenis'))->setOption([
+            'enable_remote' => true,
+        ])->setPaper([0, 0, 800, 1100], 'landscape');
+        return $pdf->stream($filename);
+    }
     public function laporan_periode()
     {
         $jenis = request()->get('jenis');

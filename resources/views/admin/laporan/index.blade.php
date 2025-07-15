@@ -137,6 +137,40 @@
       </div>
    </div>
 </form>
+<div class="row">
+
+   <div class="col-md-12">
+      <div class="white_shd full margin_bottom_30">
+         <div class="full graph_head">
+            <div class="heading1 margin_0">
+               Laporan Riwayat Jabatan, Golongan Dan Pangkat :<br />
+               <form method="get" action="/admin/data/laporan/riwayat">
+                  @csrf
+                  <div style="display: flex; gap: 10px; align-items: center;">
+
+                     Pegawai
+                     <select name="pegawai" class="form-control">
+                        <option value="">-pilih-</option>
+                        @foreach (pegawai() as $item)
+                        <option value="{{$item->nip}}">{{$item->nama}}</option>
+                        @endforeach
+                     </select>
+                     <select name="jenis" class="form-control" required>
+                        <option value="">-pilih-</option>
+                        <option value="jabatan">Jabatan</option>
+                        <option value="pangkat">Golongan / Pangkat</option>
+                     </select>
+                     <br />
+                     <button type="submit" id="print-tahun" class="btn btn-flat btn-sm btn-primary" target="_blank"><i
+                           class="fa fa-print"></i>
+                        Print</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 @endsection
 @push('js')
 <script>

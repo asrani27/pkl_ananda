@@ -12,12 +12,13 @@ class PerubahanDataController extends Controller
     public function perubahandata()
     {
         $data = PerubahanData::paginate(10);
+
         return view('admin.perubahandata.index', compact('data'));
     }
 
     public function index()
     {
-        $data = PerubahanData::paginate(10);
+        $data = PerubahanData::where('user_id', Auth::user()->id)->paginate(10);
         return view('pegawai.perubahandata.index', compact('data'));
     }
     public function tambah()

@@ -139,6 +139,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/jeniscuti/cari', [JenisCutiController::class, 'cari']);
 
     Route::get('admin/data/laporan', [LaporanController::class, 'laporan']);
+    Route::get('admin/data/laporan/riwayat', [LaporanController::class, 'laporan_riwayat']);
     Route::get('admin/data/laporan/jenis', [LaporanController::class, 'laporan_jenis']);
     Route::get('admin/data/laporan/periode', [LaporanController::class, 'laporan_periode']);
     Route::get('admin/data/laporan/bulan', [LaporanController::class, 'laporan_bulan']);

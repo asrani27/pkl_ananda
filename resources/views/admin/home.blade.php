@@ -38,12 +38,11 @@
    <!-- end progress bar -->
 </div>
 <div class="row">
-
    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 </div>
 @endsection
 @push('js')
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+<script src="/pluto/js/canvasjs.min.js"></script>
 <script>
    window.onload = function () {
 
