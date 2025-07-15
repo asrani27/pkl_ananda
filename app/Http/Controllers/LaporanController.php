@@ -173,6 +173,8 @@ class LaporanController extends Controller
                     $item->total_sudah_upload = $sudah;
                     $item->total_belum_upload = $belum;
 
+                    $item->dokumen_status = ($sudah === 6) ? 'dokumen lengkap' : 'dokumen belum lengkap';
+
                     return $item;
                 });
 
