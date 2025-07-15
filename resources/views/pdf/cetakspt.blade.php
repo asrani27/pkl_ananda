@@ -109,12 +109,11 @@
         <tr>
             <td width="50%"></td>
             <td></td>
-            <td><br/>Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br/>
-            Admin<br/>
-             <br/><br/><br/><br/>
+            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                UPPD BANJARMASIN 1<br />
+                <br /><br /><br /><br />
 
-            <u>Ananda Risna Pebrianti</u><br/>
-            NPM 2110010521
+                <u>Lilis Sugiati, SE</u><br />
             </td>
         </tr>
     </table>

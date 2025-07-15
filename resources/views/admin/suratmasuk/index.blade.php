@@ -38,6 +38,7 @@
                   <th style="text-align: center">Nomor Surat</th>
                   <th style="text-align: center">Pengirim</th>
                   <th>Tanggal Surat</th>
+                  <th>Sifat</th>
                   <th>Lampiran</th>
                   <th style="text-align: center">Perihal</th>
                   <th style="text-align: center">Posisi Surat</th>
@@ -57,6 +58,7 @@
                   <td>{{$item->no_surat}}</td>
                   <td>{{$item->pengirim}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
+                  <td>{{$item->sifat}}</td>
                   <td>{{$item->lampiran}}</td>
                   <td>{{$item->perihal}}</td>
                   <td>
