@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Perubahan</h2>
+         <h2>Perubahan Data</h2>
       </div>
    </div>
 </div>

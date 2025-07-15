@@ -63,7 +63,7 @@
                         onclick="return confirm('Yakin ingin diverifikasi?');" class="btn btn-flat btn-sm btn-warning"><i
                            class="fa fa-edit"></i> Verifikasi</a>
                       @else
-                        <span class="badge badge-warning">Selesai</span>
+                        <span class="badge badge-info">Selesai</span>
                       @endif
                   </td>
                </tr>

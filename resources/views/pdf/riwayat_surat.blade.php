@@ -17,9 +17,9 @@
                     width="80px"> &nbsp;&nbsp;
             </td>
             <td style="text-align: center;" width="60%">
-                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
-                <strong>BADAN PENDAPATAN DAERAH</strong><br />
-                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH</strong><br />
+                <strong>(UPPD) BANJARMASIN I</strong><br />
                 JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
                 BANJARMASIN
             </td>
@@ -71,12 +71,11 @@
                 Surat Ditolak : {{$data->where('verifikasi_surat','ditolak')->count()}}<br />
             </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                Admin<br />
+             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                UPPD BANJARMASIN 1<br />
                 <br /><br /><br /><br />
 
-                <u>Ananda Risna Pebrianti</u><br />
-                NPM 2110010521
+                <u>Lilis Sugiati, SE</u><br />
             </td>
         </tr>
     </table>

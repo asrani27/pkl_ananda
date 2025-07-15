@@ -16,9 +16,9 @@
                     width="80px"> &nbsp;&nbsp;
             </td>
             <td style="text-align: center;" width="60%">
-                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
-                <strong>BADAN PENDAPATAN DAERAH</strong><br />
-                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH</strong><br />
+                <strong>(UPPD) BANJARMASIN I</strong><br />
                 JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
                 BANJARMASIN
             </td>
@@ -33,7 +33,7 @@
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Nik</th>
+            <th>NIK</th>
             <th>Nama</th>
             <th>Berkas Lamaran Kerja</th>
             <th>Berkas Perjanjian Kerja</th>
@@ -91,7 +91,7 @@
         @endforeach
         <tr>
             <td colspan="12">
-                SUDAH LENGKAP : {{$data->where('sudah',6)->count()}} <br />
+                SUDAH LENGKAP : {{$data->where('sudah',6)->count()}} <br /> 
                 BELUM LENGKAP : {{$data->where('belum',6)->count()}}
             </td>
         </tr>
@@ -102,11 +102,10 @@
             <td width="60%"></td>
             <td></td>
             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                Admin<br />
+                UPPD BANJARMASIN 1<br />
                 <br /><br /><br /><br />
 
-                <u>Ananda Risna Pebrianti</u><br />
-                NPM 2110010521
+                <u>Lilis Sugiati, SE</u><br />
             </td>
         </tr>
     </table>

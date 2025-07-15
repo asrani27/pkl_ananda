@@ -17,9 +17,9 @@
                     width="80px"> &nbsp;&nbsp;
             </td>
             <td style="text-align: center;" width="60%">
-                <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
-                <strong>BADAN PENDAPATAN DAERAH</strong><br />
-                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
+                <strong>BADAN PENDAPATAN DAERAH PROVINSI KALIMANTAN SELATAN</strong><br />
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH</strong><br />
+                <strong>(UPPD) BANJARMASIN I</strong><br />
                 JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
                 BANJARMASIN
             </td>
@@ -66,6 +66,12 @@
             <td>{{$item->golongan == null ? null : $item->golongan->nama_golongan}}</td>
         </tr>
         @endforeach
+        <tr>
+        <td colspan="13" style="font-weight: bold;">
+            TOTAL PEGAWAI PNS : {{ $data->count() }}
+        </td>
+        </tr>
+
     </table>
 
     <table width="100%">
