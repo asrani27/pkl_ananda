@@ -91,8 +91,8 @@
         @endforeach
         <tr>
             <td colspan="12">
-                SUDAH LENGKAP : {{$data->where('sudah',6)->count()}} <br /> 
-                BELUM LENGKAP : {{$data->where('belum',6)->count()}}
+                SUDAH LENGKAP : {{$data->where('total_sudah_upload',6)->count()}} <br />
+                BELUM LENGKAP : {{$data->where('total_belum_upload',6)->count()}}
             </td>
         </tr>
     </table>
