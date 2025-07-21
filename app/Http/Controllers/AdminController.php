@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Upload;
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use App\Models\PengajuanCuti;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -18,7 +19,16 @@ class AdminController extends Controller
 
     public function dokumen()
     {
-        $data = Upload::paginate(10);
+        $data = Pegawai::get()->map(function ($value) {
+            $value->roles = $value->user == null ? null : $value->user->roles;
+            return $value;
+        })->where('roles', 'pegawai');
+
+        $data->map(function ($item) {
+            $item->upload = $item->user->upload;
+            return $item;
+        });
+
         return view('admin.dokumen.index', compact('data'));
     }
     public function cetak_cuti($id)
