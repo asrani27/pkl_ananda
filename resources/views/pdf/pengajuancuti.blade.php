@@ -37,6 +37,7 @@
             <th>NIP/NIK-NAMA</th>
             <th style="text-align: center">Tanggal Mulai Cuti</th>
             <th style="text-align: center">Tanggal Selesai Cuti</th>
+            <th style="text-align: center">Lama</th>
             <th style="text-align: center">Alasan</th>
             <th style="text-align: center">Status</th>
         </tr>
@@ -51,6 +52,7 @@
             <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
+            <td>{{$item->lamaCuti}}</td>
             <td>{{$item->alasan}}</td>
             <td>
                 <span class="badge badge-success">Dikirim</span><br />
