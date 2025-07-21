@@ -14,7 +14,8 @@ class SuratKeluarController extends Controller
 {
     public function index()
     {
-        $data = SuratKeluar::paginate(10);
+
+        $data = SuratKeluar::orderBy('id', 'DESC')->get();
         return view('admin.suratkeluar.index', compact('data'));
     }
     public function cetak($id)

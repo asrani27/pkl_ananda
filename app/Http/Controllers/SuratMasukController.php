@@ -22,7 +22,7 @@ class SuratMasukController extends Controller
     }
     public function index()
     {
-        $data = SuratMasuk::paginate(10);
+        $data = SuratMasuk::orderBy('id', 'DESC')->get();
         return view('admin.suratmasuk.index', compact('data'));
     }
     public function tambah()
