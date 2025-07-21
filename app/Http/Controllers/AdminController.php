@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
     public function cuti()
     {
-        $data = PengajuanCuti::paginate(10);
+        $data = PengajuanCuti::orderBy('id', 'DESC')->get();
         return view('admin.cuti.index', compact('data'));
     }
 
