@@ -51,6 +51,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/user/delete/{id}', [UserController::class, 'hapus']);
     Route::get('admin/data/user/cari', [UserController::class, 'cari']);
 
+    Route::get('admin/data/dokumen', [AdminController::class, 'dokumen']);
+
     Route::get('admin/data/cuti', [AdminController::class, 'cuti']);
     Route::get('admin/data/cuti/cetak/{id}', [AdminController::class, 'cetak_cuti']);
 

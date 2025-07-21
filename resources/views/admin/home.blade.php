@@ -50,7 +50,7 @@
       animationEnabled: true,
       theme: "light2",
       title: {
-         text: "Grafik Surat 2025"
+         text: "Statistik Dokumen 2025"
       },
       axisY: {
          title: "Jumlah Dokumen",

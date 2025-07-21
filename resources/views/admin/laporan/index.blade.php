@@ -32,7 +32,7 @@
                   <option value="9">Laporan Surat Perintah Tugas</option>
                   <option value="10">Laporan Rekapitulasi Surat</option>
                   <option value="11">Laporan Pengajuan Perubahan Data</option>
-                  <option value="12">Laporan Riwayat Pangkat</option>
+                  <option value="12">Laporan Riwayat Golongan/Pangkat</option>
                   <option value="13">Laporan Riwayat Jabatan</option>
                   <option value="14">Laporan Pengajuan Cuti</option>
                   <option value="16">Laporan Dokumen Kadaluarsa</option>
@@ -144,7 +144,7 @@
       <div class="white_shd full margin_bottom_30">
          <div class="full graph_head">
             <div class="heading1 margin_0">
-               Laporan Riwayat Jabatan, Golongan Dan Pangkat :<br />
+               Laporan Riwayat Jabatan, Golongan Dan Pangkat Per Pegawai :<br />
                <form method="get" action="/admin/data/laporan/riwayat">
                   @csrf
                   <div style="display: flex; gap: 10px; align-items: center;">

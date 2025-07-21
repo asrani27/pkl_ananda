@@ -34,7 +34,7 @@
         <tr>
             <th>No</th>
             <th>Tanggal Surat</th>
-            <th>NIP/NAMA</th>
+            <th>NIP/NIK-NAMA</th>
             <th style="text-align: center">Tanggal Mulai Cuti</th>
             <th style="text-align: center">Tanggal Selesai Cuti</th>
             <th style="text-align: center">Alasan</th>
@@ -47,8 +47,8 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{1 + $key}}</td>
-            <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
+            <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
             <td>{{$item->alasan}}</td>

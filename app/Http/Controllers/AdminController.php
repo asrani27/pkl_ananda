@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Upload;
 use Illuminate\Http\Request;
 use App\Models\PengajuanCuti;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -15,6 +16,11 @@ class AdminController extends Controller
         return view('admin.cuti.index', compact('data'));
     }
 
+    public function dokumen()
+    {
+        $data = Upload::paginate(10);
+        return view('admin.dokumen.index', compact('data'));
+    }
     public function cetak_cuti($id)
     {
         $data = PengajuanCuti::find($id);
