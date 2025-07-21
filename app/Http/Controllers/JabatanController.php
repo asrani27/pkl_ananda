@@ -10,7 +10,7 @@ class JabatanController extends Controller
 {
     public function index()
     {
-        $data = Jabatan::paginate(10);
+        $data = Jabatan::orderBy('id', 'DESC')->get();
         return view('admin.jabatan.index', compact('data'));
     }
     public function tambah()
@@ -19,9 +19,8 @@ class JabatanController extends Controller
     }
     public function simpan(Request $req)
     {
-        if(Jabatan::where('nama_jabatan', $req->nama_jabatan)->first() != null) 
-        { 
-            Session::flash('error', 'Nama Jabatan Sudah Ada'); 
+        if (Jabatan::where('nama_jabatan', $req->nama_jabatan)->first() != null) {
+            Session::flash('error', 'Nama Jabatan Sudah Ada');
             return back();
         }
         Jabatan::create($req->all());

@@ -10,7 +10,7 @@ class GolonganController extends Controller
 {
     public function index()
     {
-        $data = golongan::paginate(10);
+        $data = golongan::orderBy('id', 'DESC')->get();
         return view('admin.golongan.index', compact('data'));
     }
     public function tambah()
@@ -19,9 +19,8 @@ class GolonganController extends Controller
     }
     public function simpan(Request $req)
     {
-        if(Golongan::where('nama_golongan', $req->nama_golongan)->first() != null) 
-        { 
-            Session::flash('error', 'Nama golongan / pangkat Sudah Ada'); 
+        if (Golongan::where('nama_golongan', $req->nama_golongan)->first() != null) {
+            Session::flash('error', 'Nama golongan / pangkat Sudah Ada');
             return back();
         }
         Golongan::create($req->all());

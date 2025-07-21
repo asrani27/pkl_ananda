@@ -10,7 +10,7 @@ class PendidikanController extends Controller
 {
     public function index()
     {
-        $data = Pendidikan::paginate(10);
+        $data = Pendidikan::orderBy('id', 'DESC')->get();
         return view('admin.pendidikan.index', compact('data'));
     }
     public function tambah()
@@ -19,11 +19,10 @@ class PendidikanController extends Controller
     }
     public function simpan(Request $req)
     {
-                Pendidikan::create($req->all());
+        Pendidikan::create($req->all());
 
-                Session::flash('success', 'berhasil di simpan');
-                return redirect('/admin/data/pendidikan');
-        
+        Session::flash('success', 'berhasil di simpan');
+        return redirect('/admin/data/pendidikan');
     }
     public function edit($id)
     {
@@ -33,7 +32,7 @@ class PendidikanController extends Controller
     public function update(Request $req, $id)
     {
         $data = Pendidikan::find($id)->update($req->all());
-         Session::flash('success', 'berhasil di update');
+        Session::flash('success', 'berhasil di update');
 
         return redirect('/admin/data/pendidikan');
     }

@@ -10,7 +10,7 @@ class BagianController extends Controller
 {
     public function index()
     {
-        $data = Bagian::paginate(10);
+        $data = Bagian::orderBy('id', 'DESC')->get();
         return view('admin.bagian.index', compact('data'));
     }
     public function tambah()
@@ -19,9 +19,8 @@ class BagianController extends Controller
     }
     public function simpan(Request $req)
     {
-        if(Bagian::where('nama_bagian', $req->nama_bagian)->first() != null) 
-        { 
-            Session::flash('error', 'Nama Bagian Sudah Ada'); 
+        if (Bagian::where('nama_bagian', $req->nama_bagian)->first() != null) {
+            Session::flash('error', 'Nama Bagian Sudah Ada');
             return back();
         }
         Bagian::create($req->all());

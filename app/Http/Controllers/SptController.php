@@ -24,7 +24,7 @@ class SptController extends Controller
     }
     public function index()
     {
-        $data = Spt::paginate(10);
+        $data = Spt::orderBy('id', 'DESC')->get();
         $pegawai = Pegawai::get();
         return view('admin.spt.index', compact('data', 'pegawai'));
     }
