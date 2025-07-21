@@ -39,6 +39,10 @@
    <link rel="stylesheet" href="/pluto/css/perfect-scrollbar.css" />
    <!-- custom css -->
    <link rel="stylesheet" href="/pluto/css/custom.css" />
+
+   <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
+
+
    @stack('css')
    <!-- IziToast -->
    <link rel="stylesheet" href="/notif/dist/css/iziToast.min.css">
@@ -96,28 +100,35 @@
                   <li><a href="/admin/data/user"><i class="fa fa-users white_color"></i> <span>Data User</span></a></li>
                   <li><a href="/admin/data/pegawai"><i class="fa fa-user"></i> <span>Data Pegawai</span></a></li>
                   <li><a href="/admin/data/dokumen"><i class="fa fa-user"></i> <span>Dokumen Pegawai</span></a></li>
-                  <li><a href="/admin/data/verifikasi/perubahandata"><i class="fa fa-share-square-o"></i><span>Verifikasi Perubahan Data</span></a></li>
+                  <li><a href="/admin/data/verifikasi/perubahandata"><i
+                           class="fa fa-share-square-o"></i><span>Verifikasi Perubahan Data</span></a></li>
                   <!-- Master Data Dropdown -->
                   <li>
                      <a href="#masterSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fa fa-folder"></i> <span>Master Data</span>
                      </a>
                      <ul class="collapse list-unstyled" id="masterSubmenu">
-                        <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a></li>
-                        <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data Golongan</span></a></li>
-                        <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a></li>
-                        <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data Pendidikan</span></a></li>
+                        <li><a href="/admin/data/bagian"><i class="fa fa-bar-chart"></i> <span>Data Bagian</span></a>
+                        </li>
+                        <li><a href="/admin/data/golongan"><i class="fa fa-bar-chart"></i> <span>Data
+                                 Golongan</span></a></li>
+                        <li><a href="/admin/data/jabatan"><i class="fa fa-bar-chart"></i> <span>Data Jabatan</span></a>
+                        </li>
+                        <li><a href="/admin/data/pendidikan"><i class="fa fa-bar-chart"></i> <span>Data
+                                 Pendidikan</span></a></li>
                         <li><a href="/admin/data/jeniscuti"><i class="fa fa-calendar"></i> <span>Jenis Cuti</span></a>
                         </li>
                      </ul>
-                  <!-- Dokumen Terpadu Dropdown -->
+                     <!-- Dokumen Terpadu Dropdown -->
                   <li>
                      <a href="#dokumenSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fa fa-folder-open"></i> <span>Dokumen Terpadu</span>
                      </a>
                      <ul class="collapse list-unstyled" id="dokumenSubmenu">
-                        <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a></li>
-                        <li><a href="/admin/data/suratkeluar"><i class="fa fa-paper-plane"></i> <span>Surat Keluar</span></a></li>
+                        <li><a href="/admin/data/suratmasuk"><i class="fa fa-envelope"></i> <span>Surat Masuk</span></a>
+                        </li>
+                        <li><a href="/admin/data/suratkeluar"><i class="fa fa-paper-plane"></i> <span>Surat
+                                 Keluar</span></a></li>
                         <li><a href="/admin/data/spt"><i class="fa fa-file-text"></i> <span>SPT</span></a></li>
                      </ul>
                   </li>
@@ -236,6 +247,12 @@
       @include('layouts.notif')
    </script>
    @stack('js')
+
+
+   <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+   <script>
+      let table = new DataTable('#myTable');
+   </script>
 </body>
 
 </html>

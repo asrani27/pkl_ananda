@@ -20,16 +20,7 @@
    </div>
    <div class="table_section padding_infor_info">
       <div class="table-responsive-sm">
-         <form method="get" action="/admin/data/spt/cari">
-            @csrf
-            <div style="display: flex; margin-left: auto; gap: 8px; align-items: center;">
-               <input type="text" class="form-control" name="cari" placeholder="Cari Data" style="max-width: 300px;">
-               <button type="submit" class="btn btn-flat btn-sm btn-primary">
-                  <i class="fa fa-search"></i> Cari
-               </button>
-            </div>
-         </form> <br />
-         <table class="table table-bordered">
+         <table class="table table-bordered" id="myTable">
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
@@ -49,7 +40,7 @@
 
                @foreach ($data as $key => $item)
                <tr>
-                  <td>{{$data->firstItem() + $key}}</td>
+                  <td>{{1 + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
                   <td>{{$item->nomor}}</td>
                   <td>{{$item->tujuan}}</td>
@@ -144,7 +135,6 @@
             </tbody>
          </table>
       </div>
-      {{$data->links()}}
    </div>
 </div>
 

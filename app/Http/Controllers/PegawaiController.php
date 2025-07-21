@@ -18,7 +18,7 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-        $data = Pegawai::paginate(10);
+        $data = Pegawai::get();
         return view('admin.pegawai.index', compact('data'));
     }
     public function tambah()
@@ -27,7 +27,7 @@ class PegawaiController extends Controller
         $pendidikan = Pendidikan::get();
         $bagian = Bagian::get();
         $golongan = Golongan::get();
-        return view('admin.pegawai.create', compact('jabatan', 'pendidikan', 'bagian', 'golongan' )); //mengirim
+        return view('admin.pegawai.create', compact('jabatan', 'pendidikan', 'bagian', 'golongan')); //mengirim
     }
     public function simpan(Request $req)
     {
@@ -97,7 +97,7 @@ class PegawaiController extends Controller
         $pendidikan = Pendidikan::get();
         $bagian = Bagian::get();
         $golongan = Golongan::get();
-        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan' )); //mengirim
+        return view('admin.pegawai.edit', compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan')); //mengirim
     }
     public function update(Request $req, $id)
     {
