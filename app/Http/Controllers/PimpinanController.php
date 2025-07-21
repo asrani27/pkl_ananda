@@ -44,6 +44,7 @@ class PimpinanController extends Controller
         $data = SuratMasuk::find($id)->update([
             'verifikasi_surat' => $req->verifikasi_surat,
             'tindak_lanjut' => $req->tindak_lanjut,
+            'tgl_verifikasi_pimpinan' => Carbon::now()->format('Y-m-d'),
         ]);
         Session::flash('success', 'telah verifikasi');
         return redirect('pimpinan/verifikasi/surat-masuk');

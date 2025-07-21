@@ -64,6 +64,8 @@
         <tr>
             <td style="border:1px solid black" width="50%">Diajukan / diteruskan.
                 <br /><br /> Kepala UPPD Banjarmasin 1
+                <br/>
+                Tanggal : {{\Carbon\Carbon::parse($data->tgl_verifikasi_pimpinan)->format('d M Y')}}
             </td>
             <td style="border:1px solid black">Isi Disposisi :
                 <br /><br />{{$data->tindak_lanjut}}

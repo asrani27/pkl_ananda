@@ -14,8 +14,6 @@
 <div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
-
-
       </div>
    </div>
    <div class="table_section padding_infor_info">
