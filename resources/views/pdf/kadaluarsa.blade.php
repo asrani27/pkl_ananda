@@ -27,7 +27,7 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN KLASIFIKASI DOKUMEN <br>
+    <h3 style="text-align: center">LAPORAN DOKUMEN KADALUARSA<br>
     </h3>
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
@@ -36,44 +36,37 @@
             <th>Jenis Dokumen</th>
             <th>No Surat</th>
             <th>Perihal</th>
-            <th>Tahun Masuk</th>
+            <th>Tahun Aktif</th>
             <th>Tahun Inaktif</th>
             <th>Status</th>
+            <th>Lokasi Penyimpanan</th>
         </tr>
         @php
         $no =1;
         @endphp
 
         @foreach ($data as $key => $item)
-        @php
-        $selisih = \Carbon\Carbon::now()->year - $item['tahun'];
-        if ($selisih === 1) {
-        $status = 'disimpan';
-        } elseif ($selisih >= 2 && $selisih < 10) { $status='diarsipkan' ; } elseif ($selisih>= 10) {
-            $status = 'dimusnahkan';
-            } else {
-            $status = 'disimpan';
-            }
-            @endphp
-            <tr>
-                <td>{{$key + 1}}</td>
-                <td>{{$item['jenis']}}</td>
-                <td>{{$item['nomor_surat']}}</td>
-                <td>{{$item['perihal']}}</td>
-                <td>{{$item['tahun']}}</td>
-                <td>{{\Carbon\Carbon::now()->year}}</td>
-                <td>{{ $status }}</td>
 
-            </tr>
-            @endforeach
+        <tr>
+            <td>{{$key + 1}}</td>
+            <td>{{$item['jenis']}}</td>
+            <td>{{$item['nomor_surat']}}</td>
+            <td>{{$item['perihal']}}</td>
+            <td>{{$item['tahun']}}</td>
+            <td>{{\Carbon\Carbon::now()->year}}</td>
+            <td>kadaluarsa</td>
+            <td>File PDF Di Admin</td>
 
-            <tr>
-                <td colspan="7">
-                    Dokumen disimpan : {{ $total_disimpan }}<br />
-                    Dokumen diarsipkan : {{ $total_arsipkan }}<br />
-                    Dokumen dimusnahkan : {{ $total_dimusnahkan }}<br />
-                </td>
-            </tr>
+        </tr>
+        @endforeach
+
+        <tr>
+            <td colspan="8">
+                Jumlah Surat Masuk Kadaluarsa : {{ $total_surat_masuk}}<br />
+                Jumlah Surat Keluar Kadaluarsa : {{ $total_surat_keluar }}<br />
+                Jumlah SPT Kadaluarsa: {{ $total_surat_spt }}<br />
+            </td>
+        </tr>
     </table>
 
     <table width="100%">

@@ -35,6 +35,7 @@
                   <option value="12">Laporan Riwayat Golongan/Pangkat</option>
                   <option value="13">Laporan Riwayat Jabatan</option>
                   <option value="14">Laporan Pengajuan Cuti</option>
+                  <option value="15">Laporan Klasifikasi Dokumen</option>
                   <option value="16">Laporan Dokumen Kadaluarsa</option>
                   {{-- <option value="16">Laporan Klasifikasi Dokumen</option> --}}
                   {{-- <option value="16">Laporan Backup Dokumen</option> --}}

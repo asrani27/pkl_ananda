@@ -297,7 +297,7 @@ class LaporanController extends Controller
                 ])->setPaper([0, 0, 800, 1100], 'landscape');
                 return $pdf->stream($filename);
             }
-            if ($jenis == '16') {
+            if ($jenis == '15') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
 
                 $sm = SuratMasuk::get()->map(function ($item) {
@@ -327,7 +327,7 @@ class LaporanController extends Controller
                     $selisih = $now - $tahun;
 
                     if ($selisih === 1) {
-                        $item['status_dokumen'] = 'disimpan';
+                        $item['status_dokumen'] = 'kadaluarsa';
                     } elseif ($selisih >= 2 && $selisih < 10) {
                         $item['status_dokumen'] = 'diarsipkan';
                     } elseif ($selisih >= 10) {
@@ -346,6 +346,82 @@ class LaporanController extends Controller
 
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.klasifikasi', compact('data', 'bulan', 'total_disimpan', 'total_arsipkan', 'total_dimusnahkan'))->setOption([
+                    'enable_remote' => true,
+                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                return $pdf->stream($filename);
+            }
+            if ($jenis == '16') {
+                $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
+
+                $sm = SuratMasuk::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_masuk,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_masuk)->year,
+                        'jenis' => 'surat masuk',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $sk = SuratKeluar::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_surat,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_surat)->year,
+                        'jenis' => 'surat keluar',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+                $spt = Spt::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->nomor,
+                        'tgl_surat' => $item->tanggal,
+                        'tahun' => \Carbon\Carbon::parse($item->tanggal)->year,
+                        'jenis' => 'spt',
+                        'perihal' => $item->keperluan, // contoh field
+                    ];
+                });
+                $sm = SuratMasuk::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_masuk,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_masuk)->year,
+                        'jenis' => 'surat masuk',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+
+                $sk = SuratKeluar::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->no_surat,
+                        'tgl_surat' => $item->tgl_surat,
+                        'tahun' => \Carbon\Carbon::parse($item->tgl_surat)->year,
+                        'jenis' => 'surat keluar',
+                        'perihal' => $item->perihal, // contoh field
+                    ];
+                });
+                $spt = Spt::get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->nomor,
+                        'tgl_surat' => $item->tanggal,
+                        'tahun' => \Carbon\Carbon::parse($item->tanggal)->year,
+                        'jenis' => 'spt',
+                        'perihal' => $item->keperluan, // contoh field
+                    ];
+                });
+
+                $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
+                $tahun_kadaluarsa = Carbon::now()->year - 1;
+                $data = $data->where('tahun', $tahun_kadaluarsa);
+
+                // Hitung total masing-masing status
+
+                $total_surat_masuk = $data->where('jenis', 'surat masuk')->count();
+                $total_surat_keluar = $data->where('jenis', 'surat keluar')->count();
+                $total_surat_spt = $data->where('jenis', 'spt')->count();
+
+                $bulan = null;
+                $pdf = Pdf::loadView('pdf.kadaluarsa', compact('data', 'bulan', 'total_surat_masuk', 'total_surat_keluar', 'total_surat_spt'))->setOption([
                     'enable_remote' => true,
                 ])->setPaper([0, 0, 800, 1100], 'landscape');
                 return $pdf->stream($filename);
