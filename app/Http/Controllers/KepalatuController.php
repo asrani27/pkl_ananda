@@ -20,6 +20,7 @@ class KepalatuController extends Controller
         $data = SuratMasuk::where('disposisi_kepalatu', Auth::user()->id)->paginate(10);
         return view('kepalatu.suratmasuk.index', compact('data'));
     }
+
     public function disposisi($id)
     {
         $pimpinan = User::where('roles', 'pimpinan')->first();

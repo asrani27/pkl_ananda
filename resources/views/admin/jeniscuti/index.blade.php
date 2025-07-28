@@ -37,7 +37,7 @@
                <tr>
                   <td>{{1 + $key}}</td>
                   <td>{{$item->nama_cuti}}</td>
-                  <td>{{$item->kuota}}</td>
+                  <td>{{$item->kuota}} Hari</td>
                   <td>
                      <a href="/admin/data/jeniscuti/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
                            class="fa fa-edit"></i> Edit</a>

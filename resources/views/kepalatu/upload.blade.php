@@ -20,7 +20,6 @@
                 <th style="text-align: center;"></th>
                 <th style="text-align: center;">Aksi</th>
             </tr>
-            
            <tr>
                <td>Foto</td>
                <td>
@@ -35,7 +34,7 @@
                @endif
                </td>
                <td style="display : flex">
-                    <form method="post" action="/pegawai/upload/foto" enctype="multipart/form-data"  style="display : flex">
+                    <form method="post" action="/kepalatu/upload/foto" enctype="multipart/form-data"  style="display : flex">
                     @csrf     
                          <input type="file" name="file" class="form-control"> 
                          <button type="submit" class="btn btn-sm btn-primary">upload</button>
@@ -57,7 +56,7 @@
                @endif
             </td>
             <td style="display : flex">
-                 <form method="post" action="/pegawai/upload/ktp" enctype="multipart/form-data"  style="display : flex">
+                 <form method="post" action="/kepalatu/upload/ktp" enctype="multipart/form-data"  style="display : flex">
                   @csrf    
                       <input type="file" name="file" class="form-control"> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
@@ -79,7 +78,7 @@
                @endif
             </td>
             <td style="display : flex">
-                 <form method="post" action="/pegawai/upload/kk" enctype="multipart/form-data"  style="display : flex">
+                 <form method="post" action="/kepalatu/upload/kk" enctype="multipart/form-data"  style="display : flex">
                  @csrf     
                       <input type="file" name="file" class="form-control"> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
@@ -101,7 +100,7 @@
                @endif
             </td>
             <td style="display : flex">
-                 <form method="post" action="/pegawai/upload/ijazah" enctype="multipart/form-data"  style="display : flex">
+                 <form method="post" action="/kepalatu/upload/ijazah" enctype="multipart/form-data"  style="display : flex">
                   @csrf    
                       <input type="file" name="file" class="form-control"> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
@@ -123,7 +122,7 @@
                @endif
             </td>
             <td style="display : flex">
-                 <form method="post" action="/pegawai/upload/sertifikat" enctype="multipart/form-data"  style="display : flex">
+                 <form method="post" action="/kepalatu/upload/sertifikat" enctype="multipart/form-data"  style="display : flex">
                  @csrf   
                       <input type="file" name="file" class="form-control"> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
@@ -145,7 +144,7 @@
                @endif
             </td>
             <td style="display : flex">
-                 <form method="post" action="/pegawai/upload/spk" enctype="multipart/form-data"  style="display : flex">
+                 <form method="post" action="/kepalatu/upload/spk" enctype="multipart/form-data"  style="display : flex">
                  @csrf     
                       <input type="file" name="file" class="form-control"> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
