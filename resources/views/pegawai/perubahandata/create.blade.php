@@ -25,7 +25,6 @@
                <label class="label_field">Jenis Perubahan</label>
                <select class="form-control" name="jenis" required>
                   <option value="">-</option>
-                  <option value="nama">Nama</option>
                   <option value="jabatan">Jabatan</option>
                   <option value="pangkat">Golongan / Pangkat </option>
                </select>
@@ -46,6 +45,11 @@
                <input type="text" class="form-control" name="keterangan">
             </div>
             <br />
+            <div class="field">
+               <label class="label_field">File *isi jika ada</label>
+               <input type="file" class="form-control" name="file">
+            </div>
+            <br/>
             <div class="field margin_0">
 
                <button class="main_bt"><i class="fa fa-save"></i> Simpan</button>

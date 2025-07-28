@@ -57,12 +57,12 @@
                         <div class="field">
                            <label class="label_field">Username</label>
                            <input type="username" class="form-control" name="username" value="{{old('username')}}"
-                              autocomplete="new-password" />
+                              autocomplete="new-password" required/>
                         </div>
                         <div class="field">
                            <label class="label_field">Password</label>
                            <input type="password" class="form-control" name="password" value="{{old('password')}}"
-                              autocomplete="new-password" />
+                              autocomplete="new-password" required/>
                         </div>
                         <div class="field margin_0">
                            <label class="label_field hidden">hidden label</label>

@@ -55,7 +55,13 @@
         <tr>
             <td>{{1 + $key}}</td>
             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
-            <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
+            <td>
+                     @if ($item->user->pegawai->status =='PNS')
+                          {{$item->user->pegawai->nip}} - {{$item->user->name}}
+                     @else
+                          {{$item->user->pegawai->nik}} - {{$item->user->name}}
+                     @endif
+            </td>
             <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
             <td>{{$lamaCuti}}</td>

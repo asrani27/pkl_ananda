@@ -1,6 +1,21 @@
 @extends('layouts.app')  
 @push('css')  
-  
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+   .note-editor .note-toolbar i,
+   .note-editor .note-toolbar svg {
+      fill: #28a745 !important;
+      /* Hijau */
+      color: #060606 !important;
+   }
+
+   .note-editor p {
+      margin: 0 !important;
+   }
+</style>
 @endpush  
 @section('content')  
 <div class="row column_title">  
@@ -70,6 +85,12 @@
                <input type="text" class="form-control" name="pembebanan_biaya" value="{{$data->pembebanan_biaya}}">  
             </div>
          <br/>  
+         <div class="field">
+               <label class="label_field">Yang di tugaskan</label>
+               <textarea id="summernote" name="yang_ditugaskan">
+               {!!$data->yang_ditugaskan!!}
+               </textarea>
+            </div>
             <div class="field margin_0">   
               <button class="main_bt"><i class="fa fa-save"></i> Simpan</button>  
             </div>  
@@ -80,5 +101,16 @@
     
 @endsection  
 @push('js')  
-  
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<script>
+   $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 300,
+            disableParagraphMode: true, // Ini penting!
+            lineHeights: ['0.5', '1.0', '1.5', '2.0'], // opsional
+            });
+    });
+</script>
 @endpush

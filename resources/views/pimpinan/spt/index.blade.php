@@ -11,7 +11,7 @@
       </div>
    </div>
 </div>
-<<div class="white_shd full margin_bottom_30">
+<div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
       </div>

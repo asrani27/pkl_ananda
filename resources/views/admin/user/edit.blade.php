@@ -16,12 +16,8 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Pegawai</label>
-               <select name="pegawai_id" class="form-control">
-                  @foreach($pegawai as $peg)
-                  <option value="{{$peg->id}}" {{$data->pegawai_id == $peg->id ? "selected":''}}>{{$peg->nama}}</option>
-                  @endforeach
-               </select>
+               <label class="label_field">Nama Lengkap</label>
+               <input type="text" class="form-control" name="name" value="{{$data->name}}" autocomplete="new-password">
             </div>
             <br />
             <div class="field">

@@ -12,7 +12,7 @@
 </div>
 <div class="white_shd full margin_bottom_30">
    <div class="padding_infor_info">
-      <form method="post" action="/pegawai/data/perubahandata/edit/{{$data->id}}">
+      <form method="post" action="/pegawai/data/perubahandata/edit/{{$data->id}}" enctype="multipart/form-data">
          @csrf
          <fieldset>
             <div class="field">
@@ -48,6 +48,11 @@
             <div class="field">
                <label class="label_field">Keterangan lainnya</label>
                <input type="text" class="form-control" name="keterangan" value="{{$data->keterangan}}">
+            </div>
+            <br />
+            <div class="field">
+               <label class="label_field">File *isi jika ada</label>
+               <input type="file" class="form-control" name="file" value="{{$data->file}}">
             </div>
             <br />
             <div class="field margin_0">

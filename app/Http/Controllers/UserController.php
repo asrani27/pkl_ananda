@@ -21,10 +21,11 @@ class UserController extends Controller
         $pegawai = Pegawai::get();
         return view('admin.user.create', compact('pegawai'));
     }
+
     public function simpan(Request $req)
     {
         $check = User::where('username', $req->username)->first();
-        if ($req->password1 != $req->password2) {
+        if($req->password1 != $req->password2){
             Session::flash('warning', 'password tidak sama');
 
             return back();
@@ -39,8 +40,7 @@ class UserController extends Controller
 
             try {
                 $u = new User;
-                $u->pegawai_id = $req->pegawai_id;
-                $u->name = Pegawai::find($req->pegawai_id)->nama;
+                $u->name = $req->name;
                 $u->username = $req->username;
                 $u->password = Hash::make($req->password1);
                 $u->roles = $req->role;
@@ -50,7 +50,8 @@ class UserController extends Controller
 
                 Session::flash('success', 'berhasil di simpan');
                 return redirect('/admin/data/user');
-            } catch (\Exception $e) {
+                         
+} catch (\Exception $e) {
 
                 DB::rollback();
                 Session::flash('error', 'Gagal sistem');
@@ -58,6 +59,43 @@ class UserController extends Controller
             }
         }
     }
+    // public function simpan(Request $req)
+    // {
+    //     $check = User::where('username', $req->username)->first();
+    //     if ($req->password1 != $req->password2) {
+    //         Session::flash('warning', 'password tidak sama');
+
+    //         return back();
+    //     }
+
+    //     if ($check != null) {
+    //         Session::flash('warning', 'username Sudah ada');
+    //         $req->flash();
+    //         return back();
+    //     } else {
+    //         DB::beginTransaction();
+
+    //         try {
+    //             $u = new User;
+    //             $u->pegawai_id = $req->pegawai_id;
+    //             $u->name = Pegawai::find($req->pegawai_id)->nama;
+    //             $u->username = $req->username;
+    //             $u->password = Hash::make($req->password1);
+    //             $u->roles = $req->role;
+    //             $u->save();
+
+    //             DB::commit();
+
+    //             Session::flash('success', 'berhasil di simpan');
+    //             return redirect('/admin/data/user');
+    //         } catch (\Exception $e) {
+
+    //             DB::rollback();
+    //             Session::flash('error', 'Gagal sistem');
+    //             return back();
+    //         }
+    //     }
+    // }
 
     public function edit($id)
     {
@@ -72,9 +110,9 @@ class UserController extends Controller
         if ($req->password1 == null) {
             //update tanpa password
 
+            $data->name = $req->name;
             $data->roles = $req->roles;
-            $data->pegawai_id = $req->pegawai_id;;
-            $data->name = Pegawai::find($req->pegawai_id)->nama;
+            $data->pegawai_id = $req->pegawai_id;
             $data->save();
             Session::flash('success', 'Berhasil Diupdate');
             return redirect('/admin/data/user');
@@ -86,18 +124,48 @@ class UserController extends Controller
             } else {
 
                 $data->password = bcrypt($req->password1);
-                $data->roles = $req->roles;
+                $data->name = $req->name;
+                $data->roles = $req->roles; 
                 $data->pegawai_id = $req->pegawai_id;
-                $data->name = Pegawai::find($req->pegawai_id)->nama;
                 $data->save();
                 Session::flash('success', 'Berhasil Diupdate, password : ' . $req->password1);
                 return redirect('/admin/data/user');
             }
         }
     }
+    // public function update(Request $req, $id)
+    // {
+    //     $data = User::find($id);
+    //     if ($req->password1 == null) {
+    //         //update tanpa password
+
+    //         $data->roles = $req->roles;
+    //         $data->pegawai_id = $req->pegawai_id;;
+    //         $data->name = Pegawai::find($req->pegawai_id)->nama;
+    //         $data->save();
+    //         Session::flash('success', 'Berhasil Diupdate');
+    //         return redirect('/admin/data/user');
+    //     } else {
+    //         // update beserta password
+    //         if ($req->password1 != $req->password2) {
+    //             Session::flash('error', 'Password Tidak Sama');
+    //             return back();
+    //         } else {
+
+    //             $data->password = bcrypt($req->password1);
+    //             $data->roles = $req->roles;
+    //             $data->pegawai_id = $req->pegawai_id;
+    //             $data->name = Pegawai::find($req->pegawai_id)->nama;
+    //             $data->save();
+    //             Session::flash('success', 'Berhasil Diupdate, password : ' . $req->password1);
+    //             return redirect('/admin/data/user');
+    //         }
+    //     }
+    // }
     public function hapus($id)
     {
         $data = User::find($id)->delete();
+        Session::flash('success', 'berhasil di hapus');
         return back();
     }
 

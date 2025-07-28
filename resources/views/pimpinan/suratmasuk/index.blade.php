@@ -32,7 +32,7 @@
                   <th>Posisi Surat</th>
                   <th>Verifikasi</th>
                   <th>Tindak Lanjut</th>
-                   <th>Status</th>
+                  <th>Status</th>
                   <th>Aksi</th>
 
                </tr>
@@ -87,7 +87,7 @@
                      </div>
                      <br/>
                      <a href="/pimpinan/data/suratmasuk/verifikasi/{{$item->id}}"
-                        class="btn btn-flat btn-sm btn-warning"><i class="fa fa-edit"></i> Verifikasi
+                        class="btn btn-flat btn-sm btn-warning"><i class="fa fa-edit"></i> Disposisi
                      </a>
                   </td>
 

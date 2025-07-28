@@ -46,7 +46,8 @@
                   <td>{{$item->tujuan}}</td>
                   <td>{{$item->keperluan}}</td>
                   <td>
-                     @if ($item->petugas == null)
+                     {!!$item->yang_ditugaskan!!}
+                     {{-- @if ($item->petugas == null)
                      -
                      @else
                      <ul>
@@ -74,7 +75,8 @@
                         </select>
                         <button type="submit" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
                         </button><br />
-                     </form>
+                     </form> --}}
+                     
                   </td>
                   <td>
                      <ul>
@@ -126,7 +128,7 @@
                      <br />
                      @if ($item->disposisi_kepalatu == null)
                      <a href="/admin/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                        onclick="return confirm('Yakin ingin di Teruskan')"><i class="fa fa-send"></i> Teruskan ke KTU
                      </a>
                      @endif
                   </td>

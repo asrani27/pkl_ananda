@@ -11,7 +11,7 @@
       </div>
    </div>
 </div>
-<<div class="white_shd full margin_bottom_30">
+<div class="white_shd full margin_bottom_30">
    <div class="full graph_head">
       <div class="heading1 margin_0">
       </div>
@@ -83,12 +83,7 @@
 
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
-                  <td>{{$item->tindak_lanjut}}
-                     @if ($item->tindak_lanjut != null)
-                     <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-danger"><i
-                           class="fa fa-print"></i> print disposisi</a>
-                     @endif
-                  </td>
+                  <td>{{$item->tindak_lanjut}}</td>
                   <td>
                      @if ($item->disposisi_kepalatu == null)
                      <span class="badge badge-info">Baru</span>
@@ -109,7 +104,7 @@
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke Pimpinan
+                        onclick="return confirm('Yakin ingin di verifikasi')"><i class="fa fa-send"></i> Verifikasi
                      </a>
                      @endif
                   </td>

@@ -21,7 +21,6 @@ class BiodataController extends Controller
     $bagian = Bagian::get();
      $golongan = Golongan::get();
     
-     
      if(Auth::user()->roles == 'pimpinan'){
          return view(view: 'pimpinan.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'  ));
      }

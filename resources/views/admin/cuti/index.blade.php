@@ -23,8 +23,8 @@
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
-                  <th style="text-align: center">Tanggal Surat</th>
-                  <th style="text-align: center">NIK - Nama</th>
+                  <th style="text-align: center">Tanggal</th>
+                  <th style="text-align: center">NIP/NIK - Nama</th>
                   <th style="text-align: center">Tanggal Mulai Cuti</th>
                   <th style="text-align: center">Tanggal Selesai Cuti</th>
                   <th style="text-align: center">Lama</th>
@@ -41,16 +41,21 @@
                @php
                $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
                $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
-
                $lamaCuti = $mulai->diffInDays($selesai) + 1;
                @endphp
                <tr>
                   <td>{{1 + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
-                  <td>{{$item->user->pegawai->nik}} - {{$item->user->name}}</td>
+                  <td>
+                     @if ($item->user->pegawai->status =='PNS')
+                          {{$item->user->pegawai->nip}} - {{$item->user->name}}
+                     @else
+                          {{$item->user->pegawai->nik}} - {{$item->user->name}}
+                     @endif
+                  </td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
-                  <td>{{$lamaCuti}}</td>
+                  <td>{{$lamaCuti}} Hari </td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-info">Dikirim</span><br />

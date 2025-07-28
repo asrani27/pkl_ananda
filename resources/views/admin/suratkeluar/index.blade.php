@@ -97,8 +97,7 @@
                      <br />
                      @if ($item->disposisi_kepalatu == null)
                      <a href="/admin/data/suratkeluar/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke
-                        KTU
+                        onclick="return confirm('Yakin ingin di teruskan')"><i class="fa fa-send"></i> Teruskan ke KTU
                      </a>
                      @endif
                   </td>

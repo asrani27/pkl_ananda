@@ -28,7 +28,7 @@
             <div class="field">
                <label class="label_field">Akses</label>
                <select name="role" class="form-control">
-                  <option value="admin">dmin</option>
+                  <option value="admin">admin</option>
                   <option value="pegawai">pegawai</option>
                   <option value="kepalaTU">kepala TU</option>
                   <option value="pimpinan">pimpinan</option>

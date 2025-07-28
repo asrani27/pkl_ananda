@@ -18,7 +18,7 @@ class PengajuanCutiController extends Controller
 
     public function index()
     {
-        $data = PengajuanCuti::all();
+        $data = PengajuanCuti::where('user_id',Auth::user()->id)->get();
         return view('pegawai.pengajuancuti.index', compact('data'));
     }
 
@@ -77,7 +77,7 @@ class PengajuanCutiController extends Controller
         PengajuanCuti::create($param);
         PengajuanCuti::find($id)->update($param);
         Session::flash('success', 'berhasil di update');
-        return redirect('/admin/data/jeniscuti');
+        return redirect('/pegawai/data/pengajuancuti');
     }
     public function hapus($id)
     {

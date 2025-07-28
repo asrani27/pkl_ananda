@@ -75,6 +75,7 @@
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}
                      @if ($item->tindak_lanjut != null)
+                  </br>
                      <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-warning"><i
                            class="fa fa-print"></i> print disposisi</a>
                      @endif
@@ -104,7 +105,7 @@
                      <br />
                      @if ($item->disposisi_kepalatu == null)
                      <a href="/admin/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke KTU
+                        onclick="return confirm('Yakin ingin di teruskan')"><i class="fa fa-send"></i> Teruskan ke KTU
                      </a>
                      @endif
                   </td>

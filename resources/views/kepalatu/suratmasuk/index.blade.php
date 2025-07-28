@@ -89,8 +89,7 @@
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/suratmasuk/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di disposisi')"><i class="fa fa-send"></i> Disposisi ke
-                        Pimpinan
+                        onclick="return confirm('Yakin ingin di verifikasi')"><i class="fa fa-send"></i> Verifikasi
                      </a>
                      @endif
                   </td>

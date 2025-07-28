@@ -16,7 +16,7 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Tanggal Surat</label>
+               <label class="label_field">Tanggal</label>
                <input type="date" class="form-control" name="tanggal"
                   value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
             </div>

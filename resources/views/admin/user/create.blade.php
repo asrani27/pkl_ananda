@@ -13,22 +13,13 @@
 <div class="white_shd full margin_bottom_30">
    <div class="padding_infor_info">
       <form method="post" action="/admin/data/user/create">
-         @csrf
-         <fieldset>
-            <div class="field">
-               <label class="label_field">Pegawai</label>
-               <select name="pegawai_id" class="form-control">
-                  @foreach($pegawai as $item)
-                  @if ($item->user == null)
-
-                  <option value="{{$item->id}}">{{$item->nama}}</option>
-                  @else
-
-                  @endif
-                  @endforeach
-               </select>
-            </div>
-            <br />
+          @csrf 
+        <fieldset> 
+            <div class="field"> 
+               <label class="label_field">Nama Lengkap</label> 
+               <input type="text" class="form-control" name="name"  autocomplete="new-password"> 
+            </div> 
+            <br/> 
             <div class="field">
                <label class="label_field">Username</label>
                <input type="text" class="form-control" name="username" autocomplete="new-password">

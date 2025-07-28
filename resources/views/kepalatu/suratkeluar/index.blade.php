@@ -69,7 +69,7 @@
                   </td>
                   <td>{{$item->verifikasi_surat}}</td>
                   <td>{{$item->tindak_lanjut}}</td>
-                 
+                  
                   <td>
                      @if ($item->disposisi_kepalatu == null)
                      <span class="badge badge-info">Baru</span>
@@ -91,7 +91,7 @@
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/suratkeluar/disposisi/{{$item->id}}"
                         class="btn btn-flat btn-sm btn-warning" onclick="return confirm('Yakin ingin di disposisi')"><i
-                           class="fa fa-send"></i> Disposisi ke Pimpinan
+                           class="fa fa-send"></i> Verifikasi
                      </a>
                      @endif
                   </td>

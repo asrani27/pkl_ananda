@@ -24,12 +24,10 @@
                <label class="label_field">Nomor Surat</label>
                <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}">
             </div>
-
             <div class="field">
                <label class="label_field">Pengirim</label>
-               <input type="text" class="form-control" name="pengirim" value="{{$data->alamat_pengirim}}">
+               <input type="text" class="form-control" name="pengirim" value="{{$data->pengirim}}">
             </div>
-
             <div class="field">
                <label class="label_field">Tanggal Surat</label>
                <input type="date" class="form-control" name="tgl_surat" value="{{$data->tgl_surat}}">
@@ -54,7 +52,12 @@
             </div>
             <div class="field">
                <label class="label_field">File</label>
-               <input type="file" class="form-control" name="file">
+               <input type="file" class="form-control" name="file"><br/>
+               File : @if ($data->file == null)
+                   tidak ada file
+               @else
+                   <a href="/storage/uploads/{{$data->file}}"> <i class="fa fa-file"></i> Download </a>
+               @endif
             </div>
 
             <br />

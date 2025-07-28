@@ -21,7 +21,7 @@
                 <th style="text-align: center;">Aksi</th>
             </tr>
             
-          <tr>
+          {{-- <tr>
               <td>Surat Lamaran Kerja</td>
               <td>
                @if ($data->upload == null)
@@ -41,7 +41,28 @@
                         <button type="submit" class="btn btn-sm btn-primary">upload</button>
                    </form>
               </td>
-          </tr>
+          </tr> --}}
+           <tr>
+               <td>Foto</td>
+               <td>
+               @if ($data->upload == null)
+                   
+               @else
+                   @if ($data->upload->file_foto == null)
+                       
+                   @else
+                         <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_foto}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
+                   @endif
+               @endif
+               </td>
+               <td style="display : flex">
+                    <form method="post" action="/pegawai/upload/foto" enctype="multipart/form-data"  style="display : flex">
+                    @csrf     
+                         <input type="file" name="file" class="form-control"> 
+                         <button type="submit" class="btn btn-sm btn-primary">upload</button>
+                    </form>
+               </td>
+             </tr>
 
           <tr>
             <td>KTP</td>
@@ -152,28 +173,6 @@
                  </form>
             </td>
           </tr>
-
-          <tr>
-               <td>Foto</td>
-               <td>
-               @if ($data->upload == null)
-                   
-               @else
-                   @if ($data->upload->file_foto == null)
-                       
-                   @else
-                         <a href="/storage/uploads/{{$data->upload == null ? null : $data->upload->file_foto}}" class="btn btn-sm btn-success" target="_blank">lihat</a>
-                   @endif
-               @endif
-               </td>
-               <td style="display : flex">
-                    <form method="post" action="/pegawai/upload/foto" enctype="multipart/form-data"  style="display : flex">
-                    @csrf     
-                         <input type="file" name="file" class="form-control"> 
-                         <button type="submit" class="btn btn-sm btn-primary">upload</button>
-                    </form>
-               </td>
-             </tr>
        </table>
       </div>
    </div>

@@ -19,7 +19,7 @@
                 <thead>
                     <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                         <th style="text-align: center">No</th>
-                        <th style="text-align: center">NIP</th>
+                        <th style="text-align: center">NIP/NIK</th>
                         <th style="text-align: center">Nama</th>
                         <th style="text-align: center">Pas FOTO</th>
                         <th style="text-align: center">KTP</th>
@@ -34,7 +34,13 @@
                     @foreach ($data as $key => $item)
                     <tr>
                         <td>{{1 + $key}}</td>
-                        <td>{{$item->nip}}</td>
+                        <td>
+                            @if ($item->user->pegawai->status =='PNS')
+                                {{$item->user->pegawai->nip}} - {{$item->user->name}}
+                            @else
+                                {{$item->user->pegawai->nik}} - {{$item->user->name}}
+                            @endif
+                        </td>
                         <td>{{$item->nama}}</td>
                         <td>
                             @if ($item->upload == null)
@@ -43,12 +49,15 @@
                             @if ($item->upload->file_foto == null)
 
                             @else
-                            <a href="/storage/uploads/{{$item->upload->file_foto}}" target="_blank"><i
-                                    class="fa fa-download"></i></a>
+                         <div class="download-container">
+                            <a href="/storage/uploads/{{$item->upload->file_foto}}" target="_blank" class="download-btn">
+                                <i class="fa fa-download"></i> Download
+                            </a>
+                        </div>
+
                             @endif
                             @endif
                         </td>
-
                         <td>
                             @if ($item->upload == null)
 

@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laporan</title>
+     <style>
+        .p {
+            margin: 0 !important;
+        }
+
+        .konten-summernote table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .konten-summernote table,
+        .konten-summernote th,
+        .konten-summernote td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
 
@@ -56,29 +73,9 @@
         <br/>
         
     </table>
-    <table width="100%" border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <td>Nomor</td>
-            <td>Nama</td>
-            <td>Jabatan</td>
-        </tr>
-
-        @foreach ($data->petugas as $key2=> $item2)
-            <tr>
-                <td>{{$key2 + 1}}</td>
-                <td>{{$item2->pegawai->nama}}
-                    @if ($item2->pegawai->status == 'PNS')
-                    <br/>NIP. {{$item2->pegawai->nip}}
-                    @endif
-                </td>
-                <td>{{$item2->pegawai->jabatan->nama_jabatan}}
-                    @if ($item2->pegawai->status == 'PNS')
-                        <br/>Gol. {{$item2->pegawai->golongan}}
-                    @endif
-                </td>
-            </tr>
-        @endforeach
-    </table>
+     <div class="konten-summernote">
+        {!!$data->yang_ditugaskan!!}
+    </div>
     <br/>
     Maksud surat perintah tugas :
     <table width="100%" border="0" cellpadding="5" cellspacing="0">
