@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laporan</title>
+    <title>Report</title>
     <style>
         .p {
             margin: 0 !important;
@@ -33,25 +33,28 @@
                 <img src="data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('background/logo.png'))) }}"
                     width="80px"> &nbsp;&nbsp;
             </td>
-            <td style="text-align: center;" width="60%">
+            <td style="text-align: center;" width="70%">
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
-                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong>
+                <br/>
+                Jl. Jendral A.Yani Km. 6 Telp/Fax (0511) 3257025KODE POS. 70249
+                <br />
+                <strong>BANJARMASIN</strong>
             </td>
-            <td width="15%">
-            </td>
+            <td width="15%"></td>
 
         </tr>
     </table>
     <hr>
-    <div style="text-align: right">Banjarmasin, {{\Carbon\Carbon::now()->format('d M Y')}}
+    <div style="text-align: right;"> Banjarmasin, {{ \Carbon\Carbon::parse($data->tgl_surat)->format('d F Y') }}
+
+</div>
+
     </div>
     <br />
-    Yang bertanda tangan di bawah ini :<br />
-
-    <table width="40%" border="0" cellpadding="3" cellspacing="0">
+    
+    <table width="65%" border="0" cellpadding="3" cellspacing="0">
         <tr>
             <td>Nomor</td>
             <td>:</td>
@@ -68,50 +71,33 @@
             <td>{{$data->lampiran}}</td>
         </tr>
         <tr>
-            <td style="vertical-align: top">Perihal</td>
+            <td style="vertical-align: top">Hal</td>
             <td style="vertical-align: top">:</td>
             <td>{{$data->perihal}}</td>
         </tr>
-
+    </br>
+        <tr>
+            <td style="vertical-align: top">Yth</td>
+            <td style="vertical-align: top">:</td>
+            <td>{{$data->tujuan}}</td>
+        </tr>
     </table>
+    
     <div class="konten-summernote">
         {!!$data->isi!!}
     </div>
-    {{-- <table width="100%" border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <td>Nomor</td>
-            <td>Nama</td>
-            <td>Jabatan</td>
-        </tr>
 
-        @foreach ($data->petugas as $key2=> $item2)
-        <tr>
-            <td>{{$key2 + 1}}</td>
-            <td>{{$item2->pegawai->nama}}
-                @if ($item2->pegawai->status == 'PNS')
-                <br />NIP. {{$item2->pegawai->nip}}
-                @endif
-            </td>
-            <td>{{$item2->pegawai->jabatan->nama_jabatan}}
-                @if ($item2->pegawai->status == 'PNS')
-                <br />Gol. {{$item2->pegawai->golongan}}
-                @endif
-            </td>
-        </tr>
-        @endforeach
-    </table> --}}
-
-    Demikian surat perintah tugas ini dibuat untuk dilaksanakan sebagaimana mestinya.
     <table width="100%">
         <tr>
-            <td width="50%"></td>
+            <td style="text-align: center;" width="40%">
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                Admin<br />
-                <br /><br /><br /><br />
-
-                <u>Ananda Risna Pebrianti</u><br />
-                NPM 2110010521
+            <td style="text-align: center;">
+                <strong><br />KEPALA UPPD BANJARMASIN I</strong><br />
+                <br /><br /><br /><br /><br />
+            
+                <u><strong> MIRZA LUFFILLAH, SE.,M.M</strong></u><br />
+                <Canter>Pembina<br/>
+                NIP. 19811204 200904 1 001
             </td>
         </tr>
     </table>
