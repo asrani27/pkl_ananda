@@ -209,13 +209,13 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('kepalatu/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 
-    Route::get('kepalatu/data/upload', [UploadController::class, 'upload']);
-    Route::post('kepalatu/upload/ktp', [UploadController::class, 'uploadktp']);
-    Route::post('kepalatu/upload/kk', [UploadController::class, 'uploadkk']);
-    Route::post('kepalatu/upload/ijazah', [UploadController::class, 'uploadijazah']);
-    Route::post('kepalatu/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
-    Route::post('kepalatu/upload/spk', [UploadController::class, 'uploadspk']);
-    Route::post('kepalatu/upload/foto', [UploadController::class, 'uploadfoto']);
+    // Route::get('kepalatu/data/upload', [UploadController::class, 'upload']);
+    // Route::post('kepalatu/upload/ktp', [UploadController::class, 'uploadktp']);
+    // Route::post('kepalatu/upload/kk', [UploadController::class, 'uploadkk']);
+    // Route::post('kepalatu/upload/ijazah', [UploadController::class, 'uploadijazah']);
+    // Route::post('kepalatu/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
+    // Route::post('kepalatu/upload/spk', [UploadController::class, 'uploadspk']);
+    // Route::post('kepalatu/upload/foto', [UploadController::class, 'uploadfoto']);
 });
 
 Route::middleware(['auth', 'role:pimpinan'])->group(function () {
@@ -243,13 +243,13 @@ Route::middleware(['auth', 'role:pimpinan'])->group(function () {
     Route::get('pimpinan/data/biodata', [BiodataController::class, 'biodata']);
     Route::post('pimpinan/data/biodata/{id}', [BiodataController::class, 'updateBiodata']);
 
-    Route::get('pimpinan/data/upload', [UploadController::class, 'upload']);
-    Route::post('pimpinan/upload/ktp', [UploadController::class, 'uploadktp']);
-    Route::post('pimpinan/upload/kk', [UploadController::class, 'uploadkk']);
-    Route::post('pimpinan/upload/ijazah', [UploadController::class, 'uploadijazah']);
-    Route::post('pimpinan/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
-    Route::post('pimpinan/upload/spk', [UploadController::class, 'uploadspk']);
-    Route::post('pimpinan/upload/foto', [UploadController::class, 'uploadfoto']);
+    // Route::get('pimpinan/data/upload', [UploadController::class, 'upload']);
+    // Route::post('pimpinan/upload/ktp', [UploadController::class, 'uploadktp']);
+    // Route::post('pimpinan/upload/kk', [UploadController::class, 'uploadkk']);
+    // Route::post('pimpinan/upload/ijazah', [UploadController::class, 'uploadijazah']);
+    // Route::post('pimpinan/upload/sertifikat', [UploadController::class, 'uploadsertifikat']);
+    // Route::post('pimpinan/upload/spk', [UploadController::class, 'uploadspk']);
+    // Route::post('pimpinan/upload/foto', [UploadController::class, 'uploadfoto']);
 });
 
 // Route::middleware(['auth', 'role:kepalaPelayanan'])->group(function () {

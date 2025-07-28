@@ -12,13 +12,7 @@ class UploadController extends Controller
     public function upload()
     {
       $data = Auth::user();
-      if ($data->role == 'pegawai') {
-            return view('pegawai.upload', compact('data'));
-        } elseif ($data->role == 'kepalatu') {
-            return view('kepalatu.upload', compact('data'));
-        } elseif ($data->role == 'pimpinan') {
-            return view('pimpinan.upload', compact('data'));
-        }
+      return view('pegawai.upload',compact('data'));
     }
 
     public function uploadktp(Request $req)
