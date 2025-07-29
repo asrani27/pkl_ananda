@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Report</title>
+    <title>Report Surat Keluar</title>
     <style>
         .p {
             margin: 0 !important;
@@ -82,7 +82,8 @@
             <td>{{$data->tujuan}}</td>
         </tr>
     </table>
-    
+    </br>
+
     <div class="konten-summernote">
         {!!$data->isi!!}
     </div>

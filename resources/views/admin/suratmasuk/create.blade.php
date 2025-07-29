@@ -46,7 +46,7 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">sifat</label>
+               <label class="label_field">Sifat</label>
                <select name="sifat" class="form-control">
                   <option value="penting">penting</option>
                   <option value="biasa">biasa</option>

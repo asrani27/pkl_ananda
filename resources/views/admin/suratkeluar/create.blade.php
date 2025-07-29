@@ -47,7 +47,10 @@
             <br />
             <div class="field">
                <label class="label_field">Sifat</label>
-               <input type="text" class="form-control" name="sifat">
+               <select name="sifat" class="form-control">
+                  <option value="penting">Penting</option>
+                  <option value="biasa">Biasa</option>
+               </select>
             </div>
             <br />
             <div class="field">
@@ -56,7 +59,7 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">lampiran</label>
+               <label class="label_field">Lampiran</label>
                <input type="text" class="form-control" name="lampiran">
             </div>
             <div class="field">

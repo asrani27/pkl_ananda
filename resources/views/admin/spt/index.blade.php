@@ -7,7 +7,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>Data Surat Perintah Tugas</h2>
+         <h2>SURAT PERINTAH TUGAS</h2>
       </div>
    </div>
 </div>

@@ -5,7 +5,7 @@
 <head>
     <meta content="en-us" http-equiv="Content-Language" />
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>-24-</title>
+    <title>Lembar Cuti</title>
     <style type="text/css">
         .auto-style1 {
             border-style: solid;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laporan</title>
+    <title>Report SPT</title>
      <style>
         .p {
             margin: 0 !important;
@@ -33,9 +33,11 @@
             <td style="text-align: center;" width="70%">
                 <strong>PEMERINTAH PROVINSI KALIMANTAN SELATAN</strong><br />
                 <strong>BADAN PENDAPATAN DAERAH</strong><br />
-                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong><br />
-                        JALAN JEND. A.YANI Km. 6 KODE POS. 70249<br />
-                        BANJARMASIN
+                <strong>UNIT PELAYANAN PENDAPATAN DAERAH BANJARMASIN I</strong>
+                <br/>
+                Jl. Jendral A.Yani Km. 6 Telp/Fax (0511) 3257025 KODE POS. 70249
+                <br />
+                <strong>BANJARMASIN</strong>
             </td>
             <td width="15%">
             </td>

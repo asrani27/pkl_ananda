@@ -45,9 +45,12 @@
                <input type="text" class="form-control" name="tujuan" value="{{$data->tujuan}}">
             </div>
             <br/>
-            <div class="field">
-               <label class="label_field">Sifat</label>
-               <input type="text" class="form-control" name="sifat" value="{{$data->sifat}}">
+           <div class="field">
+               <label class="label_field">sifat</label>
+               <select name="sifat" class="form-control">
+                  <option value="penting" {{$data->sifat == 'penting' ? 'selected':''}}>penting</option>
+                  <option value="biasa" {{$data->sifat == 'biasa' ? 'selected':''}}>biasa</option>
+               </select>
             </div>
             <br/>
             <div class="field">
