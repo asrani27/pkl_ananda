@@ -17,7 +17,7 @@ class PimpinanController extends Controller
 {
     public function index()
     {
-        $data = SuratMasuk::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
+        $data = SuratMasuk::where('disposisi_pimpinan', '!=', null)->paginate(10);
         return view('pimpinan.suratmasuk.index', compact('data'));
     }
     public function disposisi($id)
@@ -51,7 +51,7 @@ class PimpinanController extends Controller
     }
     public function index_suratkeluar()
     {
-        $data = SuratKeluar::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
+        $data = SuratKeluar::where('disposisi_pimpinan', '!=', null)->paginate(10);
         return view('pimpinan.suratkeluar.index', compact('data'));
     }
 
@@ -88,7 +88,7 @@ class PimpinanController extends Controller
 
     public function index_spt()
     {
-        $data = Spt::where('disposisi_pimpinan', Auth::user()->id)->paginate(10);
+        $data = Spt::where('disposisi_pimpinan', '!=', null)->paginate(10);
         return view('pimpinan.spt.index', compact('data'));
     }
     public function lihat_cuti()
