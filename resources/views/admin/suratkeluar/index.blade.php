@@ -91,8 +91,8 @@
                               class="fa fa-edit"></i> </a>
                         <a href="/admin/data/suratkeluar/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
                            onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a>
-                        <a href="/admin/data/suratkeluar/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-print"></i> </a> <br />
+                        <a href="/admin/data/suratkeluar/cetak/{{$item->id}}" target="_blank"
+                           class="btn btn-flat btn-sm btn-primary"><i class="fa fa-print"></i> </a> <br />
                      </div>
                      <br />
                      @if ($item->disposisi_kepalatu == null)
