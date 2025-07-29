@@ -27,6 +27,10 @@ if (! function_exists('pegawai')) {
 if (! function_exists('pimpinan')) {
     function pimpinan()
     {
-        return User::where('roles', 'pimpinan')->first()->pegawai;
+        if (User::where('roles', 'pimpinan')->first()->pegawai == null) {
+            return null;
+        } else {
+            return User::where('roles', 'pimpinan')->first()->pegawai;
+        }
     }
 }

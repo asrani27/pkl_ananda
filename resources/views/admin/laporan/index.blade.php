@@ -11,7 +11,7 @@
       </div>
    </div>
 </div>
-<form method="get" action="/admin/data/laporan/jenis">
+<form method="get" action="/admin/data/laporan/jenis" target="_blank">
    @csrf
    <div class="white_shd full margin_bottom_30">
       <div class="full graph_head">
@@ -146,7 +146,7 @@
          <div class="full graph_head">
             <div class="heading1 margin_0">
                Laporan Riwayat Jabatan, Golongan Dan Pangkat Per Pegawai :<br />
-               <form method="get" action="/admin/data/laporan/riwayat">
+               <form method="get" action="/admin/data/laporan/riwayat" target="_blank">
                   @csrf
                   <div style="display: flex; gap: 10px; align-items: center;">
 
