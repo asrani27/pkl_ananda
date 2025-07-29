@@ -76,7 +76,7 @@
                         <button type="submit" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i>
                         </button><br />
                      </form> --}}
-                     
+
                   </td>
                   <td>
                      <ul>
@@ -122,8 +122,8 @@
                               class="fa fa-edit"></i> </a> <br />
                         <a href="/admin/data/spt/delete/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"
                            onclick="return confirm('Yakin ingin dihapus?');"><i class="fa fa-trash"></i> </a> <br />
-                        <a href="/admin/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
-                              class="fa fa-print"></i> </a> <br />
+                        <a href="/admin/data/spt/cetak/{{$item->id}}" target="_blank"
+                           class="btn btn-flat btn-sm btn-primary"><i class="fa fa-print"></i> </a> <br />
                      </div>
                      <br />
                      @if ($item->disposisi_kepalatu == null)
