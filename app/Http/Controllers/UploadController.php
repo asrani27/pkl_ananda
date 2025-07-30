@@ -47,35 +47,44 @@ class UploadController extends Controller
     }
 
     public function uploadkk(Request $req)
-    {
-      $check = Upload::where('user_id', Auth::user()->id)->first();
+{
+    // Validasi file wajib diisi
+    $req->validate([
+        'file' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+    ], [
+        'file.required' => 'Dokumen belum dipilih.',
+        'file.file' => 'File tidak valid.',
+        'file.mimes' => 'Format file harus jpg, jpeg, png, atau pdf.',
+        'file.max' => 'Ukuran file maksimal 2MB.',
+    ]);
 
-      if($check == null){
+    // Ambil file yang di-upload
+    $uploadedFile = $req->file('file');
 
-          $filename = time() . '_' . $req->file->getClientOriginalName(); 
-          $req->file('file')->storeAs('uploads', $filename, 'public'); 
+    // Sanitasi nama file
+    $originalName = preg_replace('/[^a-zA-Z0-9_\.-]/', '_', $uploadedFile->getClientOriginalName());
+    $filename = time() . '_' . $originalName;
 
-          $new = new Upload;
-          $new->user_id = Auth::user()->id;
-          $new->file_kk = $filename;
-          $new->save();
-        
-          Session::flash('success', 'berhasil di simpan');
-          return back();
-      }else{
+    // Simpan file ke folder 'uploads' dalam storage public
+    $uploadedFile->storeAs('uploads', $filename, 'public');
 
-          $filename = time() . '_' . $req->file->getClientOriginalName(); 
-          $req->file('file')->storeAs('uploads', $filename, 'public'); 
+    // Cek apakah user sudah pernah mengupload sebelumnya
+    $upload = Upload::where('user_id', Auth::id())->first();
 
-          $data = $check;
-          $data->user_id = Auth::user()->id;
-          $data->file_kk = $filename;
-          $data->save();
-
-          Session::flash('success', 'berhasil di simpan');
-          return back();
-      }
+    if ($upload == null) {
+        // Jika belum ada, buat baru
+        $upload = new Upload();
+        $upload->user_id = Auth::id();
     }
+
+    // Simpan / update data
+    $upload->file_kk = $filename;
+    $upload->save();
+
+    Session::flash('success', 'Berhasil disimpan');
+    return back();
+}
+
 
     public function uploadijazah(Request $req)
     {

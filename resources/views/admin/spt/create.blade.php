@@ -31,7 +31,7 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Tanggal</label>
+               <label class="label_field">Tanggal Surat</label>
                <input type="date" class="form-control" name="tanggal">
             </div>
             <br />
@@ -63,7 +63,6 @@
             </div>
             <br />
             @else
-
             <div class="field">
                <label class="label_field">Nama Pimpinan</label>
                <input type="text" class="form-control" name="nama" value="{{pimpinan()->nama}}">

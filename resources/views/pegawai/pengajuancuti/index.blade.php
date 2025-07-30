@@ -50,7 +50,7 @@
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
-                  <td>{{$lamaCuti}}</td>
+                  <td>{{$lamaCuti}} Hari</td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-success">Dikirim</span><br />
@@ -58,7 +58,7 @@
                      <span class="badge badge-success">Kepala TU : mengetahui</span><br />
                      @endif
                      @if ($item->verifikasi_pimpinan != null)
-                     <span class="badge badge-success">Pimpinan : {{$item->status}}</span><br />
+                     <span class="badge badge-success">Pimpinan : disetujui </span><br />
                      @endif
 
 

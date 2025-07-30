@@ -21,10 +21,10 @@
                         <th style="text-align: center">No</th>
                         {{-- <th style="text-align: center">NIP/NIK</th> --}}
                         <th style="text-align: center">Nama</th>
-                        <th style="text-align: center">Pas FOTO</th>
+                        <th style="text-align: center">FOTO</th>
                         <th style="text-align: center">KTP</th>
                         <th style="text-align: center">KK</th>
-                        <th style="text-align: center">Ijazah</th>
+                        <th style="text-align: center">IJAZAH</th>
                         <th style="text-align: center">SPK</th>
 
                     </tr>
@@ -49,10 +49,10 @@
                             @if ($item->upload->file_foto == null)
 
                             @else
-                         <div class="download-container">
+                        
+                        <div class="download-container" >
                             <a href="/storage/uploads/{{$item->upload->file_foto}}" target="_blank" class="download-btn">
-                                <i class="fa fa-download"></i> Download
-                            </a>
+                                <i class="fa fa-download"></i> </a>
                         </div>
 
                             @endif
@@ -66,7 +66,7 @@
 
                             @else
                             <a href="/storage/uploads/{{$item->upload->file_ktp}}" target="_blank"><i
-                                    class="fa fa-download"></i></a>
+                                    class="fa fa-download"></i> </a>
                             @endif
                             @endif
                         </td>

@@ -24,7 +24,7 @@
             <thead>
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th>No</th>
-                  <th>Tanggal</th>
+                  <th>Tanggal Surat</th>
                   <th style="text-align: center">Nomor Surat</th>
                   <th style="text-align: center">Tujuan</th>
                   <th style="text-align: center">Keperluan</th>
