@@ -67,26 +67,35 @@
         </tr>
         @endforeach
         <tr>
-        <td colspan="11" style="font-weight: bold;">
-            TOTAL PEGAWAI PNS : {{ $data->count() }}
-        </td>
+            <td colspan="11" style="font-weight: bold;">TOTAL PEGAWAI PNS : {{$data->count()}}</td>
         </tr>
-
-    </table>
-
-    <table width="100%">
         <tr>
-            <td width="80%">
-                @foreach (golongan() as $item)
+            <td colspan="11">
+                 @foreach (golongan() as $item)
                 {{$item->nama_golongan}} : {{$data->where('golongan_id', $item->id)->count()}}<br />
                 @endforeach
             </td>
-            
-            <td width="20%"><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
-                <br /><br /><br /><br />
+        </tr>
+    </table>
 
-                <u>Lilis Sugiati, SE</u><br />
+     <table width="100%">
+        <tr>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
+            <td></td>
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
+                <br /><br /><br /><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

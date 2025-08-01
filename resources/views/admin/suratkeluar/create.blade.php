@@ -32,22 +32,22 @@
          <fieldset>
             <div class="field">
                <label class="label_field">Tanggal Surat</label>
-               <input type="date" class="form-control" name="tgl_surat">
+               <input type="date" class="form-control" name="tgl_surat" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Nomor Surat</label>
-               <input type="text" class="form-control" name="no_surat">
+               <input type="text" class="form-control" name="no_surat" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Tujuan</label>
-               <input type="text" class="form-control" name="tujuan">
+               <input type="text" class="form-control" name="tujuan" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Sifat</label>
-               <select name="sifat" class="form-control">
+               <select name="sifat" class="form-control" required>
                   <option value="penting">Penting</option>
                   <option value="biasa">Biasa</option>
                </select>
@@ -55,15 +55,15 @@
             <br />
             <div class="field">
                <label class="label_field">Perihal</label>
-               <input type="text" class="form-control" name="perihal">
+               <input type="text" class="form-control" name="perihal" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Lampiran</label>
-               <input type="text" class="form-control" name="lampiran">
+               <input type="text" class="form-control" name="lampiran" required>
             </div>
             <div class="field">
-               <label class="label_field">Isi</label>
+               <label class="label_field">Isi</label required>
                <textarea id="summernote" name="isi">
 
                </textarea>

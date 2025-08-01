@@ -34,7 +34,7 @@
         <tr>
             <th>No</th>
             <th>Jenis Dokumen</th>
-            <th>No Surat</th>
+            <th>Nomor Surat</th>
             <th>Perihal</th>
             <th>Tahun Aktif</th>
             <th>Tahun Inaktif</th>
@@ -48,36 +48,45 @@
         @foreach ($data as $key => $item)
 
         <tr>
-            <td>{{$key + 1}}</td>
-            <td>{{$item['jenis']}}</td>
-            <td>{{$item['nomor_surat']}}</td>
-            <td>{{$item['perihal']}}</td>
-            <td>{{$item['tahun']}}</td>
-            <td>{{\Carbon\Carbon::now()->year}}</td>
-            <td>kadaluarsa</td>
-            <td>File PDF Di Admin</td>
-
+            <td style="text-align: center;">{{$key + 1}}</td>
+            <td style="text-align: center;">{{$item['jenis']}}</td>
+            <td style="text-align: center;">{{$item['nomor_surat']}}</td>
+            <td style="text-align: center;">{{$item['perihal']}}</td>
+            <td style="text-align: center;">{{$item['tahun']}}</td>
+            <td style="text-align: center;">{{\Carbon\Carbon::now()->year}}</td>
+            <td style="text-align: center;">Kadaluarsa</td>
+            <td style="text-align: center;">File PDF Di Admin</td>
         </tr>
         @endforeach
 
         <tr>
             <td colspan="8">
-                Jumlah Surat Masuk Kadaluarsa : {{ $total_surat_masuk}}<br />
-                Jumlah Surat Keluar Kadaluarsa : {{ $total_surat_keluar }}<br />
-                Jumlah SPT Kadaluarsa: {{ $total_surat_spt }}<br />
+                <strong>Jumlah Surat Masuk Kadaluarsa : {{ $total_surat_masuk }}</strong><br />
+                <strong>Jumlah Surat Keluar Kadaluarsa : {{ $total_surat_keluar }}</strong><br />
+                <strong>Jumlah SPT Kadaluarsa: {{ $total_surat_spt }}</strong><br />
             </td>
         </tr>
+
     </table>
 
-    <table width="100%">
+   <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

@@ -49,9 +49,8 @@
             <th>Tanggal Surat</th>
             <th>Nomor Surat</th>
             <th>Sifat</th>
-            <th>Perihal</th>
             <th>Tujuan</th>
-
+            <th>Perihal</th>
         </tr>
         @php
         $no =1;
@@ -60,26 +59,41 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item->tgl_surat)->translatedFormat('d-m-Y')}}</td>
             <td>{{$item->no_surat}}</td>
             <td>{{$item->sifat}}</td>
-            <td>{{$item->perihal}}</td>
             <td>{{$item->tujuan}}</td>
+            <td>{{$item->perihal}}</td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="6" style="font-weight: bold;">TOTAL SURAT KELUAR : {{$data->count()}}</td>
+        </tr>
+        <tr>
+            <td colspan="6">Jumlah Surat Penting : {{$data->where('sifat','penting')->count()}} </br>
+                        Jumlah Surat Biasa : {{$data->where('sifat','biasa')->count()}}
+            </td>
+        </tr>
     </table>
 
     <table width="100%">
         <tr>
-            <td width="60%">
-                Jumlah Surat Penting : {{$data->where('sifat', 'penting')->count()}}
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
             </td>
             <td></td>
-             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

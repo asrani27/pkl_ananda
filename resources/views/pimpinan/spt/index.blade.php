@@ -44,8 +44,8 @@
                   <td>{{$item->nomor}}</td>
                   <td>{{$item->tujuan}}</td>
                   <td>{{$item->keperluan}}</td>
-                  <td>
-                     @if ($item->petugas == null)
+                  <td>{!!$item->yang_ditugaskan!!}
+                     {{-- @if ($item->petugas == null)
                      -
                      @else
                      <ul>
@@ -58,7 +58,7 @@
                         @endif
                         @endforeach
                      </ul>
-                     @endif
+                     @endif --}}
 
 
                   </td>
@@ -104,9 +104,11 @@
                               class="fa fa-print"></i> Lihat </a> <br />
                      </div>
                      <br />
+                     @if ($item->verifikasi_surat == null)
                      <a href="/pimpinan/data/spt/verifikasi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"><i
-                           class="fa fa-edit"></i> Verifikasi
+                           class="fa fa-edit"></i> Disposisi
                      </a>
+                     @endif
                   </td>
                </tr>
                @endforeach

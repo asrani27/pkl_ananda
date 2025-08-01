@@ -29,7 +29,7 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN USER <br>
+    <h3 style="text-align: center">LAPORAN PENGGUNA SISTEM <br>
 
     </h3>
     <br />
@@ -37,7 +37,7 @@
         <tr>
             <th>No</th>
             <th>Username</th>
-            <th>Pegawai</th>
+            <th>Nama Pegawai</th>
             <th>Jabatan</th>
             <th>Terakhir Login</th>
 
@@ -56,23 +56,38 @@
 
         </tr>
         @endforeach
-    </table>
-
-    <table width="100%">
         <tr>
-            <td width="60%">
-                Akun Aktif : <br />
-                Akun Non Aktif : <br />
-            </td>
-            <td></td>
-             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
-                <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+            <td colspan="5" style="font-weight: bold;">TOTAL USER SISTEM : {{$data->count()}}</td>
+        </tr>
+        <tr>
+            <td colspan="5">Akun Aktif : {{$data->where('login_at', '>', now()->subDays(30))->count()}} <br />
+                Akun Non Aktif : {{$data->where('login_at', '<=', now()->subDays(30))->count()}}
             </td>
         </tr>
     </table>
+    <table width="100%">
+        <tr>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
+            <td></td>
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
+                <br /><br /><br /><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
+            </td>
+        </tr>
+    </table>
+
+    
 </body>
 
 </html>

@@ -38,22 +38,22 @@
             <hr style="height: 2px; background-color: black; border: none;">
             <div class="field">
                <label class="label_field">NIP</label>
-               <input type="text" class="form-control" name="nip">
+               <input type="text" class="form-control" name="nip" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">NIK</label>
-               <input type="text" class="form-control" name="nik">
+               <input type="text" class="form-control" name="nik" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Nama</label>
-               <input type="text" class="form-control" name="nama">
+               <input type="text" class="form-control" name="nama" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Jenis Kelamin</label>
-               <select name="jkel" class="form-control">
+               <select name="jkel" class="form-control" required>
                   <option value="PEREMPUAN">Perempuan</option>
                   <option value="LAKI LAKI">Laki - Laki</option>
                </select>
@@ -61,22 +61,22 @@
             <br />
             <div class="field">
                <label class="label_field">TTL</label>
-               <input type="text" class="form-control" name="ttl">
+               <input type="text" class="form-control" name="ttl" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Alamat</label>
-               <input type="text" class="form-control" name="alamat">
+               <input type="text" class="form-control" name="alamat" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Telpon</label>
-               <input type="text" class="form-control" name="telpon">
+               <input type="text" class="form-control" name="telpon" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Agama</label>
-               <select name="agama" class="form-control">
+               <select name="agama" class="form-control" required>
                   <option value="ISLAM">ISLAM</option>
                   <option value="KRISTEN">KRISTEN</option>
                   <option value="HINDU">HINDU</option>
@@ -87,7 +87,7 @@
             <br />
             <div class="field">
                <label class="label_field">Bagian</label>
-               <select name="bagian_id" class="form-control">
+               <select name="bagian_id" class="form-control" required>
                   @foreach($bagian as $bag)
                   <option value="{{$bag->id}}">{{$bag->nama_bagian}}</option>
                   @endforeach
@@ -96,7 +96,7 @@
             <br />
             <div class="field">
                <label class="label_field">Jabatan</label>
-               <select name="jabatan_id" class="form-control">
+               <select name="jabatan_id" class="form-control" required>
                   @foreach($jabatan as $jab)
                   <option value="{{$jab->id}}">{{$jab->nama_jabatan}}</option>
                   @endforeach
@@ -105,7 +105,7 @@
             <br />
             <div class="field">
                <label class="label_field">Golongan / Pangkat *isi apabila PNS</label>
-               <select name="golongan_id" class="form-control">
+               <select name="golongan_id" class="form-control" required>
                   @foreach($golongan as $gol)
                   <option value="{{$gol->id}}">{{$gol->nama_golongan}}</option>
                   @endforeach
@@ -114,7 +114,7 @@
             <br />
             <div class="field">
                <label class="label_field">Pendidikan</label>
-               <select name="pendidikan_id" class="form-control">
+               <select name="pendidikan_id" class="form-control" required>
                   @foreach($pendidikan as $pen)
                   <option value="{{$pen->id}}">{{$pen->nama_pendidikan}}</option>
                   @endforeach
@@ -123,12 +123,12 @@
             <br />
             <div class="field">
                <label class="label_field">Prodi</label>
-               <input type="text" class="form-control" name="prodi">
+               <input type="text" class="form-control" name="prodi" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Status Pegawai</label>
-               <select name="status" class="form-control">
+               <select name="status" class="form-control" required>
                   <option value="PNS">PNS</option>
                   <option value="TEKON">TEKON</option>
                </select>

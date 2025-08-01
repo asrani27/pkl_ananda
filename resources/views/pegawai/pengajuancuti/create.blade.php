@@ -17,13 +17,13 @@
          <fieldset>
             <div class="field">
                <label class="label_field">Tanggal</label>
-               <input type="date" class="form-control" name="tanggal"
-                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+               <input type="date" class="form-control" name="tanggal" 
+                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Jenis Cuti</label>
-               <select name="jenis_cuti_id" class="form-control">
+               <select name="jenis_cuti_id" class="form-control" required>
                   @foreach($jenis as $item)
                   <option value="{{$item->id}}">{{$item->nama_cuti}}</option>
                   @endforeach
@@ -31,20 +31,20 @@
             </div>
             <br />
             <div class="field">
-               <label class="label_field">Tanggal Mulai Cuti</label>
-               <input type="date" class="form-control" name="tgl_mulai"
+               <label class="label_field">Tanggal Mulai Cuti</label> 
+               <input type="date" class="form-control" name="tgl_mulai" required
                   value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
             </div>
             <br />
             <div class="field">
                <label class="label_field">Tanggal Selesai Cuti</label>
-               <input type="date" class="form-control" name="tgl_selesai"
+               <input type="date" class="form-control" name="tgl_selesai" required
                   value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
             </div>
             <br />
             <div class="field">
                <label class="label_field">Alasan Cuti</label>
-               <input type="text" class="form-control" name="alasan">
+               <input type="text" class="form-control" name="alasan" required>
             </div>
             <br />
 

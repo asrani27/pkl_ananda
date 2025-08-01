@@ -123,7 +123,7 @@ class LaporanController extends Controller
                 $data = Pegawai::get();
                 $pdf = Pdf::loadView('pdf.pegawai', compact('data'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1400], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '2') {
@@ -139,7 +139,7 @@ class LaporanController extends Controller
                 $data = Pegawai::where('status', 'TEKON')->get();
                 $pdf = Pdf::loadView('pdf.pegawaitekon', compact('data'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1300], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '4') {
@@ -188,7 +188,7 @@ class LaporanController extends Controller
                 $data = User::get();
                 $pdf = Pdf::loadView('pdf.user', compact('data'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1000], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '6') {
@@ -210,7 +210,7 @@ class LaporanController extends Controller
 
                 $pdf = Pdf::loadView('pdf.riwayat_surat', compact('data'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1300], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '7') {
@@ -220,7 +220,7 @@ class LaporanController extends Controller
                 $data = SuratMasuk::get();
                 $pdf = Pdf::loadView('pdf.suratmasuk', compact('data', 'mulai', 'bulan'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1200], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '8') {
@@ -230,7 +230,7 @@ class LaporanController extends Controller
                 $data = SuratKeluar::get();
                 $pdf = Pdf::loadView('pdf.suratkeluar', compact('data', 'mulai', 'bulan'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1200], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '9') {
@@ -240,7 +240,7 @@ class LaporanController extends Controller
                 $data = Spt::get();
                 $pdf = Pdf::loadView('pdf.spt', compact('data', 'mulai', 'bulan'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1400], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '10') {
@@ -423,7 +423,7 @@ class LaporanController extends Controller
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.kadaluarsa', compact('data', 'bulan', 'total_surat_masuk', 'total_surat_keluar', 'total_surat_spt'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1000], 'landscape');
                 return $pdf->stream($filename);
             }
         }

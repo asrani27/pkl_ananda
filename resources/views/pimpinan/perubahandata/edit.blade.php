@@ -16,11 +16,6 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Nama Jabatan</label>
-               <input type="text" class="form-control" name="nama_jabatan" value="{{$data->nama_jabatan}}">
-            </div>
-            <br />
-            <div class="field">
                <label class="label_field">Tanggal</label>
                <input type="date" class="form-control" name="tanggal" value="{{$data->tanggal}}">
             </div>
@@ -29,9 +24,8 @@
                <label class="label_field">Jenis Perubahan</label>
                <select class="form-control" name="jenis" required>
                   <option value="">-</option>
-                  <option value="nama" {{$data->jenis == 'nama' ? 'selected':''}}>nama</option>
-                  <option value="jabatan" {{$data->jenis == 'jabatan' ? 'selected':''}}>jabatan</option>
-                  <option value="pangkat" {{$data->jenis == 'pangkat' ? 'selected':''}}>pangkat</option>
+                  <option value="jabatan" {{$data->jenis == 'jabatan' ? 'selected':''}}>Jabatan</option>
+                  <option value="pangkat" {{$data->jenis == 'pangkat' ? 'selected':''}}>Golongan/Pangkat</option>
                </select>
             </div>
             <br />

@@ -17,22 +17,22 @@
         <fieldset> 
             <div class="field"> 
                <label class="label_field">Nama Lengkap</label> 
-               <input type="text" class="form-control" name="name"  autocomplete="new-password"> 
+               <input type="text" class="form-control" name="name"  autocomplete="new-password" required> 
             </div> 
             <br/> 
             <div class="field">
                <label class="label_field">Username</label>
-               <input type="text" class="form-control" name="username" autocomplete="new-password">
+               <input type="text" class="form-control" name="username" autocomplete="new-password" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Password</label>
-               <input type="password" class="form-control" name="password1" autocomplete="new-password">
+               <input type="password" class="form-control" name="password1" autocomplete="new-password" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Masukkan Password lagi</label>
-               <input type="password" class="form-control" name="password2" autocomplete="new-password">
+               <input type="password" class="form-control" name="password2" autocomplete="new-password" required>
             </div>
             <br />
             <div class="field">

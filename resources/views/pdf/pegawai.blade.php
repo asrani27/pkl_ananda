@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <table width="100%">
         <tr>
             <td width="15%">
@@ -28,9 +27,7 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN SEMUA PEGAWAI <br>
-
-    </h3>
+        <h3 style="text-align: center">LAPORAN SEMUA PEGAWAI <br> </h3>
     <br />
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
@@ -70,7 +67,7 @@
         </tr>
         @endforeach
         <tr>
-            <td colspan="13">TOTAL PEGAWAI : {{$data->count()}}</td>
+            <td colspan="13" style="font-weight: bold;">TOTAL SEMUA PEGAWAI : {{$data->count()}}</td>
         </tr>
         <tr>
             <td colspan="13">Jumlah Pegawai PNS : {{$data->where('status','PNS')->count()}} </br>

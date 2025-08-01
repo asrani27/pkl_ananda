@@ -17,8 +17,8 @@
          <fieldset>
             <div class="field">
                <label class="label_field">Tanggal</label>
-               <input type="date" class="form-control" name="tanggal"
-                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}">
+               <input type="date" class="form-control" name="tanggal" 
+                  value="{{\Carbon\Carbon::now()->format('Y-m-d')}}" required>
             </div>
             <br />
             <div class="field">
@@ -32,22 +32,22 @@
             <br />
             <div class="field">
                <label class="label_field">Dari</label>
-               <input type="text" class="form-control" name="dari">
+               <input type="text" class="form-control" name="dari" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Menjadi</label>
-               <input type="text" class="form-control" name="menjadi">
+               <input type="text" class="form-control" name="menjadi" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Keterangan Lainnya</label>
-               <input type="text" class="form-control" name="keterangan">
+               <input type="text" class="form-control" name="keterangan" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">File *isi jika ada</label>
-               <input type="file" class="form-control" name="file">
+               <input type="file" class="form-control" name="file" required>
             </div>
             <br/>
             <div class="field margin_0">

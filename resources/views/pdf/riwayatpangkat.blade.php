@@ -46,9 +46,9 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{1 + $key}}</td>
-            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')}}</td>
             <td>{{$item->nip}} - {{$item->nama}}</td>
-            <td>{{$item->jenis}}</td>
+            <td style="text-align: center">Golongan/{{$item->jenis}}</td>
             <td>{{$item->dari}}</td>
             <td>{{$item->menjadi}}</td>
         </tr>
@@ -57,13 +57,22 @@
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
             <td></td>
-             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

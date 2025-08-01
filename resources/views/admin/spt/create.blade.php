@@ -32,45 +32,45 @@
          <fieldset>
             <div class="field">
                <label class="label_field">Tanggal Surat</label>
-               <input type="date" class="form-control" name="tanggal">
+               <input type="date" class="form-control" name="tanggal" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Nomor</label>
-               <input type="text" class="form-control" name="nomor">
+               <input type="text" class="form-control" name="nomor" required>
             </div>
             <br />
             @if (pimpinan() == null)
 
             <div class="field">
                <label class="label_field">Nama Pimpinan</label>
-               <input type="text" class="form-control" name="nama" value="">
+               <input type="text" class="form-control" name="nama" value="" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">NIP Pimpinan</label>
-               <input type="text" class="form-control" name="nip" value="">
+               <input type="text" class="form-control" name="nip" value="" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Pangkat Pimpinan</label>
-               <input type="text" class="form-control" name="pangkat" value="">
+               <input type="text" class="form-control" name="pangkat" value="" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Jabatan Pimpinan</label>
-               <input type="text" class="form-control" name="jabatan" value="">
+               <input type="text" class="form-control" name="jabatan" value="" required>
             </div>
             <br />
             @else
             <div class="field">
                <label class="label_field">Nama Pimpinan</label>
-               <input type="text" class="form-control" name="nama" value="{{pimpinan()->nama}}">
+               <input type="text" class="form-control" name="nama" value="{{pimpinan()->nama}}" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">NIP Pimpinan</label>
-               <input type="text" class="form-control" name="nip" value="{{pimpinan()->nip}}">
+               <input type="text" class="form-control" name="nip" value="{{pimpinan()->nip}}" required>
             </div>
             <br />
             <div class="field">
@@ -80,38 +80,38 @@
             <br />
             <div class="field">
                <label class="label_field">Jabatan Pimpinan</label>
-               <input type="text" class="form-control" name="jabatan" value="{{pimpinan()->jabatan->nama_jabatan}}">
+               <input type="text" class="form-control" name="jabatan" value="{{pimpinan()->jabatan->nama_jabatan}}" required>
             </div>
             <br />
             @endif
             <div class="field">
                <label class="label_field">Keperluan</label>
-               <input type="text" class="form-control" name="keperluan">
+               <input type="text" class="form-control" name="keperluan" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Tujuan</label>
-               <input type="text" class="form-control" name="tujuan">
+               <input type="text" class="form-control" name="tujuan" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Berlaku</label>
-               <input type="date" class="form-control" name="berlaku">
+               <input type="date" class="form-control" name="berlaku" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Transport</label>
-               <input type="text" class="form-control" name="transport">
+               <input type="text" class="form-control" name="transport" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Pembebanan Biaya</label>
-               <input type="text" class="form-control" name="pembebanan_biaya">
+               <input type="text" class="form-control" name="pembebanan_biaya" required>
             </div>
             <br />
             <div class="field">
                <label class="label_field">Yang di tugaskan</label>
-               <textarea id="summernote" name="yang_ditugaskan">
+               <textarea id="summernote" name="yang_ditugaskan" required>
 
                </textarea>
             </div>

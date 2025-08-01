@@ -44,8 +44,8 @@
                   <td>{{$item->nomor}}</td>
                   <td>{{$item->tujuan}}</td>
                   <td>{{$item->keperluan}}</td>
-                  <td>
-                     @if ($item->petugas == null)
+                  <td>{!!$item->yang_ditugaskan!!}
+                     {{-- @if ($item->petugas == null)
                      -
                      @else
                      <ul>
@@ -58,8 +58,7 @@
                         @endif
                         @endforeach
                      </ul>
-                     @endif
-
+                     @endif --}}
 
                   </td>
                   <td>
@@ -104,7 +103,7 @@
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/spt/disposisi/{{$item->id}}" class="btn btn-flat btn-sm btn-warning"
-                        onclick="return confirm('Yakin ingin di verifikasi')"><i class="fa fa-send"></i> Verifikasi
+                        onclick="return confirm('Yakin ingin di Verifikasi?')"><i class="fa fa-send"></i> Verifikasi
                      </a>
                      @endif
                   </td>

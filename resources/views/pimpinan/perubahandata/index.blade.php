@@ -32,7 +32,7 @@
                   <th style="text-align: center">Jenis Perubahan</th>
                   <th style="text-align: center">Dari</th>
                   <th style="text-align: center">Menjadi</th>
-                  <th style="text-align: center">status</th>
+                  <th style="text-align: center">Status</th>
                   <th style="text-align: center">Aksi</th>
                </tr>
             </thead>

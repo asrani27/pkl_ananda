@@ -42,10 +42,9 @@
             <th>Alamat</th>
             <th>Telpon</th>
             <th>Agama</th>
-            <th>Jabatan</th>
             <th>Pendidikan</th>
             <th>Prodi</th>
-
+            <th>Jabatan</th>
         </tr>
         @php
         $no =1;
@@ -60,26 +59,41 @@
             <td>{{$item->alamat}}</td>
             <td>{{$item->telpon}}</td>
             <td>{{$item->agama}}</td>
-            <td>{{$item->jabatan->nama_jabatan}}</td>
             <td>{{$item->pendidikan->nama_pendidikan}}</td>
             <td>{{$item->prodi}}</td>
+            <td>{{$item->jabatan->nama_jabatan}}</td>
         </tr>
         @endforeach
+         <tr>
+            <td colspan="10" style="font-weight: bold;">TOTAL PEGAWAI TEKON : {{$data->count()}}</td>
+        </tr>
+        <tr>
+            <td colspan="10">
+                 @foreach (bagian() as $item)
+                {{$item->nama_bagian}} : {{$data->where('bagian_id', $item->id)->count()}}<br />
+                @endforeach
+            </td>
+        </tr>
     </table>
 
     <table width="100%">
         <tr>
-            <td width="60%">
-                @foreach (bagian() as $item)
-                {{$item->nama_bagian}} : {{$data->where('bagian_id', $item->id)->count()}}<br />
-                @endforeach
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
             </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

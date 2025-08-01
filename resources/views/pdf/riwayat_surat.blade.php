@@ -29,7 +29,7 @@
         </tr>
     </table>
     <hr>
-    <h3 style="text-align: center">LAPORAN RIWAYAT SURAT <br>
+    <h3 style="text-align: center">LAPORAN RIWAYAT DISPOSISI SURAT <br>
 
     </h3>
     <br />
@@ -53,29 +53,43 @@
             <td>{{$key + 1}}</td>
             <td>{{$item['jenis']}}</td>
             <td>{{$item['no_surat']}}</td>
-            <td>{{\Carbon\Carbon::parse($item['tanggal'])->format('d M Y')}}</td>
-            <td>{{\Carbon\Carbon::parse($item['tgl_disposisi'])->format('d M Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item['tanggal'])->translatedFormat('d F Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item['tgl_disposisi'])->translatedFormat('d F Y')}}</td>
             <td>{{$item['perihal']}}</td>
             <td>{{$item['verifikasi_surat']}}</td>
             <td>{{$item['tindak_lanjut']}}</td>
         </tr>
         @endforeach
-    </table>
-
-    <table width="100%">
         <tr>
-            <td width="60%">
-                Total Surat Masuk : {{$data->where('jenis','surat masuk')->count()}}<br />
+            <td colspan="8" style="font-weight: bold;">TOTAL RIWAYAT DISPOSISI SURAT : {{$data->count()}}</td>
+        </tr>
+        <tr>
+            <td colspan="8">Total Surat Masuk : {{$data->where('jenis','surat masuk')->count()}}<br />
                 Total Surat Keluar : {{$data->where('jenis','surat keluar')->count()}}<br />
                 Surat Disetujui : {{$data->where('verifikasi_surat','diterima')->count()}}<br />
                 Surat Ditolak : {{$data->where('verifikasi_surat','ditolak')->count()}}<br />
             </td>
-            <td></td>
-             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
-                <br /><br /><br /><br />
+        </tr>
+    </table>
 
-                <u>Lilis Sugiati, SE</u><br />
+    <table width="100%">
+        <tr>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
+            <td></td>
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
+                <br /><br /><br /><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

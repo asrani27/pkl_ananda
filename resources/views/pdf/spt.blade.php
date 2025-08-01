@@ -46,12 +46,12 @@
     <table width="100%" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th>No</th>
-            <th>Tanggal</th>
+            <th>Tanggal Surat</th>
             <th>Nomor</th>
+            <th>Tanggal Bertugas</th>
             <th>Keperluan</th>
             <th>Tujuan</th>
             <th>Yang Ditugaskan</th>
-
         </tr>
         @php
         $no =1;
@@ -60,12 +60,15 @@
         @foreach ($data as $key => $item)
         <tr>
             <td>{{$key + 1}}</td>
-            <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($item->tanggal)->translatedFormat('d-F-Y')}}</td>
             <td>{{$item->nomor}}</td>
-            <td>{{$item->tujuan}}</td>
+            <td>{{\Carbon\Carbon::parse($item->berlaku)->translatedFormat('d-F-Y')}}</td>
             <td>{{$item->keperluan}}</td>
-            <td>
-                @if ($item->petugas == null)
+            <td>{{$item->tujuan}}</td>
+            <td>{!!$item->yang_ditugaskan!!}
+
+            </td>
+                {{-- @if ($item->petugas == null)
                 -
                 @else
                 <ul>
@@ -74,20 +77,33 @@
                     @endforeach
                 </ul>
                 @endif
-            </td>
+            </td> --}}
         </tr>
         @endforeach
+        <tr>
+            <td colspan="7" style="font-weight: bold;">TOTAL SURAT PERINTAH TUGAS : {{$data->count()}}</td>
+        </tr>
+        
     </table>
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
             <td></td>
-             <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

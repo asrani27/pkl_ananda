@@ -63,8 +63,9 @@
                   @endforeach
                </select>
             </div>
+            <br/>
             <div class="field margin_0">
-               <button class="main_bt"><i class="fa fa-save"></i> Simpan</button>
+               <button class="main_bt"><i class="fa fa-save"></i> Update</button>
             </div>
          </fieldset>
       </form>

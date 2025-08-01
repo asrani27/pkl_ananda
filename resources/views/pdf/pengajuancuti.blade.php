@@ -46,12 +46,11 @@
         @endphp
 
         @foreach ($data as $key => $item)
-         @php
-               $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
-               $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
-
-               $lamaCuti = $mulai->diffInDays($selesai) + 1;
-        @endphp
+            @php
+                $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
+                $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
+                $lamaCuti = $mulai->diffInDays($selesai) + 1;
+            @endphp
         <tr>
             <td>{{1 + $key}}</td>
             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
@@ -64,32 +63,46 @@
             </td>
             <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
-            <td>{{$lamaCuti}}</td>
+            <td>{{$lamaCuti}} Hari </td>
             <td>{{$item->alasan}}</td>
             <td>
-                {{-- <span class="badge badge-success">Dikirim</span><br />
-                @if ($item->verifikasi_kepala != null)
-                <span class="badge badge-success">Kepala TU : mengetahui</span><br />
-                @endif --}}
                 @if ($item->verifikasi_pimpinan != null)
-                <span class="badge badge-success"> {{$item->verifikasi_pimpinan}}</span><br />
+                    <span class="badge badge-success">{{ $item->verifikasi_pimpinan }}</span><br />
+                @else
+                    <span class="badge badge-warning">Proses</span><br />
                 @endif
-
-
             </td>
         </tr>
         @endforeach
+        <tr>
+            <td colspan="8" style="font-weight: bold;">TOTAL PEGAWAI YANG MENGAJUKAN CUTI : {{$data->count()}}</td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                Sudah di Setujui : {{$data->where('verifikasi_pimpinan')->count()}} <br />
+                {{-- Masih Diproses : {{$data->where('status','proses')->count()}} --}}
+            </td>
+        </tr>
     </table>
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

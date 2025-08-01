@@ -41,7 +41,7 @@
                @foreach ($data as $key => $item)
                <tr>
                   <td>{{$data->firstItem() + $key}}</td>
-                  <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d M Y')}}</td>
+                  <td>{{\Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y')}}</td>
                   <td>{{$item->jenis}}</td>
                   <td>{{$item->dari}}</td>
                   <td>{{$item->menjadi}}</td>

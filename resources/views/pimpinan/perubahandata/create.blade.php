@@ -26,7 +26,7 @@
                <select class="form-control" name="jenis" required>
                   <option value="">-</option>
                   <option value="jabatan">Jabatan</option>
-                  <option value="pangkat">Golongan / Pangkat </option>
+                  <option value="pangkat">Golongan/Pangkat </option>
                </select>
             </div>
             <br />

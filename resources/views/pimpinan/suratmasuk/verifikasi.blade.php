@@ -6,7 +6,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>verifikasi Surat Masuk</h2>
+         <h2>Disposisi Surat Masuk</h2>
       </div>
    </div>
 </div>

@@ -86,9 +86,11 @@
                               class="fa fa-file-pdf-o"></i> Surat</a><br />
                      </div>
                      <br/>
+                     @if ($item->verifikasi_surat == null)
                      <a href="/pimpinan/data/suratmasuk/verifikasi/{{$item->id}}"
                         class="btn btn-flat btn-sm btn-warning"><i class="fa fa-edit"></i> Disposisi
                      </a>
+                     @endif
                   </td>
 
                </tr>
