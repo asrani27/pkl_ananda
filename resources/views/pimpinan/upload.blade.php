@@ -36,7 +36,7 @@
                <td style="display : flex">
                     <form method="post" action="/pimpinan/upload/foto" enctype="multipart/form-data"  style="display : flex">
                     @csrf     
-                         <input type="file" name="file" class="form-control"> 
+                         <input type="file" name="file" class="form-control" required> 
                          <button type="submit" class="btn btn-sm btn-primary">upload</button>
                     </form>
                </td>
@@ -58,7 +58,7 @@
             <td style="display : flex">
                  <form method="post" action="/pimpinan/upload/ktp" enctype="multipart/form-data"  style="display : flex">
                   @csrf    
-                      <input type="file" name="file" class="form-control"> 
+                      <input type="file" name="file" class="form-control" required> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
                  </form>
             </td>
@@ -80,7 +80,7 @@
             <td style="display : flex">
                  <form method="post" action="/pimpinan/upload/kk" enctype="multipart/form-data"  style="display : flex">
                  @csrf     
-                      <input type="file" name="file" class="form-control"> 
+                      <input type="file" name="file" class="form-control" required> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
                  </form>
             </td>
@@ -102,7 +102,7 @@
             <td style="display : flex">
                  <form method="post" action="/pimpinan/upload/ijazah" enctype="multipart/form-data"  style="display : flex">
                   @csrf    
-                      <input type="file" name="file" class="form-control"> 
+                      <input type="file" name="file" class="form-control" required> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
                  </form>
             </td>
@@ -124,7 +124,7 @@
             <td style="display : flex">
                  <form method="post" action="/pimpinan/upload/sertifikat" enctype="multipart/form-data"  style="display : flex">
                  @csrf   
-                      <input type="file" name="file" class="form-control"> 
+                      <input type="file" name="file" class="form-control" required> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
                  </form>
             </td>
@@ -146,7 +146,7 @@
             <td style="display : flex">
                  <form method="post" action="/pimpinan/upload/spk" enctype="multipart/form-data"  style="display : flex">
                  @csrf     
-                      <input type="file" name="file" class="form-control"> 
+                      <input type="file" name="file" class="form-control" required> 
                       <button type="submit" class="btn btn-sm btn-primary">upload</button>
                  </form>
             </td>

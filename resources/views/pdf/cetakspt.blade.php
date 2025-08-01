@@ -19,7 +19,8 @@
         .konten-summernote th,
         .konten-summernote td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 4px;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -82,37 +83,46 @@
     Maksud surat perintah tugas :
     <table width="100%" border="0" cellpadding="5" cellspacing="0">
         <tr>
-            <td>1. Keperluan</td>
-            <td>: {{$data->nama}}</td>
+            <td style="vertical-align: top">1. Keperluan</td>
+            <td style="vertical-align: top" width="6px">:</td>
+            <td width="70%">{{$data->keperluan}}</td>
         </tr>
         <tr>
-            <td>2. Tempat Tujuan</td>
-            <td>: {{$data->tujuan}}</td>
+            <td style="vertical-align: top">2. Tempat Tujuan</td>
+            <td style="vertical-align: top">:</td>
+            <td>{{$data->tujuan}}</td>
         </tr>
         <tr>
-            <td>3. Berlaku mulai tanggal</td>
-            <td>: {{$data->berlaku}}</td>
+            <td style="vertical-align: top">3. Berlaku mulai tanggal</td>
+            <td style="vertical-align: top">:</td>
+            <td>{{\Carbon\Carbon::parse($data->berlaku)->translatedFormat('d F Y')}}</td>
         </tr>
         <tr>
-            <td>4. Alat angkut</td>
-            <td>: {{$data->transport}}</td>
+            <td style="vertical-align: top">4. Alat angkut</td>
+            <td style="vertical-align: top">:</td>
+            <td>{{$data->transport}}</td>
         </tr>
         <tr>
-            <td>5. Pembebanan biaya SPT</td>
-            <td>: {{$data->pembebanan_biaya}}</td>
+            <td style="vertical-align: top">5. Pembebanan biaya SPT</td>
+            <td style="vertical-align: top">:</td>
+            <td>{{$data->pembebanan_biaya}}</td>
         </tr>
         
     </table>
-    Demikian surat perintah tugas ini dibuat untuk dilaksanakan sebagaimana mestinya.
+    <br/>
+    Demikian surat perintah tugas ini dibuat untuk dilaksanakan sebagaimana mestinya setelah selesai menjalankan SPT ini diharuskan menyampaikan hasil laporan kepada yang memberikan tugas
     <table width="100%">
-        <tr>
-            <td width="50%"></td>
+         <tr>
+            <td style="text-align: center;" width="40%">
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
-                <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+            <td style="text-align: center;">
+                <br>Banjarmasin, {{\Carbon\Carbon::parse($data->tanggal)->translatedFormat('d F Y')}} <br/>
+                <strong><br />KEPALA UPPD BANJARMASIN I</strong><br />
+                <br /><br /><br /><br /><br />
+            
+                <u><strong> MIRZA LUFFILLAH, SE.,M.M</strong></u><br />
+                <Canter>Pembina<br/>
+                NIP. 19811204 200904 1 001
             </td>
         </tr>
     </table>

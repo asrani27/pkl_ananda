@@ -72,20 +72,31 @@
         <tr>
             <td colspan="13">TOTAL PEGAWAI : {{$data->count()}}</td>
         </tr>
+        <tr>
+            <td colspan="13">Jumlah Pegawai PNS : {{$data->where('status','PNS')->count()}} </br>
+                        Jumlah Pegawai Tenaga Kontrak : {{$data->where('status','TEKON')->count()}}
+            </td>
+        </tr>
     </table>
 
     <table width="100%">
         <tr>
             <td width="60%" style="vertical-align: top">
-                Jumlah Pegawai PNS : {{$data->where('status','PNS')->count()}}<br />
-                Jumlah Pegawai Tenaga Kontrak : {{$data->where('status','TEKON')->count()}}<br />
+              
+                <br />
             </td>
             <td></td>
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                UPPD BANJARMASIN 1<br />
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
                 <br /><br /><br /><br />
-
-                <u>Lilis Sugiati, SE</u><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
             </td>
         </tr>
     </table>

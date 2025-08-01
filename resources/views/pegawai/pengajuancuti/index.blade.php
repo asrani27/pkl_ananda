@@ -53,12 +53,14 @@
                   <td>{{$lamaCuti}} Hari</td>
                   <td>{{$item->alasan}}</td>
                   <td>
-                     <span class="badge badge-success">Dikirim</span><br />
-                     @if ($item->verifikasi_kepala != null)
-                     <span class="badge badge-success">Kepala TU : mengetahui</span><br />
-                     @endif
                      @if ($item->verifikasi_pimpinan != null)
-                     <span class="badge badge-success">Pimpinan : disetujui </span><br />
+                     <span class="badge badge-success"> disetujui </span><br />
+                     @else
+                        <span class="badge badge-success">Dikirim</span><br />
+                        @if ($item->verifikasi_kepala != null)
+                        <span class="badge badge-success">Kepala TU : mengetahui</span><br />
+                        @endif
+
                      @endif
 
 

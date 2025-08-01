@@ -19,11 +19,22 @@ class PerubahanDataController extends Controller
     public function index()
     {
         $data = PerubahanData::where('user_id', Auth::user()->id)->paginate(10);
-        return view('pegawai.perubahandata.index', compact('data'));
+         if(Auth::user()->roles == 'pimpinan'){
+        return view('pimpinan.perubahandata.index',compact('data'));
+      }elseif(Auth::user()->roles == 'kepalaTU'){
+        return view('kepalatu.perubahandata.index',compact('data'));
+      }else{
+        return view('pegawai.perubahandata.index',compact('data'));
+      }
     }
     public function tambah()
-    {
+    { if(Auth::user()->roles == 'pimpinan'){
+        return view('pimpinan.perubahandata.create');
+      }elseif(Auth::user()->roles == 'kepalaTU'){
+        return view('kepalatu.perubahandata.create');
+      }else{
         return view('pegawai.perubahandata.create');
+      }
     }
     public function simpan(Request $req)
     {
@@ -33,12 +44,25 @@ class PerubahanDataController extends Controller
         $param['nama'] = Auth::user()->pegawai->nama;
         PerubahanData::create($param);
         Session::flash('success', 'berhasil di simpan');
-        return redirect('/pegawai/data/perubahandata');
+        if(Auth::user()->roles == 'pimpinan'){ 
+            return redirect('/pimpinan/data/perubahandata');
+      }elseif(Auth::user()->roles == 'kepalaTU'){
+            return redirect('/kepalatu/data/perubahandata');
+      }else{
+            return redirect('/pegawai/data/perubahandata');
+      }
+       
     }
     public function edit($id)
     {
         $data = PerubahanData::find($id);
+         if(Auth::user()->roles == 'pimpinan'){ 
+        return view('pimpinan.perubahandata.edit', compact('data'));
+      }elseif(Auth::user()->roles == 'kepalaTU'){
+        return view('kepalatu.perubahandata.edit', compact('data'));
+      }else{
         return view('pegawai.perubahandata.edit', compact('data'));
+      }
     }
     public function update(Request $req, $id)
     { 
@@ -55,7 +79,13 @@ class PerubahanDataController extends Controller
         $param['nama'] = Auth::user()->pegawai->nama;
         $data = PerubahanData::find($id)->update($param);
         Session::flash('success', 'berhasil di update');
-        return redirect('/pegawai/data/perubahandata');
+        if(Auth::user()->roles == 'pimpinan'){ 
+            return redirect('/pimpinan/data/perubahandata');
+      }elseif(Auth::user()->roles == 'kepalaTU'){
+            return redirect('/kepalatu/data/perubahandata');
+      }else{
+            return redirect('/pegawai/data/perubahandata');
+      }
     }
     public function hapus($id)
     {

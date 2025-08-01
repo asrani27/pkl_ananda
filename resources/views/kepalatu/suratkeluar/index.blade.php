@@ -40,7 +40,7 @@
             <tbody>
                @foreach ($data as $key => $item)
                <tr>
-                  <td>{{$data->firstItem() + $key}}</td>
+                  <td>{{1 + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_surat)->format('d-m-Y')}}</td>
                   <td>{{$item->no_surat}}</td>
                   <td>{{$item->tujuan}}</td>
@@ -90,7 +90,7 @@
                      <br />
                      @if ($item->disposisi_pimpinan == null)
                      <a href="/kepalatu/data/suratkeluar/disposisi/{{$item->id}}"
-                        class="btn btn-flat btn-sm btn-warning" onclick="return confirm('Yakin ingin di disposisi')"><i
+                        class="btn btn-flat btn-sm btn-warning" onclick="return confirm('Yakin ingin di Verifikasi?')"><i
                            class="fa fa-send"></i> Verifikasi
                      </a>
                      @endif
@@ -100,7 +100,7 @@
             </tbody>
          </table>
       </div>
-      {{$data->links()}}
+      
    </div>
 </div>
 

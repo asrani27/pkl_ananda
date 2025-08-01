@@ -18,6 +18,6 @@ class SuratMasuk extends Model
     }
     public function pimpinan()
     {
-        return $this->belongsTo(User::class, 'disposisi_pimpinan');
+        return $this->belongsTo(User::class, 'disposisi_pimpinan' ,'id');
     }
 }

@@ -22,7 +22,7 @@ class AdminController extends Controller
         $data = Pegawai::get()->map(function ($value) {
             $value->roles = $value->user == null ? null : $value->user->roles;
             return $value;
-        })->where('roles', 'pegawai');
+        });
 
         $data->map(function ($item) {
             $item->upload = $item->user->upload;

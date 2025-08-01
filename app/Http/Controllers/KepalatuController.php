@@ -17,7 +17,7 @@ class KepalatuController extends Controller
 {
     public function index()
     {
-        $data = SuratMasuk::where('disposisi_kepalatu', Auth::user()->id)->paginate(10);
+        $data = SuratMasuk::where('disposisi_kepalatu', Auth::user()->id)->get();
         return view('kepalatu.suratmasuk.index', compact('data'));
     }
 
@@ -44,7 +44,7 @@ class KepalatuController extends Controller
 
     public function index_suratkeluar()
     {
-        $data = SuratKeluar::where('disposisi_kepalatu', Auth::user()->id)->paginate(10);
+        $data = SuratKeluar::where('disposisi_kepalatu', Auth::user()->id)->get();
         return view('kepalatu.suratkeluar.index', compact('data'));
     }
 
@@ -74,7 +74,7 @@ class KepalatuController extends Controller
     }
     public function lihat_cuti()
     {
-        $data = PengajuanCuti::paginate(10);
+        $data = PengajuanCuti::get();
         return view('kepalatu.cuti.index', compact('data'));
     }
     public function mengetahui_cuti($id)

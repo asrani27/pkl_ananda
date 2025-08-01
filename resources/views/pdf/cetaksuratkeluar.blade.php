@@ -47,7 +47,7 @@
         </tr>
     </table>
     <hr>
-    <div style="text-align: right;"> Banjarmasin, {{ \Carbon\Carbon::parse($data->tgl_surat)->format('d F Y') }}
+    <div style="text-align: right;"> Banjarmasin, {{ \Carbon\Carbon::parse($data->tgl_surat)->translatedFormat('d F Y') }}
 
 </div>
 

@@ -67,12 +67,12 @@
             <td>{{$lamaCuti}}</td>
             <td>{{$item->alasan}}</td>
             <td>
-                <span class="badge badge-success">Dikirim</span><br />
+                {{-- <span class="badge badge-success">Dikirim</span><br />
                 @if ($item->verifikasi_kepala != null)
                 <span class="badge badge-success">Kepala TU : mengetahui</span><br />
-                @endif
+                @endif --}}
                 @if ($item->verifikasi_pimpinan != null)
-                <span class="badge badge-success">Pimpinan : {{$item->verifikasi_pimpinan}}</span><br />
+                <span class="badge badge-success"> {{$item->verifikasi_pimpinan}}</span><br />
                 @endif
 
 

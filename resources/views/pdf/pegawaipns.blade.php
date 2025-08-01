@@ -67,7 +67,7 @@
         </tr>
         @endforeach
         <tr>
-        <td colspan="13" style="font-weight: bold;">
+        <td colspan="11" style="font-weight: bold;">
             TOTAL PEGAWAI PNS : {{ $data->count() }}
         </td>
         </tr>
@@ -76,14 +76,13 @@
 
     <table width="100%">
         <tr>
-            <td width="60%">
+            <td width="80%">
                 @foreach (golongan() as $item)
                 {{$item->nama_golongan}} : {{$data->where('golongan_id', $item->id)->count()}}<br />
                 @endforeach
             </td>
-            <td></td>
-            <td width="60%">
-            <td><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+            
+            <td width="20%"><br />Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
                 UPPD BANJARMASIN 1<br />
                 <br /><br /><br /><br />
 

@@ -131,7 +131,7 @@ class LaporanController extends Controller
                 $data = Pegawai::where('status', 'PNS')->get();
                 $pdf = Pdf::loadView('pdf.pegawaipns', compact('data'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1200], 'landscape');
                 return $pdf->stream($filename);
             }
             if ($jenis == '3') {

@@ -16,8 +16,8 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">Pengirim</label>
-               <input type="text" class="form-control" name="pengirim" value="{{$data->nama}}" readonly>
+               <label class="label_field">Yang Ditugaskan</label>
+               <input type="text" class="form-control" name="pengirim" value="{{$data->yang_ditugaskan}}" readonly>
             </div>
 
             <div class="field">

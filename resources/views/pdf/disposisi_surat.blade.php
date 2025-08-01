@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td>Tanggal</td>
-            <td>: {{\Carbon\Carbon::parse($data->tgl_surat)->format('d M Y')}}</td>
+            <td>: {{\Carbon\Carbon::parse($data->tgl_surat)->translatedFormat('d F Y')}}</td>
         </tr>
         <tr>
             <td>Nomor</td>
@@ -54,7 +54,7 @@
         <tr>
             <td style="border:1px solid black" width="50%">Diterima sub bag. tata usaha
                 <br /><br />
-                Tanggal : {{\Carbon\Carbon::parse($data->updated_at)->format('d M Y')}}
+                Tanggal : {{\Carbon\Carbon::parse($data->updated_at)->translatedFormat('d F Y')}}
             </td>
             <td style="border:1px solid black">
                 Nomor Agenda :
@@ -65,7 +65,7 @@
             <td style="border:1px solid black" width="50%">Diajukan / diteruskan.
                 <br /><br /> Kepala UPPD Banjarmasin 1
                 <br/>
-                Tanggal : {{\Carbon\Carbon::parse($data->tgl_verifikasi_pimpinan)->format('d M Y')}}
+                Tanggal : {{\Carbon\Carbon::parse($data->tgl_verifikasi_pimpinan)->translatedFormat('d F Y')}}
             </td>
             <td style="border:1px solid black">Isi Disposisi :
                 <br /><br />{{$data->tindak_lanjut}}

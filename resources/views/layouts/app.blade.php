@@ -160,6 +160,7 @@
                   <li><a href="/kepalatu"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/kepalatu/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
                   <li><a href="/kepalatu/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
+                  <li><a href="/kepalatu/data/perubahandata"><i class="fa fa-send"></i> <span>Pengajuan Perubahan Data</span></a></li>
                   <li><a href="/kepalatu/verifikasi/surat-masuk"><i class="fa fa-check-circle"></i> <span>Verifikasi Surat Masuk</span></a></li>
                   <li><a href="/kepalatu/verifikasi/surat-keluar"><i class="fa fa-check-circle"></i> <span>Verifikasi Surat Keluar</span></a></li>
                   <li><a href="/kepalatu/verifikasi/spt"><i class="fa fa-check-circle"></i> <span>Verifikasi SPT</span></a></li>

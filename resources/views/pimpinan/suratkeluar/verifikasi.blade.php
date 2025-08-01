@@ -16,7 +16,7 @@
          @csrf
          <fieldset>
             <div class="field">
-               <label class="label_field">no_surat</label>
+               <label class="label_field">Nomor Surat</label>
                <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}" readonly>
             </div>
 
