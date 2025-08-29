@@ -19,11 +19,13 @@
                <label class="label_field">Pengirim</label>
                <input type="text" class="form-control" name="pengirim" value="{{$data->pengirim}}" readonly>
             </div>
+            <br/>
 
             <div class="field">
                <label class="label_field">Perihal</label>
                <input type="text" class="form-control" name="perihal" value="{{$data->perihal}}" readonly>
             </div>
+            <br/>
 
             <div class="field">
                <label class="label_field">Verifikasi Surat</label>
@@ -32,11 +34,14 @@
                   <option value="ditolak">Ditolak</option>
                </select>
             </div>
+            <br/>
+
             <div class="field">
                <label class="label_field">Tindak Lanjut</label>
                <input type="text" class="form-control" name="tindak_lanjut" value="{{$data->tindak_lanjut}}" required>
             </div>
             <br />
+            
             <div class=" field margin_0">
 
                <button type="submit" class="main_bt"> Kirim</button>

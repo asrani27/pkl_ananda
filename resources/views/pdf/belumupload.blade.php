@@ -49,7 +49,7 @@
 
         @foreach ($data as $key => $item)
         <tr>
-            <td>{{$key + 1}}</td>
+            <td>{{$no++}}</td>
             <td>{{$item->nama}}</td>
             @if ($item->user == null)
             <td style="text-align: center">belum</td>

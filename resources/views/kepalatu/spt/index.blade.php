@@ -97,7 +97,7 @@
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/kepalatu/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-danger"><i
+                        <a href="/kepalatu/data/spt/cetak/{{$item->id}}" target="_blank" class="btn btn-flat btn-sm btn-danger"><i
                               class="fa fa-file-pdf-o"></i> Surat </a> <br />
                      </div>
                      <br />

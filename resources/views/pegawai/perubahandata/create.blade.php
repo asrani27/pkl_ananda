@@ -12,7 +12,7 @@
 </div>
 <div class="white_shd full margin_bottom_30">
    <div class="padding_infor_info">
-      <form method="post" action="/pegawai/data/perubahandata/create">
+      <form method="post" action="/pegawai/data/perubahandata/create" enctype="multipart/form-data">
          @csrf
          <fieldset>
             <div class="field">

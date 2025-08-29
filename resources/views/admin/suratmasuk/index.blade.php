@@ -76,7 +76,7 @@
                   <td>{{$item->tindak_lanjut}}
                      @if ($item->tindak_lanjut != null)
                   </br>
-                     <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" class="btn btn-xs btn-warning"><i
+                     <a href="/admin/data/suratmasuk/printdisposisi/{{$item->id}}" target="_blank" class="btn btn-xs btn-warning"><i
                            class="fa fa-print"></i> print disposisi</a>
                      @endif
                   </td>
@@ -94,7 +94,7 @@
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary"><i
+                        <a href="/storage/uploads/{{$item->file}}" target="_blank" class="btn btn-flat btn-sm btn-primary"><i
                               class="fa fa-file-pdf-o"></i> </a><br />
                         <a href="/admin/data/suratmasuk/edit/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
                               class="fa fa-edit"></i> </a> <br />

@@ -23,10 +23,12 @@ class LaporanController extends Controller
     public function laporan_riwayat()
     {
         $jenis = request()->get('jenis');
-        $nip = request()->get('pegawai');
+        $id_pegawai = request()->get('pegawai');
 
+        $user_id = Pegawai::find($id_pegawai)->user->id;
+        //dd($user_id);
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_riwayat.pdf';
-        $data = PerubahanData::where('jenis', $jenis)->where('nip', $nip)->where('status', 1)->get();
+        $data = PerubahanData::where('jenis', $jenis)->where('user_id', $user_id)->where('status', 1)->get();
         $pdf = Pdf::loadView('pdf.riwayat', compact('data', 'jenis'))->setOption([
             'enable_remote' => true,
         ])->setPaper([0, 0, 800, 1100], 'landscape');
@@ -145,10 +147,14 @@ class LaporanController extends Controller
             if ($jenis == '4') {
 
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_belumupload.pdf';
-
-                $data = Pegawai::get()->map(function ($item) {
+                $data = Pegawai::get()->map(function ($value) {
+                    $value->roles = $value->user == null ? null : $value->user->roles;
+                    return $value;
+                })->where('roles','pegawai');
+                
+                $data->map(function ($item) {
                     $files = [
-                        'file_lamaran_kerja',
+                        'file_foto',
                         'file_perjanjian_kerja',
                         'file_sertifikat',
                         'file_ijazah',
@@ -325,10 +331,8 @@ class LaporanController extends Controller
                     $tahun = $item['tahun'];
                     $now = now()->year;
                     $selisih = $now - $tahun;
-
-                    if ($selisih === 1) {
-                        $item['status_dokumen'] = 'kadaluarsa';
-                    } elseif ($selisih >= 2 && $selisih < 10) {
+                    
+                    if ($selisih >= 2 && $selisih < 10) {
                         $item['status_dokumen'] = 'diarsipkan';
                     } elseif ($selisih >= 10) {
                         $item['status_dokumen'] = 'dimusnahkan';
@@ -338,7 +342,7 @@ class LaporanController extends Controller
 
                     return $item;
                 });
-
+                
                 // Hitung total masing-masing status
                 $total_disimpan = $data->where('status_dokumen', 'disimpan')->count();
                 $total_arsipkan = $data->where('status_dokumen', 'diarsipkan')->count();
@@ -409,8 +413,9 @@ class LaporanController extends Controller
                         'perihal' => $item->keperluan, // contoh field
                     ];
                 });
-
-                $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
+                
+                $data = collect([$sm, $sk, $spt])->collapse();
+                // $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
                 $tahun_kadaluarsa = Carbon::now()->year - 1;
                 $data = $data->where('tahun', $tahun_kadaluarsa);
 
@@ -770,8 +775,9 @@ class LaporanController extends Controller
             }
             if ($jenis == '16') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
-
-                $sm = SuratMasuk::whereYear('tgl_masuk', $tahun)->get()->map(function ($item) {
+                
+                $tahun_kadaluwarsa = $tahun - 1;
+                $sm = SuratMasuk::whereYear('tgl_masuk', $tahun_kadaluwarsa)->get()->map(function ($item) {
                     return [
                         'nomor_surat' => $item->no_surat,
                         'tgl_surat' => $item->tgl_masuk,
@@ -781,7 +787,7 @@ class LaporanController extends Controller
                     ];
                 });
 
-                $sk = SuratKeluar::whereYear('tgl_surat', $tahun)->get()->map(function ($item) {
+                $sk = SuratKeluar::whereYear('tgl_surat', $tahun_kadaluwarsa)->get()->map(function ($item) {
                     return [
                         'nomor_surat' => $item->no_surat,
                         'tgl_surat' => $item->tgl_surat,
@@ -790,38 +796,31 @@ class LaporanController extends Controller
                         'perihal' => $item->perihal, // contoh field
                     ];
                 });
-
-                $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
-                $data = $data->map(function ($item) {
-                    $tahun = $item['tahun'];
-                    $now = now()->year;
-                    $selisih = $now - $tahun;
-
-
-                    if ($selisih === 1) {
-                        $item['status_dokumen'] = 'disimpan';
-                    } elseif ($selisih >= 2 && $selisih < 10) {
-                        $item['status_dokumen'] = 'diarsipkan';
-                    } elseif ($selisih >= 10) {
-                        $item['status_dokumen'] = 'dimusnahkan';
-                    } else {
-                        $item['status_dokumen'] = 'disimpan';
-                    }
-
-                    return $item;
+                $spt = Spt::whereYear('tanggal', $tahun_kadaluwarsa)->get()->map(function ($item) {
+                    return [
+                        'nomor_surat' => $item->nomor,
+                        'tgl_surat' => $item->tanggal,
+                        'tahun' => \Carbon\Carbon::parse($item->tanggal)->year,
+                        'jenis' => 'spt',
+                        'perihal' => $item->keperluan, // contoh field
+                    ];
                 });
+                $data = collect([$sm, $sk, $spt])->collapse();
+                
 
                 // Hitung total masing-masing status
-                $total_disimpan = $data->where('status_dokumen', 'disimpan')->count();
-                $total_arsipkan = $data->where('status_dokumen', 'diarsipkan')->count();
-                $total_dimusnahkan = $data->where('status_dokumen', 'dimusnahkan')->count();
+
+                $total_surat_masuk = $data->where('jenis', 'surat masuk')->count();
+                $total_surat_keluar = $data->where('jenis', 'surat keluar')->count();
+                $total_surat_spt = $data->where('jenis', 'spt')->count();
 
                 $bulan = null;
-                $pdf = Pdf::loadView('pdf.klasifikasi', compact('data', 'bulan', 'total_disimpan', 'total_arsipkan', 'total_dimusnahkan'))->setOption([
+                $pdf = Pdf::loadView('pdf.kadaluarsa', compact('data', 'bulan', 'total_surat_masuk', 'total_surat_keluar', 'total_surat_spt'))->setOption([
                     'enable_remote' => true,
-                ])->setPaper([0, 0, 800, 1100], 'landscape');
+                ])->setPaper([0, 0, 800, 1000], 'landscape');
                 return $pdf->stream($filename);
             }
+            
         }
     }
 }

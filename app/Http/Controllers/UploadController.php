@@ -9,17 +9,23 @@ use Illuminate\Support\Facades\Session;
 
 class UploadController extends Controller
 {
-    public function upload()
+
+   public function upload()
     {
       $data = Auth::user();
-      if(Auth::user()->roles == 'pimpinan'){
-        return view('pimpinan.upload',compact('data'));
-      }elseif(Auth::user()->roles == 'kepalaTU'){
-        return view('kepalatu.upload',compact('data'));
-      }else{
-        return view('pegawai.upload',compact('data'));
-      }
+      return view('pegawai.upload',compact('data'));
     }
+    // public function upload()
+    // {
+    //   $data = Auth::user();
+    //   if(Auth::user()->roles == 'pimpinan'){
+    //     return view('pimpinan.upload',compact('data'));
+    //   }elseif(Auth::user()->roles == 'kepalaTU'){
+    //     return view('kepalatu.upload',compact('data'));
+    //   }else{
+    //     return view('pegawai.upload',compact('data'));
+    //   }
+    // }
 
     public function uploadktp(Request $req)
     {

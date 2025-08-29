@@ -100,7 +100,7 @@
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/pimpinan/data/spt/cetak/{{$item->id}}" class="btn btn-flat btn-sm btn-primary"><i
+                        <a href="/pimpinan/data/spt/cetak/{{$item->id}}" target="_blank" class="btn btn-flat btn-sm btn-primary"><i
                               class="fa fa-print"></i> Lihat </a> <br />
                      </div>
                      <br />

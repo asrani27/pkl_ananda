@@ -44,7 +44,7 @@
                   <td>
                      <div style="display: flex; text-align:center">
                         @if($item->file)
-                              <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-primary">
+                              <a href="/storage/uploads/{{$item->file}}" target="_blank" class="btn btn-flat btn-sm btn-primary">
                                  <i class="fa fa-file-pdf-o"></i>
                               </a><br />
                         @else

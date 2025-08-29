@@ -6,7 +6,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>verifikasi SPT</h2>
+         <h2>Disposisi SPT</h2>
       </div>
    </div>
 </div>
@@ -15,15 +15,19 @@
       <form method="post" action="/pimpinan/data/spt/verifikasi/{{$data->id}}" enctype="multipart/form-data">
          @csrf
          <fieldset>
-            <div class="field">
-               <label class="label_field">Yang Ditugaskan</label>
-               <input type="text" class="form-control" name="pengirim" value="{{$data->yang_ditugaskan}}" readonly>
+            {{-- <div class="field">
+               <label class="label_field">Yang di tugaskan</label>
+               <textarea id="summernote" name="yang_ditugaskan">
+               {!!$data->yang_ditugaskan!!}
+               </textarea>
             </div>
+            <br/> --}}
 
             <div class="field">
                <label class="label_field">Perihal</label>
                <input type="text" class="form-control" name="perihal" value="{{$data->keperluan}}" readonly>
             </div>
+            <br/>
 
             <div class="field">
                <label class="label_field">Verifikasi Surat</label>
@@ -32,11 +36,14 @@
                   <option value="ditolak">Ditolak</option>
                </select>
             </div>
+            <br/>
+
             <div class="field">
                <label class="label_field">Tindak Lanjut</label>
                <input type="text" class="form-control" name="tindak_lanjut" value="{{$data->tindak_lanjut}}" required>
             </div>
             <br />
+
             <div class=" field margin_0">
 
                <button type="submit" class="main_bt"> Kirim</button>

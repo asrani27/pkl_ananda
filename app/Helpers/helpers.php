@@ -23,7 +23,12 @@ if (! function_exists('pegawai')) {
         return Pegawai::where('status', 'PNS')->get();
     }
 }
-
+if (! function_exists('allPegawai')) {
+    function allPegawai()
+    {
+        return Pegawai::get();
+    }
+}
 if (! function_exists('pimpinan')) {
     function pimpinan()
     {

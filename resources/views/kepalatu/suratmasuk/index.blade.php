@@ -83,7 +83,7 @@
                   <td>
                      <div style="display: flex; text-align:center">
 
-                        <a href="/storage/uploads/{{$item->file}}" class="btn btn-flat btn-sm btn-danger"><i
+                        <a href="/storage/uploads/{{$item->file}}" target="_blank" class="btn btn-flat btn-sm btn-danger"><i
                               class="fa fa-file-pdf-o"></i> Surat </a><br />
                      </div>
                      <br />

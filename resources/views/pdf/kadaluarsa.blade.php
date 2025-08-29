@@ -48,7 +48,7 @@
         @foreach ($data as $key => $item)
 
         <tr>
-            <td style="text-align: center;">{{$key + 1}}</td>
+            <td style="text-align: center;">{{$no++}}</td>
             <td style="text-align: center;">{{$item['jenis']}}</td>
             <td style="text-align: center;">{{$item['nomor_surat']}}</td>
             <td style="text-align: center;">{{$item['perihal']}}</td>

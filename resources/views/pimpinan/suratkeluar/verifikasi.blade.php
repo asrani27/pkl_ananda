@@ -6,7 +6,7 @@
 <div class="row column_title">
    <div class="col-md-12">
       <div class="page_title">
-         <h2>verifikasi Surat Keluar</h2>
+         <h2>Disposisi Surat Keluar</h2>
       </div>
    </div>
 </div>
@@ -19,11 +19,13 @@
                <label class="label_field">Nomor Surat</label>
                <input type="text" class="form-control" name="no_surat" value="{{$data->no_surat}}" readonly>
             </div>
+            <br/>
 
             <div class="field">
                <label class="label_field">Perihal</label>
                <input type="text" class="form-control" name="perihal" value="{{$data->perihal}}" readonly>
             </div>
+            <br/>
 
             <div class="field">
                <label class="label_field">Verifikasi Surat</label>
@@ -32,6 +34,8 @@
                   <option value="ditolak">Ditolak</option>
                </select>
             </div>
+            <br/>
+            
             <div class="field">
                <label class="label_field">Tindak Lanjut</label>
                <input type="text" class="form-control" name="tindak_lanjut" value="{{$data->tindak_lanjut}}" required>

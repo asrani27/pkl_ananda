@@ -62,7 +62,7 @@
         </tr>
         @endforeach
         <tr>
-            <td colspan="7" style="font-weight: bold;">TOTAL PEGAWAI YANG MENGAJUKAN : {{$data->count()}}</td>
+            <td colspan="7" style="font-weight: bold;">TOTAL PENGAJUAN : {{$data->count()}}</td>
         </tr>
         {{-- <tr>
             <td colspan="7">

@@ -146,11 +146,11 @@
                <ul class="list-unstyled components">
                   <li><a href="/pimpinan"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/pimpinan/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <li><a href="/pimpinan/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
+                  {{-- <li><a href="/pimpinan/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li> --}}
                   <li><a href="/pimpinan/verifikasi/surat-masuk"><i class="fa fa-share-square"></i> <span>Disposisi Surat Masuk</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/surat-keluar"><i class="fa fa-check-circle"></i> <span>Verifikasi Surat Keluar</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-check-circle"></i> <span>Verifikasi SPT</span></a></li>
-                  <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-check-circle"></i> <span>Verifikasi cuti</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/surat-keluar"><i class="fa fa-share-square"></i> <span>Disposisi Surat Keluar</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/spt"><i class="fa fa-share-square"></i> <span>Disposisi SPT</span></a></li>
+                  <li><a href="/pimpinan/verifikasi/cuti"><i class="fa fa-check-circle"></i> <span>Pengajuan Cuti Pegawai</span></a></li>
                   <li><a href="/logout"><i class="fa fa-sign-out white_color"></i> <span>Logout</span></a></li>
                </ul>
                @endif
@@ -159,8 +159,8 @@
                <ul class="list-unstyled components">
                   <li><a href="/kepalatu"><i class="fa fa-dashboard white_color"></i> <span>Beranda</span></a></li>
                   <li><a href="/kepalatu/data/biodata"><i class="fa fa-edit"></i> <span>Biodata</span></a></li>
-                  <li><a href="/kepalatu/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li>
-                  <li><a href="/kepalatu/data/perubahandata"><i class="fa fa-send"></i> <span>Pengajuan Perubahan Data</span></a></li>
+                  {{-- <li><a href="/kepalatu/data/upload"><i class="fa fa-cloud-upload"></i> <span>Dokumen</span></a></li> --}}
+                  {{-- <li><a href="/kepalatu/data/perubahandata"><i class="fa fa-send"></i> <span>Pengajuan Perubahan Data</span></a></li> --}}
                   <li><a href="/kepalatu/verifikasi/surat-masuk"><i class="fa fa-check-circle"></i> <span>Verifikasi Surat Masuk</span></a></li>
                   <li><a href="/kepalatu/verifikasi/surat-keluar"><i class="fa fa-check-circle"></i> <span>Verifikasi Surat Keluar</span></a></li>
                   <li><a href="/kepalatu/verifikasi/spt"><i class="fa fa-check-circle"></i> <span>Verifikasi SPT</span></a></li>

@@ -206,7 +206,6 @@ Route::middleware(['auth', 'role:kepalaTU'])->group(function () {
     Route::get('kepalatu/data/suratkeluar/disposisi/{id}', [KepalatuController::class, 'disposisi_suratkeluar']);
     Route::get('kepalatu/data/suratkeluar/cetak/{id}', [KepalatuController::class, 'cetak_suratkeluar']);
 
-
     Route::get('kepalatu/data/perubahandata', [PerubahanDataController::class, 'index']);
     Route::get('kepalatu/data/perubahandata/create', [PerubahanDataController::class, 'tambah']);
     Route::post('kepalatu/data/perubahandata/create', [PerubahanDataController::class, 'simpan']);

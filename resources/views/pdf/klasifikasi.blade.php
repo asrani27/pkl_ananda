@@ -45,16 +45,6 @@
         @endphp
 
         @foreach ($data as $key => $item)
-        @php
-        $selisih = \Carbon\Carbon::now()->year - $item['tahun'];
-        if ($selisih === 1) {
-        $status = 'disimpan';
-        } elseif ($selisih >= 2 && $selisih < 10) { $status='diarsipkan' ; } elseif ($selisih>= 10) {
-            $status = 'dimusnahkan';
-            } else {
-            $status = 'disimpan';
-            }
-            @endphp
             <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$item['jenis']}}</td>
@@ -62,7 +52,7 @@
                 <td>{{$item['perihal']}}</td>
                 <td>{{$item['tahun']}}</td>
                 <td>{{\Carbon\Carbon::now()->year}}</td>
-                <td>{{ $status }}</td>
+                <td>{{ $item['status_dokumen'] }}</td>
 
             </tr>
             @endforeach

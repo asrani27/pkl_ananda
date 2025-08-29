@@ -60,6 +60,28 @@
         @endforeach
     </table>
 
+    <table width="100%">
+        <tr>
+            <td width="60%" style="vertical-align: top">
+              
+                <br />
+            </td>
+            <td></td>
+    </tabel>
+    <br/>
+            <td><br />
+               <center>
+                    Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
+                KEPALA UPPD BANJARMASIN I<br />
+                <br /><br /><br /><br />
+                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                Pembina<br/>
+                NIP. 19811204 200904 1 001
+                </center>
+            </td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

@@ -21,16 +21,16 @@
             <div style="display: flex; gap: 10px; align-items: center;">
                <select id="jenis-select" name="jenis" class="form-control" required>
                   <option value="">-pilih-</option>
-                  <option value="1">Laporan Semua pegawai</option>
-                  <option value="2">Laporan pegawai PNS</option>
-                  <option value="3">Laporan pegawai TEKON</option>
-                  <option value="4">Status Upload Dokumen pegawai</option>
+                  <option value="1">Laporan Semua Pegawai</option>
+                  <option value="2">Laporan Pegawai PNS</option>
+                  <option value="3">Laporan Pegawai TEKON</option>
+                  <option value="4">Laporan Status Upload Dokumen Pegawai</option>
                   <option value="5">Laporan Pengguna Sistem</option>
                   <option value="6">Laporan Riwayat Disposisi Surat</option>
                   <option value="7">Laporan Surat Masuk</option>
                   <option value="8">Laporan Surat Keluar</option>
                   <option value="9">Laporan Surat Perintah Tugas</option>
-                  <option value="10">Laporan Rekapitulasi Surat</option>
+                  {{-- <option value="10">Laporan Rekapitulasi Surat</option> --}}
                   <option value="11">Laporan Pengajuan Perubahan Data</option>
                   <option value="12">Laporan Riwayat Golongan/Pangkat</option>
                   <option value="13">Laporan Riwayat Jabatan</option>
@@ -153,8 +153,8 @@
                      Pegawai
                      <select name="pegawai" class="form-control">
                         <option value="">-pilih-</option>
-                        @foreach (pegawai() as $item)
-                        <option value="{{$item->nip}}">{{$item->nama}}</option>
+                        @foreach (allPegawai() as $item)
+                        <option value="{{$item->id}}">{{$item->nama}}</option>
                         @endforeach
                      </select>
                      <select name="jenis" class="form-control" required>

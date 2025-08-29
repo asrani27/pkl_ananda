@@ -11,7 +11,7 @@ class PerubahanDataController extends Controller
 {
     public function perubahandata()
     {
-        $data = PerubahanData::paginate(10);
+        $data = PerubahanData::get();
 
         return view('admin.perubahandata.index', compact('data'));
     }
@@ -38,7 +38,14 @@ class PerubahanDataController extends Controller
     }
     public function simpan(Request $req)
     {
+         if ($req->file == null) {
+            $filename = null;
+        } else {
+            $filename = time() . '_' . $req->file->getClientOriginalName();
+            $req->file('file')->storeAs('uploads', $filename, 'public');
+        }
         $param = $req->all();
+        $param['file'] =  $filename; 
         $param['user_id'] = Auth::user()->id;
         $param['nip'] = Auth::user()->pegawai->nip;
         $param['nama'] = Auth::user()->pegawai->nama;
