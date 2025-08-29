@@ -18,6 +18,6 @@ class PengajuanCuti extends Model
 
     public function jenisCuti()
     {
-        return $this->belongsTo(JenisCuti::class, 'id'); // Relasi dengan Jenis Cuti
+        return $this->belongsTo(JenisCuti::class, 'jenis_cuti_id', 'id'); // Relasi dengan Jenis Cuti
     }
 }

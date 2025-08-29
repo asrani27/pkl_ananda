@@ -18,7 +18,7 @@ class PengajuanCutiController extends Controller
 
     public function index()
     {
-        $data = PengajuanCuti::where('user_id',Auth::user()->id)->get();
+        $data = PengajuanCuti::where('user_id', Auth::user()->id)->get();
         return view('pegawai.pengajuancuti.index', compact('data'));
     }
 

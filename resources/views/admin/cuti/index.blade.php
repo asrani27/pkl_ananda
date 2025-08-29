@@ -28,6 +28,8 @@
                   <th style="text-align: center">Tanggal Mulai Cuti</th>
                   <th style="text-align: center">Tanggal Selesai Cuti</th>
                   <th style="text-align: center">Lama</th>
+                  <th style="text-align: center">Jenis Cuti</th>
+                  <th style="text-align: center">Sisa Cuti</th>
                   <th style="text-align: center">Alasan</th>
                   <th style="text-align: center">Status</th>
                   <th style="text-align: center">Aksi</th>
@@ -35,6 +37,9 @@
                </tr>
             </thead>
 
+            @php
+            $sisaCuti = 12;
+            @endphp
             <tbody>
                @foreach ($data as $key => $item)
 
@@ -43,19 +48,23 @@
                $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
                $lamaCuti = $mulai->diffInDays($selesai) + 1;
                @endphp
+
                <tr>
                   <td>{{1 + $key}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
                   <td>
                      @if ($item->user->pegawai->status =='PNS')
-                          {{$item->user->pegawai->nip}} - {{$item->user->name}}
+                     {{$item->user->pegawai->nip}} - {{$item->user->name}}
                      @else
-                          {{$item->user->pegawai->nik}} - {{$item->user->name}}
+                     {{$item->user->pegawai->nik}} - {{$item->user->name}}
                      @endif
                   </td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
                   <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
                   <td>{{$lamaCuti}} Hari </td>
+                  <td>{{$item->jenisCuti->nama_cuti ?? '-'}}</td>
+
+                  <td>{{$item->sisa_cuti}}</td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-info">Dikirim</span><br />
