@@ -150,8 +150,8 @@ class LaporanController extends Controller
                 $data = Pegawai::get()->map(function ($value) {
                     $value->roles = $value->user == null ? null : $value->user->roles;
                     return $value;
-                })->where('roles','pegawai');
-                
+                })->where('roles', 'pegawai');
+
                 $data->map(function ($item) {
                     $files = [
                         'file_foto',
@@ -296,7 +296,28 @@ class LaporanController extends Controller
             if ($jenis == '14') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
 
-                $data = PengajuanCuti::get();
+                //$data = PengajuanCuti::get();
+                $data = PengajuanCuti::get()
+                    ->map(function ($item) {
+                        $tglMulai = Carbon::parse($item->tgl_mulai);
+                        $tglSelesai = Carbon::parse($item->tgl_selesai);
+                        $item->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                        $item->kuota = $item->jenisCuti->kuota;
+                        $pengurangCuti = PengajuanCuti::where('user_id', $item->user_id)->where('jenis_cuti_id', $item->jenis_cuti_id)->where('id', '<=', $item->id)->get();
+                        if ($pengurangCuti->count() == 0) {
+                            $pengurang = 0;
+                        } else {
+                            $pengurang = $pengurangCuti->map(function ($item2) {
+                                $tglMulai = Carbon::parse($item2->tgl_mulai);
+                                $tglSelesai = Carbon::parse($item2->tgl_selesai);
+                                $item2->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                                return $item2;
+                            })->sum('lama');
+                        }
+
+                        $item->sisa_cuti = $item->kuota - $pengurang;
+                        return $item;
+                    });
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
                     'enable_remote' => true,
@@ -331,7 +352,7 @@ class LaporanController extends Controller
                     $tahun = $item['tahun'];
                     $now = now()->year;
                     $selisih = $now - $tahun;
-                    
+
                     if ($selisih >= 2 && $selisih < 10) {
                         $item['status_dokumen'] = 'diarsipkan';
                     } elseif ($selisih >= 10) {
@@ -342,7 +363,7 @@ class LaporanController extends Controller
 
                     return $item;
                 });
-                
+
                 // Hitung total masing-masing status
                 $total_disimpan = $data->where('status_dokumen', 'disimpan')->count();
                 $total_arsipkan = $data->where('status_dokumen', 'diarsipkan')->count();
@@ -413,7 +434,7 @@ class LaporanController extends Controller
                         'perihal' => $item->keperluan, // contoh field
                     ];
                 });
-                
+
                 $data = collect([$sm, $sk, $spt])->collapse();
                 // $data = $sm->merge($sk)->sortByDesc('tgl_surat')->values();
                 $tahun_kadaluarsa = Carbon::now()->year - 1;
@@ -534,7 +555,28 @@ class LaporanController extends Controller
             if ($jenis == '14') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
 
-                $data = PengajuanCuti::whereBetween('tanggal', [$mulai, $sampai])->get();
+                //$data = PengajuanCuti::whereBetween('tanggal', [$mulai, $sampai])->get();
+                $data = PengajuanCuti::whereBetween('tanggal', [$mulai, $sampai])->get()
+                    ->map(function ($item) {
+                        $tglMulai = Carbon::parse($item->tgl_mulai);
+                        $tglSelesai = Carbon::parse($item->tgl_selesai);
+                        $item->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                        $item->kuota = $item->jenisCuti->kuota;
+                        $pengurangCuti = PengajuanCuti::where('user_id', $item->user_id)->where('jenis_cuti_id', $item->jenis_cuti_id)->where('id', '<=', $item->id)->get();
+                        if ($pengurangCuti->count() == 0) {
+                            $pengurang = 0;
+                        } else {
+                            $pengurang = $pengurangCuti->map(function ($item2) {
+                                $tglMulai = Carbon::parse($item2->tgl_mulai);
+                                $tglSelesai = Carbon::parse($item2->tgl_selesai);
+                                $item2->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                                return $item2;
+                            })->sum('lama');
+                        }
+
+                        $item->sisa_cuti = $item->kuota - $pengurang;
+                        return $item;
+                    });
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
                     'enable_remote' => true,
@@ -649,7 +691,28 @@ class LaporanController extends Controller
             if ($jenis == '14') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
 
-                $data = PengajuanCuti::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->get();
+                //$data = PengajuanCuti::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->get();
+                $data = PengajuanCuti::whereMonth('tanggal', $bulan)->whereYear('tanggal', $tahun)->get()
+                    ->map(function ($item) {
+                        $tglMulai = Carbon::parse($item->tgl_mulai);
+                        $tglSelesai = Carbon::parse($item->tgl_selesai);
+                        $item->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                        $item->kuota = $item->jenisCuti->kuota;
+                        $pengurangCuti = PengajuanCuti::where('user_id', $item->user_id)->where('jenis_cuti_id', $item->jenis_cuti_id)->where('id', '<=', $item->id)->get();
+                        if ($pengurangCuti->count() == 0) {
+                            $pengurang = 0;
+                        } else {
+                            $pengurang = $pengurangCuti->map(function ($item2) {
+                                $tglMulai = Carbon::parse($item2->tgl_mulai);
+                                $tglSelesai = Carbon::parse($item2->tgl_selesai);
+                                $item2->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                                return $item2;
+                            })->sum('lama');
+                        }
+
+                        $item->sisa_cuti = $item->kuota - $pengurang;
+                        return $item;
+                    });
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
                     'enable_remote' => true,
@@ -766,7 +829,28 @@ class LaporanController extends Controller
             if ($jenis == '14') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_jabatan.pdf';
 
-                $data = PengajuanCuti::whereYear('tanggal', $tahun)->get();
+                //$data = PengajuanCuti::whereYear('tanggal', $tahun)->get();
+                $data = PengajuanCuti::whereYear('tanggal', $tahun)->get()
+                    ->map(function ($item) {
+                        $tglMulai = Carbon::parse($item->tgl_mulai);
+                        $tglSelesai = Carbon::parse($item->tgl_selesai);
+                        $item->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                        $item->kuota = $item->jenisCuti->kuota;
+                        $pengurangCuti = PengajuanCuti::where('user_id', $item->user_id)->where('jenis_cuti_id', $item->jenis_cuti_id)->where('id', '<=', $item->id)->get();
+                        if ($pengurangCuti->count() == 0) {
+                            $pengurang = 0;
+                        } else {
+                            $pengurang = $pengurangCuti->map(function ($item2) {
+                                $tglMulai = Carbon::parse($item2->tgl_mulai);
+                                $tglSelesai = Carbon::parse($item2->tgl_selesai);
+                                $item2->lama = $tglMulai->diffInDays($tglSelesai) + 1;
+                                return $item2;
+                            })->sum('lama');
+                        }
+
+                        $item->sisa_cuti = $item->kuota - $pengurang;
+                        return $item;
+                    });
                 $bulan = null;
                 $pdf = Pdf::loadView('pdf.pengajuancuti', compact('data', 'bulan'))->setOption([
                     'enable_remote' => true,
@@ -775,7 +859,7 @@ class LaporanController extends Controller
             }
             if ($jenis == '16') {
                 $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_klasifikasi.pdf';
-                
+
                 $tahun_kadaluwarsa = $tahun - 1;
                 $sm = SuratMasuk::whereYear('tgl_masuk', $tahun_kadaluwarsa)->get()->map(function ($item) {
                     return [
@@ -806,7 +890,7 @@ class LaporanController extends Controller
                     ];
                 });
                 $data = collect([$sm, $sk, $spt])->collapse();
-                
+
 
                 // Hitung total masing-masing status
 
@@ -820,7 +904,6 @@ class LaporanController extends Controller
                 ])->setPaper([0, 0, 800, 1000], 'landscape');
                 return $pdf->stream($filename);
             }
-            
         }
     }
 }

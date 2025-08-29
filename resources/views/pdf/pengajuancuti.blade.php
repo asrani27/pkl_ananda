@@ -38,6 +38,7 @@
             <th style="text-align: center">Tanggal Mulai Cuti</th>
             <th style="text-align: center">Tanggal Selesai Cuti</th>
             <th style="text-align: center">Lama</th>
+            <th style="text-align: center">Sisa</th>
             <th style="text-align: center">Alasan</th>
             <th style="text-align: center">Status</th>
         </tr>
@@ -46,39 +47,40 @@
         @endphp
 
         @foreach ($data as $key => $item)
-            @php
-                $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
-                $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
-                $lamaCuti = $mulai->diffInDays($selesai) + 1;
-            @endphp
+        @php
+        $mulai = \Carbon\Carbon::parse($item->tgl_mulai);
+        $selesai = \Carbon\Carbon::parse($item->tgl_selesai);
+        $lamaCuti = $mulai->diffInDays($selesai) + 1;
+        @endphp
         <tr>
             <td>{{1 + $key}}</td>
             <td>{{\Carbon\Carbon::parse($item->tanggal)->format('d-m-Y')}}</td>
             <td>
-                     @if ($item->user->pegawai->status =='PNS')
-                          {{$item->user->pegawai->nip}} - {{$item->user->name}}
-                     @else
-                          {{$item->user->pegawai->nik}} - {{$item->user->name}}
-                     @endif
+                @if ($item->user->pegawai->status =='PNS')
+                {{$item->user->pegawai->nip}} - {{$item->user->name}}
+                @else
+                {{$item->user->pegawai->nik}} - {{$item->user->name}}
+                @endif
             </td>
             <td>{{\Carbon\Carbon::parse($item->tgl_mulai)->format('d-m-Y')}}</td>
             <td>{{\Carbon\Carbon::parse($item->tgl_selesai)->format('d-m-Y')}}</td>
             <td>{{$lamaCuti}} Hari </td>
+            <td>{{$item->sisa_cuti}} Hari </td>
             <td>{{$item->alasan}}</td>
             <td>
                 @if ($item->verifikasi_pimpinan != null)
-                    <span class="badge badge-success">{{ $item->verifikasi_pimpinan }}</span><br />
+                <span class="badge badge-success">{{ $item->verifikasi_pimpinan }}</span><br />
                 @else
-                    <span class="badge badge-warning">Proses</span><br />
+                <span class="badge badge-warning">Proses</span><br />
                 @endif
             </td>
         </tr>
         @endforeach
         <tr>
-            <td colspan="8" style="font-weight: bold;">TOTAL PEGAWAI YANG MENGAJUKAN CUTI : {{$data->count()}}</td>
+            <td colspan="9" style="font-weight: bold;">TOTAL PEGAWAI YANG MENGAJUKAN CUTI : {{$data->count()}}</td>
         </tr>
         <tr>
-            <td colspan="8">
+            <td colspan="9">
                 Sudah di Setujui : {{$data->where('verifikasi_pimpinan')->count()}} <br />
                 {{-- Masih Diproses : {{$data->where('status','proses')->count()}} --}}
             </td>
@@ -88,20 +90,20 @@
     <table width="100%">
         <tr>
             <td width="60%" style="vertical-align: top">
-              
+
                 <br />
             </td>
             <td></td>
-    </tabel>
-    <br/>
+            </tabel>
+            <br />
             <td><br />
-               <center>
+                <center>
                     Banjarmasin, {{\Carbon\Carbon::now()->translatedFormat('d F Y')}}<br />
-                KEPALA UPPD BANJARMASIN I<br />
-                <br /><br /><br /><br />
-                <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
-                Pembina<br/>
-                NIP. 19811204 200904 1 001
+                    KEPALA UPPD BANJARMASIN I<br />
+                    <br /><br /><br /><br />
+                    <u>MIRZA LUFFILLAH, SE.,M.M</u><br />
+                    Pembina<br />
+                    NIP. 19811204 200904 1 001
                 </center>
             </td>
         </tr>
