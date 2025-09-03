@@ -19,17 +19,17 @@ class BiodataController extends Controller
     $jabatan = Jabatan::get();
     $pendidikan = Pendidikan::get();
     $bagian = Bagian::get();
-     $golongan = Golongan::get();
-    
-     if(Auth::user()->roles == 'pimpinan'){
-         return view(view: 'pimpinan.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'  ));
-     }
-      if(Auth::user()->roles == 'pegawai'){
-      return view(view: 'pegawai.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'  ));
-     }
-      if(Auth::user()->roles == 'kepalaTU'){
-      return view(view: 'kepalatu.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'  ));
-     }
+    $golongan = Golongan::get();
+
+    if (Auth::user()->roles == 'pimpinan') {
+      return view(view: 'pimpinan.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'));
+    }
+    if (Auth::user()->roles == 'pegawai') {
+      return view(view: 'pegawai.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'));
+    }
+    if (Auth::user()->roles == 'kepalaTU') {
+      return view(view: 'kepalatu.biodata', data: compact('data', 'jabatan', 'pendidikan', 'bagian', 'golongan'));
+    }
   }
 
   public function updateBiodata(Request $req, $id)

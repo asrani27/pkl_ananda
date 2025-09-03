@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Models\Bagian;
 use App\Models\Pegawai;
 use App\Models\Golongan;
+use Illuminate\Support\Facades\Auth;
 
 if (! function_exists('golongan')) {
     function golongan()
@@ -17,6 +18,57 @@ if (! function_exists('bagian')) {
         return Bagian::get();
     }
 }
+if (! function_exists('checkbiodata')) {
+    function checkbiodata()
+    {
+        $data = Auth::user()->pegawai;
+
+        $fieldsToCheck = [
+            'nik',
+            'nip',
+            'nama',
+            'jkel',
+            'ttl',
+            'alamat',
+            'telpon',
+            'agama',
+            'bagian_id',
+            'jabatan_id',
+            'golongan_id',
+            'pendidikan_id',
+            'prodi',
+            'status'
+        ];
+
+        $nullCount = collect($fieldsToCheck)
+            ->filter(fn($field) => is_null($data->$field))
+            ->count();
+
+        return $nullCount;
+    }
+}
+if (! function_exists('checkdokumen')) {
+    function checkdokumen()
+    {
+        $data = Auth::user()->upload;
+
+        $fieldsToCheck = [
+            'file_perjanjian_kerja',
+            'file_sertifikat',
+            'file_ijazah',
+            'file_ktp',
+            'file_kk',
+            'file_foto',
+        ];
+
+        $nullCount = collect($fieldsToCheck)
+            ->filter(fn($field) => is_null($data->$field))
+            ->count();
+
+        return $nullCount;
+    }
+}
+
 if (! function_exists('pegawai')) {
     function pegawai()
     {
