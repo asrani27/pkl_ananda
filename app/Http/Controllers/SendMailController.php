@@ -12,7 +12,7 @@ class SendMailController extends Controller
 {
     public function index($id)
     {
-        $data = Upload::find($id)->user;
+        $data = Upload::find($id)->user->pegawai;
 
         return view('admin.dokumen.sendmail', compact('data'));
     }
