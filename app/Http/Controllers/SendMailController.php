@@ -6,6 +6,7 @@ use Mail;
 use App\Mail\SendMail;
 use App\Models\Upload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SendMailController extends Controller
 {
@@ -22,6 +23,6 @@ class SendMailController extends Controller
 
         \Mail::to($req->email)->send(new SendMail($details));
         Session::flash('success', 'email berhasil di kirim');
-        return back();
+        return redirect('admin/data/dokumen');
     }
 }
