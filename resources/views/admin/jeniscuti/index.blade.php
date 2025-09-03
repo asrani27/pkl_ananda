@@ -27,7 +27,7 @@
                <tr style="background-color: rgb(52, 52, 51); font-weight:bold;color:aliceblue">
                   <th style="text-align: center">No</th>
                   <th style="text-align: center">Jenis Cuti</th>
-                  <th style="text-align: center">Kuota</th>
+                  <th style="text-align: center">Hak Cuti</th>
                   <th style="text-align: center">Aksi</th>
                </tr>
             </thead>

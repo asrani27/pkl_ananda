@@ -76,6 +76,11 @@
             </div>
             <br />
             <div class="field">
+               <label class="label_field">Email</label>
+               <input type="text" class="form-control" name="email" value="{{$data->email}}">
+            </div>
+            <br />
+            <div class="field">
                <label class="label_field">Agama</label>
                <select name="agama" class="form-control">
                   <option value="ISLAM" {{$data->agama === "ISLAM" ? 'selected':''}}>ISLAM</option>
