@@ -64,7 +64,7 @@
                   <td>{{$lamaCuti}} Hari </td>
                   <td>{{$item->jenisCuti->nama_cuti ?? '-'}}</td>
 
-                  <td style="text-align: center">{{$item->sisa_cuti}}</td>
+                  <td style="text-align: center">{{$item->sisa_cuti}} Hari</td>
                   <td>{{$item->alasan}}</td>
                   <td>
                      <span class="badge badge-info">Dikirim</span><br />

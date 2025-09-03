@@ -76,6 +76,11 @@
           <input type="text" class="form-control" name="telpon" value="{{$data->telpon}}">
           @endif
         </div>
+         <br />
+        <div class="field">
+          <label class="label_field">Email</label>
+          <input type="text" class="form-control" name="email" value="{{$data->email}}">
+        </div>
         <br />
         <div class="field">
           <label class="label_field">Agama</label>
