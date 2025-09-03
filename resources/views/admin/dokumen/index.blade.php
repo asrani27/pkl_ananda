@@ -26,6 +26,7 @@
                         <th style="text-align: center">KK</th>
                         <th style="text-align: center">IJAZAH</th>
                         <th style="text-align: center">SPK</th>
+                        <th></th>
 
                     </tr>
                 </thead>
@@ -36,11 +37,11 @@
                         <td>{{1 + $key}}</td>
                         {{-- <td>
                             @if ($item->user->pegawai->status =='PNS')
-                                {{$item->user->pegawai->nip}}
+                            {{$item->user->pegawai->nip}}
                             @else
-                                {{$item->user->pegawai->nik}}
+                            {{$item->user->pegawai->nik}}
                             @endif
-                        </td> --}}
+                                    </td> --}}
                         <td>{{$item->nama}}</td>
                         <td>
                             @if ($item->upload == null)
@@ -49,11 +50,12 @@
                             @if ($item->upload->file_foto == null)
 
                             @else
-                        
-                        <div class="download-container" >
-                            <a href="/storage/uploads/{{$item->upload->file_foto}}" target="_blank" class="download-btn">
-                                <i class="fa fa-download"></i> </a>
-                        </div>
+
+                            <div class="download-container">
+                                <a href="/storage/uploads/{{$item->upload->file_foto}}" target="_blank"
+                                    class="download-btn">
+                                    <i class="fa fa-download"></i> </a>
+                            </div>
 
                             @endif
                             @endif
@@ -110,6 +112,10 @@
                             @endif
                         </td>
 
+                        <td>
+                            <a href="/admin/sendmail/{{$item->id}}" class="btn btn-sm btn-primary">Send
+                                Email</a>
+                        </td>
                         @endforeach
                 </tbody>
             </table>

@@ -11,4 +11,9 @@ class Upload extends Model
     protected $table = 'upload';
     protected $guarded = ['id'];
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

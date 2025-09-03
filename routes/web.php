@@ -22,6 +22,7 @@ use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\PengajuanCutiController;
 use App\Http\Controllers\PerubahanDataController;
 use App\Http\Controllers\PimpinanController;
+use App\Http\Controllers\SendMailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin', [HomeController::class, 'admin']);
+    Route::get('admin/sendmail/{id}', [SendMailController::class, 'index']);
+    Route::post('admin/sendmail/{id}', [SendMailController::class, 'kirim']);
     Route::get('admin/data/user', [UserController::class, 'index']);
     Route::get('admin/data/user/create', [UserController::class, 'tambah']);
     Route::post('admin/data/user/create', [UserController::class, 'simpan']);
