@@ -79,7 +79,12 @@
          <br />
         <div class="field">
           <label class="label_field">Email</label>
+             @if ($data->email == null)
+          <input type="text" style="border: 1px solid red" class="form-control" name="email" value="{{$data->email}}">
+          @else
           <input type="text" class="form-control" name="email" value="{{$data->email}}">
+          @endif
+          
         </div>
         <br />
         <div class="field">

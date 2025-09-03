@@ -27,6 +27,7 @@ if (! function_exists('checkbiodata')) {
             'nik',
             'nip',
             'nama',
+            'email',
             'jkel',
             'ttl',
             'alamat',
