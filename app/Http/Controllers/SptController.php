@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Spt;
 use App\Models\User;
+use App\Mail\SendMail;
+use App\Mail\SptMail;
 use App\Models\Pegawai;
 use App\Models\SptPetugas;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class SptController extends Controller
@@ -21,6 +24,26 @@ class SptController extends Controller
         ]);
         Session::flash('success', 'dikirim ke kepala TU');
         return back();
+    }
+
+    public function sendMail($id)
+    {
+        return view('admin.spt.sendmail', compact('id'));
+    }
+    public function kirim(Request $request, $id)
+    {
+        // Pecah email berdasarkan koma
+        $emails = array_map('trim', explode(',', $request->email));
+
+        $details = $request->all();
+        $details['link'] = 'http://localhost:8000/suratspt/' . $id;
+        foreach ($emails as $email) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                Mail::to($email)->send(new SptMail($details));
+            }
+        }
+        Session::flash('success', 'email berhasil di kirim');
+        return redirect('admin/data/spt');
     }
     public function index()
     {
@@ -62,6 +85,15 @@ class SptController extends Controller
         return view('admin.spt.edit', compact('data'));
     }
     public function cetak($id)
+    {
+        $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
+        $data = Spt::find($id);
+        $pdf = Pdf::loadView('pdf.cetakspt', compact('data'))->setOption([
+            'enable_remote' => true,
+        ]);
+        return $pdf->stream($filename);
+    }
+    public function surat_spt($id)
     {
         $filename = Carbon::now()->format('d-m-Y-H-i-s') . '_cetakspt.pdf';
         $data = Spt::find($id);

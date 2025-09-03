@@ -38,6 +38,7 @@ use App\Http\Controllers\SendMailController;
 Route::get('/', function () {
     return view('Login');
 });
+Route::get('suratspt/{id}', [SptController::class, 'surat_spt']);
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout']);
@@ -123,6 +124,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/data/spt/delete/{id}', [SptController::class, 'hapus']);
     Route::get('admin/data/spt/cetak/{id}', [SptController::class, 'cetak']);
     Route::get('admin/data/spt/cari', [SptController::class, 'cari']);
+
+    Route::get('admin/data/spt/mail/{id}', [SptController::class, 'sendMail']);
+    Route::post('admin/data/spt/mail/{id}', [SptController::class, 'kirim']);
     Route::get('admin/data/spt/disposisi/{id}', [SptController::class, 'disposisi']);
 
     Route::get('admin/data/suratkeluar', [SuratKeluarController::class, 'index']);

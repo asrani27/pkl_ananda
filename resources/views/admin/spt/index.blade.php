@@ -131,6 +131,11 @@
                         onclick="return confirm('Yakin ingin di Teruskan')"><i class="fa fa-send"></i> Teruskan ke KTU
                      </a>
                      @endif
+
+                     @if ($item->verifikasi_surat != null)
+                     <a href="/admin/data/spt/mail/{{$item->id}}" class="btn btn-flat btn-sm btn-success"><i
+                           class="fa fa-envelope"></i> Send Mail </a>
+                     @endif
                   </td>
                </tr>
                @endforeach
