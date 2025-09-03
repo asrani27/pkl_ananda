@@ -75,6 +75,11 @@
             </div>
             <br />
             <div class="field">
+               <label class="label_field">Email</label>
+               <input type="text" class="form-control" name="email" required>
+            </div>
+            <br />
+            <div class="field">
                <label class="label_field">Agama</label>
                <select name="agama" class="form-control" required>
                   <option value="ISLAM">ISLAM</option>
